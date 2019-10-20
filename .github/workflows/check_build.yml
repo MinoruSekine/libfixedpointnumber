@@ -1,0 +1,22 @@
+name: Check build
+
+on: [pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macOS-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Init and update submodules.
+      run: |
+        git submodule update -i
+
+    - name: Build and run tests.
+      run: |
+        make -k -j all
