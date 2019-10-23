@@ -16,9 +16,9 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#include "gtest/gtest.h"
-
 #include <cstdint>
+
+#include "gtest/gtest.h"
 
 #include "fixedpointnumber.h"
 
@@ -35,16 +35,16 @@ TEST_P(IntConversionTest, SimpleConversion) {
 }
 
 INSTANTIATE_TEST_SUITE_P(NearZeroRange,
-			 IntConversionTest,
-			 ::testing::Range(0, 2));
+                         IntConversionTest,
+                         ::testing::Range(0, 2));
 
 constexpr int32_t kMiddleRangeValue = 0x001f;
 INSTANTIATE_TEST_SUITE_P(MiddleRange,
-			 IntConversionTest,
-			 ::testing::Range(kMiddleRangeValue,
-					  kMiddleRangeValue + 1));
+                         IntConversionTest,
+                         ::testing::Range(kMiddleRangeValue,
+                                          kMiddleRangeValue + 1));
 
 constexpr int32_t k10BitsMax = 0x03ff;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
-			 IntConversionTest,
-			 ::testing::Range(k10BitsMax - 1, k10BitsMax));
+                         IntConversionTest,
+                         ::testing::Range(k10BitsMax - 1, k10BitsMax));
