@@ -30,7 +30,7 @@ class fixed_t {
 
  public:
   template <typename SrcIntType>
-  fixed_t(SrcIntType src)
+  explicit fixed_t(SrcIntType src)
       : fixed_point_(src << kBitsWidthOfDecimalPart) {
   }
 
