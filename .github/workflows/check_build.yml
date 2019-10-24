@@ -34,3 +34,17 @@ jobs:
     - name: cpplint
       run: |
         make -k -j cpplint
+
+  cppcheck:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install cppcheck
+      run: |
+        brew install cppcheck
+
+    - name: cppcheck
+      run: |
+        make -k -j cppcheck
