@@ -52,6 +52,22 @@ CPPLINT_TARGET_FILES += $(TEST_SRC_HEADER)
 CPPLINT_TARGET_FILES += $(INCLUDE_DIR_HEADER)
 CPPLINT_TARGETS := $(addsuffix .cpplint, $(CPPLINT_TARGET_FILES))
 
+# Cppcheck config.
+CPPCHECK_CMD := cppcheck
+
+CPPCHECK_FLAGS :=
+CPPCHECK_FLAGS += --language=c++
+CPPCHECK_FLAGS += --std=c++11
+CPPCHECK_FLAGS += --quiet
+CPPCHECK_FLAGS += --enable=all
+CPPCHECK_FLAGS += --error-exitcode=2
+
+CPPCHECK_TARGET_FILES :=
+CPPCHECK_TARGET_FILES += $(TEST_SRC_CPP)
+CPPCHECK_TARGET_FILES += $(TEST_SRC_HEADER)
+CPPCHECK_TARGET_FILES += $(INCLUDE_DIR_HEADER)
+CPPCHECK_TARGETS := $(addsuffix .cppcheck, $(CPPCHECK_TARGET_FILES))
+
 # Targets.
 all: test cpplint
 
@@ -68,6 +84,8 @@ build-test: $(TEST_EXEC)
 
 cpplint: $(CPPLINT_TARGETS)
 
+cppcheck: $(CPPCHECK_TARGETS)
+
 $(TEST_EXEC): $(TEST_OBJS) $(GTEST_OBJS)
 	mkdir -p $(dir $@)
 	$(COMPILER) $(LDFLAGS) -o $(TEST_EXEC) $^
@@ -83,9 +101,12 @@ $(GTEST_OBJ_DIR)%.o: $(GTEST_SRC_DIR)/%.cc
 %.cpplint:
 	$(CPPLINT_CMD) $(CPPLINT_FLAGS) $*
 
+%.cppcheck:
+	$(CPPCHECK_CMD) $(CPPCHECK_FLAGS) $*
+
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS)
 -include $(GTEST_DEPS)
 endif
 
-.PHONY: all clean test run-test build-test cpplint
+.PHONY: all clean test run-test build-test cpplint cppcheck
