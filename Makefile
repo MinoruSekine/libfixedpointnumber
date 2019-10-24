@@ -82,6 +82,8 @@ run-test: build-test
 
 build-test: $(TEST_EXEC)
 
+check: cpplint cppcheck
+
 cpplint: $(CPPLINT_TARGETS)
 
 cppcheck: $(CPPCHECK_TARGETS)
@@ -109,4 +111,4 @@ ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(GTEST_DEPS)
 endif
 
-.PHONY: all clean test run-test build-test cpplint cppcheck
+.PHONY: all clean test run-test build-test check cpplint cppcheck
