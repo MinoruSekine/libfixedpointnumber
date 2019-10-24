@@ -3,7 +3,7 @@ name: Check build
 on: [pull_request]
 
 jobs:
-  build_and_tests:
+  tests:
     strategy:
       matrix:
         os: [macOS-latest]
@@ -13,13 +13,17 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Init and update submodules.
+    - name: Init and update submodules
       run: |
         git submodule update -i
 
-    - name: Build and run tests.
+    - name: Build tests
       run: |
-        make -k -j all
+        make -k -j build-test
+
+    - name: Run tests
+      run: |
+        make -k -j run-test
 
   cpplint:
     runs-on: macOS-latest
@@ -27,7 +31,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Init and update submodules.
+    - name: Init and update submodules
       run: |
         git submodule update -i
 
