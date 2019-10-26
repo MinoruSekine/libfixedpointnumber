@@ -6,7 +6,7 @@ jobs:
   tests:
     strategy:
       matrix:
-        os: [macOS-latest]
+        os: [ubuntu-latest, macOS-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -18,7 +18,7 @@ jobs:
         git clone https://github.com/google/googletest.git
         cd googletest
         cmake .
-        make -k -j all install
+        sudo make -k -j all install
 
     - name: Build tests
       run: |
@@ -29,7 +29,7 @@ jobs:
         make -k -j run-test
 
   cpplint:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
@@ -43,14 +43,15 @@ jobs:
         make CPPLINT=styleguide/cpplint/cpplint.py -k -j cpplint
 
   cppcheck:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
 
     - name: Install cppcheck
       run: |
-        brew install cppcheck
+        sudo apt update
+        sudo apt install cppcheck
 
     - name: cppcheck
       run: |
