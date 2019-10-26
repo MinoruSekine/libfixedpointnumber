@@ -40,7 +40,7 @@ GTEST_CXXFLAGS :=
 GTEST_CXXFLAGS += $(addprefix -I, $(GTEST_INCLUDE_DIR))
 
 # Cpplint config.
-CPPLINT_CMD := external/google/styleguide/cpplint/cpplint.py
+CPPLINT := external/google/styleguide/cpplint/cpplint.py
 
 CPPLINT_FLAGS :=
 CPPLINT_FLAGS += --quiet
@@ -53,7 +53,7 @@ CPPLINT_TARGET_FILES += $(INCLUDE_DIR_HEADER)
 CPPLINT_TARGETS := $(addsuffix .cpplint, $(CPPLINT_TARGET_FILES))
 
 # Cppcheck config.
-CPPCHECK_CMD := cppcheck
+CPPCHECK := cppcheck
 
 CPPCHECK_FLAGS :=
 CPPCHECK_FLAGS += --language=c++
@@ -101,10 +101,10 @@ $(GTEST_OBJ_DIR)%.o: $(GTEST_SRC_DIR)/%.cc
 	$(COMPILER) $(TEST_CXXFLAGS) $(GTEST_CXXFLAGS) -o $@ -c $< -MMD -MP
 
 %.cpplint:
-	$(CPPLINT_CMD) $(CPPLINT_FLAGS) $*
+	$(CPPLINT) $(CPPLINT_FLAGS) $*
 
 %.cppcheck:
-	$(CPPCHECK_CMD) $(CPPCHECK_FLAGS) $*
+	$(CPPCHECK) $(CPPCHECK_FLAGS) $*
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS)
