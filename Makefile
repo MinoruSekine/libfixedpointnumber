@@ -40,7 +40,7 @@ GTEST_CXXFLAGS :=
 GTEST_CXXFLAGS += $(addprefix -I, $(GTEST_INCLUDE_DIR))
 
 # Cpplint config.
-CPPLINT := external/google/styleguide/cpplint/cpplint.py
+CPPLINT := cpplint.py
 
 CPPLINT_FLAGS :=
 CPPLINT_FLAGS += --quiet

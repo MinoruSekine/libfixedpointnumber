@@ -31,13 +31,13 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Init and update submodules
+    - name: Install cpplint.py
       run: |
-        git submodule update -i
+        git clone https://github.com/google/styleguide.git
 
     - name: cpplint
       run: |
-        make -k -j cpplint
+        make CPPLINT=styleguide/cpplint/cpplint.py -k -j cpplint
 
   cppcheck:
     runs-on: macOS-latest
