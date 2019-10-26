@@ -13,9 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Init and update submodules
+    - name: Install googletest
       run: |
-        git submodule update -i
+        git clone https://github.com/google/googletest.git
+        cd googletest
+        cmake .
+        make -k -j all install
 
     - name: Build tests
       run: |

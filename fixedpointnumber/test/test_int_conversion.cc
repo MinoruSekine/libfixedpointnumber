@@ -18,7 +18,7 @@
 
 #include <cstdint>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "fixedpointnumber.h"
 
