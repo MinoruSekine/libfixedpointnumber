@@ -5,7 +5,7 @@ BUILD_TYPE := debug
 
 # Mostly constant parameters for internal use.
 INCLUDE_DIR :=
-INCLUDE_DIR += fixedpointnumber/include
+INCLUDE_DIR += include
 INCLUDE_DIR_HEADER :=
 INCLUDE_DIR_HEADER += $(wildcard $(INCLUDE_DIR)/*.h)
 
@@ -13,7 +13,7 @@ OUT_ROOT_DIR := out
 OUT_DIR := $(OUT_ROOT_DIR)/$(BUILD_TYPE)
 OBJ_DIR := $(OUT_DIR)/obj
 TEST_EXEC := $(OUT_DIR)/fixed_point_test
-TEST_SRC_DIR := fixedpointnumber/test
+TEST_SRC_DIR := test
 TEST_SRC_CPP := $(wildcard $(TEST_SRC_DIR)/*.cc)
 TEST_SRCS := $(TEST_SRC_CPP)
 TEST_SRC_HEADER := $(wildcard $(TEST_SRC_DIR)/*.h)

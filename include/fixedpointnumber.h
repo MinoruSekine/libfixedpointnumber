@@ -16,8 +16,8 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef FIXEDPOINTNUMBER_INCLUDE_FIXEDPOINTNUMBER_H_
-#define FIXEDPOINTNUMBER_INCLUDE_FIXEDPOINTNUMBER_H_
+#ifndef INCLUDE_FIXEDPOINTNUMBER_H_
+#define INCLUDE_FIXEDPOINTNUMBER_H_
 
 namespace fixedpointnumber {
 
@@ -42,4 +42,4 @@ class fixed_t {
 
 }  // namespace fixedpointnumber
 
-#endif  // FIXEDPOINTNUMBER_INCLUDE_FIXEDPOINTNUMBER_H_
+#endif  // INCLUDE_FIXEDPOINTNUMBER_H_
