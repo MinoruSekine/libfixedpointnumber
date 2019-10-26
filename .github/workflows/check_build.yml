@@ -6,7 +6,7 @@ jobs:
   tests:
     strategy:
       matrix:
-        os: [macOS-latest]
+        os: [ubuntu-latest, macOS-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -18,7 +18,7 @@ jobs:
         git clone https://github.com/google/googletest.git
         cd googletest
         cmake .
-        make -k -j all install
+        sudo make -k -j all install
 
     - name: Build tests
       run: |

@@ -23,7 +23,9 @@ TEST_DEPS := $(TEST_OBJS:%.o=%.d)
 TEST_LIBS :=
 TEST_LIBS += gtest
 TEST_LIBS += gtest_main
-TEST_LDFLAGS := $(addprefix -l, $(TEST_LIBS))
+TEST_LDFLAGS :=
+TEST_LDFLAGS += $(addprefix -l, $(TEST_LIBS))
+TEST_LDFLAGS += -pthread
 
 # Build C++ compiler flags for test.
 TEST_CXXFLAGS := $(CXXFLAGS)
@@ -81,7 +83,7 @@ cppcheck: $(CPPCHECK_TARGETS)
 
 $(TEST_EXEC): $(TEST_OBJS)
 	mkdir -p $(dir $@)
-	$(COMPILER) $(LDFLAGS) $(TEST_LDFLAGS) -o $(TEST_EXEC) $^
+	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS)
 
 $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 	mkdir -p $(dir $@)
