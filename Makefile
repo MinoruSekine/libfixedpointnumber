@@ -62,7 +62,7 @@ CPPCHECK_TARGET_FILES += $(INCLUDE_DIR_HEADER)
 CPPCHECK_TARGETS := $(addsuffix .cppcheck, $(CPPCHECK_TARGET_FILES))
 
 # Targets.
-all: test cpplint
+all: test
 
 clean:
 	-rm $(TEST_OBJS) $(TEST_DEPS)
