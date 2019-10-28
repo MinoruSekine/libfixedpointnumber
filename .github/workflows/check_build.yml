@@ -7,6 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
+        build_type: [release, debug]
 
     runs-on: ${{ matrix.os }}
 
@@ -22,11 +23,11 @@ jobs:
 
     - name: Build tests
       run: |
-        make -k -j build-test
+        make BUILD_TYPE=${{ matrix.build_type }} -k -j build-test
 
     - name: Run tests
       run: |
-        make -k -j run-test
+        make BUILD_TYPE=${{ matrix.build_type }} -k -j run-test
 
   cpplint:
     runs-on: ubuntu-latest

@@ -27,10 +27,23 @@ TEST_LDFLAGS :=
 TEST_LDFLAGS += $(addprefix -l, $(TEST_LIBS))
 TEST_LDFLAGS += -pthread
 
+# Determine variables by BUILD_TYPE.
+BUILD_TYPE_FLAGS :=
+ifeq ($(BUILD_TYPE), release)
+BUILD_TYPE_FLAGS += -O3
+BUILD_TYPE_FLAGS += -DNDEBUG
+else ifeq ($(BUILD_TYPE), debug)
+BUILD_TYPE_FLAGS += -O0
+BUILD_TYPE_FLAGS += -g
+else
+$(error Unknown BUILD_TYPE "$(BUILD_TYPE)")
+endif
+
 # Build C++ compiler flags for test.
 TEST_CXXFLAGS := $(CXXFLAGS)
 TEST_CXXFLAGS += --std=c++11
 TEST_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
+TEST_CXXFLAGS += $(BUILD_TYPE_FLAGS)
 
 # Cpplint config.
 CPPLINT := cpplint.py
@@ -62,7 +75,7 @@ CPPCHECK_TARGET_FILES += $(INCLUDE_DIR_HEADER)
 CPPCHECK_TARGETS := $(addsuffix .cppcheck, $(CPPCHECK_TARGET_FILES))
 
 # Targets.
-all: test cpplint
+all: test
 
 clean:
 	-rm $(TEST_OBJS) $(TEST_DEPS)
@@ -83,7 +96,7 @@ cppcheck: $(CPPCHECK_TARGETS)
 
 $(TEST_EXEC): $(TEST_OBJS)
 	mkdir -p $(dir $@)
-	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS)
+	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(TEST_CXXFLAGS)
 
 $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 	mkdir -p $(dir $@)
