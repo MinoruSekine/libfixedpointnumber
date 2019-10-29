@@ -24,10 +24,11 @@
 
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 5>;
 
-class IntConversionTest : public ::testing::TestWithParam<int32_t> {
+class Int32Int16FixedConversionTest
+  : public ::testing::TestWithParam<int32_t> {
 };
 
-TEST_P(IntConversionTest, SimpleConversion) {
+TEST_P(Int32Int16FixedConversionTest, SimpleConversion) {
   const auto test_value = GetParam();
   const fixed_t f(test_value);
 
@@ -35,16 +36,16 @@ TEST_P(IntConversionTest, SimpleConversion) {
 }
 
 INSTANTIATE_TEST_SUITE_P(NearZeroRange,
-                         IntConversionTest,
-                         ::testing::Range(0, 2));
+                         Int32Int16FixedConversionTest,
+                         ::testing::Values(0, 2));
 
 constexpr int32_t kMiddleRangeValue = 0x001f;
 INSTANTIATE_TEST_SUITE_P(MiddleRange,
-                         IntConversionTest,
-                         ::testing::Range(kMiddleRangeValue,
-                                          kMiddleRangeValue + 1));
+                         Int32Int16FixedConversionTest,
+                         ::testing::Values(kMiddleRangeValue,
+                                           kMiddleRangeValue + 1));
 
 constexpr int32_t k10BitsMax = 0x03ff;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
-                         IntConversionTest,
-                         ::testing::Range(k10BitsMax - 1, k10BitsMax));
+                         Int32Int16FixedConversionTest,
+                         ::testing::Values(k10BitsMax - 1, k10BitsMax));
