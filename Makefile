@@ -30,7 +30,7 @@ TEST_LDFLAGS += -pthread
 # Determine variables by BUILD_TYPE.
 BUILD_TYPE_FLAGS :=
 ifeq ($(BUILD_TYPE), release)
-BUILD_TYPE_FLAGS += -O3
+BUILD_TYPE_FLAGS += -Ofast
 BUILD_TYPE_FLAGS += -DNDEBUG
 else ifeq ($(BUILD_TYPE), debug)
 BUILD_TYPE_FLAGS += -O0
@@ -95,11 +95,11 @@ cpplint: $(CPPLINT_TARGETS)
 cppcheck: $(CPPCHECK_TARGETS)
 
 $(TEST_EXEC): $(TEST_OBJS)
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(TEST_CXXFLAGS)
 
 $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(COMPILER) $(TEST_CXXFLAGS) -o $@ -c $< -MMD -MP
 
 %.cpplint:
