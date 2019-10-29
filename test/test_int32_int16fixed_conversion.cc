@@ -37,7 +37,7 @@ TEST_P(Int32Int16FixedConversionTest, SimpleConversion) {
 
 INSTANTIATE_TEST_SUITE_P(NearZeroRange,
                          Int32Int16FixedConversionTest,
-                         ::testing::Values(0, 2));
+                         ::testing::Values(0, 1, 2));
 
 constexpr int32_t kMiddleRangeValue = 0x001f;
 INSTANTIATE_TEST_SUITE_P(MiddleRange,
