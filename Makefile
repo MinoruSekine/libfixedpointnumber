@@ -95,11 +95,11 @@ cpplint: $(CPPLINT_TARGETS)
 cppcheck: $(CPPCHECK_TARGETS)
 
 $(TEST_EXEC): $(TEST_OBJS)
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(TEST_CXXFLAGS)
 
 $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(COMPILER) $(TEST_CXXFLAGS) -o $@ -c $< -MMD -MP
 
 %.cpplint:
