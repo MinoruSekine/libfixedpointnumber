@@ -49,3 +49,7 @@ constexpr int32_t k10BitsMax = 0x03ff;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
                          Int32Int16FixedConversionTest,
                          ::testing::Values(k10BitsMax - 1, k10BitsMax));
+
+INSTANTIATE_TEST_SUITE_P(NegativeRange,
+                         Int32Int16FixedConversionTest,
+                         ::testing::Values(-1, -2, -1023, -1024));
