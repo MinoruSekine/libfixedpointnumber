@@ -30,7 +30,7 @@ TEST_LDFLAGS += -pthread
 # Determine variables by BUILD_TYPE.
 BUILD_TYPE_FLAGS :=
 ifeq ($(BUILD_TYPE), release)
-BUILD_TYPE_FLAGS += -O3
+BUILD_TYPE_FLAGS += -Ofast
 BUILD_TYPE_FLAGS += -DNDEBUG
 else ifeq ($(BUILD_TYPE), debug)
 BUILD_TYPE_FLAGS += -O0
