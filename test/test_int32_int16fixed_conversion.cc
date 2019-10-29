@@ -37,15 +37,15 @@ TEST_P(Int32Int16FixedConversionTest, SimpleConversion) {
 
 INSTANTIATE_TEST_SUITE_P(NearZeroRange,
                          Int32Int16FixedConversionTest,
-                         ::testing::Range(0, 2));
+                         ::testing::Values(0, 2));
 
 constexpr int32_t kMiddleRangeValue = 0x001f;
 INSTANTIATE_TEST_SUITE_P(MiddleRange,
                          Int32Int16FixedConversionTest,
-                         ::testing::Range(kMiddleRangeValue,
-                                          kMiddleRangeValue + 1));
+                         ::testing::Values(kMiddleRangeValue,
+                                           kMiddleRangeValue + 1));
 
 constexpr int32_t k10BitsMax = 0x03ff;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
                          Int32Int16FixedConversionTest,
-                         ::testing::Range(k10BitsMax - 1, k10BitsMax));
+                         ::testing::Values(k10BitsMax - 1, k10BitsMax));
