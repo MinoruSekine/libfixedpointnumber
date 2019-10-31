@@ -23,11 +23,6 @@ namespace fixedpointnumber {
 
 template <typename IntType, std::size_t Q>
 class fixed_t {
- private:
-  constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
-
-  IntType fixed_point_;
-
  public:
   template <typename SrcIntType>
   explicit fixed_t(SrcIntType src)
@@ -38,6 +33,11 @@ class fixed_t {
   operator DestIntType() const {
     return static_cast<DestIntType>(fixed_point_ >> kBitsWidthOfDecimalPart);
   }
+
+ private:
+  constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
+
+  IntType fixed_point_;
 };
 
 }  // namespace fixedpointnumber
