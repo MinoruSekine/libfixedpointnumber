@@ -74,12 +74,23 @@ CPPCHECK_TARGET_FILES += $(TEST_SRC_HEADER)
 CPPCHECK_TARGET_FILES += $(INCLUDE_DIR_HEADER)
 CPPCHECK_TARGETS := $(addsuffix .cppcheck, $(CPPCHECK_TARGET_FILES))
 
+# Doxygen config.
+DOXYGEN := doxygen
+DOXYGEN_OUT_DIR := $(OUT_ROOT_DIR)/doc
+DOXYGEN_INDEX_HTML := $(DOXYGEN_OUT_DIR)/html/index.html
+DOXYFILE := Doxyfile
+DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
+
 # Targets.
 all: test
 
 clean:
 	-rm $(TEST_OBJS) $(TEST_DEPS)
 	rm -rf $(OUT_ROOT_DIR)
+
+clean-doc:
+	-rm $(DOXYGEN_INDEX_HTML)
+	rm -rf $(DOXYGEN_OUT_DIR)
 
 test: run-test
 
@@ -94,6 +105,8 @@ cpplint: $(CPPLINT_TARGETS)
 
 cppcheck: $(CPPCHECK_TARGETS)
 
+doc: $(DOXYGEN_INDEX_HTML)
+
 $(TEST_EXEC): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
 	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(TEST_CXXFLAGS)
@@ -107,6 +120,10 @@ $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 
 %.cppcheck:
 	$(CPPCHECK) $(CPPCHECK_FLAGS) $*
+
+$(DOXYGEN_INDEX_HTML): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE)
+	mkdir -p $(DOXYGEN_OUT_DIR)
+	$(DOXYGEN)
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS)
