@@ -23,42 +23,95 @@
 
 namespace fixedpointnumber {
 
+/// Type for fixed point number.
+///
+/// @tparam IntType Internal integral type to hold fixed point number
+/// @tparam Q       Bits width for decimal part
 template <typename IntType, std::size_t Q>
 class fixed_t {
  public:
-  template <typename SrcIntType>
-  explicit fixed_t(SrcIntType src)
+  /// Construction from integral/floating-point types.
+  ///
+  /// @tparam SrcType Type to construct from
+  ///
+  /// @param[in] src Value to construct from
+  ///
+  /// @todo Floating-point support
+  template <typename SrcType>
+  explicit fixed_t(SrcType src)
       : fixed_point_(ToIntType(src)) {
   }
 
+  /// Cast operator to specified integral floating-point types.
+  ///
+  /// @tparam DestType Type to cast to.
+  ///
+  /// @return Casted DestType value converted from holding fixed point number.
   template <typename DestType>
   operator DestType() const {
     return FromIntType<DestType>(fixed_point_);
   }
 
  private:
+  /// Bits width of decimal part of this fixed point number type.
   constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
 
+  /// Convert to internal integral fixed point type value.
+  ///
+  /// @tparam SrcType Type to construct from
+  ///
+  /// @param[in] src Value to convert from
+  ///
+  /// @return Coverted internal intgral fixed point type value.
   template <typename SrcType>
   static IntType ToIntType(SrcType src) {
     return ToIntType(src, std::is_integral<SrcType>());
   }
 
+  /// Convert from some integral type value
+  /// to internal integral fixed point type value.
+  ///
+  /// This member function is overload for conversion from integral type.
+  ///
+  /// @tparam SrcType Some integral type to convert from
+  ///
+  /// @param[in] src Integral value to convert from
+  ///
+  /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
   static IntType ToIntType(SrcType src, std::true_type) {
     return src << kBitsWidthOfDecimalPart;
   }
 
+  /// Convert from internal integral fixed point type value.
+  ///
+  /// @tparam DestType Type to conversion to.
+  ///
+  /// @param[in] src Internal integral type holding fixed point value
+  ///
+  /// @return Coverted DestType value from holding fixed point value
   template <typename DestType>
   static DestType FromIntType(IntType src) {
     return FromIntType<DestType>(src, std::is_integral<DestType>());
   }
 
+
+  /// Convert to some integral type value
+  /// from internal integral fixed point type value.
+  ///
+  /// This member function is overload for conversion to integral type.
+  ///
+  /// @tparam DestType Integral type to conversion to.
+  ///
+  /// @param[in] src Internal integral type holding fixed point value
+  ///
+  /// @return Coverted DestIntType value from holding fixed point value
   template <typename DestIntType>
   static DestIntType FromIntType(IntType src, std::true_type) {
     return static_cast<DestIntType>(src >> kBitsWidthOfDecimalPart);
   }
 
+  /// Internal integral value holding as fixed point value.
   IntType fixed_point_;
 };
 
