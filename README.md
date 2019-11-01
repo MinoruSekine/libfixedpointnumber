@@ -23,6 +23,7 @@ Some check targets are available in build by Makefile
 | cpplint | Lint by `cpplint` |
 | cppcheck | Static analytics by `cppcheck` |
 | check | Process all checks above |
+| doc | Generate doxygen documents into out/doc |
 
 #### cpplint
 
@@ -38,3 +39,8 @@ or
 
 - Install `cppechck` into your environment
 - `make cppcheck`
+
+#### doc
+
+- Install `doxygen` into your environment
+- `make doc`
