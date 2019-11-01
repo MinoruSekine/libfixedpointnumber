@@ -26,8 +26,8 @@ namespace fixedpointnumber {
 template <typename IntType, std::size_t Q>
 class fixed_t {
  public:
-  template <typename SrcIntType>
-  explicit fixed_t(SrcIntType src)
+  template <typename SrcType>
+  explicit fixed_t(SrcType src)
       : fixed_point_(ToIntType(src)) {
   }
 
