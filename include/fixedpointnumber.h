@@ -95,7 +95,6 @@ class fixed_t {
     return FromIntType<DestType>(src, std::is_integral<DestType>());
   }
 
-
   /// Convert to some integral type value
   /// from internal integral fixed point type value.
   ///
