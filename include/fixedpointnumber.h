@@ -55,6 +55,8 @@ class fixed_t {
  private:
   /// Bits width of decimal part of this fixed point number type.
   constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
+  /// Coefficient to convert to internal fixed point value.
+  constexpr static IntType kCoef = 1 << Q;
 
   /// Convert to internal integral fixed point type value.
   ///
@@ -83,6 +85,21 @@ class fixed_t {
     return src << kBitsWidthOfDecimalPart;
   }
 
+  /// Convert from some floating-point type value
+  /// to internal integral fixed point type value.
+  ///
+  /// This member function is overload for conversion from floating-point type.
+  ///
+  /// @tparam SrcType Some floating-point type to convert from
+  ///
+  /// @param[in] src Floating-point value to convert from
+  ///
+  /// @return Coverted internal integral fixed point type value.
+  template <typename SrcType>
+  static IntType ToIntType(SrcType src, std::false_type) {
+    return static_cast<IntType>(src * static_cast<SrcType>(kCoef));
+  }
+
   /// Convert from internal integral fixed point type value.
   ///
   /// @tparam DestType Type to conversion to.
@@ -94,7 +111,6 @@ class fixed_t {
   static DestType FromIntType(IntType src) {
     return FromIntType<DestType>(src, std::is_integral<DestType>());
   }
-
 
   /// Convert to some integral type value
   /// from internal integral fixed point type value.
@@ -109,6 +125,23 @@ class fixed_t {
   template <typename DestIntType>
   static DestIntType FromIntType(IntType src, std::true_type) {
     return static_cast<DestIntType>(src >> kBitsWidthOfDecimalPart);
+  }
+
+  /// Convert to some floating-point type value
+  /// from internal integral fixed point type value.
+  ///
+  /// This member function is overload for conversion to floating-point type.
+  ///
+  /// @tparam DestType Floating-point type to conversion to.
+  ///
+  /// @param[in] src Internal integral type holding fixed point value
+  ///
+  /// @return Coverted DestFloatingType value from holding fixed point value
+  template <typename DestFloatingType>
+  static DestFloatingType FromIntType(IntType src, std::false_type) {
+    constexpr DestFloatingType kInvertCoef =
+      1.0f / static_cast<DestFloatingType>(kCoef);
+    return static_cast<DestFloatingType>(src) * kInvertCoef;
   }
 
   /// Internal integral value holding as fixed point value.
