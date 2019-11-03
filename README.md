@@ -3,6 +3,9 @@ libfixedpointnumber is a Library for fixed point number by C++11.
 
 ## Build
 
+Is this section, you can know how to integrate this into your project
+and some check methods on your environment.
+
 ### Integrate into your project
 
 Put include/fixedpointnumber.h into a directory
