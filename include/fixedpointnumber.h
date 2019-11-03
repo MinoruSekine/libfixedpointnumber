@@ -30,6 +30,11 @@ namespace fixedpointnumber {
 template <typename IntType, std::size_t Q>
 class fixed_t {
  public:
+  /// Copy constructor.
+  ///
+  /// @param[in] src Value to construct from
+  explicit fixed_t(const fixed_t& src) = default;
+
   /// Construction from integral/floating-point types.
   ///
   /// @tparam SrcType Type to construct from
@@ -49,6 +54,13 @@ class fixed_t {
   operator DestType() const {
     return FromIntType<DestType>(fixed_point_);
   }
+
+  /// Copy operator.
+  ///
+  /// @param[in] src Value to substitute into this instance.
+  ///
+  /// @return Reference to this instance.
+  fixed_t& operator= (const fixed_t& src) = default;
 
  private:
   /// Bits width of decimal part of this fixed point number type.
