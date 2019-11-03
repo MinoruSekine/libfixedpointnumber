@@ -35,8 +35,6 @@ class fixed_t {
   /// @tparam SrcType Type to construct from
   ///
   /// @param[in] src Value to construct from
-  ///
-  /// @todo Floating-point support
   template <typename SrcType>
   explicit fixed_t(SrcType src)
       : fixed_point_(ToIntType(src)) {
