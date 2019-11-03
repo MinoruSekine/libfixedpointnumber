@@ -49,7 +49,7 @@ INSTANTIATE_TEST_SUITE_P(NearZeroRange,
 
 INSTANTIATE_TEST_SUITE_P(MiddleRange,
                          DoubleFixedConversionTest,
-                         ::testing::Range(2046.0, 2047.0, 0.5));
+                         ::testing::Range(1023.0, 1025.0, 0.0625));
 
 constexpr double k11BitsMax = 2047;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,

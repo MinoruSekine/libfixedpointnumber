@@ -49,7 +49,7 @@ INSTANTIATE_TEST_SUITE_P(NearZeroRange,
 
 INSTANTIATE_TEST_SUITE_P(MiddleRange,
                          FloatFixedConversionTest,
-                         ::testing::Range(2046.0f, 2047.0f, 0.5f));
+                         ::testing::Range(1023.0f, 1025.0f, 0.0625f));
 
 constexpr float k11BitsMax = 2047;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
