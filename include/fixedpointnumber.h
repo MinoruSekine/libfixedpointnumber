@@ -35,8 +35,6 @@ class fixed_t {
   /// @tparam SrcType Type to construct from
   ///
   /// @param[in] src Value to construct from
-  ///
-  /// @todo Floating-point support
   template <typename SrcType>
   explicit fixed_t(SrcType src)
       : fixed_point_(ToIntType(src)) {
@@ -82,7 +80,7 @@ class fixed_t {
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
   static IntType ToIntType(SrcType src, std::true_type) {
-    return src << kBitsWidthOfDecimalPart;
+    return static_cast<IntType>(src << kBitsWidthOfDecimalPart);
   }
 
   /// Convert from some floating-point type value
@@ -140,7 +138,8 @@ class fixed_t {
   template <typename DestFloatingType>
   static DestFloatingType FromIntType(IntType src, std::false_type) {
     constexpr DestFloatingType kInvertCoef =
-      1.0f / static_cast<DestFloatingType>(kCoef);
+      (static_cast<DestFloatingType>(1.0f)
+       / static_cast<DestFloatingType>(kCoef));
     return static_cast<DestFloatingType>(src) * kInvertCoef;
   }
 

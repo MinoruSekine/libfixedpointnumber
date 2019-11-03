@@ -28,22 +28,54 @@ TEST_LDFLAGS += $(addprefix -l, $(TEST_LIBS))
 TEST_LDFLAGS += -pthread
 
 # Determine variables by BUILD_TYPE.
-BUILD_TYPE_FLAGS :=
+BUILD_TYPE_CXXFLAGS :=
 ifeq ($(BUILD_TYPE), release)
-BUILD_TYPE_FLAGS += -Ofast
-BUILD_TYPE_FLAGS += -DNDEBUG
+BUILD_TYPE_CXXFLAGS += -Ofast
+BUILD_TYPE_CXXFLAGS += -DNDEBUG
 else ifeq ($(BUILD_TYPE), debug)
-BUILD_TYPE_FLAGS += -O0
-BUILD_TYPE_FLAGS += -g
+BUILD_TYPE_CXXFLAGS += -O0
+BUILD_TYPE_CXXFLAGS += -g
 else
 $(error Unknown BUILD_TYPE "$(BUILD_TYPE)")
 endif
+
+# CXXFLAGS for warning level.
+WARNING_CXXFLAGS :=
+WARNING_CXXFLAGS += -Wc++-compat
+WARNING_CXXFLAGS += -Wcast-qual
+WARNING_CXXFLAGS += -Wconversion
+WARNING_CXXFLAGS += -Wdisabled-optimization
+WARNING_CXXFLAGS += -Wdouble-promotion
+WARNING_CXXFLAGS += -Weffc++
+WARNING_CXXFLAGS += -Wfloat-equal
+WARNING_CXXFLAGS += -Winit-self
+WARNING_CXXFLAGS += -Winline
+WARNING_CXXFLAGS += -Wmissing-declarations
+WARNING_CXXFLAGS += -Wmissing-prototypes
+WARNING_CXXFLAGS += -Wmultichar
+WARNING_CXXFLAGS += -Wold-style-cast
+WARNING_CXXFLAGS += -Wold-style-definition
+WARNING_CXXFLAGS += -Woverloaded-virtual
+WARNING_CXXFLAGS += -Wpedantic
+WARNING_CXXFLAGS += -Wpointer-arith
+WARNING_CXXFLAGS += -Wredundant-decls
+WARNING_CXXFLAGS += -Wreorder
+WARNING_CXXFLAGS += -Wshadow
+WARNING_CXXFLAGS += -Wsign-promo
+WARNING_CXXFLAGS += -Wstrict-prototypes
+WARNING_CXXFLAGS += -Wswitch-default
+WARNING_CXXFLAGS += -Wwrite-strings
+WARNING_CXXFLAGS += -Wzero-as-null-pointer-constant
+WARNING_CXXFLAGS += -Wall
+WARNING_CXXFLAGS += -Wextra
+WARNING_CXXFLAGS += -Werror
 
 # Build C++ compiler flags for test.
 TEST_CXXFLAGS := $(CXXFLAGS)
 TEST_CXXFLAGS += --std=c++11
 TEST_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
-TEST_CXXFLAGS += $(BUILD_TYPE_FLAGS)
+TEST_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
+TEST_CXXFLAGS += $(WARNING_CXXFLAGS)
 
 # Cpplint config.
 CPPLINT := cpplint.py
