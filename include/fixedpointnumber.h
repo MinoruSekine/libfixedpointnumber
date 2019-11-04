@@ -33,7 +33,7 @@ class fixed_t {
   /// Copy constructor.
   ///
   /// @param[in] src Value to construct from
-  explicit fixed_t(const fixed_t& src) = default;
+  constexpr explicit fixed_t(const fixed_t& src) = default;
 
   /// Construction from integral/floating-point types.
   ///
@@ -41,8 +41,19 @@ class fixed_t {
   ///
   /// @param[in] src Value to construct from
   template <typename SrcType>
-  explicit fixed_t(SrcType src)
+  constexpr explicit fixed_t(SrcType src)
       : fixed_point_(ToIntType(src)) {
+  }
+
+  /// Construction from fixed_t which has another template param.
+  ///
+  /// @tparam SrcIntType Internal int type to hold fixed point number of source
+  /// @tparam SrcQ       Bits width for decimal part of source
+  ///
+  /// @param[in] src fixed_t to construct from
+  template <typename SrcIntType, std::size_t SrcQ>
+  constexpr explicit fixed_t(const fixed_t<SrcIntType, SrcQ>& src)
+    : fixed_point_(ToIntType<SrcIntType, SrcQ>(src)) {
   }
 
   /// Cast operator to specified integral floating-point types.
@@ -51,7 +62,7 @@ class fixed_t {
   ///
   /// @return Casted DestType value converted from holding fixed point number.
   template <typename DestType>
-  operator DestType() const {
+  constexpr operator DestType() const {
     return FromIntType<DestType>(fixed_point_);
   }
 
@@ -61,6 +72,9 @@ class fixed_t {
   ///
   /// @return Reference to this instance.
   fixed_t& operator= (const fixed_t& src) = default;
+
+  /// Internal integral value holding as fixed point value.
+  IntType fixed_point_;
 
  private:
   /// Bits width of decimal part of this fixed point number type.
@@ -76,7 +90,7 @@ class fixed_t {
   ///
   /// @return Coverted internal intgral fixed point type value.
   template <typename SrcType>
-  static IntType ToIntType(SrcType src) {
+  constexpr static IntType ToIntType(SrcType src) {
     return ToIntType(src, std::is_integral<SrcType>());
   }
 
@@ -91,7 +105,7 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
-  static IntType ToIntType(SrcType src, std::true_type) {
+  constexpr static IntType ToIntType(SrcType src, std::true_type) {
     return static_cast<IntType>(src << kBitsWidthOfDecimalPart);
   }
 
@@ -106,8 +120,26 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
-  static IntType ToIntType(SrcType src, std::false_type) {
+  constexpr static IntType ToIntType(SrcType src, std::false_type) {
     return static_cast<IntType>(src * static_cast<SrcType>(kCoef));
+  }
+
+  /// Convert from fixed_t which has another template params.
+  ///
+  /// This member function is overload for conversion
+  /// from fixed_t which has another template params.
+  ///
+  /// @tparam SrcIntType Internal int type to hold fixed point number of source
+  /// @tparam SrcQ       Bits width for decimal part of source
+  ///
+  /// @param[in] src fixed_t to convert from
+  ///
+  /// @return Coverted internal integral fixed point type value.
+  template <typename SrcIntType, std::size_t SrcQ>
+  constexpr static IntType ToIntType(const fixed_t<SrcIntType, SrcQ>& src) {
+    return ((Q > SrcQ)
+            ? static_cast<IntType>(src.fixed_point_ << (Q - SrcQ))
+            : static_cast<IntType>(src.fixed_point_ >> (SrcQ - Q)));
   }
 
   /// Convert from internal integral fixed point type value.
@@ -118,7 +150,7 @@ class fixed_t {
   ///
   /// @return Coverted DestType value from holding fixed point value
   template <typename DestType>
-  static DestType FromIntType(IntType src) {
+  constexpr static DestType FromIntType(IntType src) {
     return FromIntType<DestType>(src, std::is_integral<DestType>());
   }
 
@@ -133,7 +165,7 @@ class fixed_t {
   ///
   /// @return Coverted DestIntType value from holding fixed point value
   template <typename DestIntType>
-  static DestIntType FromIntType(IntType src, std::true_type) {
+  constexpr static DestIntType FromIntType(IntType src, std::true_type) {
     return static_cast<DestIntType>(src >> kBitsWidthOfDecimalPart);
   }
 
@@ -148,15 +180,11 @@ class fixed_t {
   ///
   /// @return Coverted DestFloatingType value from holding fixed point value
   template <typename DestFloatingType>
-  static DestFloatingType FromIntType(IntType src, std::false_type) {
-    constexpr DestFloatingType kInvertCoef =
-      (static_cast<DestFloatingType>(1.0f)
-       / static_cast<DestFloatingType>(kCoef));
-    return static_cast<DestFloatingType>(src) * kInvertCoef;
+  constexpr static DestFloatingType FromIntType(IntType src, std::false_type) {
+    return (static_cast<DestFloatingType>(src)
+            * (static_cast<DestFloatingType>(1.0f)
+               / static_cast<DestFloatingType>(kCoef)));
   }
-
-  /// Internal integral value holding as fixed point value.
-  IntType fixed_point_;
 };
 
 }  // namespace fixedpointnumber
