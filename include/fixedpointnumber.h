@@ -45,6 +45,17 @@ class fixed_t {
       : fixed_point_(ToIntType(src)) {
   }
 
+  /// Construction from fixed_t which has another template param.
+  ///
+  /// @tparam SrcIntType Internal int type to hold fixed point number of source
+  /// @tparam SrcQ       Bits width for decimal part of source
+  ///
+  /// @param[in] src fixed_t to construct from
+  template <typename SrcIntType, std::size_t SrcQ>
+  explicit fixed_t(const fixed_t<SrcIntType, SrcQ>& src)
+    : fixed_point_(ToIntType<SrcIntType, SrcQ>(src)) {
+  }
+
   /// Cast operator to specified integral floating-point types.
   ///
   /// @tparam DestType Type to cast to.
@@ -61,6 +72,9 @@ class fixed_t {
   ///
   /// @return Reference to this instance.
   fixed_t& operator= (const fixed_t& src) = default;
+
+  /// Internal integral value holding as fixed point value.
+  IntType fixed_point_;
 
  private:
   /// Bits width of decimal part of this fixed point number type.
@@ -110,6 +124,24 @@ class fixed_t {
     return static_cast<IntType>(src * static_cast<SrcType>(kCoef));
   }
 
+  /// Convert from fixed_t which has another template params.
+  ///
+  /// This member function is overload for conversion
+  /// from fixed_t which has another template params.
+  ///
+  /// @tparam SrcIntType Internal int type to hold fixed point number of source
+  /// @tparam SrcQ       Bits width for decimal part of source
+  ///
+  /// @param[in] src fixed_t to convert from
+  ///
+  /// @return Coverted internal integral fixed point type value.
+  template <typename SrcIntType, std::size_t SrcQ>
+  static IntType ToIntType(const fixed_t<SrcIntType, SrcQ>& src) {
+    return ((Q > SrcQ)
+            ? static_cast<IntType>(src.fixed_point_ << (Q - SrcQ))
+            : static_cast<IntType>(src.fixed_point_ >> (SrcQ - Q)));
+  }
+
   /// Convert from internal integral fixed point type value.
   ///
   /// @tparam DestType Type to conversion to.
@@ -154,9 +186,6 @@ class fixed_t {
        / static_cast<DestFloatingType>(kCoef));
     return static_cast<DestFloatingType>(src) * kInvertCoef;
   }
-
-  /// Internal integral value holding as fixed point value.
-  IntType fixed_point_;
 };
 
 }  // namespace fixedpointnumber
