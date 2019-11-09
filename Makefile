@@ -30,11 +30,23 @@ TEST_LDFLAGS += -pthread
 # Determine variables by BUILD_TYPE.
 BUILD_TYPE_CXXFLAGS :=
 ifeq ($(BUILD_TYPE), release)
+ifneq ($(findstring coverage,$(MAKECMDGOALS)),)
+$(error Use BUILD_TYPE=coverage for target "coverage")
+endif
 BUILD_TYPE_CXXFLAGS += -Ofast
 BUILD_TYPE_CXXFLAGS += -DNDEBUG
 else ifeq ($(BUILD_TYPE), debug)
+ifneq ($(findstring coverage,$(MAKECMDGOALS)),)
+$(error Use BUILD_TYPE=coverage for target "coverage")
+endif
 BUILD_TYPE_CXXFLAGS += -O0
 BUILD_TYPE_CXXFLAGS += -g
+else ifeq ($(BUILD_TYPE), coverage)
+BUILD_TYPE_CXXFLAGS += -O0
+BUILD_TYPE_CXXFLAGS += -g
+BUILD_TYPE_CXXFLAGS += -fprofile-arcs
+BUILD_TYPE_CXXFLAGS += -ftest-coverage
+BUILD_TYPE_CXXFLAGS += -fPIC
 else
 $(error Unknown BUILD_TYPE "$(BUILD_TYPE)")
 endif
@@ -76,6 +88,15 @@ TEST_CXXFLAGS += --std=c++11
 TEST_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
 TEST_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
 TEST_CXXFLAGS += $(WARNING_CXXFLAGS)
+
+# Coverage config.
+GCOVR := gcovr
+GCOVR_FLAGS :=
+GCOVR_FLAGS += --html
+GCOVR_FLAGS += --html-details
+GCOVR_FLAGS += --exclude $(TEST_SRC_DIR)
+COVERAGE_OUT_DIR := $(OUT_ROOT_DIR)/coverage_report
+COVERAGE_HTML_FILE := $(COVERAGE_OUT_DIR)/libfixedpointnumber-coverage.html
 
 # Cpplint config.
 CPPLINT := cpplint.py
@@ -130,6 +151,12 @@ run-test: build-test
 	@$(TEST_EXEC)
 
 build-test: $(TEST_EXEC)
+
+$(COVERAGE_OUT_DIR):
+	mkdir -p $@
+
+coverage: run-test $(COVERAGE_OUT_DIR)
+	$(GCOVR) -r . $(GCOVR_FLAGS) -o $(COVERAGE_HTML_FILE)
 
 check: cpplint cppcheck
 
