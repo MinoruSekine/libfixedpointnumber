@@ -53,7 +53,6 @@ endif
 
 # CXXFLAGS for warning level.
 WARNING_CXXFLAGS :=
-WARNING_CXXFLAGS += -Wc++-compat
 WARNING_CXXFLAGS += -Wcast-qual
 WARNING_CXXFLAGS += -Wconversion
 WARNING_CXXFLAGS += -Wdisabled-optimization
@@ -63,10 +62,8 @@ WARNING_CXXFLAGS += -Wfloat-equal
 WARNING_CXXFLAGS += -Winit-self
 WARNING_CXXFLAGS += -Winline
 WARNING_CXXFLAGS += -Wmissing-declarations
-WARNING_CXXFLAGS += -Wmissing-prototypes
 WARNING_CXXFLAGS += -Wmultichar
 WARNING_CXXFLAGS += -Wold-style-cast
-WARNING_CXXFLAGS += -Wold-style-definition
 WARNING_CXXFLAGS += -Woverloaded-virtual
 WARNING_CXXFLAGS += -Wpedantic
 WARNING_CXXFLAGS += -Wpointer-arith
@@ -74,13 +71,17 @@ WARNING_CXXFLAGS += -Wredundant-decls
 WARNING_CXXFLAGS += -Wreorder
 WARNING_CXXFLAGS += -Wshadow
 WARNING_CXXFLAGS += -Wsign-promo
-WARNING_CXXFLAGS += -Wstrict-prototypes
 WARNING_CXXFLAGS += -Wswitch-default
 WARNING_CXXFLAGS += -Wwrite-strings
 WARNING_CXXFLAGS += -Wzero-as-null-pointer-constant
 WARNING_CXXFLAGS += -Wall
 WARNING_CXXFLAGS += -Wextra
 WARNING_CXXFLAGS += -Werror
+# Following warning options are valid for C/Obj-C but not for C++ on gcc.
+# WARNING_CXXFLAGS += -Wc++-compat
+# WARNING_CXXFLAGS += -Wmissing-prototypes
+# WARNING_CXXFLAGS += -Wold-style-definition
+# WARNING_CXXFLAGS += -Wstrict-prototypes
 
 # Build C++ compiler flags for test.
 TEST_CXXFLAGS := $(CXXFLAGS)
