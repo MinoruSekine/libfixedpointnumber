@@ -56,7 +56,7 @@ class fixed_t {
     : fixed_point_(ToIntType<SrcIntType, SrcQ>(src)) {
   }
 
-  /// Cast operator to specified integral floating-point types.
+  /// Cast operator to specified integral or floating-point types.
   ///
   /// @tparam DestType Type to cast to.
   ///
