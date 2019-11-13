@@ -17,16 +17,21 @@ and include it.
 1. Install Google Test (https://github.com/google/googletest)
 1. `make test` in this directory
 
+#### Build coverage report
+
+1. Install `gcovr`
+1. `make BUILD_TYPE=coverage coverage`, so html report is put into `out/coverage_html`
+
 ### Checks
 
 Some check targets are available in build by Makefile
 
 | `make` target | How it works |
 ----|----
-| cpplint | Lint by `cpplint` |
-| cppcheck | Static analytics by `cppcheck` |
-| check | Process all checks above |
-| doc | Generate doxygen documents into out/doc |
+| `cpplint` | Lint by `cpplint` |
+| `cppcheck` | Static analytics by `cppcheck` |
+| `check` | Process all checks above |
+| `doc` | Generate doxygen documents into out/doc |
 
 #### cpplint
 
