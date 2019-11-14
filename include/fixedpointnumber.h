@@ -21,6 +21,8 @@
 #ifndef INCLUDE_FIXEDPOINTNUMBER_H_
 #define INCLUDE_FIXEDPOINTNUMBER_H_
 
+#define FIXEDPOINTNUMBER_INTERNAL
+
 namespace fixedpointnumber {
 
 /// Type for fixed point number.
@@ -90,9 +92,7 @@ class fixed_t {
   ///
   /// @return Coverted internal intgral fixed point type value.
   template <typename SrcType>
-  constexpr static IntType ToIntType(SrcType src) {
-    return ToIntType(src, std::is_integral<SrcType>());
-  }
+  constexpr static IntType ToIntType(SrcType src);
 
   /// Convert from some integral type value
   /// to internal integral fixed point type value.
@@ -105,9 +105,7 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
-  constexpr static IntType ToIntType(SrcType src, std::true_type) {
-    return static_cast<IntType>(src << kBitsWidthOfDecimalPart);
-  }
+  constexpr static IntType ToIntType(SrcType src, std::true_type);
 
   /// Convert from some floating-point type value
   /// to internal integral fixed point type value.
@@ -120,9 +118,7 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
-  constexpr static IntType ToIntType(SrcType src, std::false_type) {
-    return static_cast<IntType>(src * static_cast<SrcType>(kCoef));
-  }
+  constexpr static IntType ToIntType(SrcType src, std::false_type);
 
   /// Convert from fixed_t which has another template params.
   ///
@@ -136,11 +132,7 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcIntType, std::size_t SrcQ>
-  constexpr static IntType ToIntType(const fixed_t<SrcIntType, SrcQ>& src) {
-    return ((Q > SrcQ)
-            ? static_cast<IntType>(src.fixed_point_ << (Q - SrcQ))
-            : static_cast<IntType>(src.fixed_point_ >> (SrcQ - Q)));
-  }
+  constexpr static IntType ToIntType(const fixed_t<SrcIntType, SrcQ>& src);
 
   /// Convert from internal integral fixed point type value.
   ///
@@ -150,9 +142,7 @@ class fixed_t {
   ///
   /// @return Coverted DestType value from holding fixed point value
   template <typename DestType>
-  constexpr static DestType FromIntType(IntType src) {
-    return FromIntType<DestType>(src, std::is_integral<DestType>());
-  }
+  constexpr static DestType FromIntType(IntType src);
 
   /// Convert to some integral type value
   /// from internal integral fixed point type value.
@@ -165,9 +155,7 @@ class fixed_t {
   ///
   /// @return Coverted DestIntType value from holding fixed point value
   template <typename DestIntType>
-  constexpr static DestIntType FromIntType(IntType src, std::true_type) {
-    return static_cast<DestIntType>(src >> kBitsWidthOfDecimalPart);
-  }
+  constexpr static DestIntType FromIntType(IntType src, std::true_type);
 
   /// Convert to some floating-point type value
   /// from internal integral fixed point type value.
@@ -180,13 +168,13 @@ class fixed_t {
   ///
   /// @return Coverted DestFloatingType value from holding fixed point value
   template <typename DestFloatingType>
-  constexpr static DestFloatingType FromIntType(IntType src, std::false_type) {
-    return (static_cast<DestFloatingType>(src)
-            * (static_cast<DestFloatingType>(1.0f)
-               / static_cast<DestFloatingType>(kCoef)));
-  }
+  constexpr static DestFloatingType FromIntType(IntType src, std::false_type);
 };
 
 }  // namespace fixedpointnumber
+
+#include "fixedpointnumber_conversion-priv.h"
+
+#undef FIXEDPOINTNUMBER_INTERNAL
 
 #endif  // INCLUDE_FIXEDPOINTNUMBER_H_
