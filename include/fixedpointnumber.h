@@ -16,6 +16,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
+#include <string>
 #include <type_traits>
 
 #ifndef INCLUDE_FIXEDPOINTNUMBER_H_
@@ -74,6 +75,11 @@ class fixed_t {
   ///
   /// @return Reference to this instance.
   fixed_t& operator= (const fixed_t& src) = default;
+
+  /// Get holding fixed point value as string.
+  ///
+  /// @return Holding fixed point value as string.
+  std::string ToString() const;
 
   /// Internal integral value holding as fixed point value.
   IntType fixed_point_;
@@ -174,6 +180,7 @@ class fixed_t {
 }  // namespace fixedpointnumber
 
 #include "fixedpointnumber_conversion-priv.h"
+#include "fixedpointnumber_string-priv.h"
 
 #undef FIXEDPOINTNUMBER_INTERNAL
 
