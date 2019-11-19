@@ -120,6 +120,7 @@ CPPCHECK_FLAGS += --language=c++
 CPPCHECK_FLAGS += --std=c++11
 CPPCHECK_FLAGS += --quiet
 CPPCHECK_FLAGS += --enable=all
+CPPCHECK_FLAGS += --suppress=missingInclude
 CPPCHECK_FLAGS += --error-exitcode=2
 
 CPPCHECK_TARGET_FILES :=
