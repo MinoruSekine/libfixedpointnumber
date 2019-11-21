@@ -97,6 +97,7 @@ GCOVR_FLAGS :=
 GCOVR_FLAGS += --html
 GCOVR_FLAGS += --html-details
 GCOVR_FLAGS += --exclude $(TEST_SRC_DIR)
+GCOVR_FLAGS += --exclude-unreachable-branches
 COVERAGE_OUT_DIR := $(OUT_ROOT_DIR)/coverage_report
 COVERAGE_HTML_FILE := $(COVERAGE_OUT_DIR)/libfixedpointnumber-coverage.html
 
