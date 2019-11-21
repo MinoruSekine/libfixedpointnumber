@@ -17,6 +17,7 @@
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <cstdint>
+#include <sstream>
 #include <string>
 
 #include <gtest/gtest.h>
@@ -30,15 +31,24 @@ struct FloatAndString {
   const char* str;
 };
 
-class StringConversionTest
+class StringConversionStreamOperatorTest
   : public ::testing::TestWithParam<FloatAndString> {
 };
 
-TEST_P(StringConversionTest, StringConversion) {
+TEST_P(StringConversionStreamOperatorTest, StringConversion) {
   const auto param = GetParam();
   const fixed_t fixed_num(param.num);
 
   EXPECT_STREQ(param.str, fixed_num.ToString().c_str());
+}
+
+TEST_P(StringConversionStreamOperatorTest, StreamOperator) {
+  const auto param = GetParam();
+  const fixed_t fixed_num(param.num);
+  std::stringstream ss;
+
+  ss << fixed_num;
+  EXPECT_STREQ(param.str, ss.str().c_str());
 }
 
 constexpr FloatAndString kStringTestValues[] = {
@@ -49,5 +59,5 @@ constexpr FloatAndString kStringTestValues[] = {
                                                 {2000.5f   , "2000.5"},
 };
 INSTANTIATE_TEST_SUITE_P(Instance0,
-                         StringConversionTest,
+                         StringConversionStreamOperatorTest,
                          ::testing::ValuesIn(kStringTestValues));
