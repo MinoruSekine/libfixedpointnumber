@@ -34,7 +34,7 @@ class StringConversionTest
   : public ::testing::TestWithParam<FloatAndString> {
 };
 
-TEST_P(StringConversionTest, CopyConstruction) {
+TEST_P(StringConversionTest, StringConversion) {
   const auto param = GetParam();
   const fixed_t fixed_num(param.num);
 
