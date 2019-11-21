@@ -180,6 +180,7 @@ class fixed_t {
 }  // namespace fixedpointnumber
 
 #include "fixedpointnumber_conversion-priv.h"
+#include "fixedpointnumber_stream-priv.h"
 #include "fixedpointnumber_string-priv.h"
 
 #undef FIXEDPOINTNUMBER_INTERNAL
