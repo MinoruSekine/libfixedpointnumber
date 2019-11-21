@@ -17,6 +17,7 @@
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <cstdint>
+#include <string>
 
 #include <gtest/gtest.h>
 
