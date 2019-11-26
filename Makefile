@@ -4,6 +4,7 @@ COMPILER := g++
 BUILD_TYPE := debug
 
 # Mostly constant parameters for internal use.
+BUILD_FILES_DIR := build
 INCLUDE_DIR :=
 INCLUDE_DIR += include
 INCLUDE_DIR_HEADER :=
@@ -114,13 +115,14 @@ CPPLINT_TARGETS := $(addsuffix .cpplint, $(CPPLINT_TARGET_FILES))
 
 # Cppcheck config.
 CPPCHECK := cppcheck
+CPPCHECK_SUPPRESION_LIST_TXT := $(BUILD_FILES_DIR)/cppcheck_suppression.txt
 
 CPPCHECK_FLAGS :=
 CPPCHECK_FLAGS += --language=c++
 CPPCHECK_FLAGS += --std=c++11
 CPPCHECK_FLAGS += --quiet
 CPPCHECK_FLAGS += --enable=all
-CPPCHECK_FLAGS += --suppress=missingInclude
+CPPCHECK_FLAGS += --suppressions-list=$(CPPCHECK_SUPPRESION_LIST_TXT)
 CPPCHECK_FLAGS += --error-exitcode=2
 
 CPPCHECK_TARGET_FILES :=
@@ -133,7 +135,7 @@ CPPCHECK_TARGETS := $(addsuffix .cppcheck, $(CPPCHECK_TARGET_FILES))
 DOXYGEN := doxygen
 DOXYGEN_OUT_DIR := $(OUT_ROOT_DIR)/doc
 DOXYGEN_INDEX_HTML := $(DOXYGEN_OUT_DIR)/html/index.html
-DOXYFILE := Doxyfile
+DOXYFILE := $(BUILD_FILES_DIR)/Doxyfile
 DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
 
 # Targets.
@@ -184,7 +186,7 @@ $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 
 $(DOXYGEN_INDEX_HTML): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE)
 	mkdir -p $(DOXYGEN_OUT_DIR)
-	$(DOXYGEN)
+	$(DOXYGEN) $(DOXYFILE)
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS)
