@@ -45,7 +45,7 @@ class fixed_t {
   /// @param[in] src Value to construct from
   template <typename SrcType>
   constexpr explicit fixed_t(SrcType src)
-      : fixed_point_(ToIntType(src)) {
+      : fixed_point_(ToIntType<SrcType>(src)) {
   }
 
   /// Construction from fixed_t which has another template param.
@@ -90,16 +90,6 @@ class fixed_t {
   /// Coefficient to convert to internal fixed point value.
   constexpr static IntType kCoef = 1 << Q;
 
-  /// Convert to internal integral fixed point type value.
-  ///
-  /// @tparam SrcType Type to construct from
-  ///
-  /// @param[in] src Value to convert from
-  ///
-  /// @return Coverted internal intgral fixed point type value.
-  template <typename SrcType>
-  constexpr static IntType ToIntType(SrcType src);
-
   /// Convert from some integral type value
   /// to internal integral fixed point type value.
   ///
@@ -111,7 +101,9 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
-  constexpr static IntType ToIntType(SrcType src, std::true_type);
+  constexpr static IntType ToIntType(
+      typename std::enable_if<std::is_integral<SrcType>::value,
+                              SrcType>::type src);
 
   /// Convert from some floating-point type value
   /// to internal integral fixed point type value.
@@ -124,7 +116,9 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
-  constexpr static IntType ToIntType(SrcType src, std::false_type);
+  constexpr static IntType ToIntType(
+      typename std::enable_if<std::is_floating_point<SrcType>::value,
+                              SrcType>::type src);
 
   /// Convert from fixed_t which has another template params.
   ///
@@ -140,16 +134,6 @@ class fixed_t {
   template <typename SrcIntType, std::size_t SrcQ>
   constexpr static IntType ToIntType(const fixed_t<SrcIntType, SrcQ>& src);
 
-  /// Convert from internal integral fixed point type value.
-  ///
-  /// @tparam DestType Type to conversion to.
-  ///
-  /// @param[in] src Internal integral type holding fixed point value
-  ///
-  /// @return Coverted DestType value from holding fixed point value
-  template <typename DestType>
-  constexpr static DestType FromIntType(IntType src);
-
   /// Convert to some integral type value
   /// from internal integral fixed point type value.
   ///
@@ -160,8 +144,10 @@ class fixed_t {
   /// @param[in] src Internal integral type holding fixed point value
   ///
   /// @return Coverted DestIntType value from holding fixed point value
-  template <typename DestIntType>
-  constexpr static DestIntType FromIntType(IntType src, std::true_type);
+  template <typename DestType>
+  constexpr static
+  typename std::enable_if<std::is_integral<DestType>::value, DestType>::type
+  FromIntType(IntType src);
 
   /// Convert to some floating-point type value
   /// from internal integral fixed point type value.
@@ -173,8 +159,11 @@ class fixed_t {
   /// @param[in] src Internal integral type holding fixed point value
   ///
   /// @return Coverted DestFloatingType value from holding fixed point value
-  template <typename DestFloatingType>
-  constexpr static DestFloatingType FromIntType(IntType src, std::false_type);
+  template <typename DestType>
+  constexpr static
+  typename std::enable_if<std::is_floating_point<DestType>::value,
+                          DestType>::type
+  FromIntType(IntType src);
 };
 
 }  // namespace fixedpointnumber

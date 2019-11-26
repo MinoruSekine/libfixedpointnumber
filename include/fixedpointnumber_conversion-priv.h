@@ -29,19 +29,17 @@ namespace fixedpointnumber {
 
 template <typename IntType, std::size_t Q>
 template <typename SrcType>
-constexpr IntType fixed_t<IntType, Q>::ToIntType(SrcType src) {
-  return ToIntType(src, std::is_integral<SrcType>());
-}
-
-template <typename IntType, std::size_t Q>
-template <typename SrcType>
-constexpr IntType fixed_t<IntType, Q>::ToIntType(SrcType src, std::true_type) {
+constexpr IntType fixed_t<IntType, Q>::ToIntType(
+    typename std::enable_if<std::is_integral<SrcType>::value,
+                            SrcType>::type src) {
   return static_cast<IntType>(src << kBitsWidthOfDecimalPart);
 }
 
 template <typename IntType, std::size_t Q>
 template <typename SrcType>
-constexpr IntType fixed_t<IntType, Q>::ToIntType(SrcType src, std::false_type) {
+constexpr IntType fixed_t<IntType, Q>::ToIntType(
+    typename std::enable_if<std::is_floating_point<SrcType>::value,
+                            SrcType>::type src) {
   return static_cast<IntType>(src * static_cast<SrcType>(kCoef));
 }
 
@@ -56,24 +54,19 @@ fixed_t<IntType, Q>::ToIntType(const fixed_t<SrcIntType, SrcQ>& src) {
 
 template <typename IntType, std::size_t Q>
 template <typename DestType>
-constexpr DestType fixed_t<IntType, Q>::FromIntType(IntType src) {
-  return FromIntType<DestType>(src, std::is_integral<DestType>());
+constexpr
+typename std::enable_if<std::is_integral<DestType>::value, DestType>::type
+fixed_t<IntType, Q>::FromIntType(IntType src) {
+  return static_cast<DestType>(src >> kBitsWidthOfDecimalPart);
 }
 
 template <typename IntType, std::size_t Q>
-template <typename DestIntType>
-constexpr DestIntType
-fixed_t<IntType, Q>::FromIntType(IntType src, std::true_type) {
-  return static_cast<DestIntType>(src >> kBitsWidthOfDecimalPart);
-}
-
-template <typename IntType, std::size_t Q>
-template <typename DestFloatingType>
-constexpr DestFloatingType
-fixed_t<IntType, Q>::FromIntType(IntType src, std::false_type) {
-  return (static_cast<DestFloatingType>(src)
-          * (static_cast<DestFloatingType>(1.0f)
-             / static_cast<DestFloatingType>(kCoef)));
+template <typename DestType>
+constexpr
+typename std::enable_if<std::is_floating_point<DestType>::value, DestType>::type
+fixed_t<IntType, Q>::FromIntType(IntType src) {
+  return (static_cast<DestType>(src)
+          * (static_cast<DestType>(1.0f) / static_cast<DestType>(kCoef)));
 }
 
 }  // namespace fixedpointnumber
