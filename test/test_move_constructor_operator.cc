@@ -24,35 +24,36 @@
 
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 10>;
 
-class CopyConstructorOperatorIntTest
+class MoveConstructorOperatorIntTest
   : public ::testing::TestWithParam<int8_t> {
+ protected:
+  fixed_t GetTestFixedValue() const {
+    return fixed_t(GetParam());
+  }
 };
 
-TEST_P(CopyConstructorOperatorIntTest, CopyConstructionWithBrace) {
+TEST_P(MoveConstructorOperatorIntTest, MoveConstructionWithBrace) {
   const int8_t test_value = GetParam();
-  const fixed_t f0(test_value);
-  const fixed_t f1(f0);
+  const fixed_t f0(GetTestFixedValue());
 
-  EXPECT_EQ(test_value, static_cast<int8_t>(f1));
+  EXPECT_EQ(test_value, static_cast<int8_t>(f0));
 }
 
-TEST_P(CopyConstructorOperatorIntTest, CopyConstructionWithEqual) {
+TEST_P(MoveConstructorOperatorIntTest, MoveConstructionWithEqual) {
   const int8_t test_value = GetParam();
-  const fixed_t f0(test_value);
-  const fixed_t f1 = f0;
+  const fixed_t f0 = GetTestFixedValue();
 
-  EXPECT_EQ(test_value, static_cast<int8_t>(f1));
+  EXPECT_EQ(test_value, static_cast<int8_t>(f0));
 }
 
-TEST_P(CopyConstructorOperatorIntTest, CopyOperator) {
+TEST_P(MoveConstructorOperatorIntTest, MoveOperator) {
   const int8_t test_value = GetParam();
-  const fixed_t f0(test_value);
-  fixed_t f1(0);
+  fixed_t f0;
 
-  f1 = f0;
-  EXPECT_EQ(test_value, static_cast<int8_t>(f1));
+  f0 = GetTestFixedValue();
+  EXPECT_EQ(test_value, static_cast<int8_t>(f0));
 }
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
-                         CopyConstructorOperatorIntTest,
+                         MoveConstructorOperatorIntTest,
                          ::testing::Values(int8_t(0), int8_t(1), int8_t(2)));

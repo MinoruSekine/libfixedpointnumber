@@ -33,10 +33,18 @@ namespace fixedpointnumber {
 template <typename IntType, std::size_t Q>
 class fixed_t {
  public:
+  /// Default constructor.
+  constexpr fixed_t() = default;
+
   /// Copy constructor.
   ///
   /// @param[in] src Value to construct from
-  constexpr explicit fixed_t(const fixed_t& src) = default;
+  constexpr fixed_t(const fixed_t& src) = default;
+
+  /// Move constructor.
+  ///
+  /// @param[in] src Value to construct from
+  constexpr fixed_t(fixed_t&& src) = default;
 
   /// Construction from integral/floating-point types.
   ///
@@ -75,6 +83,13 @@ class fixed_t {
   ///
   /// @return Reference to this instance.
   fixed_t& operator= (const fixed_t& src) = default;
+
+  /// Move operator.
+  ///
+  /// @param[in] src Value to substitute into this instance.
+  ///
+  /// @return Reference to this instance.
+  fixed_t& operator= (fixed_t&& src) = default;
 
   /// Get holding fixed point value as string.
   ///
