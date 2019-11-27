@@ -91,6 +91,33 @@ class fixed_t {
   /// @return Reference to this instance.
   fixed_t& operator= (fixed_t&& src) = default;
 
+  /// Compound assignment operator+=.
+  ///
+  /// @param[in] rhs Value to add into this instance
+  ///
+  /// @return Reference to this instance added rhs into.
+  fixed_t& operator+=(const fixed_t& rhs) {
+    // Simplifying following expression as
+    //   fixed_point_ += rhs.fixed_point_;
+    // is not valid on some environments.
+    // Because implicit integer promotion makes
+    // from int to short (if IntType is short) cast implicitly,
+    // and it can be error by compiler option -Werror=conversion.
+    fixed_point_ = static_cast<IntType>(fixed_point_ + rhs.fixed_point_);
+    return *this;
+  }
+
+  /// Add operator.
+  ///
+  /// @param[in] lhs One of two operand at left hand side
+  /// @param[in] rhs One of two operand at right hand side
+  ///
+  /// @return Add result.
+  friend fixed_t operator+(fixed_t lhs, const fixed_t& rhs) {
+    lhs += rhs;
+    return lhs;
+  }
+
   /// Get holding fixed point value as string.
   ///
   /// @return Holding fixed point value as string.
