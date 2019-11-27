@@ -36,7 +36,7 @@ class fixed_t {
   /// Copy constructor.
   ///
   /// @param[in] src Value to construct from
-  constexpr explicit fixed_t(const fixed_t& src) = default;
+  constexpr fixed_t(const fixed_t& src) = default;
 
   /// Construction from integral/floating-point types.
   ///

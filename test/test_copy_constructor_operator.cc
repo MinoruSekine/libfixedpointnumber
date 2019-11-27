@@ -28,10 +28,18 @@ class CopyConstructorOperatorIntTest
   : public ::testing::TestWithParam<int8_t> {
 };
 
-TEST_P(CopyConstructorOperatorIntTest, CopyConstruction) {
+TEST_P(CopyConstructorOperatorIntTest, CopyConstructionWithBrace) {
   const int8_t test_value = GetParam();
   const fixed_t f0(test_value);
   const fixed_t f1(f0);
+
+  EXPECT_EQ(test_value, static_cast<int8_t>(f1));
+}
+
+TEST_P(CopyConstructorOperatorIntTest, CopyConstructionWithEqual) {
+  const int8_t test_value = GetParam();
+  const fixed_t f0(test_value);
+  const fixed_t f1 = f0;
 
   EXPECT_EQ(test_value, static_cast<int8_t>(f1));
 }
