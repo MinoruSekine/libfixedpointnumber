@@ -118,6 +118,15 @@ class fixed_t {
     return lhs;
   }
 
+  /// Increment operator.
+  ///
+  /// @return Reference to this instance incremented.
+  fixed_t& operator++() {
+    constexpr fixed_t kOne(1);
+    *this += kOne;
+    return *this;
+  }
+
   /// Get holding fixed point value as string.
   ///
   /// @return Holding fixed point value as string.
