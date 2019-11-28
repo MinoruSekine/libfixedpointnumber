@@ -127,6 +127,17 @@ class fixed_t {
     return *this;
   }
 
+  /// Comparison operator, equal.
+  ///
+  /// @param[in] lhs Left hand side value which is compared to
+  /// @param[in] rhs Right hand side value which is compared to
+  ///
+  /// @retval true  lhs equals to rhs
+  /// @retval false lhs doesn't equal to rhs
+  friend bool operator==(const fixed_t& lhs, const fixed_t& rhs) {
+    return lhs.fixed_point_ == rhs.fixed_point_;
+  }
+
   /// Get holding fixed point value as string.
   ///
   /// @return Holding fixed point value as string.
