@@ -28,11 +28,12 @@ class ComparisonGtTest
   : public ::testing::TestWithParam<double> {
 };
 
-TEST_P(ComparisonGtTest, Gt) {
+TEST_P(ComparisonGtTest, GtAndNe) {
   const fixed_t param(GetParam());
   fixed_t incremented_param(param);
   ++incremented_param;
   EXPECT_GT(incremented_param, param);
+  EXPECT_NE(incremented_param, param);
 }
 
 INSTANTIATE_TEST_SUITE_P(Instance0,

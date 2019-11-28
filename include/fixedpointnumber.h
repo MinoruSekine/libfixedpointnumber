@@ -138,6 +138,17 @@ class fixed_t {
     return lhs.fixed_point_ == rhs.fixed_point_;
   }
 
+  /// Comparison operator, not equal.
+  ///
+  /// @param[in] lhs Left hand side value which is compared to
+  /// @param[in] rhs Right hand side value which is compared to
+  ///
+  /// @retval true  lhs doesn't equal to rhs
+  /// @retval false lhs equals to rhs
+  friend bool operator!=(const fixed_t& lhs, const fixed_t& rhs) {
+    return !(lhs == rhs);
+  }
+
   /// Comparison operator, greater than.
   ///
   /// @param[in] lhs Left hand side value which is compared to
