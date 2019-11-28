@@ -22,20 +22,19 @@
 
 #include "fixedpointnumber.h"
 
-using fixed_t = fixedpointnumber::fixed_t<int16_t, 5>;
+using fixed_t = fixedpointnumber::fixed_t<int16_t, 7>;
 
-class ComparisonGtTest
-  : public ::testing::TestWithParam<double> {
+class ComparisonGeLeTest
+  : public ::testing::TestWithParam<float> {
 };
 
-TEST_P(ComparisonGtTest, GtAndNe) {
+TEST_P(ComparisonGeLeTest, GeLe) {
   const fixed_t param(GetParam());
-  fixed_t incremented_param(param);
-  ++incremented_param;
-  EXPECT_GT(incremented_param, param);
-  EXPECT_NE(incremented_param, param);
+  const fixed_t three_point_zero(3.0f);
+  EXPECT_GE(three_point_zero, param);
+  EXPECT_LE(param, three_point_zero);
 }
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
-                         ComparisonGtTest,
-                         ::testing::Range(-2.125, 3.0, 0.5));
+                         ComparisonGeLeTest,
+                         ::testing::Range(3.0f, -2.0f, -0.0625f));
