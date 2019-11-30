@@ -24,9 +24,9 @@
 
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 6>;
 
-struct IncrementResult {
+struct IncDecResult {
   template <typename T>
-  constexpr IncrementResult(T a, T b)
+  constexpr IncDecResult(T a, T b)
       : n(a), inc_result(b) {
   }
 
@@ -34,17 +34,23 @@ struct IncrementResult {
   fixed_t inc_result;
 };
 
-class ArithmeticIncrementTest
-  : public ::testing::TestWithParam<IncrementResult> {
+class ArithmeticIncDecTest
+  : public ::testing::TestWithParam<IncDecResult> {
 };
 
-TEST_P(ArithmeticIncrementTest, Increment) {
+TEST_P(ArithmeticIncDecTest, Increment) {
   const auto param = GetParam();
   fixed_t n = param.n;
   EXPECT_EQ(param.inc_result, ++n);
 }
 
-const IncrementResult kIncrementResults[] = {
+TEST_P(ArithmeticIncDecTest, Decrement) {
+  const auto param = GetParam();
+  fixed_t n = param.inc_result;
+  EXPECT_EQ(param.n, --n);
+}
+
+const IncDecResult kIncDecResults[] = {
   {-11, -10},
   { -1,   0},
   {  0,   1},
@@ -58,5 +64,5 @@ const IncrementResult kIncrementResults[] = {
 };
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
-                         ArithmeticIncrementTest,
-                         ::testing::ValuesIn(kIncrementResults));
+                         ArithmeticIncDecTest,
+                         ::testing::ValuesIn(kIncDecResults));

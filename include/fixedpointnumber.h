@@ -118,12 +118,48 @@ class fixed_t {
     return lhs;
   }
 
+  /// Compound assignment operator-=.
+  ///
+  /// @param[in] rhs Value to substruct from this instance
+  ///
+  /// @return Reference to this instance substructed rhs from.
+  fixed_t& operator-=(const fixed_t& rhs) {
+    // Simplifying following expression as
+    //   fixed_point_ += rhs.fixed_point_;
+    // is not valid on some environments.
+    // Because implicit integer promotion makes
+    // from int to short (if IntType is short) cast implicitly,
+    // and it can be error by compiler option -Werror=conversion.
+    fixed_point_ = static_cast<IntType>(fixed_point_ - rhs.fixed_point_);
+    return *this;
+  }
+
+  /// Sub operator.
+  ///
+  /// @param[in] lhs One of two operand at left hand side
+  /// @param[in] rhs One of two operand at right hand side
+  ///
+  /// @return Sub result.
+  friend fixed_t operator-(fixed_t lhs, const fixed_t& rhs) {
+    lhs -= rhs;
+    return lhs;
+  }
+
   /// Increment operator.
   ///
   /// @return Reference to this instance incremented.
   fixed_t& operator++() {
     constexpr fixed_t kOne(1);
     *this += kOne;
+    return *this;
+  }
+
+  /// Decrement operator.
+  ///
+  /// @return Reference to this instance decremented.
+  fixed_t& operator--() {
+    constexpr fixed_t kOne(1);
+    *this -= kOne;
     return *this;
   }
 

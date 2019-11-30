@@ -24,9 +24,9 @@
 
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 6>;
 
-struct AddResult {
+struct AddSubResult {
   template <typename T>
-  constexpr AddResult(T a, T b, T c)
+  constexpr AddSubResult(T a, T b, T c)
       : n1(a), n2(b), add_result(c) {
   }
 
@@ -35,28 +35,49 @@ struct AddResult {
   fixed_t add_result;
 };
 
-class ArithmeticAddTest
-  : public ::testing::TestWithParam<AddResult> {
+class ArithmeticAddSubTest
+  : public ::testing::TestWithParam<AddSubResult> {
 };
 
-TEST_P(ArithmeticAddTest, Add) {
+TEST_P(ArithmeticAddSubTest, Add) {
   const auto param = GetParam();
   EXPECT_EQ(param.add_result, param.n1 + param.n2);
 }
 
-TEST_P(ArithmeticAddTest, AddCommulativeLaw) {
+TEST_P(ArithmeticAddSubTest, Sub) {
+  const auto param = GetParam();
+  EXPECT_EQ(param.n1, param.add_result - param.n2);
+  EXPECT_EQ(param.n2, param.add_result - param.n1);
+}
+
+TEST_P(ArithmeticAddSubTest, AddCommulativeLaw) {
   const auto param = GetParam();
   EXPECT_EQ(param.add_result, param.n2 + param.n1);
 }
 
-TEST_P(ArithmeticAddTest, CompoundAdd) {
+TEST_P(ArithmeticAddSubTest, CompoundAdd) {
   const auto param = GetParam();
-  fixed_t compound_addded_result = param.n1;
-  compound_addded_result += param.n2;
-  EXPECT_EQ(param.add_result, compound_addded_result);
+  fixed_t compound_added_result = param.n1;
+  compound_added_result += param.n2;
+  EXPECT_EQ(param.add_result, compound_added_result);
 }
 
-const AddResult kAddResults[] = {
+TEST_P(ArithmeticAddSubTest, CompoundSub) {
+  const auto param = GetParam();
+  {
+    fixed_t compound_sub_result1 = param.add_result;
+    compound_sub_result1 -= param.n1;
+    EXPECT_EQ(param.n2, compound_sub_result1);
+  }
+
+  {
+    fixed_t compound_sub_result2 = param.add_result;
+    compound_sub_result2 -= param.n2;
+    EXPECT_EQ(param.n1, compound_sub_result2);
+  }
+}
+
+const AddSubResult kAddSubResults[] = {
   // Negative value, Positive value, Positive Value
   {   -1,    2,    1},
   {-5.5f, 6.0f, 0.5f},
@@ -72,5 +93,5 @@ const AddResult kAddResults[] = {
 };
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
-                         ArithmeticAddTest,
-                         ::testing::ValuesIn(kAddResults));
+                         ArithmeticAddSubTest,
+                         ::testing::ValuesIn(kAddSubResults));
