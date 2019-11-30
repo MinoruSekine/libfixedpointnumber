@@ -33,7 +33,7 @@ TEST_P(CopyConstructorOperatorIntTest, CopyConstructionWithBrace) {
   const fixed_t f0(test_value);
   const fixed_t f1(f0);
 
-  EXPECT_EQ(test_value, static_cast<int8_t>(f1));
+  EXPECT_EQ(f0, f1);
 }
 
 TEST_P(CopyConstructorOperatorIntTest, CopyConstructionWithEqual) {
@@ -41,7 +41,7 @@ TEST_P(CopyConstructorOperatorIntTest, CopyConstructionWithEqual) {
   const fixed_t f0(test_value);
   const fixed_t f1 = f0;
 
-  EXPECT_EQ(test_value, static_cast<int8_t>(f1));
+  EXPECT_EQ(f0, f1);
 }
 
 TEST_P(CopyConstructorOperatorIntTest, CopyOperator) {
@@ -50,7 +50,7 @@ TEST_P(CopyConstructorOperatorIntTest, CopyOperator) {
   fixed_t f1(0);
 
   f1 = f0;
-  EXPECT_EQ(test_value, static_cast<int8_t>(f1));
+  EXPECT_EQ(f0, f1);
 }
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
