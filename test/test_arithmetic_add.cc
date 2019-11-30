@@ -51,9 +51,9 @@ TEST_P(ArithmeticAddTest, AddCommulativeLaw) {
 
 TEST_P(ArithmeticAddTest, CompoundAdd) {
   const auto param = GetParam();
-  fixed_t compound_addded_result = param.n1;
-  compound_addded_result += param.n2;
-  EXPECT_EQ(param.add_result, compound_addded_result);
+  fixed_t compound_added_result = param.n1;
+  compound_added_result += param.n2;
+  EXPECT_EQ(param.add_result, compound_added_result);
 }
 
 const AddResult kAddResults[] = {
