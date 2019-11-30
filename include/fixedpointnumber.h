@@ -154,6 +154,15 @@ class fixed_t {
     return *this;
   }
 
+  /// Decrement operator.
+  ///
+  /// @return Reference to this instance decremented.
+  fixed_t& operator--() {
+    constexpr fixed_t kOne(1);
+    *this -= kOne;
+    return *this;
+  }
+
   /// Comparison operator, equal.
   ///
   /// @param[in] lhs Left hand side value which is compared to
