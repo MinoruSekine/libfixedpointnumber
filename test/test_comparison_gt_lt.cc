@@ -28,12 +28,14 @@ class ComparisonGtLtTest
   : public ::testing::TestWithParam<double> {
 };
 
-TEST_P(ComparisonGtLtTest, GtLtNe) {
+TEST_P(ComparisonGtLtTest, GtGeLtLeNe) {
   const fixed_t param(GetParam());
   fixed_t incremented_param(param);
   ++incremented_param;
   EXPECT_GT(incremented_param, param);
+  EXPECT_GE(incremented_param, param);
   EXPECT_LT(param, incremented_param);
+  EXPECT_LE(param, incremented_param);
   EXPECT_NE(incremented_param, param);
 }
 
