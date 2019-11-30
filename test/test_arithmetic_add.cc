@@ -41,22 +41,19 @@ class ArithmeticAddTest
 
 TEST_P(ArithmeticAddTest, Add) {
   const auto param = GetParam();
-  EXPECT_DOUBLE_EQ(static_cast<double>(param.add_result),
-                   static_cast<double>(param.n1 + param.n2));
+  EXPECT_EQ(param.add_result, param.n1 + param.n2);
 }
 
 TEST_P(ArithmeticAddTest, AddCommulativeLaw) {
   const auto param = GetParam();
-  EXPECT_DOUBLE_EQ(static_cast<double>(param.add_result),
-                   static_cast<double>(param.n2 + param.n1));
+  EXPECT_EQ(param.add_result, param.n2 + param.n1);
 }
 
 TEST_P(ArithmeticAddTest, CompoundAdd) {
   const auto param = GetParam();
   fixed_t compound_addded_result = param.n1;
   compound_addded_result += param.n2;
-  EXPECT_DOUBLE_EQ(static_cast<double>(param.add_result),
-                   static_cast<double>(compound_addded_result));
+  EXPECT_EQ(param.add_result, compound_addded_result);
 }
 
 const AddResult kAddResults[] = {

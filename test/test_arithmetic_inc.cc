@@ -41,8 +41,7 @@ class ArithmeticIncrementTest
 TEST_P(ArithmeticIncrementTest, Increment) {
   const auto param = GetParam();
   fixed_t n = param.n;
-  EXPECT_DOUBLE_EQ(static_cast<double>(param.inc_result),
-                   static_cast<double>(++n));
+  EXPECT_EQ(param.inc_result, ++n);
 }
 
 const IncrementResult kIncrementResults[] = {
