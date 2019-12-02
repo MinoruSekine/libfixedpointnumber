@@ -64,7 +64,7 @@ class fixed_t {
   /// @param[in] src fixed_t to construct from
   template <typename SrcIntType, std::size_t SrcQ>
   constexpr explicit fixed_t(const fixed_t<SrcIntType, SrcQ>& src)
-    : fixed_point_(ToIntType<SrcIntType, SrcQ>(src)) {
+      : fixed_point_(ToIntType<SrcIntType, SrcQ>(src)) {
   }
 
   /// Cast operator to specified integral or floating-point types.
