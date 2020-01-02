@@ -24,6 +24,8 @@
 
 #define FIXEDPOINTNUMBER_INTERNAL
 
+#include "fixedpointnumber_wider_int.h"
+
 namespace fixedpointnumber {
 
 /// Type for fixed point number.
