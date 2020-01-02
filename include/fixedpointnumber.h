@@ -322,6 +322,36 @@ class fixed_t {
   FromInternalType(internal_int_t src);
 };
 
+/// Function to multiply fixed_t with keeping precision.
+///
+/// Result fixed_t<> type is not same as both lhs and rhs type.
+/// That type has enough precision to keep multiply result,
+/// twice bit width to kee[ fixed point data
+/// and bits width to assign for keeping decimal parts will be widen.
+///
+/// @tparam internal_int_t Internal integral type to hold fixed point number
+/// @tparam l_Q            Bits width for decimal part of lhs
+/// @tparam r_Q            Bits width for decimal part of rhs
+///
+/// @param lhs Left hand side value to multiply
+/// @param rhs Right hand side value to multiply
+///
+/// @return Multiply result
+template <typename internal_int_t, std::size_t l_Q, std::size_t r_Q>
+auto fixed_mul(fixed_t<internal_int_t, l_Q> lhs,
+               const fixed_t<internal_int_t, r_Q> rhs)
+    -> fixed_t<impl::wider_int_t<internal_int_t>, l_Q + r_Q> {
+  using wider_int_t = impl::wider_int_t<internal_int_t>;
+  const auto lhs_wide = static_cast<wider_int_t>(lhs.fixed_point_);
+  const auto rhs_wide = static_cast<wider_int_t>(rhs.fixed_point_);
+
+  using result_t = fixed_t<wider_int_t, l_Q + r_Q>;
+  result_t result;
+  result.fixed_point_ = lhs_wide * rhs_wide;
+
+  return result;
+}
+
 }  // namespace fixedpointnumber
 
 #include "fixedpointnumber_conversion-priv.h"
