@@ -29,7 +29,7 @@ namespace fixedpointnumber {
 
 template <typename IntType, std::size_t Q>
 template <typename SrcType>
-constexpr IntType fixed_t<IntType, Q>::ToIntType(
+constexpr IntType fixed_t<IntType, Q>::ToInternalType(
     typename std::enable_if<std::is_integral<SrcType>::value,
                             SrcType>::type src) {
   return static_cast<IntType>(src << kBitsWidthOfDecimalPart);
@@ -37,7 +37,7 @@ constexpr IntType fixed_t<IntType, Q>::ToIntType(
 
 template <typename IntType, std::size_t Q>
 template <typename SrcType>
-constexpr IntType fixed_t<IntType, Q>::ToIntType(
+constexpr IntType fixed_t<IntType, Q>::ToInternalType(
     typename std::enable_if<std::is_floating_point<SrcType>::value,
                             SrcType>::type src) {
   return static_cast<IntType>(src * static_cast<SrcType>(kCoef));
@@ -46,7 +46,7 @@ constexpr IntType fixed_t<IntType, Q>::ToIntType(
 template <typename IntType, std::size_t Q>
 template <typename SrcIntType, std::size_t SrcQ>
 constexpr IntType
-fixed_t<IntType, Q>::ToIntType(const fixed_t<SrcIntType, SrcQ>& src) {
+fixed_t<IntType, Q>::ToInternalType(const fixed_t<SrcIntType, SrcQ>& src) {
   return ((Q > SrcQ)
           ? static_cast<IntType>(src.fixed_point_ << (Q - SrcQ))
           : static_cast<IntType>(src.fixed_point_ >> (SrcQ - Q)));
@@ -56,7 +56,7 @@ template <typename IntType, std::size_t Q>
 template <typename DestType>
 constexpr
 typename std::enable_if<std::is_integral<DestType>::value, DestType>::type
-fixed_t<IntType, Q>::FromIntType(IntType src) {
+fixed_t<IntType, Q>::FromInternalType(IntType src) {
   return static_cast<DestType>(src >> kBitsWidthOfDecimalPart);
 }
 
@@ -64,7 +64,7 @@ template <typename IntType, std::size_t Q>
 template <typename DestType>
 constexpr
 typename std::enable_if<std::is_floating_point<DestType>::value, DestType>::type
-fixed_t<IntType, Q>::FromIntType(IntType src) {
+fixed_t<IntType, Q>::FromInternalType(IntType src) {
   return (static_cast<DestType>(src)
           * (static_cast<DestType>(1.0f) / static_cast<DestType>(kCoef)));
 }

@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Minoru Sekine
+// Copyright 2019,2020 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -24,13 +24,15 @@
 
 #define FIXEDPOINTNUMBER_INTERNAL
 
+#include "fixedpointnumber_wider_int.h"
+
 namespace fixedpointnumber {
 
 /// Type for fixed point number.
 ///
-/// @tparam IntType Internal integral type to hold fixed point number
-/// @tparam Q       Bits width for decimal part
-template <typename IntType, std::size_t Q>
+/// @tparam internal_int_t Internal integral type to hold fixed point number
+/// @tparam Q              Bits width for decimal part
+template <typename internal_int_t, std::size_t Q>
 class fixed_t {
  public:
   /// Default constructor.
@@ -53,7 +55,7 @@ class fixed_t {
   /// @param[in] src Value to construct from
   template <typename SrcType>
   constexpr explicit fixed_t(SrcType src)
-      : fixed_point_(ToIntType<SrcType>(src)) {
+      : fixed_point_(ToInternalType<SrcType>(src)) {
   }
 
   /// Construction from fixed_t which has another template param.
@@ -64,7 +66,7 @@ class fixed_t {
   /// @param[in] src fixed_t to construct from
   template <typename SrcIntType, std::size_t SrcQ>
   constexpr explicit fixed_t(const fixed_t<SrcIntType, SrcQ>& src)
-      : fixed_point_(ToIntType<SrcIntType, SrcQ>(src)) {
+      : fixed_point_(ToInternalType<SrcIntType, SrcQ>(src)) {
   }
 
   /// Cast operator to specified integral or floating-point types.
@@ -74,7 +76,7 @@ class fixed_t {
   /// @return Casted DestType value converted from holding fixed point number.
   template <typename DestType>
   constexpr operator DestType() const {
-    return FromIntType<DestType>(fixed_point_);
+    return FromInternalType<DestType>(fixed_point_);
   }
 
   /// Copy operator.
@@ -101,9 +103,9 @@ class fixed_t {
     //   fixed_point_ += rhs.fixed_point_;
     // is not valid on some environments.
     // Because implicit integer promotion makes
-    // from int to short (if IntType is short) cast implicitly,
+    // from int to short (if internal_int_t is short) cast implicitly,
     // and it can be error by compiler option -Werror=conversion.
-    fixed_point_ = static_cast<IntType>(fixed_point_ + rhs.fixed_point_);
+    fixed_point_ = static_cast<internal_int_t>(fixed_point_ + rhs.fixed_point_);
     return *this;
   }
 
@@ -128,9 +130,9 @@ class fixed_t {
     //   fixed_point_ += rhs.fixed_point_;
     // is not valid on some environments.
     // Because implicit integer promotion makes
-    // from int to short (if IntType is short) cast implicitly,
+    // from int to short (if internal_int_t is short) cast implicitly,
     // and it can be error by compiler option -Werror=conversion.
-    fixed_point_ = static_cast<IntType>(fixed_point_ - rhs.fixed_point_);
+    fixed_point_ = static_cast<internal_int_t>(fixed_point_ - rhs.fixed_point_);
     return *this;
   }
 
@@ -160,6 +162,17 @@ class fixed_t {
   fixed_t& operator--() {
     constexpr fixed_t kOne(1);
     *this -= kOne;
+    return *this;
+  }
+
+  /// Compound assignment operator*=.
+  ///
+  /// @param[in] rhs Value to multiply into this instance
+  ///
+  /// @return Reference to this instance multiplied rhs into.
+  fixed_t& operator*=(const fixed_t& rhs) {
+    const fixed_t result = fixed_mul(*this, rhs);
+    *this = static_cast<decltype(*this)>(result);
     return *this;
   }
 
@@ -235,13 +248,13 @@ class fixed_t {
   std::string ToString() const;
 
   /// Internal integral value holding as fixed point value.
-  IntType fixed_point_;
+  internal_int_t fixed_point_;
 
  private:
   /// Bits width of decimal part of this fixed point number type.
   constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
   /// Coefficient to convert to internal fixed point value.
-  constexpr static IntType kCoef = 1 << Q;
+  constexpr static internal_int_t kCoef = 1 << Q;
 
   /// Convert from some integral type value
   /// to internal integral fixed point type value.
@@ -254,7 +267,7 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
-  constexpr static IntType ToIntType(
+  constexpr static internal_int_t ToInternalType(
       typename std::enable_if<std::is_integral<SrcType>::value,
                               SrcType>::type src);
 
@@ -269,7 +282,7 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcType>
-  constexpr static IntType ToIntType(
+  constexpr static internal_int_t ToInternalType(
       typename std::enable_if<std::is_floating_point<SrcType>::value,
                               SrcType>::type src);
 
@@ -285,7 +298,8 @@ class fixed_t {
   ///
   /// @return Coverted internal integral fixed point type value.
   template <typename SrcIntType, std::size_t SrcQ>
-  constexpr static IntType ToIntType(const fixed_t<SrcIntType, SrcQ>& src);
+  constexpr static
+  internal_int_t ToInternalType(const fixed_t<SrcIntType, SrcQ>& src);
 
   /// Convert to some integral type value
   /// from internal integral fixed point type value.
@@ -300,7 +314,7 @@ class fixed_t {
   template <typename DestType>
   constexpr static
   typename std::enable_if<std::is_integral<DestType>::value, DestType>::type
-  FromIntType(IntType src);
+  FromInternalType(internal_int_t src);
 
   /// Convert to some floating-point type value
   /// from internal integral fixed point type value.
@@ -316,8 +330,54 @@ class fixed_t {
   constexpr static
   typename std::enable_if<std::is_floating_point<DestType>::value,
                           DestType>::type
-  FromIntType(IntType src);
+  FromInternalType(internal_int_t src);
 };
+
+/// Function to multiply fixed_t with keeping precision.
+///
+/// Result fixed_t<> type is not same as both lhs and rhs type.
+/// That type has enough precision to keep multiply result,
+/// twice bit width to kee[ fixed point data
+/// and bits width to assign for keeping decimal parts will be widen.
+///
+/// @tparam internal_int_t Internal integral type to hold fixed point number
+/// @tparam l_Q            Bits width for decimal part of lhs
+/// @tparam r_Q            Bits width for decimal part of rhs
+///
+/// @param lhs Left hand side value to multiply
+/// @param rhs Right hand side value to multiply
+///
+/// @return Multiply result
+template <typename internal_int_t, std::size_t l_Q, std::size_t r_Q>
+auto fixed_mul(fixed_t<internal_int_t, l_Q> lhs,
+               const fixed_t<internal_int_t, r_Q> rhs)
+    -> fixed_t<impl::wider_int_t<internal_int_t>, l_Q + r_Q> {
+  using wider_int_t = impl::wider_int_t<internal_int_t>;
+  const auto lhs_wide = static_cast<wider_int_t>(lhs.fixed_point_);
+  const auto rhs_wide = static_cast<wider_int_t>(rhs.fixed_point_);
+
+  using result_t = fixed_t<wider_int_t, l_Q + r_Q>;
+  result_t result;
+  result.fixed_point_ = lhs_wide * rhs_wide;
+
+  return result;
+}
+
+/// Multiply operator.
+///
+/// This operator keeps same type as lhs and rhs after multiply.
+///
+/// @tparam internal_int_t Internal integral type to hold fixed point number
+/// @tparam Q              Bits width for decimal part
+///
+/// @return Multiply result
+///
+/// @note Precision of multiply result can be lossy in this operator
+template <typename internal_int_t, std::size_t Q>
+fixed_t<internal_int_t, Q> operator*(fixed_t<internal_int_t, Q> lhs,
+                                     const fixed_t<internal_int_t, Q>& rhs) {
+  return static_cast<fixed_t<internal_int_t, Q>>(fixed_mul(lhs, rhs));
+}
 
 }  // namespace fixedpointnumber
 
