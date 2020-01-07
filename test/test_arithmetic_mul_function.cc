@@ -37,11 +37,11 @@ struct MulResult {
   result_fixed_t mul_result;
 };
 
-class ArithmeticMulTest
+class ArithmeticMulFunctionTest
   : public ::testing::TestWithParam<MulResult> {
 };
 
-TEST_P(ArithmeticMulTest, Add) {
+TEST_P(ArithmeticMulFunctionTest, Add) {
   const auto param = GetParam();
   EXPECT_EQ(param.mul_result, fixed_mul(param.lhs, param.rhs));
 }
@@ -70,5 +70,5 @@ const MulResult kMulResults[] = {
 };
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
-                         ArithmeticMulTest,
+                         ArithmeticMulFunctionTest,
                          ::testing::ValuesIn(kMulResults));

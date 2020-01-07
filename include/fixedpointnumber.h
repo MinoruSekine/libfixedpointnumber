@@ -165,6 +165,17 @@ class fixed_t {
     return *this;
   }
 
+  /// Compound assignment operator*=.
+  ///
+  /// @param[in] rhs Value to multiply into this instance
+  ///
+  /// @return Reference to this instance multiplied rhs into.
+  fixed_t& operator*=(const fixed_t& rhs) {
+    const fixed_t result = fixed_mul(*this, rhs);
+    *this = static_cast<decltype(*this)>(result);
+    return *this;
+  }
+
   /// Comparison operator, equal.
   ///
   /// @param[in] lhs Left hand side value which is compared to
@@ -350,6 +361,22 @@ auto fixed_mul(fixed_t<internal_int_t, l_Q> lhs,
   result.fixed_point_ = lhs_wide * rhs_wide;
 
   return result;
+}
+
+/// Multiply operator.
+///
+/// This operator keeps same type as lhs and rhs after multiply.
+///
+/// @tparam internal_int_t Internal integral type to hold fixed point number
+/// @tparam Q              Bits width for decimal part
+///
+/// @return Multiply result
+///
+/// @note Precision of multiply result can be lossy in this operator
+template <typename internal_int_t, std::size_t Q>
+fixed_t<internal_int_t, Q> operator*(fixed_t<internal_int_t, Q> lhs,
+                                     const fixed_t<internal_int_t, Q>& rhs) {
+  return static_cast<fixed_t<internal_int_t, Q>>(fixed_mul(lhs, rhs));
 }
 
 }  // namespace fixedpointnumber
