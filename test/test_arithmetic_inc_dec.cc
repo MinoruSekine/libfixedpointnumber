@@ -22,6 +22,8 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 6>;
 
 struct IncDecResult {
@@ -33,6 +35,21 @@ struct IncDecResult {
   fixed_t n;
   fixed_t inc_result;
 };
+
+const IncDecResult kIncDecResults[] = {
+  {-11, -10},
+  { -1,   0},
+  {  0,   1},
+  {  4,   5},
+  {-16.125f, -15.125f},
+  {-14.000f, -13.000f},
+  { -1.000f,   0.000f},
+  { -0.250f,   0.750f},
+  {  0.000f,   1.000f},
+  {  9.750f,  10.750f},
+};
+
+}  // namespace
 
 class ArithmeticIncDecTest
   : public ::testing::TestWithParam<IncDecResult> {
@@ -49,19 +66,6 @@ TEST_P(ArithmeticIncDecTest, Decrement) {
   fixed_t n = param.inc_result;
   EXPECT_EQ(param.n, --n);
 }
-
-const IncDecResult kIncDecResults[] = {
-  {-11, -10},
-  { -1,   0},
-  {  0,   1},
-  {  4,   5},
-  {-16.125f, -15.125f},
-  {-14.000f, -13.000f},
-  { -1.000f,   0.000f},
-  { -0.250f,   0.750f},
-  {  0.000f,   1.000f},
-  {  9.750f,  10.750f},
-};
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          ArithmeticIncDecTest,

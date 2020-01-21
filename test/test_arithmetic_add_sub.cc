@@ -22,6 +22,8 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 6>;
 
 struct AddSubResult {
@@ -34,6 +36,23 @@ struct AddSubResult {
   fixed_t n2;
   fixed_t add_result;
 };
+
+const AddSubResult kAddSubResults[] = {
+  // Negative value, Positive value, Positive Value
+  {   -1,    2,    1},
+  {-5.5f, 6.0f, 0.5f},
+  // Negative value, Positice value, Zero
+  {    -1,     1,    0},
+  {-9.25f, 9.25f, 0.0f},
+  // Zero, Positive value, Positive value (no changes)
+  {   0,    1,    1},
+  {0.0f, 2.5f, 2.5f},
+  // Positive value, Positive value, Positive value
+  {      2,       3,    5},
+  {6.0625f, 0.9375f, 7.0f},
+};
+
+}  // namespace
 
 class ArithmeticAddSubTest
   : public ::testing::TestWithParam<AddSubResult> {
@@ -76,21 +95,6 @@ TEST_P(ArithmeticAddSubTest, CompoundSub) {
     EXPECT_EQ(param.n1, compound_sub_result2);
   }
 }
-
-const AddSubResult kAddSubResults[] = {
-  // Negative value, Positive value, Positive Value
-  {   -1,    2,    1},
-  {-5.5f, 6.0f, 0.5f},
-  // Negative value, Positice value, Zero
-  {    -1,     1,    0},
-  {-9.25f, 9.25f, 0.0f},
-  // Zero, Positive value, Positive value (no changes)
-  {   0,    1,    1},
-  {0.0f, 2.5f, 2.5f},
-  // Positive value, Positive value, Positive value
-  {      2,       3,    5},
-  {6.0625f, 0.9375f, 7.0f},
-};
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          ArithmeticAddSubTest,

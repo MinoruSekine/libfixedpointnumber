@@ -22,8 +22,12 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_14_1_t = fixedpointnumber::fixed_t<int16_t, 1>;
 using fixed_12_3_t = fixedpointnumber::fixed_t<int16_t, 3>;
+
+}  // namespace
 
 class FixedTConversionTest
   : public ::testing::TestWithParam<float> {

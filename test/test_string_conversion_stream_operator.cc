@@ -24,12 +24,25 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 4>;
 
 struct FloatAndString {
   float num;
   const char* str;
 };
+
+
+constexpr FloatAndString kStringTestValues[] = {
+                                                { -40.125f ,  "-40.125"},
+                                                {   0.0f   ,    "0"},
+                                                {  90.0f   ,   "90.0"},
+                                                { 800.0625f,  "800.0625"},
+                                                {2000.5f   , "2000.5"},
+};
+
+}  // namespace
 
 class StringConversionStreamOperatorTest
   : public ::testing::TestWithParam<FloatAndString> {
@@ -51,13 +64,6 @@ TEST_P(StringConversionStreamOperatorTest, StreamOperator) {
   EXPECT_STREQ(param.str, ss.str().c_str());
 }
 
-constexpr FloatAndString kStringTestValues[] = {
-                                                { -40.125f ,  "-40.125"},
-                                                {   0.0f   ,    "0"},
-                                                {  90.0f   ,   "90.0"},
-                                                { 800.0625f,  "800.0625"},
-                                                {2000.5f   , "2000.5"},
-};
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          StringConversionStreamOperatorTest,
                          ::testing::ValuesIn(kStringTestValues));

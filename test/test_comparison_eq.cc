@@ -22,7 +22,11 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 6>;
+
+}  // namespace
 
 class ComparisonEqTest
   : public ::testing::TestWithParam<double> {

@@ -22,7 +22,11 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 10>;
+
+}  // namespace
 
 class MoveConstructorOperatorIntTest
   : public ::testing::TestWithParam<int8_t> {

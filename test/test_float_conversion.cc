@@ -22,7 +22,13 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 4>;
+
+constexpr float k11BitsMax = 2047;
+
+}  // namespace
 
 class FloatFixedConversionTest
   : public ::testing::TestWithParam<float> {
@@ -51,7 +57,6 @@ INSTANTIATE_TEST_SUITE_P(MiddleRange,
                          FloatFixedConversionTest,
                          ::testing::Range(1023.0f, 1025.0f, 0.0625f));
 
-constexpr float k11BitsMax = 2047;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
                          FloatFixedConversionTest,
                          ::testing::Values(k11BitsMax - 1.0f, k11BitsMax));

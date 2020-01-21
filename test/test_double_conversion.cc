@@ -22,7 +22,13 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 4>;
+
+constexpr double k11BitsMax = 2047;
+
+}  // namespace
 
 class DoubleFixedConversionTest
   : public ::testing::TestWithParam<double> {
@@ -51,7 +57,6 @@ INSTANTIATE_TEST_SUITE_P(MiddleRange,
                          DoubleFixedConversionTest,
                          ::testing::Range(1023.0, 1025.0, 0.0625));
 
-constexpr double k11BitsMax = 2047;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
                          DoubleFixedConversionTest,
                          ::testing::Values(k11BitsMax - 1.0, k11BitsMax));
