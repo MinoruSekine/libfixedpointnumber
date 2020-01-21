@@ -41,7 +41,7 @@ class ArithmeticMulFunctionTest
   : public ::testing::TestWithParam<MulResult> {
 };
 
-TEST_P(ArithmeticMulFunctionTest, Add) {
+TEST_P(ArithmeticMulFunctionTest, MulWithKeepingPrecision) {
   const auto param = GetParam();
   EXPECT_EQ(param.mul_result, fixed_mul(param.lhs, param.rhs));
 }
