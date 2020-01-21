@@ -66,9 +66,16 @@ class ArithmeticMulOperatorTest
   : public ::testing::TestWithParam<MulResult> {
 };
 
-TEST_P(ArithmeticMulOperatorTest, Mul) {
+TEST_P(ArithmeticMulOperatorTest, NormalOperator) {
   const auto param = GetParam();
   EXPECT_EQ(param.mul_result, param.lhs * param.rhs);
+}
+
+TEST_P(ArithmeticMulOperatorTest, CompoundOperator) {
+  const auto param = GetParam();
+  auto lhs = param.lhs;
+  lhs *= param.rhs;
+  EXPECT_EQ(param.mul_result, lhs);
 }
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
