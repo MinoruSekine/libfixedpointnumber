@@ -171,8 +171,7 @@ class fixed_t {
   ///
   /// @return Reference to this instance multiplied rhs into.
   fixed_t& operator*=(const fixed_t& rhs) {
-    const fixed_t result = fixed_mul(*this, rhs);
-    *this = static_cast<decltype(*this)>(result);
+    *this = *this * rhs;
     return *this;
   }
 
