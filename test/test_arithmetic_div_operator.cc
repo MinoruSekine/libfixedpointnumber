@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Minoru Sekine
+// Copyright 2020 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -24,49 +24,49 @@
 
 namespace {
 
-using fixed_t = fixedpointnumber::fixed_t<int16_t, 6>;
+using fixed_t = fixedpointnumber::fixed_t<int16_t, 5>;
 
-struct IncDecResult {
+struct DivResult {
   template <typename T>
-  constexpr IncDecResult(T a, T b)
-      : n(a), inc_result(b) {
+  constexpr DivResult(T a, T b, T c)
+      : lhs(a), rhs(b), div_result(c) {
   }
 
-  fixed_t n;
-  fixed_t inc_result;
+  fixed_t lhs;
+  fixed_t rhs;
+  fixed_t div_result;
 };
 
-const IncDecResult kIncDecResults[] = {
-  {-11, -10},
-  { -1,   0},
-  {  0,   1},
-  {  4,   5},
-  {-16.125f, -15.125f},
-  {-14.000f, -13.000f},
-  { -1.000f,   0.000f},
-  { -0.250f,   0.750f},
-  {  0.000f,   1.000f},
-  {  9.750f,  10.750f},
+const DivResult kDivResults[] = {
+  // Combination of negative/positive values.
+  { 0.5f,  2.00f,  0.25f},
+  {-0.5f,  2.00f, -0.25f},
+  { 0.5f, -0.25f, -2.00f},
+  {-0.5f, -0.25f,  2.00f},
+
+  // Results are just one.
+  { 0.500f, 0.500f, 1.0f},
+  { 2.125f, 2.125f, 1.0f},
 };
 
 }  // namespace
 
-class ArithmeticIncDecTest
-  : public ::testing::TestWithParam<IncDecResult> {
+class ArithmeticDivOperatorTest
+  : public ::testing::TestWithParam<DivResult> {
 };
 
-TEST_P(ArithmeticIncDecTest, Increment) {
+TEST_P(ArithmeticDivOperatorTest, NormalOperator) {
   const auto param = GetParam();
-  fixed_t n = param.n;
-  EXPECT_EQ(param.inc_result, ++n);
+  EXPECT_EQ(param.div_result, param.lhs / param.rhs);
 }
 
-TEST_P(ArithmeticIncDecTest, Decrement) {
+TEST_P(ArithmeticDivOperatorTest, CompoundOperator) {
   const auto param = GetParam();
-  fixed_t n = param.inc_result;
-  EXPECT_EQ(param.n, --n);
+  auto lhs = param.lhs;
+  lhs /= param.rhs;
+  EXPECT_EQ(param.div_result, lhs);
 }
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
-                         ArithmeticIncDecTest,
-                         ::testing::ValuesIn(kIncDecResults));
+                         ArithmeticDivOperatorTest,
+                         ::testing::ValuesIn(kDivResults));

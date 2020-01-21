@@ -22,7 +22,14 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 5>;
+
+constexpr int32_t kMiddleRangeValue = 0x001f;
+constexpr int32_t k10BitsMax = 0x03ff;
+
+}  // namespace
 
 class Int32Int16FixedConversionTest
   : public ::testing::TestWithParam<int32_t> {
@@ -39,13 +46,11 @@ INSTANTIATE_TEST_SUITE_P(NearZeroRange,
                          Int32Int16FixedConversionTest,
                          ::testing::Values(0, 1, 2));
 
-constexpr int32_t kMiddleRangeValue = 0x001f;
 INSTANTIATE_TEST_SUITE_P(MiddleRange,
                          Int32Int16FixedConversionTest,
                          ::testing::Values(kMiddleRangeValue,
                                            kMiddleRangeValue + 1));
 
-constexpr int32_t k10BitsMax = 0x03ff;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
                          Int32Int16FixedConversionTest,
                          ::testing::Values(k10BitsMax - 1, k10BitsMax));

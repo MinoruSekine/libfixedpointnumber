@@ -22,7 +22,16 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using ufixed_t = fixedpointnumber::fixed_t<uint16_t, 10>;
+
+constexpr uint8_t kMiddleRangeValue      = 0x07;
+constexpr uint8_t kMiddleRangeValuePlus1 = 0x08;
+constexpr uint8_t k6BitsMax       = 0x3f;
+constexpr uint8_t k6BitsMaxMinus1 = 0x3e;
+
+}  // namespace
 
 class UInt8UInt16FixedConversionTest
   : public ::testing::TestWithParam<uint8_t> {
@@ -39,15 +48,11 @@ INSTANTIATE_TEST_SUITE_P(NearZeroRange,
                          UInt8UInt16FixedConversionTest,
                          ::testing::Values(uint8_t(0), uint8_t(1), uint8_t(2)));
 
-constexpr uint8_t kMiddleRangeValue      = 0x07;
-constexpr uint8_t kMiddleRangeValuePlus1 = 0x08;
 INSTANTIATE_TEST_SUITE_P(MiddleRange,
                          UInt8UInt16FixedConversionTest,
                          ::testing::Values(kMiddleRangeValue,
                                            kMiddleRangeValuePlus1));
 
-constexpr uint8_t k6BitsMax       = 0x3f;
-constexpr uint8_t k6BitsMaxMinus1 = 0x3e;
 INSTANTIATE_TEST_SUITE_P(NearMaxRange,
                          UInt8UInt16FixedConversionTest,
                          ::testing::Values(k6BitsMaxMinus1, k6BitsMax));

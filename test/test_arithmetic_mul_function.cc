@@ -22,6 +22,8 @@
 
 #include "fixedpointnumber.h"
 
+namespace {
+
 using lhs_fixed_t    = fixedpointnumber::fixed_t<int16_t, 2>;
 using rhs_fixed_t    = fixedpointnumber::fixed_t<int16_t, 3>;
 using result_fixed_t = fixedpointnumber::fixed_t<int32_t, 5>;
@@ -36,15 +38,6 @@ struct MulResult {
   rhs_fixed_t rhs;
   result_fixed_t mul_result;
 };
-
-class ArithmeticMulFunctionTest
-  : public ::testing::TestWithParam<MulResult> {
-};
-
-TEST_P(ArithmeticMulFunctionTest, Add) {
-  const auto param = GetParam();
-  EXPECT_EQ(param.mul_result, fixed_mul(param.lhs, param.rhs));
-}
 
 const MulResult kMulResults[] = {
   // Combination of negative/positive values.
@@ -68,6 +61,17 @@ const MulResult kMulResults[] = {
   { -10,  100, -1000},
   { -10, -100,  1000},
 };
+
+}  // namespace
+
+class ArithmeticMulFunctionTest
+  : public ::testing::TestWithParam<MulResult> {
+};
+
+TEST_P(ArithmeticMulFunctionTest, MulWithKeepingPrecision) {
+  const auto param = GetParam();
+  EXPECT_EQ(param.mul_result, fixed_mul(param.lhs, param.rhs));
+}
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          ArithmeticMulFunctionTest,
