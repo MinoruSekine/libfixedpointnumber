@@ -337,7 +337,7 @@ class fixed_t {
 ///
 /// Result fixed_t<> type is not same as both lhs and rhs type.
 /// That type has enough precision to keep multiply result,
-/// twice bit width to kee[ fixed point data
+/// twice bit width to keep fixed point data
 /// and bits width to assign for keeping decimal parts will be widen.
 ///
 /// @tparam internal_int_t Internal integral type to hold fixed point number
