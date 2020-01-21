@@ -71,6 +71,11 @@ TEST_P(ArithmeticMulOperatorTest, NormalOperator) {
   EXPECT_EQ(param.mul_result, param.lhs * param.rhs);
 }
 
+TEST_P(ArithmeticMulOperatorTest, CommutativeLaw) {
+  const auto param = GetParam();
+  EXPECT_EQ(param.mul_result, param.rhs * param.lhs);
+}
+
 TEST_P(ArithmeticMulOperatorTest, CompoundOperator) {
   const auto param = GetParam();
   auto lhs = param.lhs;
