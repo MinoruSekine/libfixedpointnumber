@@ -176,6 +176,16 @@ class fixed_t {
     return *this;
   }
 
+  /// Compound assignment operator/=.
+  ///
+  /// @param[in] rhs Value to divide into this instance
+  ///
+  /// @return Reference to this instance divided rhs into.
+  fixed_t& operator/=(const fixed_t& rhs) {
+    *this = *this / rhs;
+    return *this;
+  }
+
   /// Comparison operator, equal.
   ///
   /// @param[in] lhs Left hand side value which is compared to
@@ -413,6 +423,22 @@ template <typename internal_int_t, std::size_t Q>
 fixed_t<internal_int_t, Q> operator*(fixed_t<internal_int_t, Q> lhs,
                                      const fixed_t<internal_int_t, Q>& rhs) {
   return static_cast<fixed_t<internal_int_t, Q>>(fixed_mul(lhs, rhs));
+}
+
+/// Division operator.
+///
+/// This operator keeps same type as lhs and rhs after divide.
+///
+/// @tparam internal_int_t Internal integral type to hold fixed point number
+/// @tparam Q              Bits width for decimal part
+///
+/// @return Divide result
+///
+/// @note Precision of multiply result can be lossy in this operator
+template <typename internal_int_t, std::size_t Q>
+fixed_t<internal_int_t, Q> operator/(fixed_t<internal_int_t, Q> lhs,
+                                     const fixed_t<internal_int_t, Q>& rhs) {
+  return static_cast<fixed_t<internal_int_t, Q>>(fixed_div(lhs, rhs));
 }
 
 }  // namespace fixedpointnumber
