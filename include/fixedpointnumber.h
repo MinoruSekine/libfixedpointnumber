@@ -185,6 +185,22 @@ class fixed_t {
     return *this;
   }
 
+  /// Unary operator+.
+  ///
+  /// @return Same value as source
+  fixed_t operator+() const {
+    return *this;
+  }
+
+  /// Unary operator+.
+  ///
+  /// @return Same value as source
+  fixed_t operator-() const {
+    fixed_t result(*this);
+    result.fixed_point_ = -result.fixed_point_;
+    return result;
+  }
+
   /// Comparison operator, equal.
   ///
   /// @param[in] lhs Left hand side value which is compared to
