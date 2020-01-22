@@ -279,7 +279,7 @@ class fixed_t {
   /// Bits width of decimal part of this fixed point number type.
   constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
   /// Coefficient to convert to internal fixed point value.
-  constexpr static internal_int_t kCoef = 1 << Q;
+  constexpr static internal_int_t kCoef = static_cast<internal_int_t>(1) << Q;
 
   /// Convert from some integral type value
   /// to internal integral fixed point type value.
