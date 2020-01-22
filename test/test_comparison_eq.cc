@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Minoru Sekine
+// Copyright 2019,2020 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -41,3 +41,10 @@ TEST_P(ComparisonEqTest, Eq) {
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          ComparisonEqTest,
                          ::testing::Range(-2.125, 3.0, 0.5));
+
+TEST_F(ComparisonEqTest, ConstructWithNegativeIntAndValidate) {
+  constexpr fixed_t kMinusOneByInt(-1);
+  constexpr fixed_t kMinusOneByFloat(-1.0f);
+
+  EXPECT_EQ(kMinusOneByFloat, kMinusOneByInt);
+}

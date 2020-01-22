@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Minoru Sekine
+// Copyright 2019,2020 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -27,12 +27,31 @@
 
 namespace fixedpointnumber {
 
+namespace impl {
+
+template <typename T>
+constexpr T abs(T n) {
+  return ((n >= static_cast<T>(0)) ? n : static_cast<T>(-n));
+}
+
+template <typename T>
+constexpr T sign(T n) {
+  return ((n > static_cast<T>(0))
+          ? static_cast<T>(1)
+          : ((n < static_cast<T>(0))
+             ? static_cast<T>(-1)
+             : static_cast<T>(0)));
+}
+
+}  // namespace impl
+
 template <typename IntType, std::size_t Q>
 template <typename SrcType>
 constexpr IntType fixed_t<IntType, Q>::ToInternalType(
     typename std::enable_if<std::is_integral<SrcType>::value,
                             SrcType>::type src) {
-  return static_cast<IntType>(src << kBitsWidthOfDecimalPart);
+  return static_cast<IntType>((impl::abs(src) << kBitsWidthOfDecimalPart)
+                              * impl::sign(src));
 }
 
 template <typename IntType, std::size_t Q>
