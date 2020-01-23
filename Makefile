@@ -28,6 +28,19 @@ TEST_LDFLAGS :=
 TEST_LDFLAGS += $(addprefix -l, $(TEST_LIBS))
 TEST_LDFLAGS += -pthread
 
+SAMPLE_EXEC := $(OUT_DIR)/fixedpointnumber_sample
+SAMPLE_SRC_DIR := sample
+SAMPLE_SRC_CPP := $(wildcard $(SAMPLE_SRC_DIR)/*.cc)
+SAMPLE_SRCS := $(SAMPLE_SRC_CPP)
+SAMPLE_SRC_HEADER := $(wildcard $(SAMPLE_SRC_DIR)/*.h)
+SAMPLE_OBJ_DIR := $(OBJ_DIR)/$(SAMPLE_SRC_DIR)
+SAMPLE_OBJS := $(addprefix $(OBJ_DIR)/, $(SAMPLE_SRCS:%.cc=%.o))
+SAMPLE_DEPS := $(SAMPLE_OBJS:%.o=%.d)
+SAMPLE_LIBS :=
+SAMPLE_LDFLAGS :=
+SAMPLE_LDFLAGS += $(addprefix -l, $(SAMPLE_LIBS))
+# SAMPLE_LDFLAGS += -pthread
+
 # Determine variables by BUILD_TYPE.
 BUILD_TYPE_CXXFLAGS :=
 ifeq ($(BUILD_TYPE), release)
@@ -91,6 +104,13 @@ TEST_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
 TEST_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
 TEST_CXXFLAGS += $(WARNING_CXXFLAGS)
 
+# Build C++ compiler flags for sample.
+SAMPLE_CXXFLAGS := $(CXXFLAGS)
+SAMPLE_CXXFLAGS += --std=c++11
+SAMPLE_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
+SAMPLE_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
+SAMPLE_CXXFLAGS += $(WARNING_CXXFLAGS)
+
 # Coverage config.
 GCOVR := gcovr
 GCOVR_FLAGS :=
@@ -143,12 +163,14 @@ DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
 all: test
 
 clean:
-	-rm $(TEST_OBJS) $(TEST_DEPS)
+	-rm $(TEST_OBJS) $(TEST_DEPS) $(SAMPLE_OBJS) $(SAMPLE_DEPS)
 	rm -rf $(OUT_ROOT_DIR)
 
 clean-doc:
 	-rm $(DOXYGEN_INDEX_HTML)
 	rm -rf $(DOXYGEN_OUT_DIR)
+
+sample: $(SAMPLE_EXEC)
 
 test: run-test
 
@@ -179,6 +201,14 @@ $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 	@mkdir -p $(dir $@)
 	$(COMPILER) $(TEST_CXXFLAGS) -o $@ -c $< -MMD -MP
 
+$(SAMPLE_EXEC): $(SAMPLE_OBJS)
+	@mkdir -p $(dir $@)
+	$(COMPILER) -o $(SAMPLE_EXEC) $^ $(LDFLAGS) $(SAMPLE_LDFLAGS) $(SAMPLE_CXXFLAGS)
+
+$(SAMPLE_OBJ_DIR)%.o: $(SAMPLE_SRC_DIR)/%.cc
+	@mkdir -p $(dir $@)
+	$(COMPILER) $(SAMPLE_CXXFLAGS) -o $@ -c $< -MMD -MP
+
 %.cpplint:
 	$(CPPLINT) $(CPPLINT_FLAGS) $*
 
@@ -190,7 +220,7 @@ $(DOXYGEN_INDEX_HTML): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE)
 	$(DOXYGEN) $(DOXYFILE)
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
--include $(TEST_DEPS)
+-include $(TEST_DEPS) $(SAMPLE_DEPS)
 endif
 
 .PHONY: all clean test run-test build-test check cpplint cppcheck doc

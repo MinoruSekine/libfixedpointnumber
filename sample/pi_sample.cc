@@ -1,5 +1,5 @@
 //
-// Copyright 2019,2020 Minoru Sekine
+// Copyright 2020 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -17,34 +17,41 @@
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <cstdint>
-
-#include <gtest/gtest.h>
+#include <ostream>
+#include <string>
 
 #include "fixedpointnumber.h"
 
 namespace {
 
-using fixed_t = fixedpointnumber::fixed_t<int16_t, 6>;
+using fixed_t = fixedpointnumber::fixed_t<int32_t, 16>;
+
+constexpr fixed_t kMinusOne(-1);
+constexpr fixed_t kOne(1);
+constexpr fixed_t kTwo(2);
+constexpr fixed_t kFour(4);
+
+constexpr int kDefaultLoopCount = 1000;
+
+fixed_t CalcPi(int32_t converge_loop_count) {
+  fixed_t pi(0);
+  const fixed_t end(converge_loop_count);
+  fixed_t sign = kOne;
+  for (fixed_t i(0); i < end; ++i) {
+    const fixed_t denom = i * kTwo + kOne;
+    pi += kOne / denom * sign;
+    sign *= kMinusOne;
+  }
+
+  return pi * kFour;
+}
 
 }  // namespace
 
-class ComparisonEqTest
-  : public ::testing::TestWithParam<double> {
-};
+int main(int argc, char** argv) {
+  const int loop_count = (argc >= 2) ? std::stoi(argv[1]) : kDefaultLoopCount;
+  const auto pi = CalcPi(loop_count);
+  std::cout << "PI = " << pi << std::endl;
 
-TEST_P(ComparisonEqTest, Eq) {
-  const fixed_t param(GetParam());
-  const fixed_t copied_param(param);
-  EXPECT_EQ(param, copied_param);
-}
-
-INSTANTIATE_TEST_SUITE_P(Instance0,
-                         ComparisonEqTest,
-                         ::testing::Range(-2.125, 3.0, 0.5));
-
-TEST_F(ComparisonEqTest, ConstructWithNegativeIntAndValidate) {
-  constexpr fixed_t kMinusOneByInt(-1);
-  constexpr fixed_t kMinusOneByFloat(-1.0f);
-
-  EXPECT_EQ(kMinusOneByFloat, kMinusOneByInt);
+  return 0;
 }

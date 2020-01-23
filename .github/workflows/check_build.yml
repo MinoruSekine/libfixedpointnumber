@@ -57,6 +57,20 @@ jobs:
       with:
         name: coverage_html
         path: out/coverage_report
+  sample:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
+        build_type: [release, debug]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build sample program
+      run: |
+        make BUILD_TYPE=${{ matrix.build_type }} -k -j sample
 
   cpplint:
     runs-on: ubuntu-latest

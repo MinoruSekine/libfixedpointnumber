@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Minoru Sekine
+// Copyright 2019,2020 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -67,3 +67,11 @@ TEST_P(StringConversionStreamOperatorTest, StreamOperator) {
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          StringConversionStreamOperatorTest,
                          ::testing::ValuesIn(kStringTestValues));
+
+TEST(StringConversionTest, DecimalPartIsWide) {
+  constexpr float kNum = 1.5f;
+  constexpr char kStr[] = "1.5";
+  const fixedpointnumber::fixed_t<int32_t, 19> fixed(kNum);
+
+  EXPECT_STREQ(kStr, fixed.ToString().c_str());
+}

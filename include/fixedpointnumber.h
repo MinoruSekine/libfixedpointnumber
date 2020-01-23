@@ -16,11 +16,11 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <string>
-#include <type_traits>
-
 #ifndef INCLUDE_FIXEDPOINTNUMBER_H_
 #define INCLUDE_FIXEDPOINTNUMBER_H_
+
+#include <string>
+#include <type_traits>
 
 #define FIXEDPOINTNUMBER_INTERNAL
 
@@ -185,6 +185,22 @@ class fixed_t {
     return *this;
   }
 
+  /// Unary operator+.
+  ///
+  /// @return Same value as source
+  fixed_t operator+() const {
+    return *this;
+  }
+
+  /// Unary operator+.
+  ///
+  /// @return Same value as source
+  fixed_t operator-() const {
+    fixed_t result(*this);
+    result.fixed_point_ = -result.fixed_point_;
+    return result;
+  }
+
   /// Comparison operator, equal.
   ///
   /// @param[in] lhs Left hand side value which is compared to
@@ -263,7 +279,7 @@ class fixed_t {
   /// Bits width of decimal part of this fixed point number type.
   constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
   /// Coefficient to convert to internal fixed point value.
-  constexpr static internal_int_t kCoef = 1 << Q;
+  constexpr static internal_int_t kCoef = static_cast<internal_int_t>(1) << Q;
 
   /// Convert from some integral type value
   /// to internal integral fixed point type value.
