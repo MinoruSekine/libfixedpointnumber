@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Minoru Sekine
+// Copyright 2019,2020 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -16,10 +16,10 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <iostream>
-
 #ifndef INCLUDE_FIXEDPOINTNUMBER_STREAM_PRIV_H_
 #define INCLUDE_FIXEDPOINTNUMBER_STREAM_PRIV_H_
+
+#include <iostream>
 
 #ifndef FIXEDPOINTNUMBER_INTERNAL
 #error Do not include this file directly, include fixedpointnumber.h instead.

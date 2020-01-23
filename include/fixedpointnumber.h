@@ -16,11 +16,11 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <string>
-#include <type_traits>
-
 #ifndef INCLUDE_FIXEDPOINTNUMBER_H_
 #define INCLUDE_FIXEDPOINTNUMBER_H_
+
+#include <string>
+#include <type_traits>
 
 #define FIXEDPOINTNUMBER_INTERNAL
 
