@@ -19,9 +19,12 @@
 #ifndef INCLUDE_FIXEDPOINTNUMBER_STRING_PRIV_H_
 #define INCLUDE_FIXEDPOINTNUMBER_STRING_PRIV_H_
 
+#include <cassert>
 #include <iomanip>
 #include <sstream>
 #include <string>
+
+#include "fixedpointnumber_wider_int.h"
 
 #ifndef FIXEDPOINTNUMBER_INTERNAL
 #error Do not include this file directly, include fixedpointnumber.h instead.
@@ -36,12 +39,15 @@ std::string fixed_t<IntType, Q>::ToString() const {
   if (fixed_point_ == 0) {
     str = "0";
   } else {
+    using wider_int_t = impl::wider_int_t<IntType>;
     const bool is_negative = (fixed_point_ < 0);
     const auto abs_fixed_point = is_negative ? -fixed_point_ : fixed_point_;
-    int decimal_part = 0;
+    wider_int_t decimal_part = 0;
     int decimal_part_length = 0;
-    int value = 5;
-    for (auto i = 1 << (kBitsWidthOfDecimalPart - 1); i > 0; i = i >> 1) {
+    wider_int_t value = 5;
+    for (wider_int_t i = 1 << (kBitsWidthOfDecimalPart - 1);
+         i > 0;
+         i = i >> 1) {
       decimal_part *= 10;
       if (abs_fixed_point & i) {
         decimal_part += value;
@@ -49,6 +55,7 @@ std::string fixed_t<IntType, Q>::ToString() const {
       ++decimal_part_length;
       value *= 5;
     }
+    assert(decimal_part >= 0);
     while ((decimal_part_length > 1) && ((decimal_part % 10) == 0)) {
       decimal_part /= 10;
       --decimal_part_length;
