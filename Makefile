@@ -170,7 +170,12 @@ clean-doc:
 	-rm $(DOXYGEN_INDEX_HTML)
 	rm -rf $(DOXYGEN_OUT_DIR)
 
-sample: $(SAMPLE_EXEC)
+sample: build-sample
+
+run-sample: $(sample)
+	@$(SAMPLE_EXEC)
+
+build-sample: $(SAMPLE_EXEC)
 
 test: run-test
 
