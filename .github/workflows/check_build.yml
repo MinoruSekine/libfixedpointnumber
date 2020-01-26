@@ -57,6 +57,7 @@ jobs:
       with:
         name: coverage_html
         path: out/coverage_report
+
   sample:
     strategy:
       matrix:
