@@ -39,7 +39,7 @@ constexpr FloatAndString kStringTestValues[] = {
                                                 {   0.0f   ,    "0"},
                                                 {  90.0f   ,   "90.0"},
                                                 { 800.0625f,  "800.0625"},
-                                                {2000.5f   , "2000.5"},
+                                                {1000.5f   , "1000.5"},
 };
 
 }  // namespace
