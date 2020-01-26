@@ -75,3 +75,31 @@ TEST(StringConversionTest, DecimalPartIsWide) {
 
   EXPECT_STREQ(kStr, fixed.ToString().c_str());
 }
+
+template <typename T>
+class WideFixedToStringConversionTest : public ::testing::Test {
+};
+
+using TestTargetTypes =
+        ::testing::Types<fixedpointnumber::fixed_t<int32_t, 20>,
+                         fixedpointnumber::fixed_t<int32_t, 21>>;
+// See following pages to accepet pragma.
+// - TYPED_TEST_SUITE: warning about variadic macro
+//   - https://github.com/google/googletest/issues/2069
+// - INSTANTIATE_TEST_CASE_P generates warnings with clang++ -Wpedantic
+//   - https://github.com/google/googletest/issues/1419
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+#endif  // __clang__
+TYPED_TEST_SUITE(WideFixedToStringConversionTest, TestTargetTypes);
+#ifdef __clang_
+#pragma clang diagnostic pop
+#endif  // __clang__
+
+TYPED_TEST(WideFixedToStringConversionTest, ConversionTest) {
+  for (const auto& i : kStringTestValues) {
+    const TypeParam fixed(i.num);
+    EXPECT_STREQ(i.str, fixed.ToString().c_str());
+  }
+}
