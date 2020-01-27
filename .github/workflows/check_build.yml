@@ -73,7 +73,7 @@ jobs:
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j build-sample
 
-    - name: Build sample program
+    - name: Run sample program
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j run-sample
 
