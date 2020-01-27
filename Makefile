@@ -172,7 +172,7 @@ clean-doc:
 
 sample: build-sample
 
-run-sample: $(sample)
+run-sample: build-sample
 	@$(SAMPLE_EXEC)
 
 build-sample: $(SAMPLE_EXEC)
