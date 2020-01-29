@@ -26,7 +26,6 @@ namespace {
 
 using fixed_t = fixedpointnumber::fixed_t<int32_t, 16>;
 
-constexpr fixed_t kMinusOne(-1);
 constexpr fixed_t kOne(1);
 constexpr fixed_t kTwo(2);
 constexpr fixed_t kFour(4);
@@ -36,14 +35,15 @@ constexpr int kDefaultLoopCount = 1000;
 fixed_t CalcPi(int32_t converge_loop_count) {
   fixed_t pi(0);
   const fixed_t end(converge_loop_count);
-  fixed_t sign = kOne;
+  fixed_t denom = kOne;
   for (fixed_t i(0); i < end; ++i) {
-    const fixed_t denom = i * kTwo + kOne;
-    pi += kOne / denom * sign;
-    sign *= kMinusOne;
+    pi += kFour / denom;
+    denom += kTwo;
+    pi -= kFour / denom;
+    denom += kTwo;
   }
 
-  return pi * kFour;
+  return pi;
 }
 
 }  // namespace
