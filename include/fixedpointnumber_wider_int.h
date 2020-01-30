@@ -60,6 +60,17 @@ class WiderIntType<int32_t> {
   using type = int64_t;
 };
 
+/// Specialized template helper class to get wider type than int64_t.
+///
+/// @note This implementation is not correct,
+///       but necessary to compile even if not used.
+template<>
+class WiderIntType<int64_t> {
+ public:
+  /// Wider type than int64_t.
+  using type = int64_t;
+};
+
 /// Specialized template helper class to get wider type than uint8_t.
 template<>
 class WiderIntType<uint8_t> {
@@ -81,6 +92,17 @@ template<>
 class WiderIntType<uint32_t> {
  public:
   /// Wider type than uint32_t.
+  using type = uint64_t;
+};
+
+/// Specialized template helper class to get wider type than uint64_t.
+///
+/// @note This implementation is not correct,
+///       but necessary to compile even if not used.
+template<>
+class WiderIntType<uint64_t> {
+ public:
+  /// Wider type than uint64_t.
   using type = uint64_t;
 };
 
