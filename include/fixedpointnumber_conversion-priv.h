@@ -30,17 +30,33 @@ namespace fixedpointnumber {
 namespace impl {
 
 template <typename T>
-constexpr T abs(T n) {
+constexpr auto abs(T n)
+    -> typename std::enable_if<std::is_signed<T>::value, T>::type {
   return ((n >= static_cast<T>(0)) ? n : static_cast<T>(-n));
 }
 
 template <typename T>
-constexpr T sign(T n) {
+constexpr auto abs(T n)
+    -> typename std::enable_if<std::is_unsigned<T>::value, T>::type {
+  return n;
+}
+
+template <typename T>
+constexpr auto sign(T n)
+    -> typename std::enable_if<std::is_signed<T>::value, T>::type {
   return ((n > static_cast<T>(0))
           ? static_cast<T>(1)
           : ((n < static_cast<T>(0))
              ? static_cast<T>(-1)
              : static_cast<T>(0)));
+}
+
+template <typename T>
+constexpr auto sign(T n)
+    -> typename std::enable_if<std::is_unsigned<T>::value, T>::type {
+  return ((n > static_cast<T>(0))
+          ? static_cast<T>(1)
+          : 0);
 }
 
 }  // namespace impl
@@ -50,8 +66,9 @@ template <typename SrcType>
 constexpr IntType fixed_t<IntType, Q>::ToInternalType(
     typename std::enable_if<std::is_integral<SrcType>::value,
                             SrcType>::type src) {
-  return static_cast<IntType>((impl::abs(src) << kBitsWidthOfDecimalPart)
-                              * impl::sign(src));
+  return static_cast<IntType>(
+      (static_cast<IntType>(impl::abs(src)) << kBitsWidthOfDecimalPart)
+      * impl::sign(src));
 }
 
 template <typename IntType, std::size_t Q>

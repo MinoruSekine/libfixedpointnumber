@@ -46,12 +46,30 @@ fixed_t CalcPi(int32_t converge_loop_count) {
   return pi;
 }
 
+auto CalcPiHighPrecision(int32_t converge_loop_count)
+    -> decltype(fixedpointnumber::fixed_div(kFour, kOne)) {
+  decltype(fixedpointnumber::fixed_div(kFour, kOne)) pi(0);
+  const fixed_t end(converge_loop_count);
+  fixed_t denom = kOne;
+  for (fixed_t i(0); i < end; ++i) {
+    pi += fixedpointnumber::fixed_div(kFour, denom);
+    denom += kTwo;
+    pi -= fixedpointnumber::fixed_div(kFour, denom);
+    denom += kTwo;
+  }
+
+  return pi;
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
   const int loop_count = (argc >= 2) ? std::stoi(argv[1]) : kDefaultLoopCount;
   const auto pi = CalcPi(loop_count);
   std::cout << "PI = " << pi << std::endl;
+
+  const auto pi_high_precision = CalcPiHighPrecision(loop_count);
+  std::cout << "PI(High precision) = " << pi_high_precision << std::endl;
 
   return 0;
 }
