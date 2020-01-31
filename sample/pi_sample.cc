@@ -16,6 +16,8 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
+#include "pi_sample.h"
+
 #include <cstdint>
 #include <ostream>
 #include <string>
@@ -63,13 +65,20 @@ auto CalcPiHighPrecision(int32_t converge_loop_count)
 
 }  // namespace
 
-int main(int argc, char** argv) {
-  const int loop_count = (argc >= 2) ? std::stoi(argv[1]) : kDefaultLoopCount;
-  const auto pi = CalcPi(loop_count);
+namespace fixedpointnumber {
+
+namespace sample {
+
+void PrintPiSample() {
+  const auto pi = CalcPi(kDefaultLoopCount);
   std::cout << "PI = " << pi << std::endl;
 
-  const auto pi_high_precision = CalcPiHighPrecision(loop_count);
+  const auto pi_high_precision = CalcPiHighPrecision(kDefaultLoopCount);
   std::cout << "PI(High precision) = " << pi_high_precision << std::endl;
 
-  return 0;
+  return;
 }
+
+}  // namespace sample
+
+}  // namespace fixedpointnumber
