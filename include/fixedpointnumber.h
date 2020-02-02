@@ -69,6 +69,15 @@ class fixed_t {
       : fixed_point_(ToInternalType<SrcIntType, SrcQ>(src)) {
   }
 
+  /// Construction directly from internal integer value.
+  ///
+  /// This constructor should be mostlty internal use.
+  ///
+  /// @param[in] src fixed_t to construct from
+  constexpr fixed_t(internal_int_t src, bool)
+      : fixed_point_(src) {
+  }
+
   /// Cast operator to specified integral or floating-point types.
   ///
   /// @tparam DestType Type to cast to.
@@ -196,9 +205,8 @@ class fixed_t {
   ///
   /// @return Same value as source
   fixed_t operator-() const {
-    fixed_t result(*this);
-    result.fixed_point_ = -result.fixed_point_;
-    return result;
+    fixed_point_ = -fixed_point_;
+    return *this;
   }
 
   /// Comparison operator, equal.
@@ -382,10 +390,8 @@ auto fixed_mul(fixed_t<internal_int_t, l_Q> lhs,
   const auto rhs_wide = static_cast<wider_int_t>(rhs.fixed_point_);
 
   using result_t = fixed_t<wider_int_t, l_Q + r_Q>;
-  result_t result;
-  result.fixed_point_ = lhs_wide * rhs_wide;
 
-  return result;
+  return result_t(lhs_wide * rhs_wide, true);
 }
 
 /// Function to divide fixed_t with keeping precision.
@@ -418,10 +424,8 @@ auto fixed_div(fixed_t<internal_int_t, l_Q> lhs,
   const auto rhs_wide = static_cast<wider_int_t>(rhs.fixed_point_);
 
   using result_t = fixed_t<wider_int_t, l_Q + (kResultBits - kSrcBits) - r_Q>;
-  result_t result;
-  result.fixed_point_ = (lhs_wide << (kResultBits - kSrcBits)) / rhs_wide;
 
-  return result;
+  return result_t((lhs_wide << (kResultBits - kSrcBits)) / rhs_wide, true);
 }
 
 /// Multiply operator.
