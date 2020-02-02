@@ -463,6 +463,7 @@ fixed_t<internal_int_t, Q> operator/(fixed_t<internal_int_t, Q> lhs,
 }  // namespace fixedpointnumber
 
 #include "fixedpointnumber_conversion-priv.h"
+#include "fixedpointnumber_limits.h"
 #include "fixedpointnumber_stream-priv.h"
 #include "fixedpointnumber_string-priv.h"
 
