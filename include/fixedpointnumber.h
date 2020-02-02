@@ -196,9 +196,8 @@ class fixed_t {
   ///
   /// @return Same value as source
   fixed_t operator-() const {
-    fixed_t result(*this);
-    result.fixed_point_ = -result.fixed_point_;
-    return result;
+    fixed_point_ = -fixed_point_;
+    return *this;
   }
 
   /// Comparison operator, equal.
