@@ -22,14 +22,32 @@
 
 #include "constexpr_string.h"
 
+namespace {
+
+constexpr const char kTestFloatString[] = "10.0625";
+constexpr const char kTestIntString[]   = "100625";
+constexpr const char kTestNullString[]  = "";
+
+}  // namespace
+
 TEST(ConstexprStringTest, cstrlen) {
-  constexpr const char kTestString[] = "Test string.";
-  constexpr std::size_t test_string_len = constexprstr::cstrlen(kTestString);
-  EXPECT_EQ(12U, test_string_len);
+  constexpr std::size_t test_string_len =
+      constexprstr::cstrlen(kTestFloatString);
+  EXPECT_EQ(7U, test_string_len);
 }
 
 TEST(ConstexprStringTest, cstrlen_zero_len_string) {
-  constexpr const char kTestString[] = "";
-  constexpr std::size_t test_string_len = constexprstr::cstrlen(kTestString);
+  constexpr std::size_t test_string_len =
+      constexprstr::cstrlen(kTestNullString);
   EXPECT_EQ(0U, test_string_len);
+}
+
+TEST(ConstexprStringTest, cstrchr) {
+  constexpr const char* kDotPos = constexprstr::cstrchr(kTestFloatString, '.');
+  EXPECT_STREQ(".0625", kDotPos);
+}
+
+TEST(ConstexprStringTest, cstrchr_cant_find) {
+  constexpr const char* kDotPos = constexprstr::cstrchr(kTestIntString, '.');
+  EXPECT_EQ(nullptr, kDotPos);
 }

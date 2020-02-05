@@ -32,6 +32,22 @@ constexpr std::size_t cstrlen(const char* str) {
   return ((*str == '\0') ? 0 : (1 + cstrlen(str + 1)));
 }
 
+/// constexpr version of std::strchr().
+///
+/// Find first position to appear specified character in string.
+/// This function can be called as constexpr function.
+///
+/// @param[in] str '\0' terminated string to find specified character
+/// @param[in] c   Character to find in string
+///
+/// @return Pointer to first position to appear specified character.
+///         Returns nullptr, if can't find c in str.
+constexpr const char* cstrchr(const char* str, int c) {
+  return ((*str == c)
+          ? str
+          : ((*str == '\0') ? nullptr : cstrchr(str + 1, c)));
+}
+
 }  // namespace constexprstr
 
 #endif  // INCLUDE_CONSTEXPR_STRING_H_
