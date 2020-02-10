@@ -21,6 +21,9 @@
 
 #include <type_traits>
 
+#include "constexpr_math.h"
+#include "constexpr_string.h"
+
 #ifndef FIXEDPOINTNUMBER_INTERNAL
 #error Do not include this file directly, include fixedpointnumber.h instead.
 #endif
@@ -59,6 +62,32 @@ constexpr auto sign(T n)
           : 0);
 }
 
+template <typename IntType>
+constexpr IntType FromStringToDecimalIntImpl(IntType i, const char* str) {
+  return ((*str == '\0')
+          ? i
+          : ((*str == '.')
+             ? FromStringToDecimalIntImpl(i, str + 1)
+             : FromStringToDecimalIntImpl(i * 10 + *str - '0', str + 1)));
+}
+
+template <typename IntType>
+constexpr IntType FromStringToDecimalInt(const char* str) {
+  return ((*str == '-')
+          ? -FromStringToDecimalIntImpl(0, str + 1)
+          : FromStringToDecimalIntImpl(0, str));
+}
+
+template <typename IntType>
+constexpr IntType FromStringDecimalCoef(const char* str) {
+  return static_cast<IntType>(constexprstr::cstrchr(str, '.')
+                              ? constexprmath::cpowi(
+                                  10,
+                                  constexprstr::cstrlen(
+                                      constexprstr::cstrchr(str, '.') + 1))
+                              : 1);
+}
+
 }  // namespace impl
 
 template <typename IntType, std::size_t Q>
@@ -77,6 +106,17 @@ constexpr IntType fixed_t<IntType, Q>::ToInternalType(
     typename std::enable_if<std::is_floating_point<SrcType>::value,
                             SrcType>::type src) {
   return static_cast<IntType>(src * static_cast<SrcType>(kCoef));
+}
+
+template <typename IntType, std::size_t Q>
+template <typename SrcType>
+constexpr IntType fixed_t<IntType, Q>::ToInternalType(
+    typename std::enable_if<std::is_same<SrcType, const char*>::value,
+                            SrcType>::type str) {
+  using wider_int_t = impl::wider_int_t<IntType>;
+  return static_cast<IntType>(
+      (impl::FromStringToDecimalInt<wider_int_t>(str) << Q)
+      / impl::FromStringDecimalCoef<wider_int_t>(str));
 }
 
 template <typename IntType, std::size_t Q>

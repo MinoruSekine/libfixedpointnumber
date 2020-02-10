@@ -280,6 +280,16 @@ class fixed_t {
   /// @return Holding fixed point value as string.
   std::string ToString() const;
 
+  /// Set holding fixed point value with string.
+  ///
+  /// @param[in] str Stringificated integer or floating point value,
+  ///                like as "23", "4.5".
+  ///
+  /// @return Reference to this instance.
+  fixed_t& FromString(const char* str) {
+    return fixed_point_ = this->ToInternalType<const char*>(str), *this;
+  }
+
   /// Internal integral value holding as fixed point value.
   internal_int_t fixed_point_;
 
@@ -318,6 +328,11 @@ class fixed_t {
   constexpr static internal_int_t ToInternalType(
       typename std::enable_if<std::is_floating_point<SrcType>::value,
                               SrcType>::type src);
+
+  template <typename SrcType>
+  constexpr static internal_int_t ToInternalType(
+    typename std::enable_if<std::is_same<SrcType, const char*>::value,
+                            SrcType>::type str);
 
   /// Convert from fixed_t which has another template params.
   ///
