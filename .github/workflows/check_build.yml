@@ -3,7 +3,7 @@ name: Check build
 on:
   pull_request:
   schedule:
-    - cron:  0 20 * * *
+    - cron:  0 20 * * 5
 
 jobs:
   tests:
@@ -92,16 +92,26 @@ jobs:
         make CPPLINT=styleguide/cpplint/cpplint.py -k -j cpplint
 
   cppcheck:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [macOS-latest]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
 
-    - name: Install cppcheck
+    - name: Install cppcheck (Ubuntu)
+      if: contains(matrix.os, 'ubuntu')
       run: |
         git clone https://github.com/danmar/cppcheck.git
         cd cppcheck
         sudo make -k -j MATCHCOMPILER=yes FILESDIR=/usr/share/cppcheck HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function" install
+
+    - name: Install cppcheck (macOS)
+      if: contains(matrix.os, 'macOS')
+      run: |
+        brew install cppcheck
 
     - name: cppcheck
       run: |
