@@ -197,14 +197,14 @@ class fixed_t {
   /// Unary operator+.
   ///
   /// @return Same value as source
-  fixed_t operator+() const {
+  fixed_t operator+() {
     return *this;
   }
 
   /// Unary operator+.
   ///
   /// @return Same value as source
-  fixed_t operator-() const {
+  fixed_t operator-() {
     fixed_point_ = -fixed_point_;
     return *this;
   }
