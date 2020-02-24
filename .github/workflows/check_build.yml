@@ -34,7 +34,7 @@ jobs:
       run: |
         git clone https://github.com/google/googletest.git
         cd googletest
-        cmake -DBUILD_GMOCK=OFF .
+        cmake -DBUILD_GMOCK=OFF -DCMAKE_CXX_STANDARD=11 .
         sudo make -k -j all install
 
     - name: Build tests
