@@ -112,6 +112,61 @@ class numeric_limits {
   ///
   /// This is compatible to std::numeric_limits<T>::tinyness_before.
   static constexpr const bool tinyness_before = false;
+
+  /// Get minimum normalized positive value.
+  ///
+  /// This is compatible to std::numeric_limits<T>::min()..
+  static constexpr T min() noexcept {
+    return T(typename T::type(1), true);
+  }
+  /// Get lowest value.
+  ///
+  /// This is compatible to std::numeric_limits<T>::lowest().
+  static constexpr T lowest() noexcept {
+    return T(std::numeric_limits<typename T::type>::lowest(), true);
+  }
+  /// Get maximum value.
+  ///
+  /// This is compatible to std::numeric_limits<T>::max().
+  static constexpr T max() noexcept {
+    return T(std::numeric_limits<typename T::type>::max(), true);
+  }
+  /// Get machine epsilon value.
+  ///
+  /// This is compatible to std::numeric_limits<T>::epsilon().
+  static constexpr T epsilon() noexcept {
+    return T(typename T::type(1), true);
+  }
+  /// Get maximum round error.
+  ///
+  /// This is compatible to std::numeric_limits<T>::round_error().
+  static constexpr T round_error() noexcept {
+    return T((typename T::type(1 << (T::kBitsWidthOfDecimalPart - 1))), true);
+  }
+  /// Get the value which represents infinity if T has it.
+  ///
+  /// This is compatible to std::numeric_limits<T>::infinity().
+  static constexpr T infinity() noexcept {
+    return T(0);
+  }
+  /// Get quiet NaN if T has it.
+  ///
+  /// This is compatible to std::numeric_limits<T>::quiet_NaN().
+  static constexpr T quiet_NaN() noexcept {
+    return T(0);
+  }
+  /// Get signaling NaN if T has it.
+  ///
+  /// This is compatible to std::numeric_limits<T>::signaling_NaN().
+  static constexpr T signaling_NaN() noexcept {
+    return T(0);
+  }
+  /// Get positive minimum denormalized value if T has it.
+  ///
+  /// This is compatible to std::numeric_limits<T>::denorm_min().
+  static constexpr T denorm_min() noexcept {
+    return T(0);
+  }
 };
 
 template <class T> constexpr const bool numeric_limits<T>::is_signed;

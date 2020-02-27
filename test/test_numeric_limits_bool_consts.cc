@@ -58,3 +58,15 @@ TEST(NumericLimitsTest, ConstantIntegers) {
   EXPECT_EQ(0, limits::max_exponent);
   EXPECT_EQ(0, limits::max_exponent10);
 }
+
+TEST(NumericLimitsTest, StaticMemberFunctions) {
+  EXPECT_EQ(fixed_t(0.0078125f), limits::min());
+  EXPECT_EQ(fixed_t(-256.0f), limits::lowest());
+  EXPECT_EQ(fixed_t(255.9921875f), limits::max());
+  EXPECT_EQ(fixed_t(0.0078125f), limits::epsilon());
+  EXPECT_EQ(fixed_t(0.5f), limits::round_error());
+  EXPECT_EQ(fixed_t(0), limits::infinity());
+  EXPECT_EQ(fixed_t(0), limits::quiet_NaN());
+  EXPECT_EQ(fixed_t(0), limits::signaling_NaN());
+  EXPECT_EQ(fixed_t(0), limits::denorm_min());
+}
