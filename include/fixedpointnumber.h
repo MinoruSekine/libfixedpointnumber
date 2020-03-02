@@ -35,6 +35,12 @@ namespace fixedpointnumber {
 template <typename internal_int_t, std::size_t Q>
 class fixed_t {
  public:
+  /// Alias of internal integer type which holding fixed point number.
+  using type = internal_int_t;
+
+  /// Bits width of decimal part of this fixed point number type.
+  constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
+
   /// Default constructor.
   constexpr fixed_t() = default;
 
@@ -197,14 +203,14 @@ class fixed_t {
   /// Unary operator+.
   ///
   /// @return Same value as source
-  fixed_t operator+() const {
+  fixed_t operator+() {
     return *this;
   }
 
   /// Unary operator+.
   ///
   /// @return Same value as source
-  fixed_t operator-() const {
+  fixed_t operator-() {
     fixed_point_ = -fixed_point_;
     return *this;
   }
@@ -294,8 +300,6 @@ class fixed_t {
   internal_int_t fixed_point_;
 
  private:
-  /// Bits width of decimal part of this fixed point number type.
-  constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
   /// Coefficient to convert to internal fixed point value.
   constexpr static internal_int_t kCoef = static_cast<internal_int_t>(1) << Q;
 
