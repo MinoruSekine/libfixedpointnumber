@@ -16,17 +16,17 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef SAMPLE_PI_SAMPLE_H_
-#define SAMPLE_PI_SAMPLE_H_
+#ifndef SAMPLE_PI_BY_LEIBNIZ_H_
+#define SAMPLE_PI_BY_LEIBNIZ_H_
 
 namespace fixedpointnumber {
 
 namespace sample {
 
-void PrintPiSample();
+void PrintPiByLeibniz();
 
 }  // namespace sample
 
 }  // namespace fixedpointnumber
 
-#endif  // SAMPLE_PI_SAMPLE_H_
+#endif  // SAMPLE_PI_BY_LEIBNIZ_H_

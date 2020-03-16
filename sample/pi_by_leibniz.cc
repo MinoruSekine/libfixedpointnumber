@@ -16,7 +16,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#include "pi_sample.h"
+#include "pi_by_leibniz.h"
 
 #include <cstdint>
 #include <ostream>
@@ -34,7 +34,7 @@ constexpr fixed_t kFour(4);
 
 constexpr int kDefaultLoopCount = 1000;
 
-fixed_t CalcPi(int32_t converge_loop_count) {
+fixed_t CalcPiByLeibniz(int32_t converge_loop_count) {
   fixed_t pi(0);
   const fixed_t end(converge_loop_count);
   fixed_t denom = kOne;
@@ -48,7 +48,7 @@ fixed_t CalcPi(int32_t converge_loop_count) {
   return pi;
 }
 
-auto CalcPiHighPrecision(int32_t converge_loop_count)
+auto CalcPiByLeibnizHighPrecision(int32_t converge_loop_count)
     -> decltype(fixedpointnumber::fixed_div(kFour, kOne)) {
   decltype(fixedpointnumber::fixed_div(kFour, kOne)) pi(0);
   const fixed_t end(converge_loop_count);
@@ -69,12 +69,15 @@ namespace fixedpointnumber {
 
 namespace sample {
 
-void PrintPiSample() {
-  const auto pi = CalcPi(kDefaultLoopCount);
-  std::cout << "PI = " << pi << std::endl;
+void PrintPiByLeibniz() {
+  const auto pi = CalcPiByLeibniz(kDefaultLoopCount);
+  std::cout << "PI by Leibniz fomula = " << pi << std::endl;
 
-  const auto pi_high_precision = CalcPiHighPrecision(kDefaultLoopCount);
-  std::cout << "PI(High precision) = " << pi_high_precision << std::endl;
+  const auto pi_high_precision =
+      CalcPiByLeibnizHighPrecision(kDefaultLoopCount);
+  std::cout << "PI by Leibniz fomula (High precision) = "
+            << pi_high_precision
+            << std::endl;
 
   return;
 }

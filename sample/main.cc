@@ -16,10 +16,10 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#include "pi_sample.h"
+#include "pi_by_leibniz.h"
 
 int main(int, char**) {
-  fixedpointnumber::sample::PrintPiSample();
+  fixedpointnumber::sample::PrintPiByLeibniz();
 
   return 0;
 }
