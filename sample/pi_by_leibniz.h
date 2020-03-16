@@ -16,19 +16,17 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#include "fixedpointnumber.h"
+#ifndef SAMPLE_PI_BY_LEIBNIZ_H_
+#define SAMPLE_PI_BY_LEIBNIZ_H_
 
-#include "pi_by_leibniz.h"
-#include "pi_by_monte_carlo.h"
+namespace fixedpointnumber {
 
-int main(int, char**) {
-  fixedpointnumber::sample::PrintPiByLeibniz();
+namespace sample {
 
-  fixedpointnumber::sample::PrintPiByMonteCarlo(100.0f, 1.0f);
+void PrintPiByLeibniz();
 
-  using monte_carlo_fixed_t = fixedpointnumber::fixed_t<int32_t, 16>;
-  fixedpointnumber::sample::PrintPiByMonteCarlo<monte_carlo_fixed_t>(
-      monte_carlo_fixed_t(100.0f), monte_carlo_fixed_t(1.0f));
+}  // namespace sample
 
-  return 0;
-}
+}  // namespace fixedpointnumber
+
+#endif  // SAMPLE_PI_BY_LEIBNIZ_H_
