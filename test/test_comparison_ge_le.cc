@@ -41,4 +41,4 @@ TEST_P(ComparisonGeLeTest, GeLe) {
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          ComparisonGeLeTest,
-                         ::testing::Range(3.0f, -2.0f, -0.0625f));
+                         ::testing::Range(-2.0f, 3.0f, 0.0625f));
