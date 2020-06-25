@@ -12,6 +12,7 @@
   - [ ] Those tests already exists
   - [ ] Those tests are included in this PR
 - [ ] Sample program
+- [ ] CI
 
 # References
 
