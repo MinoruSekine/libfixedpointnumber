@@ -20,7 +20,7 @@
 #include <sstream>
 #include <string>
 
-#include <gtest/gtest.h>
+#include "gtest_compat.h"
 
 #include "fixedpointnumber.h"
 

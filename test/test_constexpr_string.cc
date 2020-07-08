@@ -18,7 +18,7 @@
 
 #include <cstddef>
 
-#include <gtest/gtest.h>
+#include "gtest_compat.h"
 
 #include "constexpr_string.h"
 

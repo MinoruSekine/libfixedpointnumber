@@ -1,5 +1,5 @@
 //
-// Copyright 2019 Minoru Sekine
+// Copyright 2020 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -16,29 +16,17 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <cstdint>
+#ifndef TEST_GTEST_COMPAT_H_
+#define TEST_GTEST_COMPAT_H_
 
-#include "gtest_compat.h"
+#include <gtest/gtest.h>
 
-#include "fixedpointnumber.h"
+#ifndef INSTANTIATE_TEST_SUITE_P
+#define INSTANTIATE_TEST_SUITE_P INSTANTIATE_TEST_CASE_P
+#endif  // !defined(INSTANTIATE_TEST_SUITE_P)
 
-namespace {
+#ifndef TYPED_TEST_SUITE
+#define TYPED_TEST_SUITE TYPED_TEST_CASE
+#endif  // !defined(TYPED_TEST_SUITE)
 
-using fixed_t = fixedpointnumber::fixed_t<int16_t, 7>;
-
-}  // namespace
-
-class ComparisonGeLeTest
-  : public ::testing::TestWithParam<float> {
-};
-
-TEST_P(ComparisonGeLeTest, GeLe) {
-  const fixed_t param(GetParam());
-  const fixed_t three_point_zero(3.0f);
-  EXPECT_GE(three_point_zero, param);
-  EXPECT_LE(param, three_point_zero);
-}
-
-INSTANTIATE_TEST_SUITE_P(Instance0,
-                         ComparisonGeLeTest,
-                         ::testing::Range(-2.0f, 3.0f, 0.0625f));
+#endif  // TEST_GTEST_COMPAT_H_
