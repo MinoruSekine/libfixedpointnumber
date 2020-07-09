@@ -1,1 +1,8 @@
 out/
+
+# For Visual Studio
+.vs/
+packages/
+*.suo
+*.user
+*.sln.docstates

@@ -19,7 +19,7 @@
 
 #include <cstdint>
 
-#include <gtest/gtest.h>
+#include "gtest_compat.h"
 
 #include "fixedpointnumber.h"
 #include "fixedpointnumber_limits.h"
