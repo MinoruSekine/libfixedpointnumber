@@ -12,8 +12,8 @@ jobs:
         os: [ubuntu-latest, macOS-latest]
         build_type: [release, debug]
         include:
-          - build_type: coverage
-            os: ubuntu-latest
+          - os: ubuntu-latest
+            build_type: coverage
 
     runs-on: ${{ matrix.os }}
 
@@ -31,6 +31,7 @@ jobs:
         brew install gcovr
 
     - name: Install googletest
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
         git clone https://github.com/google/googletest.git
         cd googletest
@@ -38,11 +39,12 @@ jobs:
         sudo make -k -j all install
 
     - name: Build tests
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j build-test
 
     - name: Run tests
-      if: matrix.build_type != 'coverage'
+      if: matrix.build_type != 'coverage' && ( contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu') )
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j run-test
 
@@ -94,10 +96,12 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Build sample program
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j build-sample
 
     - name: Run sample program
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j run-sample
 
