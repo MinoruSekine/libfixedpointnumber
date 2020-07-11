@@ -58,6 +58,30 @@ jobs:
         name: coverage_html
         path: out/coverage_report
 
+  tests_win:
+    strategy:
+      matrix:
+        configuration: [Release, Debug]
+        platform: [x86, x64]
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: microsoft/setup-msbuild@v1.0.0
+
+    - name: Restore nuget packages
+      run: |
+        nuget restore build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
+
+    - name: Build tests
+      run: |
+        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_test/libfixedpointnumber_test.vcxproj /t:build /p:Configuration=${{ matrix.configuration }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+
+    - name: Run tests
+      run: |
+        out\\test\\${{ matrix.platform }}\\${{ matrix.configuration }}\\libfixedpointnumber_test.exe
+
   sample:
     strategy:
       matrix:
@@ -76,6 +100,26 @@ jobs:
     - name: Run sample program
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j run-sample
+
+  sample_win:
+    strategy:
+      matrix:
+        configuration: [Release, Debug]
+        platform: [x86, x64]
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: microsoft/setup-msbuild@v1.0.0
+
+    - name: Build sample program
+      run: |
+        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample/libfixedpointnumber_sample.vcxproj /t:build /p:Configuration=${{ matrix.configuration }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+
+    - name: Run sample program
+      run: |
+        out\\sample\\${{ matrix.platform }}\\${{ matrix.configuration }}\\libfixedpointnumber_sample.exe
 
   cpplint:
     runs-on: ubuntu-latest
