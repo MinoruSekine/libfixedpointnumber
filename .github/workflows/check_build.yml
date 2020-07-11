@@ -9,16 +9,24 @@ jobs:
   tests:
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest]
-        build_type: [release, debug, coverage]
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        platform: [x64, x86]
+        build_type: [release, debug]
         exclude:
           - os: macOS-latest
+            platform: x86
+          - os: ubuntu-latest
+            platform: x86
+        include:
+          - os: ubuntu-latest
             build_type: coverage
 
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
+    - if: contains(matrix.os, 'windows')
+      uses: microsoft/setup-msbuild@v1.0.0
 
     - name: Install gcovr (Ubuntu)
       if: contains(matrix.os, 'ubuntu') && matrix.build_type == 'coverage'
@@ -31,20 +39,37 @@ jobs:
         brew install gcovr
 
     - name: Install googletest
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
         git clone https://github.com/google/googletest.git
         cd googletest
         cmake -DBUILD_GMOCK=OFF -DCMAKE_CXX_STANDARD=11 .
         sudo make -k -j all install
 
-    - name: Build tests
+    - name: Restore nuget packages (Windows)
+      if: contains(matrix.os, 'windows')
+      run: |
+        nuget restore build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
+
+    - name: Build tests (Ubuntu, macOS)
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j build-test
 
-    - name: Run tests
-      if: matrix.build_type != 'coverage'
+    - name: Build tests (Windows)
+      if: contains(matrix.os, 'windows')
+      run: |
+        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_test/libfixedpointnumber_test.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+
+    - name: Run tests (Ubuntu, macOS)
+      if: matrix.build_type != 'coverage' && ( contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu') )
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j run-test
+
+    - name: Run tests (Windows)
+      if: contains(matrix.os, 'windows')
+      run: |
+        out\\test\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_test.exe
 
     - name: Generate coverage report
       if: matrix.build_type == 'coverage'
@@ -58,68 +83,44 @@ jobs:
         name: coverage_html
         path: out/coverage_report
 
-  tests_win:
-    strategy:
-      matrix:
-        configuration: [Release, Debug]
-        platform: [x86, x64]
-
-    runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v1
-    - uses: microsoft/setup-msbuild@v1.0.0
-
-    - name: Restore nuget packages
-      run: |
-        nuget restore build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
-
-    - name: Build tests
-      run: |
-        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_test/libfixedpointnumber_test.vcxproj /t:build /p:Configuration=${{ matrix.configuration }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
-
-    - name: Run tests
-      run: |
-        out\\test\\${{ matrix.platform }}\\${{ matrix.configuration }}\\libfixedpointnumber_test.exe
-
   sample:
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+        platform: [x64, x86]
         build_type: [release, debug]
+        exclude:
+          - os: macOS-latest
+            platform: x86
+          - os: ubuntu-latest
+            platform: x86
 
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
+    - if: contains(matrix.os, 'windows')
+      uses: microsoft/setup-msbuild@v1.0.0
 
-    - name: Build sample program
+    - name: Build sample program (Ubuntu, macOS)
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j build-sample
 
-    - name: Run sample program
+    - name: Build sample program (Windows)
+      if: contains(matrix.os, 'windows')
+      run: |
+        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample/libfixedpointnumber_sample.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+
+    - name: Run sample program (Ubuntu, macOS)
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j run-sample
 
-  sample_win:
-    strategy:
-      matrix:
-        configuration: [Release, Debug]
-        platform: [x86, x64]
-
-    runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v1
-    - uses: microsoft/setup-msbuild@v1.0.0
-
-    - name: Build sample program
+    - name: Run sample program (Windows)
+      if: contains(matrix.os, 'windows')
       run: |
-        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample/libfixedpointnumber_sample.vcxproj /t:build /p:Configuration=${{ matrix.configuration }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
-
-    - name: Run sample program
-      run: |
-        out\\sample\\${{ matrix.platform }}\\${{ matrix.configuration }}\\libfixedpointnumber_sample.exe
+        out\\sample\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_sample.exe
 
   cpplint:
     runs-on: ubuntu-latest
