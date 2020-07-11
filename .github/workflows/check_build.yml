@@ -10,10 +10,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
-        build_type: [release, debug, coverage]
-        exclude:
-          - os: macOS-latest
-            build_type: coverage
+        build_type: [release, debug]
+        include:
+          - build_type: coverage
+            os: ubuntu-latest
 
     runs-on: ${{ matrix.os }}
 
