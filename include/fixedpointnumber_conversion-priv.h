@@ -123,9 +123,16 @@ template <typename IntType, std::size_t Q>
 template <typename SrcIntType, std::size_t SrcQ>
 constexpr IntType
 fixed_t<IntType, Q>::ToInternalType(const fixed_t<SrcIntType, SrcQ>& src) {
+#ifdef _MSC_VER  // Suppress warning at shifting by negative number.
+#pragma warning(push)
+#pragma warning(disable:4293)
+#endif  // _MSC_VER
   return ((Q > SrcQ)
           ? static_cast<IntType>(src.fixed_point_ << (Q - SrcQ))
           : static_cast<IntType>(src.fixed_point_ >> (SrcQ - Q)));
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif  // _MSC_VER
 }
 
 template <typename IntType, std::size_t Q>
