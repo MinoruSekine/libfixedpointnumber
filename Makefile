@@ -168,7 +168,9 @@ DOXYFILE := $(BUILD_FILES_DIR)/Doxyfile
 DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
 
 # Targets.
-all: test sample
+all: build-all
+
+build-all: build-test build-sample
 
 clean:
 	-rm $(TEST_OBJS) $(TEST_DEPS) $(SAMPLE_OBJS) $(SAMPLE_DEPS)
@@ -178,14 +180,10 @@ clean-doc:
 	-rm $(DOXYGEN_INDEX_HTML)
 	rm -rf $(DOXYGEN_OUT_DIR)
 
-sample: build-sample
-
 run-sample: build-sample
 	@$(SAMPLE_EXEC)
 
 build-sample: $(SAMPLE_EXEC)
-
-test: run-test
 
 run-test: build-test
 	@$(TEST_EXEC)
@@ -236,4 +234,4 @@ ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS) $(SAMPLE_DEPS)
 endif
 
-.PHONY: all clean test run-test build-test check cpplint cppcheck doc
+.PHONY: all clean build-sample run-sample build-test run-test build-test check cpplint cppcheck doc
