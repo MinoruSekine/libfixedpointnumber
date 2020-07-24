@@ -236,4 +236,4 @@ ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS) $(SAMPLE_DEPS)
 endif
 
-.PHONY: all clean test run-test build-test check cpplint cppcheck doc
+.PHONY: all clean sample build-sample run-sample test build-test run-test build-test check cpplint cppcheck doc
