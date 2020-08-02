@@ -28,20 +28,22 @@ and include it.
 | `cppcheck` | Static analytics by `cppcheck` |
 | `cpplint` | Lint by `cpplint` |
 | `doc` | Generate doxygen documents into out/doc |
-| `run-sample` | Run sample programs |
-| `run-test` | Run unit tests |
-| `sample` | Build sample programs (same as `build-sample`) |
-| `test` | Generate and run unit tests (= both `build_test` and `run-test`) |
+| `run-sample` | Build (if necessary) and run sample programs |
+| `run-test` | Build (if necessary) and run unit tests |
 
 ### Build and run unit tests
 
 1. Install Google Test (https://github.com/google/googletest)
-1. `make test` in this directory
+1. `make run-test` in this directory
 
 #### Build coverage report
 
 1. Install `gcovr`
 1. `make BUILD_TYPE=coverage coverage`, so html report is put into `out/coverage_html/`
+
+### Build and run sample programs
+
+1. `make run-sample` in this directory
 
 ### Checks
 
@@ -66,3 +68,8 @@ or
 
 - Install `doxygen` into your environment
 - `make doc`
+
+### For Windows (Visual Studio)
+
+- The solution file to build samples and tests with Visual Studio is available
+as build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
