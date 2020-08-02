@@ -68,3 +68,8 @@ or
 
 - Install `doxygen` into your environment
 - `make doc`
+
+### For Windows (Visual Studio)
+
+- The solution file to build samples and tests with Visual Studio is available
+as build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
