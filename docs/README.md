@@ -30,13 +30,11 @@ and include it.
 | `doc` | Generate doxygen documents into out/doc |
 | `run-sample` | Run sample programs |
 | `run-test` | Run unit tests |
-| `sample` | Build sample programs (same as `build-sample`) |
-| `test` | Generate and run unit tests (= both `build_test` and `run-test`) |
 
 ### Build and run unit tests
 
 1. Install Google Test (https://github.com/google/googletest)
-1. `make test` in this directory
+1. `make run-test` in this directory
 
 #### Build coverage report
 
