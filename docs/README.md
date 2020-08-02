@@ -28,8 +28,8 @@ and include it.
 | `cppcheck` | Static analytics by `cppcheck` |
 | `cpplint` | Lint by `cpplint` |
 | `doc` | Generate doxygen documents into out/doc |
-| `run-sample` | Run sample programs |
-| `run-test` | Run unit tests |
+| `run-sample` | Build (if necessary) and run sample programs |
+| `run-test` | Build (if necessary) and run unit tests |
 
 ### Build and run unit tests
 
