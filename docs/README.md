@@ -41,6 +41,10 @@ and include it.
 1. Install `gcovr`
 1. `make BUILD_TYPE=coverage coverage`, so html report is put into `out/coverage_html/`
 
+### Build and run sample programs
+
+1. `make run-sample` in this directory
+
 ### Checks
 
 Some check targets are available in build by Makefile
