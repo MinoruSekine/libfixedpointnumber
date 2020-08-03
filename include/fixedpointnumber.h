@@ -47,6 +47,9 @@ class fixed_t {
                                   - 1);
   static_assert(kDecimalPartMask > 0,
                 "Can't calculate mask for decimal part.");
+  /// Bits mask of integral part of this type.
+  constexpr static internal_int_t kIntegralPartMask =
+      static_cast<internal_int_t>(~kDecimalPartMask);
 
   /// Default constructor.
   constexpr fixed_t() = default;

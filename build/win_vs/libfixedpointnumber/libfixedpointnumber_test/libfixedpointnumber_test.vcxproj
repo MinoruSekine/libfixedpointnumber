@@ -65,6 +65,7 @@
     <ClCompile Include="..\..\..\..\test\test_double_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_fixed_t_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_float_conversion.cc" />
+    <ClCompile Include="..\..\..\..\test\test_floor_ceil.cc" />
     <ClCompile Include="..\..\..\..\test\test_int32_int16fixed_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_move_constructor_operator.cc" />
     <ClCompile Include="..\..\..\..\test\test_numeric_limits_bool_consts.cc" />
