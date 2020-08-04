@@ -211,7 +211,8 @@ class fixed_t {
   ///
   /// @return Same value as source
   fixed_t operator-() {
-    fixed_point_ = -fixed_point_;
+    // static_cast is necessary here because of implicit integral promotion.
+    fixed_point_ = static_cast<internal_int_t>(-fixed_point_);
     return *this;
   }
 
