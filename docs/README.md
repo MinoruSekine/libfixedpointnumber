@@ -73,3 +73,4 @@ or
 
 - The solution file to build samples and tests with Visual Studio is available
 as build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
+- Google Test Framework will be recovered automatically at opening solution file
