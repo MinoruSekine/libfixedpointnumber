@@ -40,6 +40,16 @@ class fixed_t {
 
   /// Bits width of decimal part of this fixed point number type.
   constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
+  /// Bits mask of decimal part of this type.
+  constexpr static internal_int_t kDecimalPartMask =
+      static_cast<internal_int_t>((impl::wider_int_t<internal_int_t>(1)
+                                   << kBitsWidthOfDecimalPart)
+                                  - 1);
+  static_assert(kDecimalPartMask > 0,
+                "Can't calculate mask for decimal part.");
+  /// Bits mask of integral part of this type.
+  constexpr static internal_int_t kIntegralPartMask =
+      static_cast<internal_int_t>(~kDecimalPartMask);
 
   /// Default constructor.
   constexpr fixed_t() = default;
@@ -211,7 +221,8 @@ class fixed_t {
   ///
   /// @return Same value as source
   fixed_t operator-() {
-    fixed_point_ = -fixed_point_;
+    // static_cast is necessary here because of implicit integral promotion.
+    fixed_point_ = static_cast<internal_int_t>(-fixed_point_);
     return *this;
   }
 

@@ -53,11 +53,7 @@ std::string fixed_t<IntType, Q>::ToString() const {
        << '.';
 
     using wider_int_t = impl::wider_int_t<IntType>;
-    constexpr wider_int_t decimal_part_mask =
-        (wider_int_t(1) << kBitsWidthOfDecimalPart) - 1;
-    static_assert(decimal_part_mask > 0,
-                  "Can't calculate mask for decimal part.");
-    wider_int_t decimal_part = wider_int_t(abs_fixed_point) & decimal_part_mask;
+    wider_int_t decimal_part = wider_int_t(abs_fixed_point) & kDecimalPartMask;
     if (decimal_part != 0) {
       while (decimal_part > 0) {
         decimal_part *= 10;
@@ -65,7 +61,7 @@ std::string fixed_t<IntType, Q>::ToString() const {
         assert(this_digit >= 0);
         assert(this_digit <= 9);
         ss << this_digit;
-        decimal_part &= decimal_part_mask;
+        decimal_part &= kDecimalPartMask;
       }
     } else {
       ss << '0';

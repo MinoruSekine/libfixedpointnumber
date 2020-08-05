@@ -28,6 +28,7 @@ and include it.
 | `cppcheck` | Static analytics by `cppcheck` |
 | `cpplint` | Lint by `cpplint` |
 | `doc` | Generate doxygen documents into out/doc |
+| `run-all` | `run-sample` and `run-test` |
 | `run-sample` | Build (if necessary) and run sample programs |
 | `run-test` | Build (if necessary) and run unit tests |
 
@@ -73,3 +74,4 @@ or
 
 - The solution file to build samples and tests with Visual Studio is available
 as build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
+- Google Test Framework will be recovered automatically at opening solution file

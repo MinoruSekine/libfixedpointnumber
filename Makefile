@@ -172,6 +172,8 @@ all: build-all
 
 build-all: build-test build-sample
 
+run-all: run-test run-sample
+
 clean:
 	-rm $(TEST_OBJS) $(TEST_DEPS) $(SAMPLE_OBJS) $(SAMPLE_DEPS)
 	rm -rf $(OUT_ROOT_DIR)
