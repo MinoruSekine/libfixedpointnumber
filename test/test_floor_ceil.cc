@@ -35,11 +35,11 @@ class FloorTest
 };
 
 TEST_P(FloorTest, Validation) {
-  const fixed_t param(GetParam());
-  const fixed_t floored_num = fixedpointnumber::fixed_floor(param);
+  const fixed_t fixed_param(GetParam());
+  const fixed_t floored_num = fixedpointnumber::fixed_floor(fixed_param);
 
-  EXPECT_LE(floored_num, param);
-  EXPECT_LT(param, floored_num + fixed_t(1));
+  EXPECT_LE(floored_num, fixed_param);
+  EXPECT_LT(fixed_param, floored_num + fixed_t(1));
   EXPECT_FLOAT_EQ(std::floor(GetParam()), static_cast<float>(floored_num));
 }
 
@@ -56,11 +56,11 @@ class CeilTest
 };
 
 TEST_P(CeilTest, Validation) {
-  const fixed_t param(GetParam());
-  const fixed_t ceiled_num = fixedpointnumber::fixed_ceil(param);
+  const fixed_t fixed_param(GetParam());
+  const fixed_t ceiled_num = fixedpointnumber::fixed_ceil(fixed_param);
 
-  EXPECT_GE(ceiled_num, param);
-  EXPECT_GT(param + fixed_t(1), ceiled_num);
+  EXPECT_GE(ceiled_num, fixed_param);
+  EXPECT_GT(fixed_param + fixed_t(1), ceiled_num);
   EXPECT_FLOAT_EQ(std::ceil(GetParam()), static_cast<float>(ceiled_num));
 }
 
