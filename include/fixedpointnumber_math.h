@@ -32,10 +32,9 @@ constexpr fixed_t<IntType, Q> fixed_floor_positive(fixed_t<IntType, Q> src) {
 
 template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_ceil_positive(fixed_t<IntType, Q> src) {
-  return (fixed_floor_positive(src)
-          + ((src.fixed_point_ & src.kDecimalPartMask)
-             ? fixed_t<IntType, Q>(1)
-             : fixed_t<IntType, Q>(0)));
+  return (((src.fixed_point_ & src.kDecimalPartMask) != 0)
+          ? (fixed_floor_positive(src) + fixed_t<IntType, Q>(1))
+          : src);
 }
 
 template <typename IntType, std::size_t Q>
