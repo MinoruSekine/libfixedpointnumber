@@ -32,10 +32,14 @@ constexpr fixed_t<IntType, Q> fixed_floor_positive(fixed_t<IntType, Q> src) {
 
 template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_ceil_positive(fixed_t<IntType, Q> src) {
-  return (fixed_floor_positive(src)
-          + ((src.fixed_point_ & src.kDecimalPartMask)
-             ? fixed_t<IntType, Q>(1)
-             : fixed_t<IntType, Q>(0)));
+  return (((src.fixed_point_ & src.kDecimalPartMask) != 0)
+          ? (fixed_floor_positive(src) + fixed_t<IntType, Q>(1))
+          : src);
+}
+
+template <typename IntType, std::size_t Q>
+constexpr fixed_t<IntType, Q> fixed_round_positive(fixed_t<IntType, Q> src) {
+  return fixed_floor_positive(src + fixed_t<IntType, Q>(0.5f));
 }
 
 template <typename IntType, std::size_t Q>
@@ -46,6 +50,11 @@ constexpr fixed_t<IntType, Q> fixed_floor_negative(fixed_t<IntType, Q> src) {
 template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_ceil_negative(fixed_t<IntType, Q> src) {
   return -fixed_floor_positive(-src);
+}
+
+template <typename IntType, std::size_t Q>
+constexpr fixed_t<IntType, Q> fixed_round_negative(fixed_t<IntType, Q> src) {
+  return fixed_ceil_negative(src - fixed_t<IntType, Q>(0.5f));
 }
 
 }  // namespace impl
@@ -126,6 +135,44 @@ constexpr auto fixed_ceil(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_unsigned<IntType>::value,
                                fixed_t<IntType, Q>>::type {
   return impl::fixed_ceil_positive(src);
+}
+
+/// Compute the round-ed integral value.
+///
+/// @tparam IntType Internal int type for type fixed_t template param
+/// @tparam Q       Q for type fixed_t template param
+///
+/// @param src value to compute round-ed integral value
+///
+/// @return The round-ed integral value
+///
+/// @note This specialization is for signed IntType,
+///       it is necessary to avoid to use unary operator `-` to unsigned type
+template <typename IntType, std::size_t Q>
+constexpr auto fixed_round(fixed_t<IntType, Q> src)
+    -> typename std::enable_if<std::is_signed<IntType>::value,
+                               fixed_t<IntType, Q>>::type {
+  return ((src >= fixed_t<IntType, Q>(0))
+          ? impl::fixed_round_positive(src)
+          : impl::fixed_round_negative(src));
+}
+
+/// Compute the round-ed integral value.
+///
+/// @tparam IntType Internal int type for type fixed_t template param
+/// @tparam Q       Q for type fixed_t template param
+///
+/// @param src value to compute round-ed integral value
+///
+/// @return The round-ed integral value
+///
+/// @note This specialization is for unsigned IntType,
+///       it is necessary to avoid to use unary operator `-` to unsigned type
+template <typename IntType, std::size_t Q>
+constexpr auto fixed_round(fixed_t<IntType, Q> src)
+    -> typename std::enable_if<std::is_unsigned<IntType>::value,
+                               fixed_t<IntType, Q>>::type {
+  return impl::fixed_round_positive(src);
 }
 
 }  // namespace fixedpointnumber
