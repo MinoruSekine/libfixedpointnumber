@@ -66,6 +66,7 @@
     <ClCompile Include="..\..\..\..\test\test_fixed_t_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_float_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_abs.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_mod.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_round.cc" />
     <ClCompile Include="..\..\..\..\test\test_int32_int16fixed_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_move_constructor_operator.cc" />
