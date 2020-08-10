@@ -42,7 +42,9 @@ constexpr T cpowi(
     typename std::enable_if<std::is_integral<T>::value, T>::type x,
     T n) {
   return ((n > 0)
-          ? (x * cpowi(x, n - 1))
+          ? (((n % 2) == 0)
+             ? (cpowi(x, n / 2) * cpowi(x, n / 2))
+             : (cpowi(x, n / 2) * cpowi(x, n / 2) * x))
           : 1);
 }
 
