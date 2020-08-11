@@ -16,8 +16,8 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_FLOOR_CEIL_ROUND_PRIV_H_
-#define INCLUDE_FIXEDPOINTNUMBER_MATH_FLOOR_CEIL_ROUND_PRIV_H_
+#ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_ROUND_PRIV_H_
+#define INCLUDE_FIXEDPOINTNUMBER_MATH_ROUND_PRIV_H_
 
 #include "fixedpointnumber.h"
 
@@ -181,4 +181,4 @@ constexpr auto fixed_round(fixed_t<IntType, Q> src)
 
 }  // namespace fixedpointnumber
 
-#endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_FLOOR_CEIL_ROUND_PRIV_H_
+#endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_ROUND_PRIV_H_
