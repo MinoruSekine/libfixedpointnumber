@@ -42,8 +42,15 @@ constexpr fixed_t<IntType, Q> fixed_ceil_positive(fixed_t<IntType, Q> src) {
 }
 
 template <typename IntType, std::size_t Q>
+constexpr fixed_t<IntType, Q> GetZeroPointFive() {
+  // From string ctor like as fixed_t<IntType, Q>("0.5") can't be suitable here,
+  // because that ctor is not constexpr ctor now.
+  return fixed_t<IntType, Q>(static_cast<IntType>(1 << (Q - 1)), true);
+}
+
+template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_round_positive(fixed_t<IntType, Q> src) {
-  return fixed_floor_positive(src + fixed_t<IntType, Q>(0.5f));
+  return fixed_floor_positive(src + GetZeroPointFive<IntType, Q>());
 }
 
 template <typename IntType, std::size_t Q>
@@ -58,7 +65,7 @@ constexpr fixed_t<IntType, Q> fixed_ceil_negative(fixed_t<IntType, Q> src) {
 
 template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_round_negative(fixed_t<IntType, Q> src) {
-  return fixed_ceil_negative(src - fixed_t<IntType, Q>(0.5f));
+  return fixed_ceil_negative(src - GetZeroPointFive<IntType, Q>());
 }
 
 }  // namespace impl

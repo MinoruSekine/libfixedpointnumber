@@ -149,7 +149,7 @@ constexpr
 typename std::enable_if<std::is_floating_point<DestType>::value, DestType>::type
 fixed_t<IntType, Q>::FromInternalType(IntType src) {
   return (static_cast<DestType>(src)
-          * (static_cast<DestType>(1.0f) / static_cast<DestType>(kCoef)));
+          * (static_cast<DestType>(1) / static_cast<DestType>(kCoef)));
 }
 
 }  // namespace fixedpointnumber
