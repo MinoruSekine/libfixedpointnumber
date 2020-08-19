@@ -34,6 +34,16 @@ Is this section, you can know things given by Makefile of libfixedpointnumber.
 | `run-sample` | Build (if necessary) and run sample programs |
 | `run-test` | Build (if necessary) and run unit tests |
 
+### Build options
+
+#### `BUILD_TYPE`
+
+| `BUILD_TYPE` | How it works |
+----|----
+| `debug` | All optimizations are disabled in build |
+| `release` | Optimizations are enabled in build |
+| `coverage` | Options for build `coverage` as `make` target, optimizatiosn are disabled and some additional information to get coverage report will be generated |
+
 ### Build and run unit tests
 
 1. Install Google Test (https://github.com/google/googletest)
