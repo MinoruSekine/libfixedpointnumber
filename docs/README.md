@@ -4,16 +4,25 @@ libfixedpointnumber is a Library for fixed point number by C++11.
 
 ![](https://github.com/MinoruSekine/libfixedpointnumber/workflows/Check%20build/badge.svg?branch=master)
 
+## Integrate into your project
+
+1. Include header files in libfixedpointnumber/include/
+1. Add libfixedpointnumber/include/ into your include path.
+1. Compile your codes
+
+It is not necessary to build and link static link library of libfixedpointnumber
+because all implementations are available in header files.
+
 ## Build
 
-Is this section, you can know how to integrate this into your project
-and some check methods on your environment.
+Makefile of libfixedpointnumber will provide followings on your environments
 
-### Integrate into your project
-
-Put include/fixedpointnumber.h into a directory
-enabled to include from your project,
-and include it.
+- Build and run unit tests
+- Build and run sample programs
+- Some checks
+  - Coding rule check by cpplint
+  - Static analysis by cppcheck
+- Build documents with Doxygen
 
 ### List of build targets
 
@@ -31,6 +40,16 @@ and include it.
 | `run-all` | `run-sample` and `run-test` |
 | `run-sample` | Build (if necessary) and run sample programs |
 | `run-test` | Build (if necessary) and run unit tests |
+
+### Build options
+
+#### `BUILD_TYPE`
+
+| `BUILD_TYPE` | How it works |
+----|----
+| `debug` | All optimizations are disabled in build |
+| `release` | Optimizations are enabled in build |
+| `coverage` | Options for build `coverage` as `make` target, optimizatiosn are disabled and some additional information to get coverage report will be generated |
 
 ### Build and run unit tests
 
