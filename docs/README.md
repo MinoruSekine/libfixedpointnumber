@@ -15,7 +15,14 @@ because all implementations are available in header files.
 
 ## Build
 
-Is this section, you can know things given by Makefile of libfixedpointnumber.
+Makefile of libfixedpointnumber will provide followings on your environments
+
+- Build and run unit tests
+- Build and run sample programs
+- Some checks
+  - Coding rule check by cpplint
+  - Static analysis by cppcheck
+- Build documents with Doxygen
 
 ### List of build targets
 
