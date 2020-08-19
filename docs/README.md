@@ -4,12 +4,7 @@ libfixedpointnumber is a Library for fixed point number by C++11.
 
 ![](https://github.com/MinoruSekine/libfixedpointnumber/workflows/Check%20build/badge.svg?branch=master)
 
-## Build
-
-Is this section, you can know how to integrate this into your project
-and some check methods on your environment.
-
-### Integrate into your project
+## Integrate into your project
 
 1. Include header files in libfixedpointnumber/include/
 1. Add libfixedpointnumber/include/ into your include path.
@@ -17,6 +12,10 @@ and some check methods on your environment.
 
 It is not necessary to build and link static link library of libfixedpointnumber
 because all implementations are available in header files.
+
+## Build
+
+Is this section, you can know things given by Makefile of libfixedpointnumber.
 
 ### List of build targets
 
