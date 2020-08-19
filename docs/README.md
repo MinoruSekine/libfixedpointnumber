@@ -11,9 +11,12 @@ and some check methods on your environment.
 
 ### Integrate into your project
 
-Put include/fixedpointnumber.h into a directory
-enabled to include from your project,
-and include it.
+1. Include header files in libfixedpointnumber/include/
+1. Add libfixedpointnumber/include/ into your include path.
+1. Compile your codes
+
+It is not necessary to build and link static link library of libfixedpointnumber
+because all implementations are available in header files.
 
 ### List of build targets
 
