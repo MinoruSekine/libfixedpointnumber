@@ -34,7 +34,7 @@ class AbsPositiveTest
   : public ::testing::TestWithParam<fixed_t> {
 };
 
-TEST_P(AbsPositiveTest, Validation) {
+TEST_P(AbsPositiveTest, Validate) {
   EXPECT_EQ(GetParam(), fixedpointnumber::fixed_abs(GetParam()));
 }
 
@@ -48,7 +48,7 @@ class AbsNegativeTest
   : public ::testing::TestWithParam<fixed_t> {
 };
 
-TEST_P(AbsNegativeTest, Validation) {
+TEST_P(AbsNegativeTest, Validate) {
   EXPECT_EQ(GetParam(), -fixedpointnumber::fixed_abs(GetParam()));
 }
 

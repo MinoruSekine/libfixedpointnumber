@@ -34,7 +34,7 @@ class FloorTest
   : public ::testing::TestWithParam<float> {
 };
 
-TEST_P(FloorTest, Validation) {
+TEST_P(FloorTest, Validate) {
   const fixed_t fixed_param(GetParam());
   const fixed_t floored_num = fixedpointnumber::fixed_floor(fixed_param);
 
@@ -55,7 +55,7 @@ class CeilTest
   : public ::testing::TestWithParam<float> {
 };
 
-TEST_P(CeilTest, Validation) {
+TEST_P(CeilTest, Validate) {
   const fixed_t fixed_param(GetParam());
   const fixed_t ceiled_num = fixedpointnumber::fixed_ceil(fixed_param);
 
@@ -76,7 +76,7 @@ class RoundPositiveDecimalPartLessThanHalfTest
   : public ::testing::TestWithParam<float> {
 };
 
-TEST_P(RoundPositiveDecimalPartLessThanHalfTest, Validation) {
+TEST_P(RoundPositiveDecimalPartLessThanHalfTest, Validate) {
   const fixed_t fixed_param(GetParam());
 
   EXPECT_EQ(fixedpointnumber::fixed_floor(fixed_param),
@@ -100,7 +100,7 @@ class RoundPositiveDecimalPartGreaterEqualHalfTest
   : public ::testing::TestWithParam<float> {
 };
 
-TEST_P(RoundPositiveDecimalPartGreaterEqualHalfTest, Validation) {
+TEST_P(RoundPositiveDecimalPartGreaterEqualHalfTest, Validate) {
   const fixed_t fixed_param(GetParam());
 
   EXPECT_EQ(fixedpointnumber::fixed_ceil(fixed_param),
@@ -124,7 +124,7 @@ class RoundNegativeDecimalPartLessThanHalfTest
   : public ::testing::TestWithParam<float> {
 };
 
-TEST_P(RoundNegativeDecimalPartLessThanHalfTest, Validation) {
+TEST_P(RoundNegativeDecimalPartLessThanHalfTest, Validate) {
   const fixed_t fixed_param(GetParam());
 
   EXPECT_EQ(fixedpointnumber::fixed_ceil(fixed_param),
@@ -148,7 +148,7 @@ class RoundNegativeDecimalPartGreaterEqualHalfTest
   : public ::testing::TestWithParam<float> {
 };
 
-TEST_P(RoundNegativeDecimalPartGreaterEqualHalfTest, Validation) {
+TEST_P(RoundNegativeDecimalPartGreaterEqualHalfTest, Validate) {
   const fixed_t fixed_param(GetParam());
 
   EXPECT_EQ(fixedpointnumber::fixed_floor(fixed_param),
