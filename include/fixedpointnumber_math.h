@@ -22,6 +22,7 @@
 #define FIXEDPOINTNUMBER_MATH_INTERNAL
 
 #include "fixedpointnumber_math_abs-priv.h"
+#include "fixedpointnumber_math_copysign-priv.h"
 #include "fixedpointnumber_math_mod-priv.h"
 #include "fixedpointnumber_math_round-priv.h"
 #include "fixedpointnumber_math_signbit-priv.h"
