@@ -46,7 +46,7 @@ class ModTest
   : public ::testing::TestWithParam<ModTestParam> {
 };
 
-TEST_P(ModTest, Validation) {
+TEST_P(ModTest, Validate) {
   const fixed_t fixed_dividend = fixed_t(GetParam().dividend);
   const fixed_t fixed_divisor  = fixed_t(GetParam().divisor);
   const fixed_t mod_result     = fixedpointnumber::fixed_mod(fixed_dividend,

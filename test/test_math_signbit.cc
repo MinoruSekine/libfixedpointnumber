@@ -34,7 +34,7 @@ class SignbitPositiveTest
   : public ::testing::TestWithParam<fixed_t> {
 };
 
-TEST_P(SignbitPositiveTest, Validation) {
+TEST_P(SignbitPositiveTest, Validate) {
   EXPECT_FALSE(fixedpointnumber::fixed_signbit(GetParam()));
 }
 
@@ -48,7 +48,7 @@ class SignbitNegativeTest
   : public ::testing::TestWithParam<fixed_t> {
 };
 
-TEST_P(SignbitNegativeTest, Validation) {
+TEST_P(SignbitNegativeTest, Validate) {
   EXPECT_TRUE(fixedpointnumber::fixed_signbit(GetParam()));
 }
 
@@ -62,7 +62,7 @@ class SignbitUnsignedFixedTest
   : public ::testing::TestWithParam<ufixed_t> {
 };
 
-TEST_P(SignbitUnsignedFixedTest, Validation) {
+TEST_P(SignbitUnsignedFixedTest, Validate) {
   EXPECT_FALSE(fixedpointnumber::fixed_signbit(GetParam()));
 }
 
