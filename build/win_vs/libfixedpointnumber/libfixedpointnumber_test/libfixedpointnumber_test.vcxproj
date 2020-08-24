@@ -70,6 +70,7 @@
     <ClCompile Include="..\..\..\..\test\test_math_mod.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_round.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_signbit.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_trunc.cc" />
     <ClCompile Include="..\..\..\..\test\test_int32_int16fixed_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_move_constructor_operator.cc" />
     <ClCompile Include="..\..\..\..\test\test_numeric_limits_bool_consts.cc" />

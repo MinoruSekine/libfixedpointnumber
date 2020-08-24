@@ -186,6 +186,27 @@ constexpr auto fixed_round(fixed_t<IntType, Q> src)
   return impl::fixed_round_positive(src);
 }
 
+/// Compute the truncated integral value.
+///
+/// Result value is
+///
+/// - Truncated toward zero
+/// - Integral (decimal part is zero)
+///
+/// So this function works fixed_floor() for positive value
+/// and fixed_ceil() for negative value.
+///
+/// @tparam IntType Internal int type for type fixed_t template param
+/// @tparam Q       Q for type fixed_t template param
+///
+/// @param src value to compute truncated integral value
+///
+/// @return The truncated integral value
+template <typename IntType, std::size_t Q>
+constexpr fixed_t<IntType, Q> fixed_trunc(fixed_t<IntType, Q> src) {
+  return (src >= fixed_t<IntType, Q>(0)) ? fixed_floor(src) : fixed_ceil(src);
+}
+
 }  // namespace fixedpointnumber
 
 #endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_ROUND_PRIV_H_
