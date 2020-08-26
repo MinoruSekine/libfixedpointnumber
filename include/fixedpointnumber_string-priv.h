@@ -24,7 +24,7 @@
 #include <sstream>
 #include <string>
 
-#include "fixedpointnumber_wider_int.h"
+#include "fixedpointnumber_wider_int-priv.h"
 
 #ifndef FIXEDPOINTNUMBER_INTERNAL
 #error Do not include this file directly, include fixedpointnumber.h instead.
