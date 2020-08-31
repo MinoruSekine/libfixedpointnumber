@@ -16,8 +16,8 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef INCLUDE_FIXEDPOINTNUMBER_WIDER_INT_H_
-#define INCLUDE_FIXEDPOINTNUMBER_WIDER_INT_H_
+#ifndef INCLUDE_FIXEDPOINTNUMBER_WIDER_INT_PRIV_H_
+#define INCLUDE_FIXEDPOINTNUMBER_WIDER_INT_PRIV_H_
 
 #include <cstdint>
 
@@ -114,4 +114,4 @@ using wider_int_t = typename WiderIntType<int_t>::type;
 
 }  // namespace fixedpointnumber
 
-#endif  // INCLUDE_FIXEDPOINTNUMBER_WIDER_INT_H_
+#endif  // INCLUDE_FIXEDPOINTNUMBER_WIDER_INT_PRIV_H_
