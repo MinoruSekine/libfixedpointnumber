@@ -32,7 +32,6 @@ Makefile of libfixedpointnumber will provide followings on your environments
 | `build-sample` | Build sample programs (only build, not run) |
 | `check` | Process `cppcheck` and `cpplint` |
 | `clean` | Remove generated files |
-| `clean-doc` | Remove generated Doxygen document files |
 | `coverage` | Generate unit tests coverage report (Must use with `BUILD_TYPE=coverage`) |
 | `cppcheck` | Static analytics by `cppcheck` |
 | `cpplint` | Lint by `cpplint` |

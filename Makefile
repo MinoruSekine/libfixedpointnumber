@@ -178,10 +178,6 @@ clean:
 	-rm $(TEST_OBJS) $(TEST_DEPS) $(SAMPLE_OBJS) $(SAMPLE_DEPS)
 	rm -rf $(OUT_ROOT_DIR)
 
-clean-doc:
-	-rm $(DOXYGEN_INDEX_HTML)
-	rm -rf $(DOXYGEN_OUT_DIR)
-
 run-sample: build-sample
 	@$(SAMPLE_EXEC)
 
