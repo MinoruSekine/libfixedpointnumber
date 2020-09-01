@@ -119,6 +119,9 @@ SAMPLE_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
 SAMPLE_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
 SAMPLE_CXXFLAGS += $(WARNING_CXXFLAGS)
 
+# Site config.
+SITE_OUT_DIR := $(OUT_ROOT_DIR)/site
+
 # Coverage config.
 GCOVR := gcovr
 GCOVR_FLAGS :=
@@ -126,7 +129,7 @@ GCOVR_FLAGS += --html
 GCOVR_FLAGS += --html-details
 GCOVR_FLAGS += --exclude $(TEST_SRC_DIR)
 GCOVR_FLAGS += --exclude-unreachable-branches
-COVERAGE_OUT_DIR := $(OUT_ROOT_DIR)/coverage_report
+COVERAGE_OUT_DIR := $(SITE_OUT_DIR)/coverage_report
 COVERAGE_HTML_FILE := $(COVERAGE_OUT_DIR)/libfixedpointnumber-coverage.html
 
 # Cpplint config.
@@ -162,7 +165,7 @@ CPPCHECK_TARGETS := $(addsuffix .cppcheck, $(CPPCHECK_TARGET_FILES))
 
 # Doxygen config.
 DOXYGEN := doxygen
-DOXYGEN_OUT_DIR := $(OUT_ROOT_DIR)/doc
+DOXYGEN_OUT_DIR := $(SITE_OUT_DIR)/Doxygen
 DOXYGEN_INDEX_HTML := $(DOXYGEN_OUT_DIR)/html/index.html
 DOXYFILE := $(BUILD_FILES_DIR)/Doxyfile
 DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
@@ -188,7 +191,10 @@ run-test: build-test
 
 build-test: $(TEST_EXEC)
 
-$(COVERAGE_OUT_DIR):
+$(SITE_OUT_DIR):
+	mkdir -p $@
+
+$(COVERAGE_OUT_DIR): $(SITE_OUT_DIR)
 	mkdir -p $@
 
 coverage: run-test $(COVERAGE_OUT_DIR)
@@ -226,7 +232,7 @@ $(SAMPLE_OBJ_DIR)%.o: $(SAMPLE_SRC_DIR)/%.cc
 %.cppcheck:
 	$(CPPCHECK) $(CPPCHECK_FLAGS) $*
 
-$(DOXYGEN_OUT_DIR):
+$(DOXYGEN_OUT_DIR): $(SITE_OUT_DIR)
 	mkdir -p $@
 
 $(DOXYGEN_INDEX_HTML): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE) $(DOXYGEN_OUT_DIR)
