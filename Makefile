@@ -120,7 +120,10 @@ SAMPLE_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
 SAMPLE_CXXFLAGS += $(WARNING_CXXFLAGS)
 
 # Site config.
+SITE_SRC_DIR := site_src
 SITE_OUT_DIR := $(OUT_ROOT_DIR)/site
+SITE_OUT_INDEX_HTML := $(SITE_OUT_DIR)/index.html
+SITE_SRC_INDEX_HTML := $(SITE_SRC_DIR)/index.html
 
 # Coverage config.
 GCOVR := gcovr
@@ -210,6 +213,8 @@ doc: $(DOXYGEN_INDEX_HTML)
 
 doxygen: doc
 
+site: $(SITE_OUT_INDEX_HTML) doxygen coverage
+
 $(TEST_EXEC): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
 	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(TEST_CXXFLAGS)
@@ -238,8 +243,11 @@ $(DOXYGEN_OUT_DIR): $(SITE_OUT_DIR)
 $(DOXYGEN_INDEX_HTML): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE) $(DOXYGEN_OUT_DIR)
 	$(DOXYGEN) $(DOXYFILE)
 
+$(SITE_OUT_INDEX_HTML): $(SITE_OUT_DIR) $(SITE_SRC_INDEX_HTML)
+	cp -f $(SITE_SRC_INDEX_HTML) $@
+
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS) $(SAMPLE_DEPS)
 endif
 
-.PHONY: all clean build-sample run-sample build-test run-test check cpplint cppcheck doc doxygen
+.PHONY: all clean build-sample run-sample build-test run-test check cpplint cppcheck doc doxygen site
