@@ -206,6 +206,8 @@ cppcheck: $(CPPCHECK_TARGETS)
 
 doc: $(DOXYGEN_INDEX_HTML)
 
+doxygen: doc
+
 $(TEST_EXEC): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
 	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(TEST_CXXFLAGS)
@@ -236,4 +238,4 @@ ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS) $(SAMPLE_DEPS)
 endif
 
-.PHONY: all clean build-sample run-sample build-test run-test check cpplint cppcheck doc
+.PHONY: all clean build-sample run-sample build-test run-test check cpplint cppcheck doc doxygen
