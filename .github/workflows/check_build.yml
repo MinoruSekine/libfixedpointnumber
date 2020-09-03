@@ -81,7 +81,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: coverage_html
-        path: out/coverage_report
+        path: out/site/coverage_report
 
   sample:
     strategy:
@@ -181,4 +181,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: doc
-        path: out/doc/html
+        path: out/site/Doxygen/html

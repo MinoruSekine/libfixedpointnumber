@@ -119,6 +119,12 @@ SAMPLE_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
 SAMPLE_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
 SAMPLE_CXXFLAGS += $(WARNING_CXXFLAGS)
 
+# Site config.
+SITE_SRC_DIR := site_src
+SITE_OUT_DIR := $(OUT_ROOT_DIR)/site
+SITE_OUT_INDEX_HTML := $(SITE_OUT_DIR)/index.html
+SITE_SRC_INDEX_HTML := $(SITE_SRC_DIR)/index.html
+
 # Coverage config.
 GCOVR := gcovr
 GCOVR_FLAGS :=
@@ -126,7 +132,7 @@ GCOVR_FLAGS += --html
 GCOVR_FLAGS += --html-details
 GCOVR_FLAGS += --exclude $(TEST_SRC_DIR)
 GCOVR_FLAGS += --exclude-unreachable-branches
-COVERAGE_OUT_DIR := $(OUT_ROOT_DIR)/coverage_report
+COVERAGE_OUT_DIR := $(SITE_OUT_DIR)/coverage_report
 COVERAGE_HTML_FILE := $(COVERAGE_OUT_DIR)/libfixedpointnumber-coverage.html
 
 # Cpplint config.
@@ -162,7 +168,7 @@ CPPCHECK_TARGETS := $(addsuffix .cppcheck, $(CPPCHECK_TARGET_FILES))
 
 # Doxygen config.
 DOXYGEN := doxygen
-DOXYGEN_OUT_DIR := $(OUT_ROOT_DIR)/doc
+DOXYGEN_OUT_DIR := $(SITE_OUT_DIR)/Doxygen
 DOXYGEN_INDEX_HTML := $(DOXYGEN_OUT_DIR)/html/index.html
 DOXYFILE := $(BUILD_FILES_DIR)/Doxyfile
 DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
@@ -178,10 +184,6 @@ clean:
 	-rm $(TEST_OBJS) $(TEST_DEPS) $(SAMPLE_OBJS) $(SAMPLE_DEPS)
 	rm -rf $(OUT_ROOT_DIR)
 
-clean-doc:
-	-rm $(DOXYGEN_INDEX_HTML)
-	rm -rf $(DOXYGEN_OUT_DIR)
-
 run-sample: build-sample
 	@$(SAMPLE_EXEC)
 
@@ -192,7 +194,10 @@ run-test: build-test
 
 build-test: $(TEST_EXEC)
 
-$(COVERAGE_OUT_DIR):
+$(SITE_OUT_DIR):
+	mkdir -p $@
+
+$(COVERAGE_OUT_DIR): $(SITE_OUT_DIR)
 	mkdir -p $@
 
 coverage: run-test $(COVERAGE_OUT_DIR)
@@ -205,6 +210,10 @@ cpplint: $(CPPLINT_TARGETS)
 cppcheck: $(CPPCHECK_TARGETS)
 
 doc: $(DOXYGEN_INDEX_HTML)
+
+doxygen: doc
+
+site: $(SITE_OUT_INDEX_HTML) doxygen coverage
 
 $(TEST_EXEC): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
@@ -228,12 +237,17 @@ $(SAMPLE_OBJ_DIR)%.o: $(SAMPLE_SRC_DIR)/%.cc
 %.cppcheck:
 	$(CPPCHECK) $(CPPCHECK_FLAGS) $*
 
-$(DOXYGEN_INDEX_HTML): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE)
-	mkdir -p $(DOXYGEN_OUT_DIR)
+$(DOXYGEN_OUT_DIR): $(SITE_OUT_DIR)
+	mkdir -p $@
+
+$(DOXYGEN_INDEX_HTML): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE) $(DOXYGEN_OUT_DIR)
 	$(DOXYGEN) $(DOXYFILE)
+
+$(SITE_OUT_INDEX_HTML): $(SITE_OUT_DIR) $(SITE_SRC_INDEX_HTML)
+	cp -f $(SITE_SRC_INDEX_HTML) $@
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS) $(SAMPLE_DEPS)
 endif
 
-.PHONY: all clean build-sample run-sample build-test run-test build-test check cpplint cppcheck doc
+.PHONY: all clean build-sample run-sample build-test run-test check cpplint cppcheck doc doxygen site
