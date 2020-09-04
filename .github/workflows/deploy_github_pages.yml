@@ -1,0 +1,33 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install gcovr
+      run: |
+        sudo pip3 install gcovr
+
+    - name: Install graphviz and doxygen
+      run: |
+        sudo apt update
+        sudo apt install -y --no-install-recommends graphviz doxygen
+
+    - name: Build site
+      run: |
+        make BUILD_TYPE=coverage -k -j site
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out/site
