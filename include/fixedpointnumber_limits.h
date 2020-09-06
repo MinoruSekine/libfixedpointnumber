@@ -19,7 +19,6 @@
 #ifndef INCLUDE_FIXEDPOINTNUMBER_LIMITS_H_
 #define INCLUDE_FIXEDPOINTNUMBER_LIMITS_H_
 
-#include <cstddef>
 #include <limits>
 
 namespace fixedpointnumber {
