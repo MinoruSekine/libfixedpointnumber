@@ -19,8 +19,6 @@
 #ifndef INCLUDE_CONSTEXPR_STRING_H_
 #define INCLUDE_CONSTEXPR_STRING_H_
 
-#include <cstddef>
-
 namespace constexprstr {
 
 /// constexpr version of std::strlen().
