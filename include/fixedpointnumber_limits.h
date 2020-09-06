@@ -175,11 +175,11 @@ template <class T> constexpr const bool numeric_limits<T>::is_exact;
 template <class T> constexpr const bool numeric_limits<T>::has_infinity;
 template <class T> constexpr const bool numeric_limits<T>::has_quiet_NaN;
 template <class T> constexpr const bool numeric_limits<T>::has_signaling_NaN;
-template <class T> constexpr const
-std::float_denorm_style numeric_limits<T>::has_denorm;
+template <class T>
+constexpr const std::float_denorm_style numeric_limits<T>::has_denorm;
 template <class T> constexpr const bool numeric_limits<T>::has_denorm_loss;
-template <class T> constexpr const
-std::float_round_style numeric_limits<T>::round_style;
+template <class T>
+constexpr const std::float_round_style numeric_limits<T>::round_style;
 template <class T> constexpr const bool numeric_limits<T>::is_iec559;
 template <class T> constexpr const bool numeric_limits<T>::is_bounded;
 template <class T> constexpr const bool numeric_limits<T>::is_modulo;
