@@ -21,6 +21,9 @@
 
 namespace constexprstr {
 
+/// @addtogroup constexprstr constexprstr
+/// @{
+
 /// constexpr version of std::strlen().
 ///
 /// @param[in] str String to calculate length
@@ -45,6 +48,8 @@ constexpr const char* cstrchr(const char* str, int c) {
           ? str
           : ((*str == '\0') ? nullptr : cstrchr(str + 1, c)));
 }
+
+/// @}
 
 }  // namespace constexprstr
 
