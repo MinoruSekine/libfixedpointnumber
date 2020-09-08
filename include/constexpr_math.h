@@ -23,6 +23,9 @@
 
 namespace constexprmath {
 
+/// @addtogroup constexprmath constexprmath
+/// @{
+
 /// Calculate x^n.
 ///
 /// This function is only supporting both integral x and n.
@@ -47,6 +50,8 @@ constexpr T cpowi(
              : (cpowi(x, n / 2) * cpowi(x, n / 2) * x))
           : 1);
 }
+
+/// @}
 
 }  // namespace constexprmath
 

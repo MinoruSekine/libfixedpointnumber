@@ -27,6 +27,17 @@
 
 namespace fixedpointnumber {
 
+/// Stream operator to output fixed_t as string.
+///
+/// @tparam IntType Internal integral type to hold fixed point number
+/// @tparam Q       Bits width for decimal part
+///
+/// @param os    ostream to output to
+/// @param fixed Instance of fixed_t value to output
+///
+/// @return Reference to ostream
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 std::ostream& operator<<(std::ostream& os, const fixed_t<IntType, Q>& fixed) {
   os << fixed.ToString();
