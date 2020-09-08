@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "defhiklmnoqrstw",
+  0: "cdefhiklmnoqrstw",
   1: "fnw",
-  2: "defilmoqrst",
+  2: "cdefilmoqrst",
   3: "dfhikmrt",
   4: "t",
-  5: "o"
+  5: "o",
+  6: "c"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "functions",
   3: "variables",
   4: "typedefs",
-  5: "related"
+  5: "related",
+  6: "groups"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Functions",
   3: "Variables",
   4: "Typedefs",
-  5: "Friends"
+  5: "Friends",
+  6: "Modules"
 };
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['epsilon',['epsilon',['../classfixedpointnumber_1_1numeric__limits.html#a8cc7adcfe8c63131279feb8d8cf4a393',1,'fixedpointnumber::numeric_limits']]]
+  ['denorm_5fmin',['denorm_min',['../classfixedpointnumber_1_1numeric__limits.html#a3f5d6ae5a8cc52faeb6a070dbe84f1ab',1,'fixedpointnumber::numeric_limits']]]
 ];

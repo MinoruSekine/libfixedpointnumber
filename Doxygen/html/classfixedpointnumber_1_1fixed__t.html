@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classfixedpointnumber_1_1fixed__t.html
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
+<a href="#related">Related Functions</a> &#124;
 <a href="classfixedpointnumber_1_1fixed__t-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">fixedpointnumber::fixed_t&lt; internal_int_t, Q &gt; Class Template Reference</div>  </div>
@@ -205,6 +206,14 @@ Friends</h2></td></tr>
 <tr class="separator:a6d92972ee56f7d662ccb91059df39cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57482551c868518580fa30dabfa6ad97"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a57482551c868518580fa30dabfa6ad97">operator&lt;=</a> (const <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> &amp;lhs, const <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> &amp;rhs)</td></tr>
 <tr class="separator:a57482551c868518580fa30dabfa6ad97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related"></a>
+Related Functions</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>(Note that these are not member functions.) </p>
+</td></tr>
+<tr class="memitem:a49c7dacd6bb8183384c9951e7b338648"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
+<tr class="memitem:a49c7dacd6bb8183384c9951e7b338648"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a49c7dacd6bb8183384c9951e7b338648">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; &amp;fixed)</td></tr>
+<tr class="separator:a49c7dacd6bb8183384c9951e7b338648"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename internal_int_t, std::size_t Q&gt;<br />
@@ -1050,6 +1059,60 @@ template&lt;typename internal_int_t, std::size_t Q&gt; </div>
 
 </div>
 </div>
+<a id="a49c7dacd6bb8183384c9951e7b338648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c7dacd6bb8183384c9951e7b338648">&#9670;&nbsp;</a></span>operator<<()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IntType , std::size_t Q&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; &amp;&#160;</td>
+          <td class="paramname"><em>fixed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stream operator to output <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> as string.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">IntType</td><td>Internal integral type to hold fixed point number </td></tr>
+    <tr><td class="paramname">Q</td><td>Bits width for decimal part</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>ostream to output to </td></tr>
+    <tr><td class="paramname">fixed</td><td>Instance of <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> value to output</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to ostream </dd></dl>
+
+</div>
+</div>
 <a id="a57482551c868518580fa30dabfa6ad97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57482551c868518580fa30dabfa6ad97">&#9670;&nbsp;</a></span>operator<=</h2>
 
@@ -1318,6 +1381,7 @@ template&lt;typename internal_int_t, std::size_t Q&gt; </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="fixedpointnumber_8h_source.html">fixedpointnumber.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__conversion-priv_8h_source.html">fixedpointnumber_conversion-priv.h</a></li>
+<li>include/<a class="el" href="fixedpointnumber__stream-priv_8h_source.html">fixedpointnumber_stream-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__string-priv_8h_source.html">fixedpointnumber_string-priv.h</a></li>
 </ul>
 </div><!-- contents -->

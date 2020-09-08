@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['infinity',['infinity',['../classfixedpointnumber_1_1numeric__limits.html#adafd896b3c0333bae5d6b7fd906e1469',1,'fixedpointnumber::numeric_limits']]],
-  ['is_5fbounded',['is_bounded',['../classfixedpointnumber_1_1numeric__limits.html#a1ad1a1750b9a992df5b4f72470b85057',1,'fixedpointnumber::numeric_limits']]],
-  ['is_5fexact',['is_exact',['../classfixedpointnumber_1_1numeric__limits.html#a5dc2b11c09caad4e9c3e9252c4848ce8',1,'fixedpointnumber::numeric_limits']]],
-  ['is_5fiec559',['is_iec559',['../classfixedpointnumber_1_1numeric__limits.html#a603781882acfdba4c7fe04882b07c3a7',1,'fixedpointnumber::numeric_limits']]],
-  ['is_5finteger',['is_integer',['../classfixedpointnumber_1_1numeric__limits.html#aafabb6c0f2c39188dceee5d7193cf5e9',1,'fixedpointnumber::numeric_limits']]],
-  ['is_5fmodulo',['is_modulo',['../classfixedpointnumber_1_1numeric__limits.html#ad9a0cad558a9801723a7434be2aea465',1,'fixedpointnumber::numeric_limits']]],
-  ['is_5fsigned',['is_signed',['../classfixedpointnumber_1_1numeric__limits.html#a8d71aeaba2335dbebfa8489899591ebf',1,'fixedpointnumber::numeric_limits']]]
+  ['has_5fdenorm',['has_denorm',['../classfixedpointnumber_1_1numeric__limits.html#a68cf191ea9471da1a60c1f395fa5b132',1,'fixedpointnumber::numeric_limits']]],
+  ['has_5fdenorm_5floss',['has_denorm_loss',['../classfixedpointnumber_1_1numeric__limits.html#a45758abb7bc631b27ddb2677e0de8dd4',1,'fixedpointnumber::numeric_limits']]],
+  ['has_5finfinity',['has_infinity',['../classfixedpointnumber_1_1numeric__limits.html#a1737d69f74ab36c6cec4ec01ff536613',1,'fixedpointnumber::numeric_limits']]],
+  ['has_5fquiet_5fnan',['has_quiet_NaN',['../classfixedpointnumber_1_1numeric__limits.html#aa301f60bcb1added689247375bce21bf',1,'fixedpointnumber::numeric_limits']]],
+  ['has_5fsignaling_5fnan',['has_signaling_NaN',['../classfixedpointnumber_1_1numeric__limits.html#accf98ddb931f9a83256e4167e4169fc0',1,'fixedpointnumber::numeric_limits']]]
 ];

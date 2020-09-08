@@ -29,6 +29,7 @@ var classfixedpointnumber_1_1fixed__t =
     [ "operator+", "classfixedpointnumber_1_1fixed__t.html#a7d3bac0af6bc8c952af59ea600c74538", null ],
     [ "operator-", "classfixedpointnumber_1_1fixed__t.html#a9356f3355bfe51acf44c2e16e5bdf690", null ],
     [ "operator<", "classfixedpointnumber_1_1fixed__t.html#a6d92972ee56f7d662ccb91059df39cf8", null ],
+    [ "operator<<", "classfixedpointnumber_1_1fixed__t.html#a49c7dacd6bb8183384c9951e7b338648", null ],
     [ "operator<=", "classfixedpointnumber_1_1fixed__t.html#a57482551c868518580fa30dabfa6ad97", null ],
     [ "operator==", "classfixedpointnumber_1_1fixed__t.html#a926af708ff64e8c9587b835702c5f8ac", null ],
     [ "operator>", "classfixedpointnumber_1_1fixed__t.html#a648e951281c6b38bcfc79a67f66dad38", null ],

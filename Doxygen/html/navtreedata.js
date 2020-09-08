@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "libfixedpointnumber", "index.html", [
+    [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

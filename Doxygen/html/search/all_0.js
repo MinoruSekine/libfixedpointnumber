@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['denorm_5fmin',['denorm_min',['../classfixedpointnumber_1_1numeric__limits.html#a3f5d6ae5a8cc52faeb6a070dbe84f1ab',1,'fixedpointnumber::numeric_limits']]],
-  ['digits',['digits',['../classfixedpointnumber_1_1numeric__limits.html#abbc637dad1306663e6ec1e970efc3391',1,'fixedpointnumber::numeric_limits']]],
-  ['digits10',['digits10',['../classfixedpointnumber_1_1numeric__limits.html#ae33be7cc4eb0e81e93e834047011c1c4',1,'fixedpointnumber::numeric_limits']]]
+  ['constexprmath',['constexprmath',['../group__constexprmath.html',1,'']]],
+  ['constexprstr',['constexprstr',['../group__constexprstr.html',1,'']]],
+  ['cpowi',['cpowi',['../group__constexprmath.html#gab6e5cdd94fc6a6e323db074bbfb2955b',1,'constexprmath']]],
+  ['cstrchr',['cstrchr',['../group__constexprstr.html#ga0b97e0c65da579af1243c9026d109a54',1,'constexprstr']]],
+  ['cstrlen',['cstrlen',['../group__constexprstr.html#ga060f8eade6d7f1e464de02fa4dcb2a0f',1,'constexprstr']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tostring',['ToString',['../classfixedpointnumber_1_1fixed__t.html#a73176fe712abe322757432c8e0a8a67a',1,'fixedpointnumber::fixed_t']]]
+  ['signaling_5fnan',['signaling_NaN',['../classfixedpointnumber_1_1numeric__limits.html#aac7123d5c8fb3f7d600cfbbe28a39909',1,'fixedpointnumber::numeric_limits']]]
 ];
