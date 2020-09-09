@@ -24,6 +24,9 @@
 namespace constexprmath {
 
 /// @addtogroup constexprmath constexprmath
+///
+/// constexprmath provides some math functions as constexpr functions.
+///
 /// @{
 
 /// Calculate x^n.
