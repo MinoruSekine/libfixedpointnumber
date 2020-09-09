@@ -80,12 +80,14 @@ constexpr IntType FromStringToDecimalInt(const char* str) {
 
 template <typename IntType>
 constexpr IntType FromStringDecimalCoef(const char* str) {
+  using cstrlen_return_t = decltype(constexprstr::cstrlen(""));
+
   return static_cast<IntType>(constexprstr::cstrchr(str, '.')
                               ? constexprmath::cpowi(
-                                  10,
+                                  cstrlen_return_t(10),
                                   constexprstr::cstrlen(
                                       constexprstr::cstrchr(str, '.') + 1))
-                              : 1);
+                              : cstrlen_return_t(1));
 }
 
 }  // namespace impl
