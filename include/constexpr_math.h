@@ -48,7 +48,9 @@ constexpr T cpowi(
           ? (((n % 2) == 0)
              ? (cpowi(x, n / 2) * cpowi(x, n / 2))
              : (cpowi(x, n / 2) * cpowi(x, n / 2) * x))
-          : 1);
+          : ((n < 0)
+             ? (1 / cpowi(x, -n))
+             : 1));
 }
 
 /// @}
