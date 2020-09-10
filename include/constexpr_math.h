@@ -24,6 +24,9 @@
 namespace constexprmath {
 
 /// @addtogroup constexprmath constexprmath
+///
+/// constexprmath provides some math functions as constexpr functions.
+///
 /// @{
 
 /// Calculate x^n.
@@ -41,9 +44,8 @@ namespace constexprmath {
 /// @note In current implementation limits,
 ///       returns 1 as results for negative n parameter.
 template <typename T>
-constexpr T cpowi(
-    typename std::enable_if<std::is_integral<T>::value, T>::type x,
-    T n) {
+constexpr auto cpowi(T x, T n)
+    -> typename std::enable_if<std::is_integral<T>::value, T>::type {
   return ((n > 0)
           ? (((n % 2) == 0)
              ? (cpowi(x, n / 2) * cpowi(x, n / 2))

@@ -22,6 +22,9 @@
 namespace constexprstr {
 
 /// @addtogroup constexprstr constexprstr
+///
+/// constexprstr provides some string functions as constexpr functions.
+///
 /// @{
 
 /// constexpr version of std::strlen().
