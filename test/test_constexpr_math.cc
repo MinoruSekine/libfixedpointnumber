@@ -33,6 +33,6 @@ TEST(ConstexprMathTest, cpowi_constexpr) {
 }
 
 TEST(ConstexprMathTest, cpowi_negative_nth_power_limitation) {
-  constexpr auto cpowi_result = constexprmath::cpowi(5, -20);
+  constexpr auto cpowi_result = constexprmath::cpowi(5, -8);
   EXPECT_EQ(1, cpowi_result);
 }
