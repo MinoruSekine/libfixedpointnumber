@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2020-09-08 10:45:46</td>
+            <td class="headerValue">2020-09-10 10:30:51</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">15</td>
@@ -876,64 +876,64 @@
     <tr>
     <td align="right" class="lineno"><pre>83</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>19</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;IntType>(constexprstr::cstrchr(str, '.')</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  using cstrlen_return_t = decltype(constexprstr::cstrlen(""));</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>84</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>17</pre></td>
-    <td align="left" class="src coveredLine"><pre>                              ? constexprmath::cpowi(</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>85</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                                  10,</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>86</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                                  constexprstr::cstrlen(</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>87</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>17</pre></td>
-    <td align="left" class="src coveredLine"><pre>                                      constexprstr::cstrchr(str, '.') + 1))</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>88</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 17 times">&check;</span><span class="takenBranch" title="Branch 1 taken 2 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>36</pre></td>
-    <td align="left" class="src coveredLine"><pre>                              : 1);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>89</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>90</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
+    <td align="right" class="lineno"><pre>85</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>19</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;IntType>(constexprstr::cstrchr(str, '.')</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>86</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>17</pre></td>
+    <td align="left" class="src coveredLine"><pre>                              ? constexprmath::cpowi(</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>87</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>                                  cstrlen_return_t(10),</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>88</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>                                  constexprstr::cstrlen(</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>89</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>17</pre></td>
+    <td align="left" class="src coveredLine"><pre>                                      constexprstr::cstrchr(str, '.') + 1))</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>90</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 17 times">&check;</span><span class="takenBranch" title="Branch 1 taken 2 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>36</pre></td>
+    <td align="left" class="src coveredLine"><pre>                              : cstrlen_return_t(1));</pre></td>
+    </tr>
+
+    <tr>
     <td align="right" class="lineno"><pre>91</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}  // namespace impl</pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
@@ -947,441 +947,441 @@
     <td align="right" class="lineno"><pre>93</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre>}  // namespace impl</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>94</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename SrcType></pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>95</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr IntType fixed_t&lt;IntType, Q>::ToInternalType(</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>96</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>    typename std::enable_if&lt;std::is_integral&lt;SrcType>::value,</pre></td>
+    <td align="left" class="src "><pre>template &lt;typename SrcType></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>97</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                            SrcType>::type src) {</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr IntType fixed_t&lt;IntType, Q>::ToInternalType(</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>98</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>  return static_cast&lt;IntType>(</pre></td>
+    <td align="left" class="src "><pre>    typename std::enable_if&lt;std::is_integral&lt;SrcType>::value,</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>99</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
-    <td align="left" class="src coveredLine"><pre>      (static_cast&lt;IntType>(impl::abs(src)) &lt;&lt; kBitsWidthOfDecimalPart)</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>100</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
-    <td align="left" class="src coveredLine"><pre>      * impl::sign(src));</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>101</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>102</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>103</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>104</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename SrcType></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>105</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>425</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr IntType fixed_t&lt;IntType, Q>::ToInternalType(</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>106</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>    typename std::enable_if&lt;std::is_floating_point&lt;SrcType>::value,</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>107</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>                            SrcType>::type src) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>108</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>425</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;IntType>(src * static_cast&lt;SrcType>(kCoef));</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>109</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>110</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>111</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>112</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename SrcType></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>113</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>19</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr IntType fixed_t&lt;IntType, Q>::ToInternalType(</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>114</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>    typename std::enable_if&lt;std::is_same&lt;SrcType, const char*>::value,</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>115</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                            SrcType>::type str) {</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>116</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>  using wider_int_t = impl::wider_int_t&lt;IntType>;</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>117</pre></td>
+    <td align="right" class="lineno"><pre>100</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>  return static_cast&lt;IntType>(</pre></td>
     </tr>
 
     <tr>
+    <td align="right" class="lineno"><pre>101</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
+    <td align="left" class="src coveredLine"><pre>      (static_cast&lt;IntType>(impl::abs(src)) &lt;&lt; kBitsWidthOfDecimalPart)</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>102</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
+    <td align="left" class="src coveredLine"><pre>      * impl::sign(src));</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>103</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>104</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>105</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>106</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename SrcType></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>107</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>425</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr IntType fixed_t&lt;IntType, Q>::ToInternalType(</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>108</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>    typename std::enable_if&lt;std::is_floating_point&lt;SrcType>::value,</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>109</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>                            SrcType>::type src) {</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>110</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>425</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;IntType>(src * static_cast&lt;SrcType>(kCoef));</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>111</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>112</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>113</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>114</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename SrcType></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>115</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>19</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr IntType fixed_t&lt;IntType, Q>::ToInternalType(</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>116</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>    typename std::enable_if&lt;std::is_same&lt;SrcType, const char*>::value,</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>117</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>                            SrcType>::type str) {</pre></td>
+    </tr>
+
+    <tr>
     <td align="right" class="lineno"><pre>118</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  using wider_int_t = impl::wider_int_t&lt;IntType>;</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>119</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  return static_cast&lt;IntType>(</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>120</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount coveredLine"><pre>19</pre></td>
     <td align="left" class="src coveredLine"><pre>      (impl::FromStringToDecimalInt&lt;wider_int_t>(str) &lt;&lt; Q)</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>119</pre></td>
+    <td align="right" class="lineno"><pre>121</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount coveredLine"><pre>19</pre></td>
     <td align="left" class="src coveredLine"><pre>      / impl::FromStringDecimalCoef&lt;wider_int_t>(str));</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>120</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>121</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
-    </tr>
-
-    <tr>
     <td align="right" class="lineno"><pre>122</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>123</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename SrcIntType, std::size_t SrcQ></pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>124</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>constexpr IntType</pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>125</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>99</pre></td>
-    <td align="left" class="src coveredLine"><pre>fixed_t&lt;IntType, Q>::ToInternalType(const fixed_t&lt;SrcIntType, SrcQ>&amp; src) {</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename SrcIntType, std::size_t SrcQ></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>126</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#ifdef _MSC_VER  // Suppress warning at shifting by negative number.</pre></td>
+    <td align="left" class="src "><pre>constexpr IntType</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>127</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#pragma warning(push)</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>99</pre></td>
+    <td align="left" class="src coveredLine"><pre>fixed_t&lt;IntType, Q>::ToInternalType(const fixed_t&lt;SrcIntType, SrcQ>&amp; src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>128</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#pragma warning(disable:4293)</pre></td>
+    <td align="left" class="src "><pre>#ifdef _MSC_VER  // Suppress warning at shifting by negative number.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>129</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#endif  // _MSC_VER</pre></td>
+    <td align="left" class="src "><pre>#pragma warning(push)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>130</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>  return ((Q > SrcQ)</pre></td>
+    <td align="left" class="src "><pre>#pragma warning(disable:4293)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>131</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
-    <td align="left" class="src coveredLine"><pre>          ? static_cast&lt;IntType>(src.fixed_point_ &lt;&lt; (Q - SrcQ))</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>132</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>99</pre></td>
-    <td align="left" class="src coveredLine"><pre>          : static_cast&lt;IntType>(src.fixed_point_ >> (SrcQ - Q)));</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>133</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#ifdef _MSC_VER</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>134</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#pragma warning(pop)</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>135</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>#endif  // _MSC_VER</pre></td>
     </tr>
 
     <tr>
+    <td align="right" class="lineno"><pre>132</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  return ((Q > SrcQ)</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>133</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>9</pre></td>
+    <td align="left" class="src coveredLine"><pre>          ? static_cast&lt;IntType>(src.fixed_point_ &lt;&lt; (Q - SrcQ))</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>134</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>99</pre></td>
+    <td align="left" class="src coveredLine"><pre>          : static_cast&lt;IntType>(src.fixed_point_ >> (SrcQ - Q)));</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>135</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>#ifdef _MSC_VER</pre></td>
+    </tr>
+
+    <tr>
     <td align="right" class="lineno"><pre>136</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="left" class="src "><pre>#pragma warning(pop)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>137</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>#endif  // _MSC_VER</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>138</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>139</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename DestType></pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>140</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>constexpr</pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>141</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>typename std::enable_if&lt;std::is_integral&lt;DestType>::value, DestType>::type</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>142</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>107</pre></td>
-    <td align="left" class="src coveredLine"><pre>fixed_t&lt;IntType, Q>::FromInternalType(IntType src) {</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>143</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>107</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;DestType>(src >> kBitsWidthOfDecimalPart);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>144</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>145</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>146</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>147</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>template &lt;typename DestType></pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>148</pre></td>
+    <td align="right" class="lineno"><pre>142</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>constexpr</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>149</pre></td>
+    <td align="right" class="lineno"><pre>143</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>typename std::enable_if&lt;std::is_floating_point&lt;DestType>::value, DestType>::type</pre></td>
+    <td align="left" class="src "><pre>typename std::enable_if&lt;std::is_integral&lt;DestType>::value, DestType>::type</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>150</pre></td>
+    <td align="right" class="lineno"><pre>144</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>159</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>107</pre></td>
     <td align="left" class="src coveredLine"><pre>fixed_t&lt;IntType, Q>::FromInternalType(IntType src) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>151</pre></td>
+    <td align="right" class="lineno"><pre>145</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>  return (static_cast&lt;DestType>(src)</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>107</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;DestType>(src >> kBitsWidthOfDecimalPart);</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>152</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>159</pre></td>
-    <td align="left" class="src coveredLine"><pre>          * (static_cast&lt;DestType>(1) / static_cast&lt;DestType>(kCoef)));</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>153</pre></td>
+    <td align="right" class="lineno"><pre>146</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>154</pre></td>
+    <td align="right" class="lineno"><pre>147</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
+    <td align="right" class="lineno"><pre>148</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>149</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename DestType></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>150</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>constexpr</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>151</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>typename std::enable_if&lt;std::is_floating_point&lt;DestType>::value, DestType>::type</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>152</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>159</pre></td>
+    <td align="left" class="src coveredLine"><pre>fixed_t&lt;IntType, Q>::FromInternalType(IntType src) {</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>153</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  return (static_cast&lt;DestType>(src)</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>154</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>159</pre></td>
+    <td align="left" class="src coveredLine"><pre>          * (static_cast&lt;DestType>(1) / static_cast&lt;DestType>(kCoef)));</pre></td>
+    </tr>
+
+    <tr>
     <td align="right" class="lineno"><pre>155</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}  // namespace fixedpointnumber</pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
@@ -1393,6 +1393,20 @@
 
     <tr>
     <td align="right" class="lineno"><pre>157</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>}  // namespace fixedpointnumber</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>158</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>159</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>#endif  // INCLUDE_FIXEDPOINTNUMBER_CONVERSION_PRIV_H_</pre></td>

@@ -1,4 +1,4 @@
 var group__constexprmath =
 [
-    [ "cpowi", "group__constexprmath.html#gab6e5cdd94fc6a6e323db074bbfb2955b", null ]
+    [ "cpowi", "group__constexprmath.html#ga86204793e9c73626a6ec46114494223e", null ]
 ];

@@ -81,7 +81,7 @@ var NAVTREEINDEX0 =
 "functions_type.html":[1,2,3],
 "functions_vars.html":[1,2,2],
 "group__constexprmath.html":[0,0],
-"group__constexprmath.html#gab6e5cdd94fc6a6e323db074bbfb2955b":[0,0,0],
+"group__constexprmath.html#ga86204793e9c73626a6ec46114494223e":[0,0,0],
 "group__constexprstr.html":[0,1],
 "group__constexprstr.html#ga060f8eade6d7f1e464de02fa4dcb2a0f":[0,1,1],
 "group__constexprstr.html#ga0b97e0c65da579af1243c9026d109a54":[0,1,0],
