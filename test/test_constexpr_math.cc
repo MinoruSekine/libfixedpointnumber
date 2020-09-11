@@ -33,6 +33,37 @@ TEST(ConstexprMathTest, cpowi_constexpr) {
 }
 
 TEST(ConstexprMathTest, cpowi_negative_nth_power_limitation) {
-  constexpr auto cpowi_result = constexprmath::cpowi(5, -20);
-  EXPECT_EQ(1, cpowi_result);
+  constexpr auto cpowi_result = constexprmath::cpowi(5, -8);
+  EXPECT_EQ(0, cpowi_result);
 }
+
+class CpowiOneToThePowerOfNegativeTest
+    : public ::testing::TestWithParam<int32_t> {
+};
+
+TEST_P(CpowiOneToThePowerOfNegativeTest, MustBeOne) {
+  EXPECT_EQ(1, constexprmath::cpowi(1, GetParam()));
+}
+
+INSTANTIATE_TEST_SUITE_P(Instance0,
+                         CpowiOneToThePowerOfNegativeTest,
+                         ::testing::Range(-3, -1));
+
+class CpowiMoreThanOneToThePowerOfNegativeTest
+    : public ::testing::TestWithParam<std::tuple<int32_t, int32_t>> {
+};
+
+TEST_P(CpowiMoreThanOneToThePowerOfNegativeTest, MustBeZero) {
+  EXPECT_EQ(0, constexprmath::cpowi(std::get<0>(GetParam()),
+                                    std::get<1>(GetParam())));
+}
+
+INSTANTIATE_TEST_SUITE_P(Positive,
+                         CpowiMoreThanOneToThePowerOfNegativeTest,
+                         ::testing::Combine(::testing::Range(2, 3),
+                                            ::testing::Range(-3, -1)));
+
+INSTANTIATE_TEST_SUITE_P(Negative,
+                         CpowiMoreThanOneToThePowerOfNegativeTest,
+                         ::testing::Combine(::testing::Range(-3, -1),
+                                            ::testing::Range(-3, -1)));

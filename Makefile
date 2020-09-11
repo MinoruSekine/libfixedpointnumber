@@ -99,6 +99,7 @@ WARNING_CXXFLAGS += -Wzero-as-null-pointer-constant
 WARNING_CXXFLAGS += -Wall
 WARNING_CXXFLAGS += -Wextra
 WARNING_CXXFLAGS += -Werror
+WARNING_CXXFLAGS += -Wno-error=inline
 # Following warning options are valid for C/Obj-C but not for C++ on gcc.
 # WARNING_CXXFLAGS += -Wc++-compat
 # WARNING_CXXFLAGS += -Wmissing-prototypes
