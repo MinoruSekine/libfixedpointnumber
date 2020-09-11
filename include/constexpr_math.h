@@ -40,9 +40,6 @@ namespace constexprmath {
 /// @param[in] n Calculate n-th power of x (x^n)
 ///
 /// @return x^n
-///
-/// @note In current implementation limits,
-///       returns 1 as results for negative n parameter.
 template <typename T>
 constexpr auto cpowi(T x, T n)
     -> typename std::enable_if<std::is_integral<T>::value, T>::type {
