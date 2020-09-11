@@ -269,17 +269,17 @@
             <td class="headerValue">include/constexpr_math.h</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">5</td>
-            <td class="headerTableEntry">5</td>
+            <td class="headerTableEntry">6</td>
+            <td class="headerTableEntry">6</td>
             <td class="headerTableEntry" style="background-color:LightGreen">100.0 %</td>
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2020-09-10 10:30:51</td>
+            <td class="headerValue">2020-09-11 12:48:15</td>
             <td></td>
             <td class="headerName">Branches:</td>
-            <td class="headerTableEntry">4</td>
-            <td class="headerTableEntry">4</td>
+            <td class="headerTableEntry">6</td>
+            <td class="headerTableEntry">6</td>
             <td class="headerTableEntry" style="background-color:LightGreen">100.0 %</td>
           </tr>
         </table>
@@ -624,7 +624,7 @@
     <tr>
     <td align="right" class="lineno"><pre>47</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>107</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>171</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr auto cpowi(T x, T n)</pre></td>
     </tr>
 
@@ -644,51 +644,51 @@
 
     <tr>
     <td align="right" class="lineno"><pre>50</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 44 times">&check;</span><span class="takenBranch" title="Branch 1 taken 63 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>151</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 68 times">&check;</span><span class="takenBranch" title="Branch 1 taken 103 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>284</pre></td>
     <td align="left" class="src coveredLine"><pre>          ? (((n % 2) == 0)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>51</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 7 times">&check;</span><span class="takenBranch" title="Branch 1 taken 37 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>81</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 11 times">&check;</span><span class="takenBranch" title="Branch 1 taken 57 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>125</pre></td>
     <td align="left" class="src coveredLine"><pre>             ? (cpowi(x, n / 2) * cpowi(x, n / 2))</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>52</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>37</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>57</pre></td>
     <td align="left" class="src coveredLine"><pre>             : (cpowi(x, n / 2) * cpowi(x, n / 2) * x))</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>53</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>107</pre></td>
-    <td align="left" class="src coveredLine"><pre>          : 1);</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>          : ((n &lt; 0)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>54</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 8 times">&check;</span><span class="takenBranch" title="Branch 1 taken 37 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>45</pre></td>
+    <td align="left" class="src coveredLine"><pre>             ? (1 / cpowi(x, -n))</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>55</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="right" class="linecount coveredLine"><pre>171</pre></td>
+    <td align="left" class="src coveredLine"><pre>             : 1));</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>56</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @}</pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
@@ -702,7 +702,7 @@
     <td align="right" class="lineno"><pre>58</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}  // namespace constexprmath</pre></td>
+    <td align="left" class="src "><pre>/// @}</pre></td>
     </tr>
 
     <tr>
@@ -714,6 +714,20 @@
 
     <tr>
     <td align="right" class="lineno"><pre>60</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>}  // namespace constexprmath</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>61</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>62</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>#endif  // INCLUDE_CONSTEXPR_MATH_H_</pre></td>
