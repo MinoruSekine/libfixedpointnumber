@@ -17,6 +17,43 @@ libfixedpointnumber is a Library for fixed point number by C++11.
 It is not necessary to build and link static link library of libfixedpointnumber
 because all implementations are available in header files.
 
+## Usage
+
+Following simple sample code provides to calculate half of input number
+with converting precision
+(Latest code of this is in interactive_sample/).
+
+```C++
+#include <cstdint>
+#include <iostream>
+
+#include "fixedpointnumber.h"
+
+using fixed_Q7_t = fixedpointnumber::fixed_t<int16_t, 7>;
+using fixed_Q8_t = fixedpointnumber::fixed_t<int16_t, 8>;
+
+int main(int, char**) {
+  std::cout << "Input number to divide (less than 128): ";
+
+  fixed_Q7_t num(0);
+  std::cin >> num;
+
+  std::cout << "Half of "
+            << num
+            << " is "
+            << fixed_Q8_t(num) / fixed_Q8_t(2)
+            << std::endl;
+
+  return 0;
+}
+```
+
+You can see following items in this sample
+
+- Input/Output stream operators are supported
+- Overloaded basic arithmetic operators are available
+- `fixed_t` can be construct from constant integer
+
 ## Build samples and unit tests
 
 Makefile of libfixedpointnumber will provide followings on your environments
@@ -32,6 +69,7 @@ Makefile of libfixedpointnumber will provide followings on your environments
 
 | `make` target | How it works |
 ----|----
+| `build-interactive-sample` | Build interactive sample programs (only build, not run) |
 | `build-sample` | Build sample programs (only build, not run) |
 | `build-test` | Build unit tests (only build, not run) |
 | `check` | Process `cppcheck` and `cpplint` |
@@ -40,7 +78,7 @@ Makefile of libfixedpointnumber will provide followings on your environments
 | `cppcheck` | Static analytics by `cppcheck` |
 | `cpplint` | Lint by `cpplint` |
 | `doc` | Generate doxygen documents into out/doc |
-| `run-all` | `run-sample` and `run-test` |
+| `run-all` | `run-sample` and `run-test` (interactive-sample is not included)|
 | `run-sample` | Build (if necessary) and run sample programs |
 | `run-test` | Build (if necessary) and run unit tests |
 

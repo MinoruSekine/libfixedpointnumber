@@ -64,6 +64,16 @@ TEST_P(StringConversionStreamOperatorTest, StreamOutputOperator) {
   EXPECT_STREQ(param.str, ss.str().c_str());
 }
 
+TEST_P(StringConversionStreamOperatorTest, StreamInputOperator) {
+  const auto param = GetParam();
+  fixed_t fixed_num;
+  std::stringstream ss;
+
+  ss << param.str;
+  ss >> fixed_num;
+  EXPECT_FLOAT_EQ(param.num, static_cast<float>(fixed_num));
+}
+
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          StringConversionStreamOperatorTest,
                          ::testing::ValuesIn(kStringTestValues));
