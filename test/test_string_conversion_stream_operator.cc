@@ -55,7 +55,7 @@ TEST_P(StringConversionStreamOperatorTest, StringConversion) {
   EXPECT_STREQ(param.str, fixed_num.ToString().c_str());
 }
 
-TEST_P(StringConversionStreamOperatorTest, StreamOperator) {
+TEST_P(StringConversionStreamOperatorTest, StreamOutputOperator) {
   const auto param = GetParam();
   const fixed_t fixed_num(param.num);
   std::stringstream ss;
