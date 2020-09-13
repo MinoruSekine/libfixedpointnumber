@@ -16,5 +16,6 @@ var searchData=
   ['operator_3d',['operator=',['../classfixedpointnumber_1_1fixed__t.html#a9cb54040a8d03d9602ff78015383a8aa',1,'fixedpointnumber::fixed_t::operator=(const fixed_t &amp;src)=default'],['../classfixedpointnumber_1_1fixed__t.html#abc832bf2488602c0c7a4325243cd380a',1,'fixedpointnumber::fixed_t::operator=(fixed_t &amp;&amp;src)=default']]],
   ['operator_3d_3d',['operator==',['../classfixedpointnumber_1_1fixed__t.html#a926af708ff64e8c9587b835702c5f8ac',1,'fixedpointnumber::fixed_t']]],
   ['operator_3e',['operator&gt;',['../classfixedpointnumber_1_1fixed__t.html#a648e951281c6b38bcfc79a67f66dad38',1,'fixedpointnumber::fixed_t']]],
-  ['operator_3e_3d',['operator&gt;=',['../classfixedpointnumber_1_1fixed__t.html#ab41ef10fda4e367e09be4c6108a480fd',1,'fixedpointnumber::fixed_t']]]
+  ['operator_3e_3d',['operator&gt;=',['../classfixedpointnumber_1_1fixed__t.html#ab41ef10fda4e367e09be4c6108a480fd',1,'fixedpointnumber::fixed_t']]],
+  ['operator_3e_3e',['operator&gt;&gt;',['../classfixedpointnumber_1_1fixed__t.html#aadc2787f63af0b8408ae2d0fcb4489bc',1,'fixedpointnumber::fixed_t']]]
 ];

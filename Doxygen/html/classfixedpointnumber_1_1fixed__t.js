@@ -34,5 +34,6 @@ var classfixedpointnumber_1_1fixed__t =
     [ "operator==", "classfixedpointnumber_1_1fixed__t.html#a926af708ff64e8c9587b835702c5f8ac", null ],
     [ "operator>", "classfixedpointnumber_1_1fixed__t.html#a648e951281c6b38bcfc79a67f66dad38", null ],
     [ "operator>=", "classfixedpointnumber_1_1fixed__t.html#ab41ef10fda4e367e09be4c6108a480fd", null ],
+    [ "operator>>", "classfixedpointnumber_1_1fixed__t.html#aadc2787f63af0b8408ae2d0fcb4489bc", null ],
     [ "fixed_point_", "classfixedpointnumber_1_1fixed__t.html#a5b843c25950fa617174eb60e7e71c3fc", null ]
 ];

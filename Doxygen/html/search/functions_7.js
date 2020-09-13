@@ -10,5 +10,6 @@ var searchData=
   ['operator_2d_3d',['operator-=',['../classfixedpointnumber_1_1fixed__t.html#a091591141a4bdf594ff887d074467430',1,'fixedpointnumber::fixed_t']]],
   ['operator_2f_3d',['operator/=',['../classfixedpointnumber_1_1fixed__t.html#ad770e267e5fee2d5cd159a52a839fd5f',1,'fixedpointnumber::fixed_t']]],
   ['operator_3c_3c',['operator&lt;&lt;',['../classfixedpointnumber_1_1fixed__t.html#a49c7dacd6bb8183384c9951e7b338648',1,'fixedpointnumber::fixed_t']]],
-  ['operator_3d',['operator=',['../classfixedpointnumber_1_1fixed__t.html#a9cb54040a8d03d9602ff78015383a8aa',1,'fixedpointnumber::fixed_t::operator=(const fixed_t &amp;src)=default'],['../classfixedpointnumber_1_1fixed__t.html#abc832bf2488602c0c7a4325243cd380a',1,'fixedpointnumber::fixed_t::operator=(fixed_t &amp;&amp;src)=default']]]
+  ['operator_3d',['operator=',['../classfixedpointnumber_1_1fixed__t.html#a9cb54040a8d03d9602ff78015383a8aa',1,'fixedpointnumber::fixed_t::operator=(const fixed_t &amp;src)=default'],['../classfixedpointnumber_1_1fixed__t.html#abc832bf2488602c0c7a4325243cd380a',1,'fixedpointnumber::fixed_t::operator=(fixed_t &amp;&amp;src)=default']]],
+  ['operator_3e_3e',['operator&gt;&gt;',['../classfixedpointnumber_1_1fixed__t.html#aadc2787f63af0b8408ae2d0fcb4489bc',1,'fixedpointnumber::fixed_t']]]
 ];
