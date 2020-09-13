@@ -55,13 +55,23 @@ TEST_P(StringConversionStreamOperatorTest, StringConversion) {
   EXPECT_STREQ(param.str, fixed_num.ToString().c_str());
 }
 
-TEST_P(StringConversionStreamOperatorTest, StreamOperator) {
+TEST_P(StringConversionStreamOperatorTest, StreamOutputOperator) {
   const auto param = GetParam();
   const fixed_t fixed_num(param.num);
   std::stringstream ss;
 
   ss << fixed_num;
   EXPECT_STREQ(param.str, ss.str().c_str());
+}
+
+TEST_P(StringConversionStreamOperatorTest, StreamInputOperator) {
+  const auto param = GetParam();
+  fixed_t fixed_num;
+  std::stringstream ss;
+
+  ss << param.str;
+  ss >> fixed_num;
+  EXPECT_FLOAT_EQ(param.num, static_cast<float>(fixed_num));
 }
 
 INSTANTIATE_TEST_SUITE_P(Instance0,

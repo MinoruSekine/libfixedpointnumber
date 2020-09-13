@@ -45,6 +45,28 @@ std::ostream& operator<<(std::ostream& os, const fixed_t<IntType, Q>& fixed) {
   return os;
 }
 
+/// Stream operator to input fixed_t from string.
+///
+/// @tparam IntType Internal integral type to hold fixed point number
+/// @tparam Q       Bits width for decimal part
+///
+/// @param is    istream to input from
+/// @param fixed Instance of fixed_t value to output
+///
+/// @return Reference to istream
+///
+/// @relates fixed_t
+template <typename IntType, std::size_t Q>
+std::istream& operator>>(std::istream& is, fixed_t<IntType, Q>& fixed) {
+  char buf[64];
+  is.getline(buf, sizeof(buf));
+  if (!is.fail()) {
+    fixed.FromString(buf);
+  }
+
+  return is;
+}
+
 }  // namespace fixedpointnumber
 
 #endif  // INCLUDE_FIXEDPOINTNUMBER_STREAM_PRIV_H_
