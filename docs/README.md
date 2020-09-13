@@ -32,8 +32,8 @@ Makefile of libfixedpointnumber will provide followings on your environments
 
 | `make` target | How it works |
 ----|----
-| `build-test` | Build unit tests (only build, not run) |
 | `build-sample` | Build sample programs (only build, not run) |
+| `build-test` | Build unit tests (only build, not run) |
 | `check` | Process `cppcheck` and `cpplint` |
 | `clean` | Remove generated files |
 | `coverage` | Generate unit tests coverage report (Must use with `BUILD_TYPE=coverage`) |
