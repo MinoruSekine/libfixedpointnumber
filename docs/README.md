@@ -17,7 +17,7 @@ libfixedpointnumber is a Library for fixed point number by C++11.
 It is not necessary to build and link static link library of libfixedpointnumber
 because all implementations are available in header files.
 
-## Build
+## Build samples and unit tests
 
 Makefile of libfixedpointnumber will provide followings on your environments
 
