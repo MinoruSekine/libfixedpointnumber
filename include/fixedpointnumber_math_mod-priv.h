@@ -19,7 +19,6 @@
 #ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_MOD_PRIV_H_
 #define INCLUDE_FIXEDPOINTNUMBER_MATH_MOD_PRIV_H_
 
-
 #include "fixedpointnumber.h"
 #include "fixedpointnumber_math.h"
 
