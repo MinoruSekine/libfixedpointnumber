@@ -16,8 +16,8 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_MOD_PRIV_H_
-#define INCLUDE_FIXEDPOINTNUMBER_MATH_MOD_PRIV_H_
+#ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_MODF_PRIV_H_
+#define INCLUDE_FIXEDPOINTNUMBER_MATH_MODF_PRIV_H_
 
 #include "fixedpointnumber.h"
 #include "fixedpointnumber_math.h"
@@ -30,38 +30,38 @@ namespace fixedpointnumber {
 
 namespace impl {
 
-template <typename IntType, std::size_t Q>
-constexpr auto fixed_abs_floor(fixed_t<IntType, Q> src)
-    -> typename std::enable_if<std::is_signed<IntType>::value,
-                               fixed_t<IntType, Q>>::type {
-  return ((src >= fixed_t<IntType, Q>(0))
-          ? fixed_floor(src)
-          : fixed_ceil(src));
+template <typename T>
+constexpr T get_integral_part(T x) {
+  return ((x >= T(0))
+          ? T(x.fixed_point_ & T::kIntegralPartMask, true)
+          : -(get_integral_part(-x)));
 }
 
-template <typename IntType, std::size_t Q>
-constexpr fixed_t<IntType, Q> fixed_div_round(fixed_t<IntType, Q> dividend,
-                               fixed_t<IntType, Q> divisor) {
-  return fixed_abs_floor(dividend / divisor);
+template <typename T>
+constexpr T get_fractional_part(T x) {
+  return ((x >= T(0))
+          ? T(x.fixed_point_ & T::kDecimalPartMask, true)
+          : -(get_fractional_part(-x)));
 }
 
 }  // namespace impl
 
-/// Compute the modulo value for fixed_t
+/// Split given fixed_t value into integral and fractional parts.
 ///
 /// @tparam IntType Internal int type for type fixed_t template param
 /// @tparam Q       Q for type fixed_t template param
 ///
-/// @param dividend Dividend value to get modulo
-/// @param divisor  Divisor value to get modulo
+/// @param x             Value to split into integral and fractional parts
+/// @param integral_part Pointer of fixed_t to receive integral part
 ///
-/// @return The modulo value
+/// @return Fractional part of x
 template <typename IntType, std::size_t Q>
-constexpr fixed_t<IntType, Q> fixed_mod(fixed_t<IntType, Q> dividend,
-                                        fixed_t<IntType, Q> divisor) {
-  return (dividend - (divisor * impl::fixed_div_round(dividend, divisor)));
+constexpr fixed_t<IntType, Q> fixed_modf(fixed_t<IntType, Q> x,
+                                         fixed_t<IntType, Q>* integral_part) {
+  return ((*integral_part = impl::get_integral_part(x)),
+          impl::get_fractional_part(x));
 }
 
 }  // namespace fixedpointnumber
 
-#endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_MOD_PRIV_H_
+#endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_MODF_PRIV_H_
