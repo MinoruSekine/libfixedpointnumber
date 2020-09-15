@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2020-09-13 13:02:37</td>
+            <td class="headerValue">2020-09-15 10:56:24</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">15</td>
@@ -547,7 +547,7 @@
     <tr>
     <td align="right" class="lineno"><pre>36</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1034</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1216</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr auto abs(T n)</pre></td>
     </tr>
 
@@ -561,7 +561,7 @@
     <tr>
     <td align="right" class="lineno"><pre>38</pre></td>
     <td align="right" class="linebranch"><span class="notTakenBranch" title="Branch 0 not taken">&cross;</span><span class="takenBranch" title="Branch 1 taken 18 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>1034</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1216</pre></td>
     <td align="left" class="src coveredLine"><pre>  return ((n >= static_cast&lt;T>(0)) ? n : static_cast&lt;T>(-n));</pre></td>
     </tr>
 
@@ -631,7 +631,7 @@
     <tr>
     <td align="right" class="lineno"><pre>48</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1034</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1216</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr auto sign(T n)</pre></td>
     </tr>
 
@@ -651,8 +651,8 @@
 
     <tr>
     <td align="right" class="lineno"><pre>51</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 936 times">&check;</span><span class="takenBranch" title="Branch 1 taken 98 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>1970</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1118 times">&check;</span><span class="takenBranch" title="Branch 1 taken 98 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>2334</pre></td>
     <td align="left" class="src coveredLine"><pre>          ? static_cast&lt;T>(1)</pre></td>
     </tr>
 
@@ -665,15 +665,15 @@
 
     <tr>
     <td align="right" class="lineno"><pre>53</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 9 times">&check;</span><span class="takenBranch" title="Branch 1 taken 927 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>936</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 9 times">&check;</span><span class="takenBranch" title="Branch 1 taken 1109 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>1118</pre></td>
     <td align="left" class="src coveredLine"><pre>             ? static_cast&lt;T>(-1)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>54</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1034</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1216</pre></td>
     <td align="left" class="src coveredLine"><pre>             : static_cast&lt;T>(0)));</pre></td>
     </tr>
 
@@ -974,7 +974,7 @@
     <tr>
     <td align="right" class="lineno"><pre>97</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1223</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr IntType fixed_t&lt;IntType, Q>::ToInternalType(</pre></td>
     </tr>
 
@@ -1002,14 +1002,14 @@
     <tr>
     <td align="right" class="lineno"><pre>101</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1223</pre></td>
     <td align="left" class="src coveredLine"><pre>      (static_cast&lt;IntType>(impl::abs(src)) &lt;&lt; kBitsWidthOfDecimalPart)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>102</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1041</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1223</pre></td>
     <td align="left" class="src coveredLine"><pre>      * impl::sign(src));</pre></td>
     </tr>
 
@@ -1044,7 +1044,7 @@
     <tr>
     <td align="right" class="lineno"><pre>107</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>425</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>465</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr IntType fixed_t&lt;IntType, Q>::ToInternalType(</pre></td>
     </tr>
 
@@ -1065,7 +1065,7 @@
     <tr>
     <td align="right" class="lineno"><pre>110</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>425</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>465</pre></td>
     <td align="left" class="src coveredLine"><pre>  return static_cast&lt;IntType>(src * static_cast&lt;SrcType>(kCoef));</pre></td>
     </tr>
 
@@ -1359,7 +1359,7 @@
     <tr>
     <td align="right" class="lineno"><pre>152</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>164</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>204</pre></td>
     <td align="left" class="src coveredLine"><pre>fixed_t&lt;IntType, Q>::FromInternalType(IntType src) {</pre></td>
     </tr>
 
@@ -1373,7 +1373,7 @@
     <tr>
     <td align="right" class="lineno"><pre>154</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>164</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>204</pre></td>
     <td align="left" class="src coveredLine"><pre>          * (static_cast&lt;DestType>(1) / static_cast&lt;DestType>(kCoef)));</pre></td>
     </tr>
 

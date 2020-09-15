@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2020-09-13 13:02:37</td>
+            <td class="headerValue">2020-09-15 10:56:24</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">2</td>
@@ -806,21 +806,21 @@
     <tr>
     <td align="right" class="lineno"><pre>73</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1480</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1702</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr explicit fixed_t(SrcType src)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>74</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1480</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1702</pre></td>
     <td align="left" class="src coveredLine"><pre>      : fixed_point_(ToInternalType&lt;SrcType>(src)) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>75</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1480</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1702</pre></td>
     <td align="left" class="src coveredLine"><pre>  }</pre></td>
     </tr>
 
@@ -946,21 +946,21 @@
     <tr>
     <td align="right" class="lineno"><pre>93</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>320</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>440</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr fixed_t(internal_int_t src, bool)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>94</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>320</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>440</pre></td>
     <td align="left" class="src coveredLine"><pre>      : fixed_point_(src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>95</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>320</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>440</pre></td>
     <td align="left" class="src coveredLine"><pre>  }</pre></td>
     </tr>
 
@@ -1016,14 +1016,14 @@
     <tr>
     <td align="right" class="lineno"><pre>103</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>271</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>311</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr operator DestType() const {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>104</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>271</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>311</pre></td>
     <td align="left" class="src coveredLine"><pre>    return FromInternalType&lt;DestType>(fixed_point_);</pre></td>
     </tr>
 
@@ -1856,7 +1856,7 @@
     <tr>
     <td align="right" class="lineno"><pre>223</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>604</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>688</pre></td>
     <td align="left" class="src coveredLine"><pre>  fixed_t operator-() {</pre></td>
     </tr>
 
@@ -1870,14 +1870,14 @@
     <tr>
     <td align="right" class="lineno"><pre>225</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>604</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>688</pre></td>
     <td align="left" class="src coveredLine"><pre>    fixed_point_ = static_cast&lt;internal_int_t>(-fixed_point_);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>226</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>604</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>688</pre></td>
     <td align="left" class="src coveredLine"><pre>    return *this;</pre></td>
     </tr>
 
@@ -1947,14 +1947,14 @@
     <tr>
     <td align="right" class="lineno"><pre>236</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>577</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>597</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend bool operator==(const fixed_t&amp; lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>237</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>577</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>597</pre></td>
     <td align="left" class="src coveredLine"><pre>    return lhs.fixed_point_ == rhs.fixed_point_;</pre></td>
     </tr>
 
@@ -2101,14 +2101,14 @@
     <tr>
     <td align="right" class="lineno"><pre>258</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1330</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1492</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend bool operator>(const fixed_t&amp; lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>259</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1330</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1492</pre></td>
     <td align="left" class="src coveredLine"><pre>    return lhs.fixed_point_ > rhs.fixed_point_;</pre></td>
     </tr>
 
@@ -2178,14 +2178,14 @@
     <tr>
     <td align="right" class="lineno"><pre>269</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>314</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>476</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend bool operator>=(const fixed_t&amp; lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>270</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>314</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>476</pre></td>
     <td align="left" class="src coveredLine"><pre>    return (rhs &lt;= lhs);</pre></td>
     </tr>
 
@@ -2332,14 +2332,14 @@
     <tr>
     <td align="right" class="lineno"><pre>291</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>438</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>600</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend bool operator&lt;=(const fixed_t&amp; lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>292</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>438</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>600</pre></td>
     <td align="left" class="src coveredLine"><pre>    return !(lhs > rhs);</pre></td>
     </tr>
 
