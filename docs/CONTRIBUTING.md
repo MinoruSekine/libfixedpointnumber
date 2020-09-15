@@ -7,11 +7,11 @@ and rules to keep on contributing.
 
 If you hope to contribute,
 you have to accept libfixedpointnumber is adopting LGPLv3
-( [https://www.gnu.org/licenses/lgpl.html](GNU Lesser General Public License version 3) ).
+( [GNU Lesser General Public License version 3](https://www.gnu.org/licenses/lgpl.html) ).
 
 ## Coding standards
 
-All contributions must conform [https://google.github.io/styleguide/cppguide.html](Google C++ Style Guide).
+All contributions must conform [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 
 ## Submit patches
 
