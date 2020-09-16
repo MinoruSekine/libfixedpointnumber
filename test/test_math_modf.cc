@@ -50,6 +50,10 @@ TEST_P(ModfTest, Validate) {
                    static_cast<double>(integral_part_as_fixed));
   EXPECT_DOUBLE_EQ(fractional_part_as_double,
                    static_cast<double>(fractional_part_as_fixed));
+  EXPECT_LE(fixedpointnumber::fixed_abs(integral_part_as_fixed),
+            fixedpointnumber::fixed_abs(target_value_as_fixed));
+  EXPECT_GT(fixedpointnumber::fixed_abs(integral_part_as_fixed),
+            fixedpointnumber::fixed_abs(target_value_as_fixed) - fixed_t(1));
 }
 
 TEST_P(ModfTest, FractionalPartOfIntegralPartByModfIsZero) {
