@@ -38,6 +38,8 @@ namespace fixedpointnumber {
 ///
 /// @return The value which has same absolute value as parameter x
 ///         and same sign of parameter y
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_copysign(fixed_t<IntType, Q> x,
                                              fixed_t<IntType, Q> y) {

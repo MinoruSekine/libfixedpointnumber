@@ -81,6 +81,8 @@ constexpr fixed_t<IntType, Q> fixed_round_negative(fixed_t<IntType, Q> src) {
 /// @return The smallest integral value which is larger than the src
 ///
 /// @note This specialization is for signed IntType
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr auto fixed_floor(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_signed<IntType>::value,
@@ -102,6 +104,8 @@ constexpr auto fixed_floor(fixed_t<IntType, Q> src)
 ///
 /// @note This specialization is for unsigned IntType,
 ///       it is necessary to avoid to use unary operator `-` to unsigned type
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr auto fixed_floor(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_unsigned<IntType>::value,
@@ -120,6 +124,8 @@ constexpr auto fixed_floor(fixed_t<IntType, Q> src)
 /// @return The largest integral value which is smaller than the src
 ///
 /// @note This specialization is for signed IntType
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr auto fixed_ceil(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_signed<IntType>::value,
@@ -141,6 +147,8 @@ constexpr auto fixed_ceil(fixed_t<IntType, Q> src)
 ///
 /// @note This specialization is for unsigned IntType,
 ///       it is necessary to avoid to use unary operator `-` to unsigned type
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr auto fixed_ceil(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_unsigned<IntType>::value,
@@ -159,6 +167,8 @@ constexpr auto fixed_ceil(fixed_t<IntType, Q> src)
 ///
 /// @note This specialization is for signed IntType,
 ///       it is necessary to avoid to use unary operator `-` to unsigned type
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr auto fixed_round(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_signed<IntType>::value,
@@ -179,6 +189,8 @@ constexpr auto fixed_round(fixed_t<IntType, Q> src)
 ///
 /// @note This specialization is for unsigned IntType,
 ///       it is necessary to avoid to use unary operator `-` to unsigned type
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr auto fixed_round(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_unsigned<IntType>::value,
@@ -202,6 +214,8 @@ constexpr auto fixed_round(fixed_t<IntType, Q> src)
 /// @param src value to compute truncated integral value
 ///
 /// @return The truncated integral value
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_trunc(fixed_t<IntType, Q> src) {
   return (src >= fixed_t<IntType, Q>(0)) ? fixed_floor(src) : fixed_ceil(src);

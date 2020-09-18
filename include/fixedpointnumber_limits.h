@@ -26,6 +26,8 @@ namespace fixedpointnumber {
 /// std::numeric_limits compatible functions for fixed_t.
 ///
 /// @tparam T Instantiated class of fixed_t template class to know limits
+///
+/// @relates fixed_t
 template <class T>
 class numeric_limits {
  public:
