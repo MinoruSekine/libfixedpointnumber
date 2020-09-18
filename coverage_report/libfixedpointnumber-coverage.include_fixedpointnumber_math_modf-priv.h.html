@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2020-09-15 10:56:24</td>
+            <td class="headerValue">2020-09-18 12:47:45</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">8</td>
@@ -533,28 +533,28 @@
     <tr>
     <td align="right" class="lineno"><pre>34</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>81</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>103</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr T get_integral_part(T x) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>35</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 81 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>162</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 103 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>206</pre></td>
     <td align="left" class="src coveredLine"><pre>  return ((x >= T(0))</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>36</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>77</pre></td>
     <td align="left" class="src coveredLine"><pre>          ? T(x.fixed_point_ &amp; T::kIntegralPartMask, true)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>37</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 60 times">&check;</span><span class="takenBranch" title="Branch 1 taken 21 times">&check;</span><span class="takenBranch" title="Branch 5 taken 21 times">&check;</span><span class="notTakenBranch" title="Branch 6 not taken">&cross;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>222</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 77 times">&check;</span><span class="takenBranch" title="Branch 1 taken 26 times">&check;</span><span class="takenBranch" title="Branch 5 taken 26 times">&check;</span><span class="notTakenBranch" title="Branch 6 not taken">&cross;</span><br/></td>
+    <td align="right" class="linecount coveredLine"><pre>283</pre></td>
     <td align="left" class="src coveredLine"><pre>          : -(get_integral_part(-x)));</pre></td>
     </tr>
 
@@ -582,28 +582,28 @@
     <tr>
     <td align="right" class="lineno"><pre>41</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>81</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>103</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr T get_fractional_part(T x) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>42</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 81 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>162</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 103 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>206</pre></td>
     <td align="left" class="src coveredLine"><pre>  return ((x >= T(0))</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>43</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>77</pre></td>
     <td align="left" class="src coveredLine"><pre>          ? T(x.fixed_point_ &amp; T::kDecimalPartMask, true)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>44</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 60 times">&check;</span><span class="takenBranch" title="Branch 1 taken 21 times">&check;</span><span class="takenBranch" title="Branch 5 taken 21 times">&check;</span><span class="notTakenBranch" title="Branch 6 not taken">&cross;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>222</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 77 times">&check;</span><span class="takenBranch" title="Branch 1 taken 26 times">&check;</span><span class="takenBranch" title="Branch 5 taken 26 times">&check;</span><span class="notTakenBranch" title="Branch 6 not taken">&cross;</span><br/></td>
+    <td align="right" class="linecount coveredLine"><pre>283</pre></td>
     <td align="left" class="src coveredLine"><pre>          : -(get_fractional_part(-x)));</pre></td>
     </tr>
 
@@ -708,7 +708,7 @@
     <tr>
     <td align="right" class="lineno"><pre>59</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>77</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr fixed_t&lt;IntType, Q> fixed_modf(fixed_t&lt;IntType, Q> x,</pre></td>
     </tr>
 
@@ -729,7 +729,7 @@
     <tr>
     <td align="right" class="lineno"><pre>62</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>60</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>77</pre></td>
     <td align="left" class="src coveredLine"><pre>          impl::get_fractional_part(x));</pre></td>
     </tr>
 
