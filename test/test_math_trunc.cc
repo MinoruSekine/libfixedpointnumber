@@ -44,6 +44,9 @@ TEST_P(TruncTest, Validate) {
   EXPECT_LT(fixedpointnumber::fixed_abs(GetParam() - trunc_result),
             fixed_t(1));
   EXPECT_EQ(trunc_result, fixedpointnumber::fixed_trunc(trunc_result));
+  fixed_t integral_part(0);
+  EXPECT_EQ(fixed_t(0),
+            fixedpointnumber::fixed_modf(trunc_result, &integral_part));
 }
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
