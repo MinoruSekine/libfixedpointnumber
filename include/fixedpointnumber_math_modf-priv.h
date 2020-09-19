@@ -55,6 +55,8 @@ constexpr T get_fractional_part(T x) {
 /// @param integral_part Pointer of fixed_t to receive integral part
 ///
 /// @return Fractional part of x
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_modf(fixed_t<IntType, Q> x,
                                          fixed_t<IntType, Q>* integral_part) {

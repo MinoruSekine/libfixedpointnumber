@@ -36,6 +36,8 @@ namespace fixedpointnumber {
 ///
 /// @retval true  src is positive or zero
 /// @retval false src is negative
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr bool fixed_signbit(fixed_t<IntType, Q> src) {
   return (src.fixed_point_ < 0);

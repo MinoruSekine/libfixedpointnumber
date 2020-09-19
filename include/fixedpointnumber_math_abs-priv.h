@@ -37,6 +37,8 @@ namespace fixedpointnumber {
 /// @return The absolute value of src
 ///
 /// @note This specialization is for signed IntType
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr auto fixed_abs(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_signed<IntType>::value,
@@ -55,6 +57,8 @@ constexpr auto fixed_abs(fixed_t<IntType, Q> src)
 ///
 /// @note This specialization is for unsigned IntType,
 ///       it is necessary to avoid to use unary operator `-` to unsigned type
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr auto fixed_abs(fixed_t<IntType, Q> src)
     -> typename std::enable_if<std::is_unsigned<IntType>::value,

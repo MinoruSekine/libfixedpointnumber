@@ -56,6 +56,8 @@ constexpr fixed_t<IntType, Q> fixed_div_round(fixed_t<IntType, Q> dividend,
 /// @param divisor  Divisor value to get modulo
 ///
 /// @return The modulo value
+///
+/// @relates fixed_t
 template <typename IntType, std::size_t Q>
 constexpr fixed_t<IntType, Q> fixed_mod(fixed_t<IntType, Q> dividend,
                                         fixed_t<IntType, Q> divisor) {
