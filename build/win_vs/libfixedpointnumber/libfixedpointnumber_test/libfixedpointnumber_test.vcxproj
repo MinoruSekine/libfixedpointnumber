@@ -69,6 +69,7 @@
     <ClCompile Include="..\..\..\..\test\test_math_abs.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_copysign.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_mod.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_modf.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_round.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_signbit.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_trunc.cc" />
