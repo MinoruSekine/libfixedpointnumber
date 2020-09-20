@@ -65,13 +65,13 @@
     <ClCompile Include="..\..\..\..\test\test_double_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_fixed_t_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_float_conversion.cc" />
+    <ClCompile Include="..\..\..\..\test\test_int32_int16fixed_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_abs.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_copysign.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_mod.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_round.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_signbit.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_trunc.cc" />
-    <ClCompile Include="..\..\..\..\test\test_int32_int16fixed_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_move_constructor_operator.cc" />
     <ClCompile Include="..\..\..\..\test\test_numeric_limits_bool_consts.cc" />
     <ClCompile Include="..\..\..\..\test\test_string_conversion_stream_operator.cc" />
