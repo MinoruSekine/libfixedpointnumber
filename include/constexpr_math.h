@@ -42,7 +42,9 @@ namespace constexprmath {
 /// @return x^n
 template <typename T>
 constexpr auto cpowi(T x, T n)
-    -> typename std::enable_if<std::is_integral<T>::value, T>::type {
+    -> typename std::enable_if<(std::is_integral<T>::value
+                                && std::is_signed<T>::value),
+                               T>::type {
   return ((n > 0)
           ? (((n % 2) == 0)
              ? (cpowi(x, n / 2) * cpowi(x, n / 2))
@@ -50,6 +52,18 @@ constexpr auto cpowi(T x, T n)
           : ((n < 0)
              ? (1 / cpowi(x, -n))
              : 1));
+}
+
+template <typename T>
+constexpr auto cpowi(T x, T n)
+    -> typename std::enable_if<(std::is_integral<T>::value
+                                && std::is_unsigned<T>::value),
+                               T>::type {
+  return ((n > 0)
+          ? (((n % 2) == 0)
+             ? (cpowi(x, n / 2) * cpowi(x, n / 2))
+             : (cpowi(x, n / 2) * cpowi(x, n / 2) * x))
+          : 1);
 }
 
 /// @}
