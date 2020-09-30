@@ -68,6 +68,7 @@
     <ClCompile Include="..\..\..\..\test\test_int32_int16fixed_conversion.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_abs.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_copysign.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_fdim.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_fma.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_mod.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_modf.cc" />

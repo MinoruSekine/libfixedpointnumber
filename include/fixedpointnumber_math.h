@@ -23,6 +23,7 @@
 
 #include "fixedpointnumber_math_abs-priv.h"
 #include "fixedpointnumber_math_copysign-priv.h"
+#include "fixedpointnumber_math_fdim-priv.h"
 #include "fixedpointnumber_math_fma-priv.h"
 #include "fixedpointnumber_math_mod-priv.h"
 #include "fixedpointnumber_math_modf-priv.h"
