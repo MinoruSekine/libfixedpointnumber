@@ -220,6 +220,9 @@ Related Functions</h2></td></tr>
 <tr class="memitem:ace832ad86148073bd1b181dd01537e7f"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
 <tr class="memitem:ace832ad86148073bd1b181dd01537e7f"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#ace832ad86148073bd1b181dd01537e7f">fixed_copysign</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; x, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; y)</td></tr>
 <tr class="separator:ace832ad86148073bd1b181dd01537e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3becc763f6796bcbae9eed44162ec206"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
+<tr class="memitem:a3becc763f6796bcbae9eed44162ec206"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a3becc763f6796bcbae9eed44162ec206">fixed_fdim</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; x, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; y)</td></tr>
+<tr class="separator:a3becc763f6796bcbae9eed44162ec206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a648bacddc65c3e1853daf2c0ddc7495a"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
 <tr class="memitem:a648bacddc65c3e1853daf2c0ddc7495a"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a648bacddc65c3e1853daf2c0ddc7495a">fixed_fma</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; x, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; y, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; z)</td></tr>
 <tr class="separator:a648bacddc65c3e1853daf2c0ddc7495a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1135,6 +1138,67 @@ template&lt;typename IntType , std::size_t Q&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value which has same absolute value as parameter x and same sign of parameter y </dd></dl>
+
+</div>
+</div>
+<a id="a3becc763f6796bcbae9eed44162ec206"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3becc763f6796bcbae9eed44162ec206">&#9670;&nbsp;</a></span>fixed_fdim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IntType , std::size_t Q&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; fixed_fdim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute positive difference between two values</p>
+<p>This will returns x - y if x &gt; y, 0 if x &lt;= y.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">IntType</td><td>Internal int type for type <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> template param </td></tr>
+    <tr><td class="paramname">Q</td><td>Q for type <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> template param</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Greater value to compute positive difference </td></tr>
+    <tr><td class="paramname">y</td><td>Less value to compute positive difference</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">x-y</td><td>If x &gt; y. </td></tr>
+    <tr><td class="paramname">0</td><td>If x &lt;= y. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -2164,6 +2228,7 @@ template&lt;typename internal_int_t, std::size_t Q&gt; </div>
 <li>include/<a class="el" href="fixedpointnumber__conversion-priv_8h_source.html">fixedpointnumber_conversion-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__abs-priv_8h_source.html">fixedpointnumber_math_abs-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__copysign-priv_8h_source.html">fixedpointnumber_math_copysign-priv.h</a></li>
+<li>include/<a class="el" href="fixedpointnumber__math__fdim-priv_8h_source.html">fixedpointnumber_math_fdim-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__fma-priv_8h_source.html">fixedpointnumber_math_fma-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__mod-priv_8h_source.html">fixedpointnumber_math_mod-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__modf-priv_8h_source.html">fixedpointnumber_math_modf-priv.h</a></li>

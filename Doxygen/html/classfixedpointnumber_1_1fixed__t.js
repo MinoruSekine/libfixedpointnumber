@@ -30,6 +30,7 @@ var classfixedpointnumber_1_1fixed__t =
     [ "fixed_ceil", "classfixedpointnumber_1_1fixed__t.html#aea113e18319eed78995ad001ab5a7b4c", null ],
     [ "fixed_ceil", "classfixedpointnumber_1_1fixed__t.html#a3ad65d9b9a2870bc399cd831e36f1eee", null ],
     [ "fixed_copysign", "classfixedpointnumber_1_1fixed__t.html#ace832ad86148073bd1b181dd01537e7f", null ],
+    [ "fixed_fdim", "classfixedpointnumber_1_1fixed__t.html#a3becc763f6796bcbae9eed44162ec206", null ],
     [ "fixed_floor", "classfixedpointnumber_1_1fixed__t.html#a095e9a14c8d6e25c2e709ebc5b924b15", null ],
     [ "fixed_floor", "classfixedpointnumber_1_1fixed__t.html#a2e53b3739cf0f91fdb8a96de391b1712", null ],
     [ "fixed_fma", "classfixedpointnumber_1_1fixed__t.html#a648bacddc65c3e1853daf2c0ddc7495a", null ],
