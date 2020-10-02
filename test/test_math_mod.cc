@@ -51,7 +51,6 @@ TEST_P(ModTest, Validate) {
   const fixed_t fixed_divisor  = fixed_t(GetParam().divisor);
   const fixed_t mod_result     = fixedpointnumber::fixed_mod(fixed_dividend,
                                                              fixed_divisor);
-  std::cout << fixed_dividend / fixed_divisor << ',' << mod_result << std::endl;
 
   EXPECT_TRUE((mod_result == fixed_t(0))
               || is_same_sign(fixed_dividend, mod_result));

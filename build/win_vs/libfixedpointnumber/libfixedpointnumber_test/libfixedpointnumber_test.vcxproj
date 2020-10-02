@@ -70,6 +70,12 @@
     <ClCompile Include="..\..\..\..\test\test_math_copysign.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_fdim.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_fma.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_isgreater.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_isgreaterequal.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_isless.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_islessequal.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_islessgreater.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_isunordered.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_mod.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_modf.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_round.cc" />
