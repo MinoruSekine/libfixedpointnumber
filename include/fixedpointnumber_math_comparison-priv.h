@@ -117,6 +117,23 @@ constexpr bool fixed_islessgreater(fixed_t<IntType, Q> x,
   return ((x < y) || (x > y));
 }
 
+/// Test 1st and 2nd parameter are unordered or not.
+///
+/// @tparam IntType Internal int type for type fixed_t template param
+/// @tparam Q       Q for type fixed_t template param
+///
+/// @retval true  1st and 2nd parameter are unordered
+/// @retval false 1st and 2nd parameter are not unordered
+///
+/// @note Currently this function always returns false
+///
+/// @relates fixed_t
+template <typename IntType, std::size_t Q>
+constexpr bool fixed_isunordered(fixed_t<IntType, Q>,
+                                 fixed_t<IntType, Q>) {
+  return false;
+}
+
 }  // namespace fixedpointnumber
 
 #endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_COMPARISON_PRIV_H_
