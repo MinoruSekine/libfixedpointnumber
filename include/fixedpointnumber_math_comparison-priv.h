@@ -99,6 +99,24 @@ constexpr bool fixed_islessequal(fixed_t<IntType, Q> x,
   return (x <= y);
 }
 
+/// Test 1st parameter less or greater than 2nd.
+///
+/// @tparam IntType Internal int type for type fixed_t template param
+/// @tparam Q       Q for type fixed_t template param
+///
+/// @param x Value to test which is less or greater than y
+/// @param y Value to test which is less or greater than x
+///
+/// @retval true  When x < y or x > y
+/// @retval false When not x < y and not x > y
+///
+/// @relates fixed_t
+template <typename IntType, std::size_t Q>
+constexpr bool fixed_islessgreater(fixed_t<IntType, Q> x,
+                                   fixed_t<IntType, Q> y) {
+  return ((x < y) || (x > y));
+}
+
 }  // namespace fixedpointnumber
 
 #endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_COMPARISON_PRIV_H_
