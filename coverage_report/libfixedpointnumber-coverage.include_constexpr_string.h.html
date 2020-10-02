@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2020-09-30 11:21:33</td>
+            <td class="headerValue">2020-10-02 13:49:14</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">6</td>
@@ -540,14 +540,14 @@
     <tr>
     <td align="right" class="lineno"><pre>35</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>142</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>603</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr std::size_t cstrlen(const char* str) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>36</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 89 times">&check;</span><span class="takenBranch" title="Branch 1 taken 53 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>142</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 357 times">&check;</span><span class="takenBranch" title="Branch 1 taken 246 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>603</pre></td>
     <td align="left" class="src coveredLine"><pre>  return ((*str == '\0') ? 0 : (1 + cstrlen(str + 1)));</pre></td>
     </tr>
 
@@ -638,28 +638,28 @@
     <tr>
     <td align="right" class="lineno"><pre>49</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>254</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1122</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr const char* cstrchr(const char* str, int c) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>50</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>254</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1122</pre></td>
     <td align="left" class="src coveredLine"><pre>  return ((*str == c)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>51</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 148 times">&check;</span><span class="takenBranch" title="Branch 1 taken 106 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>402</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 630 times">&check;</span><span class="takenBranch" title="Branch 1 taken 492 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>1752</pre></td>
     <td align="left" class="src coveredLine"><pre>          ? str</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>52</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 145 times">&check;</span><span class="takenBranch" title="Branch 1 taken 3 times">&check;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>402</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 627 times">&check;</span><span class="takenBranch" title="Branch 1 taken 3 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>1752</pre></td>
     <td align="left" class="src coveredLine"><pre>          : ((*str == '\0') ? nullptr : cstrchr(str + 1, c)));</pre></td>
     </tr>
 
