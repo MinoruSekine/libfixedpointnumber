@@ -275,12 +275,12 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2020-10-02 13:49:14</td>
+            <td class="headerValue">2020-10-03 05:14:13</td>
             <td></td>
             <td class="headerName">Branches:</td>
-            <td class="headerTableEntry">29</td>
+            <td class="headerTableEntry">27</td>
             <td class="headerTableEntry">49</td>
-            <td class="headerTableEntry" style="background-color:LightPink">59.2 %</td>
+            <td class="headerTableEntry" style="background-color:LightPink">55.1 %</td>
           </tr>
         </table>
       </td>
@@ -526,14 +526,14 @@
     <tr>
     <td align="right" class="lineno"><pre>33</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>157</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1789</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr fixed_t&lt;IntType, Q> fixed_floor_positive(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>34</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>157</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1789</pre></td>
     <td align="left" class="src coveredLine"><pre>  return fixed_t&lt;IntType, Q>(src.fixed_point_ &amp; src.kIntegralPartMask, true);</pre></td>
     </tr>
 
@@ -610,7 +610,7 @@
     <tr>
     <td align="right" class="lineno"><pre>45</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>58</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1690</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr fixed_t&lt;IntType, Q> GetZeroPointFive() {</pre></td>
     </tr>
 
@@ -631,7 +631,7 @@
     <tr>
     <td align="right" class="lineno"><pre>48</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>58</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1690</pre></td>
     <td align="left" class="src coveredLine"><pre>  return fixed_t&lt;IntType, Q>(static_cast&lt;IntType>(1 &lt;&lt; (Q - 1)), true);</pre></td>
     </tr>
 
@@ -659,14 +659,14 @@
     <tr>
     <td align="right" class="lineno"><pre>52</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>32</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>896</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr fixed_t&lt;IntType, Q> fixed_round_positive(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>53</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 32 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span><span class="takenBranch" title="Branch 5 taken 32 times">&check;</span><span class="notTakenBranch" title="Branch 6 not taken">&cross;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>32</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 896 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span><span class="notTakenBranch" title="Branch 5 not taken">&cross;</span><span class="notTakenBranch" title="Branch 6 not taken">&cross;</span><br/></td>
+    <td align="right" class="linecount coveredLine"><pre>896</pre></td>
     <td align="left" class="src coveredLine"><pre>  return fixed_floor_positive(src + GetZeroPointFive&lt;IntType, Q>());</pre></td>
     </tr>
 
@@ -729,14 +729,14 @@
     <tr>
     <td align="right" class="lineno"><pre>62</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>55</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>823</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr fixed_t&lt;IntType, Q> fixed_ceil_negative(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>63</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>55</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>823</pre></td>
     <td align="left" class="src coveredLine"><pre>  return -fixed_floor_positive(-src);</pre></td>
     </tr>
 
@@ -764,14 +764,14 @@
     <tr>
     <td align="right" class="lineno"><pre>67</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>794</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr fixed_t&lt;IntType, Q> fixed_round_negative(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>68</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 26 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span><span class="takenBranch" title="Branch 5 taken 26 times">&check;</span><span class="notTakenBranch" title="Branch 6 not taken">&cross;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 794 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span><span class="notTakenBranch" title="Branch 5 not taken">&cross;</span><span class="notTakenBranch" title="Branch 6 not taken">&cross;</span><br/></td>
+    <td align="right" class="linecount coveredLine"><pre>794</pre></td>
     <td align="left" class="src coveredLine"><pre>  return fixed_ceil_negative(src - GetZeroPointFive&lt;IntType, Q>());</pre></td>
     </tr>
 
@@ -1506,7 +1506,7 @@
     <tr>
     <td align="right" class="lineno"><pre>173</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>58</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1690</pre></td>
     <td align="left" class="src coveredLine"><pre>constexpr auto fixed_round(fixed_t&lt;IntType, Q> src)</pre></td>
     </tr>
 
@@ -1526,8 +1526,8 @@
 
     <tr>
     <td align="right" class="lineno"><pre>176</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 58 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>116</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 1690 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>3380</pre></td>
     <td align="left" class="src coveredLine"><pre>  return ((src >= fixed_t&lt;IntType, Q>(0))</pre></td>
     </tr>
 
@@ -1540,8 +1540,8 @@
 
     <tr>
     <td align="right" class="lineno"><pre>178</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 32 times">&check;</span><span class="takenBranch" title="Branch 1 taken 26 times">&check;</span><span class="takenBranch" title="Branch 3 taken 32 times">&check;</span><span class="notTakenBranch" title="Branch 4 not taken">&cross;</span><br/><span class="takenBranch" title="Branch 6 taken 26 times">&check;</span><span class="notTakenBranch" title="Branch 7 not taken">&cross;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>116</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 896 times">&check;</span><span class="takenBranch" title="Branch 1 taken 794 times">&check;</span><span class="takenBranch" title="Branch 3 taken 896 times">&check;</span><span class="notTakenBranch" title="Branch 4 not taken">&cross;</span><br/><span class="takenBranch" title="Branch 6 taken 794 times">&check;</span><span class="notTakenBranch" title="Branch 7 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>3380</pre></td>
     <td align="left" class="src coveredLine"><pre>          : impl::fixed_round_negative(src));</pre></td>
     </tr>
 

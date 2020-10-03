@@ -250,6 +250,12 @@ Related Functions</h2></td></tr>
 <tr class="memitem:a0f7016f421da9732fb76f3715e4880b3"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
 <tr class="memitem:a0f7016f421da9732fb76f3715e4880b3"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a0f7016f421da9732fb76f3715e4880b3">fixed_modf</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; x, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; *integral_part)</td></tr>
 <tr class="separator:a0f7016f421da9732fb76f3715e4880b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b9c47951686218746c133ef7a9b6a39"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
+<tr class="memitem:a1b9c47951686218746c133ef7a9b6a39"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a1b9c47951686218746c133ef7a9b6a39">fixed_remainder</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; num, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; denom)</td></tr>
+<tr class="separator:a1b9c47951686218746c133ef7a9b6a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f0e0020a3e6794ffa99ccf94cba513"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
+<tr class="memitem:a46f0e0020a3e6794ffa99ccf94cba513"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a46f0e0020a3e6794ffa99ccf94cba513">fixed_remquo</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; num, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; denom, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; *quo)</td></tr>
+<tr class="separator:a46f0e0020a3e6794ffa99ccf94cba513"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a095e9a14c8d6e25c2e709ebc5b924b15"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
 <tr class="memitem:a095e9a14c8d6e25c2e709ebc5b924b15"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a095e9a14c8d6e25c2e709ebc5b924b15">fixed_floor</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; src) -&gt; typename std::enable_if&lt; std::is_signed&lt; IntType &gt;::value, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&gt;::<a class="el" href="classfixedpointnumber_1_1fixed__t.html#a80f46b08f876795fc3a94bd2f53d5200">type</a></td></tr>
 <tr class="separator:a095e9a14c8d6e25c2e709ebc5b924b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1834,6 +1840,121 @@ template&lt;typename IntType , std::size_t Q&gt; </div>
 
 </div>
 </div>
+<a id="a1b9c47951686218746c133ef7a9b6a39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b9c47951686218746c133ef7a9b6a39">&#9670;&nbsp;</a></span>fixed_remainder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IntType , std::size_t Q&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; fixed_remainder </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>denom</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute the quotient remainder.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">IntType</td><td>Internal int type for type <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> template param </td></tr>
+    <tr><td class="paramname">Q</td><td>Q for type <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> template param</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Numerator </td></tr>
+    <tr><td class="paramname">denom</td><td>Denominator</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The quotient remainder of num / denom </dd></dl>
+
+</div>
+</div>
+<a id="a46f0e0020a3e6794ffa99ccf94cba513"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f0e0020a3e6794ffa99ccf94cba513">&#9670;&nbsp;</a></span>fixed_remquo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IntType , std::size_t Q&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; fixed_remquo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>denom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; *&#160;</td>
+          <td class="paramname"><em>quo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute remainder and quotient.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">IntType</td><td>Internal int type for type <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> template param </td></tr>
+    <tr><td class="paramname">Q</td><td>Q for type <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> template param</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>Numerator </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">denom</td><td>Denominator </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">quo</td><td>Quotient</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The quotient remainder of num / denom </dd></dl>
+
+</div>
+</div>
 <a id="a4ad58120c88c990dd2c7a38a0256947f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ad58120c88c990dd2c7a38a0256947f">&#9670;&nbsp;</a></span>fixed_round() <span class="overload">[1/2]</span></h2>
 
@@ -2605,6 +2726,8 @@ template&lt;typename internal_int_t, std::size_t Q&gt; </div>
 <li>include/<a class="el" href="fixedpointnumber__math__fma-priv_8h_source.html">fixedpointnumber_math_fma-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__mod-priv_8h_source.html">fixedpointnumber_math_mod-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__modf-priv_8h_source.html">fixedpointnumber_math_modf-priv.h</a></li>
+<li>include/<a class="el" href="fixedpointnumber__math__remainder-priv_8h_source.html">fixedpointnumber_math_remainder-priv.h</a></li>
+<li>include/<a class="el" href="fixedpointnumber__math__remquo-priv_8h_source.html">fixedpointnumber_math_remquo-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__round-priv_8h_source.html">fixedpointnumber_math_round-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__signbit-priv_8h_source.html">fixedpointnumber_math_signbit-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__stream-priv_8h_source.html">fixedpointnumber_stream-priv.h</a></li>

@@ -42,6 +42,8 @@ var classfixedpointnumber_1_1fixed__t =
     [ "fixed_isunordered", "classfixedpointnumber_1_1fixed__t.html#ab9b7531bdfabc8ff8a5c6040e7596e02", null ],
     [ "fixed_mod", "classfixedpointnumber_1_1fixed__t.html#a1b6e1f481fd05aa6bcd11649498bf1b4", null ],
     [ "fixed_modf", "classfixedpointnumber_1_1fixed__t.html#a0f7016f421da9732fb76f3715e4880b3", null ],
+    [ "fixed_remainder", "classfixedpointnumber_1_1fixed__t.html#a1b9c47951686218746c133ef7a9b6a39", null ],
+    [ "fixed_remquo", "classfixedpointnumber_1_1fixed__t.html#a46f0e0020a3e6794ffa99ccf94cba513", null ],
     [ "fixed_round", "classfixedpointnumber_1_1fixed__t.html#a4ad58120c88c990dd2c7a38a0256947f", null ],
     [ "fixed_round", "classfixedpointnumber_1_1fixed__t.html#ac4fe253ae12a01af268af3fe73c8a776", null ],
     [ "fixed_signbit", "classfixedpointnumber_1_1fixed__t.html#abc1c7a79b303be68e73ccc1abd9e65aa", null ],
