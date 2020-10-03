@@ -28,6 +28,8 @@
 #include "fixedpointnumber_math_fma-priv.h"
 #include "fixedpointnumber_math_mod-priv.h"
 #include "fixedpointnumber_math_modf-priv.h"
+#include "fixedpointnumber_math_remainder-priv.h"
+#include "fixedpointnumber_math_remquo-priv.h"
 #include "fixedpointnumber_math_round-priv.h"
 #include "fixedpointnumber_math_signbit-priv.h"
 

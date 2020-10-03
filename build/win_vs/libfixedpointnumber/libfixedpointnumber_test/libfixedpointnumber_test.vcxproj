@@ -78,6 +78,8 @@
     <ClCompile Include="..\..\..\..\test\test_math_isunordered.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_mod.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_modf.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_remainder.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_remquo.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_round.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_signbit.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_trunc.cc" />
