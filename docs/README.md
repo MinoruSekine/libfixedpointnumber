@@ -4,6 +4,28 @@ libfixedpointnumber is a Library for fixed point number by C++11.
 
 ![](https://github.com/MinoruSekine/libfixedpointnumber/workflows/Check%20build/badge.svg?branch=master)
 
+## Summary
+
+Usual progrmas computing fixed point number,
+
+- Bit shift operations are necessary, and they lose readability
+- Types which holding fixed point numbers are just standard integral types, it also lose readability
+- Not type-safe because types for different-spec fixed point numbers are just standard integral types (they include no Q bit width information anywhere)
+
+If libfixedpointnumber is used in programs computing fixed point number...
+
+- Bit shift operations can be hidden
+- Specs of fixed point number (holding standard integral types and how many bits assigned for fractional part) are explicit
+- Can not substitute a fixed point number into another spec fixed point number without explicit casting
+
+libfixedpointnumber provides...
+
+- Template class `fixed_t` to represent fixed point number
+- Arithmetic and comparison operators for `fixed_t`
+- Casting as conversion between different spec `fixed_t` (different bit width or different Q bit width)
+- Functions for `fixed_t` which are compatible to part of functions in `cmath`
+- Most members and releated functions of `fixed_t` are provided as constexpr functions
+
 ## API Reference
 
 - See https://minorusekine.github.io/libfixedpointnumber/Doxygen/html/
