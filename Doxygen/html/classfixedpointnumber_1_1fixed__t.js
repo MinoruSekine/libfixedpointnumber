@@ -40,6 +40,7 @@ var classfixedpointnumber_1_1fixed__t =
     [ "fixed_islessequal", "classfixedpointnumber_1_1fixed__t.html#aa8501c4cc332791108eb9f7b53792729", null ],
     [ "fixed_islessgreater", "classfixedpointnumber_1_1fixed__t.html#a32532c625f01635ff8d0aaa064399bb4", null ],
     [ "fixed_isunordered", "classfixedpointnumber_1_1fixed__t.html#ab9b7531bdfabc8ff8a5c6040e7596e02", null ],
+    [ "fixed_lerp", "classfixedpointnumber_1_1fixed__t.html#abacfda75230e6a5b78ea667881fa06d0", null ],
     [ "fixed_mod", "classfixedpointnumber_1_1fixed__t.html#a1b6e1f481fd05aa6bcd11649498bf1b4", null ],
     [ "fixed_modf", "classfixedpointnumber_1_1fixed__t.html#a0f7016f421da9732fb76f3715e4880b3", null ],
     [ "fixed_remainder", "classfixedpointnumber_1_1fixed__t.html#a1b9c47951686218746c133ef7a9b6a39", null ],

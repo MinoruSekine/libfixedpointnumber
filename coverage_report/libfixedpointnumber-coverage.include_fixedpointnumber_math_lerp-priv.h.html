@@ -266,7 +266,7 @@
           </tr>
           <tr>
             <td class="headerName">File:</td>
-            <td class="headerValue">include/fixedpointnumber_math_abs-priv.h</td>
+            <td class="headerValue">include/fixedpointnumber_math_lerp-priv.h</td>
             <td></td>
             <td class="headerName">Lines:</td>
             <td class="headerTableEntry">2</td>
@@ -279,8 +279,8 @@
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">3</td>
-            <td class="headerTableEntry">4</td>
-            <td class="headerTableEntry" style="background-color:#FFFF55">75.0 %</td>
+            <td class="headerTableEntry">6</td>
+            <td class="headerTableEntry" style="background-color:LightPink">50.0 %</td>
           </tr>
         </table>
       </td>
@@ -429,14 +429,14 @@
     <td align="right" class="lineno"><pre>19</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_ABS_PRIV_H_</pre></td>
+    <td align="left" class="src "><pre>#ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_LERP_PRIV_H_</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>20</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#define INCLUDE_FIXEDPOINTNUMBER_MATH_ABS_PRIV_H_</pre></td>
+    <td align="left" class="src "><pre>#define INCLUDE_FIXEDPOINTNUMBER_MATH_LERP_PRIV_H_</pre></td>
     </tr>
 
     <tr>
@@ -457,91 +457,91 @@
     <td align="right" class="lineno"><pre>23</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>#include "fixedpointnumber_math.h"</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>24</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#ifndef FIXEDPOINTNUMBER_MATH_INTERNAL</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>25</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#error Do not include this file directly, ixedpointnumber_math.h instead.</pre></td>
+    <td align="left" class="src "><pre>#ifndef FIXEDPOINTNUMBER_MATH_INTERNAL</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>26</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#endif</pre></td>
+    <td align="left" class="src "><pre>#error Do not include this file directly, ixedpointnumber_math.h instead.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>27</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>#endif</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>28</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>namespace fixedpointnumber {</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>29</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>namespace fixedpointnumber {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>30</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Compute absolute value.</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>31</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// Compute the lerp.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>32</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>33</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>/// Compute linear interpolation of 2 parameters for 3rd parameter.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>34</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// If 3rd parameter is greater than 1,</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>35</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param src value to compute absolute value</pre></td>
+    <td align="left" class="src "><pre>/// it will be computed extrapolation.</pre></td>
     </tr>
 
     <tr>
@@ -555,245 +555,154 @@
     <td align="right" class="lineno"><pre>37</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @return The absolute value of src</pre></td>
+    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>38</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>39</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @note This specialization is for signed IntType</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>40</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @param a A side of range to interpolate</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>41</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
+    <td align="left" class="src "><pre>/// @param b Another side of range to interpolate</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>42</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre>/// @param t Interpolate coef, 0 represents a, and 1 represents 1</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>43</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1837</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr auto fixed_abs(fixed_t&lt;IntType, Q> src)</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>44</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>    -> typename std::enable_if&lt;std::is_signed&lt;IntType>::value,</pre></td>
+    <td align="left" class="src "><pre>/// @return Lerp of [a, b] with coef t</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>45</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                               fixed_t&lt;IntType, Q>>::type {</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>46</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 1837 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span><span class="takenBranch" title="Branch 4 taken 776 times">&check;</span><span class="takenBranch" title="Branch 5 taken 1061 times">&check;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>1837</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return ((src &lt; fixed_t&lt;IntType, Q>(0)) ? -src : src);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>47</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>48</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>49</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Compute absolute value.</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>50</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>51</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>52</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>53</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>54</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param src value to compute absolute value</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>55</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>56</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @return The absolute value of src</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>57</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>58</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @note This specialization is for unsigned IntType,</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>59</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///       it is necessary to avoid to use unary operator `-` to unsigned type</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>60</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>61</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>62</pre></td>
+    <td align="right" class="lineno"><pre>47</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>63</pre></td>
+    <td align="right" class="lineno"><pre>48</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>constexpr auto fixed_abs(fixed_t&lt;IntType, Q> src)</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1170</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr fixed_t&lt;IntType, Q> fixed_lerp(fixed_t&lt;IntType, Q> a,</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>64</pre></td>
+    <td align="right" class="lineno"><pre>49</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>    -> typename std::enable_if&lt;std::is_unsigned&lt;IntType>::value,</pre></td>
+    <td align="left" class="src "><pre>                                         fixed_t&lt;IntType, Q> b,</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>65</pre></td>
+    <td align="right" class="lineno"><pre>50</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                               fixed_t&lt;IntType, Q>>::type {</pre></td>
+    <td align="left" class="src "><pre>                                         fixed_t&lt;IntType, Q> t) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>66</pre></td>
+    <td align="right" class="lineno"><pre>51</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>  return src;</pre></td>
+    <td align="left" class="src "><pre>  using wider_fixed_t = decltype(fixed_mul(t, (b - a)));</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>67</pre></td>
+    <td align="right" class="lineno"><pre>52</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>  return static_cast&lt;fixed_t&lt;IntType, Q>>(static_cast&lt;wider_fixed_t>(a)</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>53</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 3 taken 1170 times">&check;</span><span class="notTakenBranch" title="Branch 4 not taken">&cross;</span><span class="takenBranch" title="Branch 6 taken 1170 times">&check;</span><span class="notTakenBranch" title="Branch 7 not taken">&cross;</span><br/><span class="takenBranch" title="Branch 9 taken 1170 times">&check;</span><span class="notTakenBranch" title="Branch 10 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>1170</pre></td>
+    <td align="left" class="src coveredLine"><pre>                                          + fixed_mul(t, (b - a)));</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>54</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>68</pre></td>
+    <td align="right" class="lineno"><pre>55</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>69</pre></td>
+    <td align="right" class="lineno"><pre>56</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}  // namespace fixedpointnumber</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>70</pre></td>
+    <td align="right" class="lineno"><pre>57</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>71</pre></td>
+    <td align="right" class="lineno"><pre>58</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_ABS_PRIV_H_</pre></td>
+    <td align="left" class="src "><pre>#endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_LERP_PRIV_H_</pre></td>
     </tr>
 
   </table>

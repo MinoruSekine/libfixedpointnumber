@@ -244,6 +244,9 @@ Related Functions</h2></td></tr>
 <tr class="memitem:a648bacddc65c3e1853daf2c0ddc7495a"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
 <tr class="memitem:a648bacddc65c3e1853daf2c0ddc7495a"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a648bacddc65c3e1853daf2c0ddc7495a">fixed_fma</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; x, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; y, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; z)</td></tr>
 <tr class="separator:a648bacddc65c3e1853daf2c0ddc7495a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abacfda75230e6a5b78ea667881fa06d0"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
+<tr class="memitem:abacfda75230e6a5b78ea667881fa06d0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#abacfda75230e6a5b78ea667881fa06d0">fixed_lerp</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; a, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; b, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; t)</td></tr>
+<tr class="separator:abacfda75230e6a5b78ea667881fa06d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b6e1f481fd05aa6bcd11649498bf1b4"><td class="memTemplParams" colspan="2">template&lt;typename IntType , std::size_t Q&gt; </td></tr>
 <tr class="memitem:a1b6e1f481fd05aa6bcd11649498bf1b4"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfixedpointnumber_1_1fixed__t.html#a1b6e1f481fd05aa6bcd11649498bf1b4">fixed_mod</a> (<a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; dividend, <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; divisor)</td></tr>
 <tr class="separator:a1b6e1f481fd05aa6bcd11649498bf1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1732,6 +1735,68 @@ template&lt;typename IntType , std::size_t Q&gt; </div>
 
 </div>
 </div>
+<a id="abacfda75230e6a5b78ea667881fa06d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abacfda75230e6a5b78ea667881fa06d0">&#9670;&nbsp;</a></span>fixed_lerp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IntType , std::size_t Q&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt; fixed_lerp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a>&lt; IntType, Q &gt;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute the lerp.</p>
+<p>Compute linear interpolation of 2 parameters for 3rd parameter. If 3rd parameter is greater than 1, it will be computed extrapolation.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">IntType</td><td>Internal int type for type <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> template param </td></tr>
+    <tr><td class="paramname">Q</td><td>Q for type <a class="el" href="classfixedpointnumber_1_1fixed__t.html">fixed_t</a> template param</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>A side of range to interpolate </td></tr>
+    <tr><td class="paramname">b</td><td>Another side of range to interpolate </td></tr>
+    <tr><td class="paramname">t</td><td>Interpolate coef, 0 represents a, and 1 represents 1</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Lerp of [a, b] with coef t </dd></dl>
+
+</div>
+</div>
 <a id="a1b6e1f481fd05aa6bcd11649498bf1b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1b6e1f481fd05aa6bcd11649498bf1b4">&#9670;&nbsp;</a></span>fixed_mod()</h2>
 
@@ -2724,6 +2789,7 @@ template&lt;typename internal_int_t, std::size_t Q&gt; </div>
 <li>include/<a class="el" href="fixedpointnumber__math__copysign-priv_8h_source.html">fixedpointnumber_math_copysign-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__fdim-priv_8h_source.html">fixedpointnumber_math_fdim-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__fma-priv_8h_source.html">fixedpointnumber_math_fma-priv.h</a></li>
+<li>include/<a class="el" href="fixedpointnumber__math__lerp-priv_8h_source.html">fixedpointnumber_math_lerp-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__mod-priv_8h_source.html">fixedpointnumber_math_mod-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__modf-priv_8h_source.html">fixedpointnumber_math_modf-priv.h</a></li>
 <li>include/<a class="el" href="fixedpointnumber__math__remainder-priv_8h_source.html">fixedpointnumber_math_remainder-priv.h</a></li>
