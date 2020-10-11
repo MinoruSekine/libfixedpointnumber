@@ -45,7 +45,7 @@ const DivResult kDivResults[] = {
 }  // namespace
 
 class ArithmeticDivFunctionTest
-  : public ::testing::TestWithParam<DivResult> {
+    : public ::testing::TestWithParam<DivResult> {
 };
 
 TEST_P(ArithmeticDivFunctionTest, Div) {

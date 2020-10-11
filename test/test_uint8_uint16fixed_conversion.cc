@@ -34,7 +34,7 @@ constexpr uint8_t k6BitsMaxMinus1 = 0x3e;
 }  // namespace
 
 class UInt8UInt16FixedConversionTest
-  : public ::testing::TestWithParam<uint8_t> {
+    : public ::testing::TestWithParam<uint8_t> {
 };
 
 TEST_P(UInt8UInt16FixedConversionTest, SimpleConversion) {

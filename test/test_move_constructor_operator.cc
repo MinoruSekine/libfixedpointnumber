@@ -29,7 +29,7 @@ using fixed_t = fixedpointnumber::fixed_t<int16_t, 10>;
 }  // namespace
 
 class MoveConstructorOperatorIntTest
-  : public ::testing::TestWithParam<int8_t> {
+    : public ::testing::TestWithParam<int8_t> {
  protected:
   fixed_t GetTestFixedValue() const {
     return fixed_t(GetParam());

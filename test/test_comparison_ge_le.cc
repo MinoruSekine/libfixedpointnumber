@@ -29,7 +29,7 @@ using fixed_t = fixedpointnumber::fixed_t<int16_t, 7>;
 }  // namespace
 
 class ComparisonGeLeTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(ComparisonGeLeTest, GeLe) {

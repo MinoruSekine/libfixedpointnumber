@@ -30,7 +30,7 @@ using fixed_12_3_t = fixedpointnumber::fixed_t<int16_t, 3>;
 }  // namespace
 
 class FixedTConversionTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(FixedTConversionTest, ExpandDecimalPartConversion) {

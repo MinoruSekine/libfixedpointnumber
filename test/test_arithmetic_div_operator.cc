@@ -52,7 +52,7 @@ const DivResult kDivResults[] = {
 }  // namespace
 
 class ArithmeticDivOperatorTest
-  : public ::testing::TestWithParam<DivResult> {
+    : public ::testing::TestWithParam<DivResult> {
 };
 
 TEST_P(ArithmeticDivOperatorTest, NormalOperator) {

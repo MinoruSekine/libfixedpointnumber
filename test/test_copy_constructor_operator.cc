@@ -29,7 +29,7 @@ using fixed_t = fixedpointnumber::fixed_t<int16_t, 10>;
 }  // namespace
 
 class CopyConstructorOperatorIntTest
-  : public ::testing::TestWithParam<int8_t> {
+    : public ::testing::TestWithParam<int8_t> {
 };
 
 TEST_P(CopyConstructorOperatorIntTest, CopyConstructionWithBrace) {

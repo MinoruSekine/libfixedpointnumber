@@ -29,7 +29,7 @@ using fixed_t = fixedpointnumber::fixed_t<int16_t, 6>;
 }  // namespace
 
 class ComparisonEqTest
-  : public ::testing::TestWithParam<double> {
+    : public ::testing::TestWithParam<double> {
 };
 
 TEST_P(ComparisonEqTest, Eq) {

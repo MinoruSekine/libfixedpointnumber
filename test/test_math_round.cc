@@ -31,7 +31,7 @@ using fixed_t = fixedpointnumber::fixed_t<int16_t, 7>;
 }  // namespace
 
 class FloorTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(FloorTest, Validate) {
@@ -52,7 +52,7 @@ INSTANTIATE_TEST_SUITE_P(InstanceNegativeNearZero,
                          ::testing::Range(-2.0f, 0.0f, 0.25f));
 
 class CeilTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(CeilTest, Validate) {
@@ -73,7 +73,7 @@ INSTANTIATE_TEST_SUITE_P(InstanceNegativeNearZero,
                          ::testing::Range(-2.0f, 0.0f, 0.25f));
 
 class RoundPositiveDecimalPartLessThanHalfTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(RoundPositiveDecimalPartLessThanHalfTest, Validate) {
@@ -97,7 +97,7 @@ INSTANTIATE_TEST_SUITE_P(Instance2,
                          ::testing::Range(2.0f, 2.5f, 0.25f));
 
 class RoundPositiveDecimalPartGreaterEqualHalfTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(RoundPositiveDecimalPartGreaterEqualHalfTest, Validate) {
@@ -121,7 +121,7 @@ INSTANTIATE_TEST_SUITE_P(Instance2,
                          ::testing::Range(2.5f, 3.0f, 0.25f));
 
 class RoundNegativeDecimalPartLessThanHalfTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(RoundNegativeDecimalPartLessThanHalfTest, Validate) {
@@ -145,7 +145,7 @@ INSTANTIATE_TEST_SUITE_P(Instance2,
                          ::testing::Range(-2.25f, -2.0f, 0.25f));
 
 class RoundNegativeDecimalPartGreaterEqualHalfTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(RoundNegativeDecimalPartGreaterEqualHalfTest, Validate) {
