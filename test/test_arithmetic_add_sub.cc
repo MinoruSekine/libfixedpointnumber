@@ -55,7 +55,7 @@ const AddSubResult kAddSubResults[] = {
 }  // namespace
 
 class ArithmeticAddSubTest
-  : public ::testing::TestWithParam<AddSubResult> {
+    : public ::testing::TestWithParam<AddSubResult> {
 };
 
 TEST_P(ArithmeticAddSubTest, Add) {

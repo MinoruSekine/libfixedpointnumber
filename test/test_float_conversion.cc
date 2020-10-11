@@ -31,7 +31,7 @@ constexpr float k11BitsMax = 2047;
 }  // namespace
 
 class FloatFixedConversionTest
-  : public ::testing::TestWithParam<float> {
+    : public ::testing::TestWithParam<float> {
 };
 
 TEST_P(FloatFixedConversionTest, SimpleConversion) {

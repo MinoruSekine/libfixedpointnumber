@@ -31,7 +31,7 @@ constexpr double k11BitsMax = 2047;
 }  // namespace
 
 class DoubleFixedConversionTest
-  : public ::testing::TestWithParam<double> {
+    : public ::testing::TestWithParam<double> {
 };
 
 TEST_P(DoubleFixedConversionTest, SimpleConversion) {

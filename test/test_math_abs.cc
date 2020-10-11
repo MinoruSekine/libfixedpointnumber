@@ -31,7 +31,7 @@ using fixed_t = fixedpointnumber::fixed_t<int16_t, 7>;
 }  // namespace
 
 class AbsPositiveTest
-  : public ::testing::TestWithParam<fixed_t> {
+    : public ::testing::TestWithParam<fixed_t> {
 };
 
 TEST_P(AbsPositiveTest, Validate) {
@@ -45,7 +45,7 @@ INSTANTIATE_TEST_SUITE_P(Instance0,
                                           fixed_t(0.25f)));
 
 class AbsNegativeTest
-  : public ::testing::TestWithParam<fixed_t> {
+    : public ::testing::TestWithParam<fixed_t> {
 };
 
 TEST_P(AbsNegativeTest, Validate) {

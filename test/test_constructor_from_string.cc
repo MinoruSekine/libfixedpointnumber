@@ -42,7 +42,7 @@ constexpr FloatAndStr kTestValues[] = {
 }  // namespace
 
 class FromStringTest
-  : public ::testing::TestWithParam<FloatAndStr> {
+    : public ::testing::TestWithParam<FloatAndStr> {
 };
 
 TEST_P(FromStringTest, ConstructFromString) {

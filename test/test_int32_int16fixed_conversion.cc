@@ -32,7 +32,7 @@ constexpr int32_t k10BitsMax = 0x03ff;
 }  // namespace
 
 class Int32Int16FixedConversionTest
-  : public ::testing::TestWithParam<int32_t> {
+    : public ::testing::TestWithParam<int32_t> {
 };
 
 TEST_P(Int32Int16FixedConversionTest, SimpleConversion) {

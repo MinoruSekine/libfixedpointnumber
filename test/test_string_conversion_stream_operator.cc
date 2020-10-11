@@ -45,7 +45,7 @@ constexpr FloatAndString kStringTestValues[] = {
 }  // namespace
 
 class StringConversionStreamOperatorTest
-  : public ::testing::TestWithParam<FloatAndString> {
+    : public ::testing::TestWithParam<FloatAndString> {
 };
 
 TEST_P(StringConversionStreamOperatorTest, StringConversion) {

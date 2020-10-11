@@ -31,7 +31,7 @@ using fixed_t = fixedpointnumber::fixed_t<int16_t, 7>;
 }  // namespace
 
 class TruncTest
-  : public ::testing::TestWithParam<fixed_t> {
+    : public ::testing::TestWithParam<fixed_t> {
 };
 
 TEST_P(TruncTest, Validate) {

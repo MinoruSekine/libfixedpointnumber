@@ -43,7 +43,7 @@ bool is_same_sign(T a, T b) {
 }  // namespace
 
 class ModTest
-  : public ::testing::TestWithParam<ModTestParam> {
+    : public ::testing::TestWithParam<ModTestParam> {
 };
 
 TEST_P(ModTest, Validate) {

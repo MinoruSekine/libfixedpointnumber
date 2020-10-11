@@ -31,7 +31,7 @@ using ufixed_t = fixedpointnumber::fixed_t<uint16_t, 7>;
 }  // namespace
 
 class SignbitPositiveTest
-  : public ::testing::TestWithParam<fixed_t> {
+    : public ::testing::TestWithParam<fixed_t> {
 };
 
 TEST_P(SignbitPositiveTest, Validate) {
@@ -45,7 +45,7 @@ INSTANTIATE_TEST_SUITE_P(Instance0,
                                           fixed_t(0.125f)));
 
 class SignbitNegativeTest
-  : public ::testing::TestWithParam<fixed_t> {
+    : public ::testing::TestWithParam<fixed_t> {
 };
 
 TEST_P(SignbitNegativeTest, Validate) {
@@ -59,7 +59,7 @@ INSTANTIATE_TEST_SUITE_P(Instance0,
                                           fixed_t(0.125f)));
 
 class SignbitUnsignedFixedTest
-  : public ::testing::TestWithParam<ufixed_t> {
+    : public ::testing::TestWithParam<ufixed_t> {
 };
 
 TEST_P(SignbitUnsignedFixedTest, Validate) {

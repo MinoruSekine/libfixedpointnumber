@@ -63,7 +63,7 @@ const MulResult kMulResults[] = {
 }  // namespace
 
 class ArithmeticMulOperatorTest
-  : public ::testing::TestWithParam<MulResult> {
+    : public ::testing::TestWithParam<MulResult> {
 };
 
 TEST_P(ArithmeticMulOperatorTest, NormalOperator) {

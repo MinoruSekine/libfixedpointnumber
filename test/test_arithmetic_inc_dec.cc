@@ -52,7 +52,7 @@ const IncDecResult kIncDecResults[] = {
 }  // namespace
 
 class ArithmeticIncDecTest
-  : public ::testing::TestWithParam<IncDecResult> {
+    : public ::testing::TestWithParam<IncDecResult> {
 };
 
 TEST_P(ArithmeticIncDecTest, Increment) {

@@ -65,7 +65,7 @@ const MulResult kMulResults[] = {
 }  // namespace
 
 class ArithmeticMulFunctionTest
-  : public ::testing::TestWithParam<MulResult> {
+    : public ::testing::TestWithParam<MulResult> {
 };
 
 TEST_P(ArithmeticMulFunctionTest, MulWithKeepingPrecision) {
