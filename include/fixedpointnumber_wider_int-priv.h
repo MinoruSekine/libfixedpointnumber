@@ -29,6 +29,8 @@ namespace fixedpointnumber {
 
 namespace impl {
 
+/// @cond WiderIntType
+
 /// Helper class to get wider type than specified int type.
 ///
 /// @tparam int_t Type to get wider type
@@ -109,6 +111,8 @@ class WiderIntType<uint64_t> {
 /// Alias tempalte to wider type than template argument int type.
 template <typename int_t>
 using wider_int_t = typename WiderIntType<int_t>::type;
+
+/// @endcond
 
 }  // namespace impl
 
