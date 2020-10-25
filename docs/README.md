@@ -23,6 +23,7 @@ libfixedpointnumber provides...
 - Template class `fixed_t` to represent fixed point number
 - Arithmetic and comparison operators for `fixed_t`
 - Casting as conversion between different spec `fixed_t` (different bit width or different Q bit width)
+- Convert from string like as `"3.14"` into `fixed_t`
 - Functions for `fixed_t` which are compatible to part of functions in `cmath`
 - Most members and releated functions of `fixed_t` are provided as constexpr functions
 
