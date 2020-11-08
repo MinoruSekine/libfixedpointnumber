@@ -79,6 +79,8 @@
     <ClCompile Include="..\..\..\..\test\test_math_lerp.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_mod.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_modf.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_nextafter.cc" />
+    <ClCompile Include="..\..\..\..\test\test_math_nexttoward.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_remainder.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_remquo.cc" />
     <ClCompile Include="..\..\..\..\test\test_math_round.cc" />
