@@ -64,18 +64,18 @@ TEST_P(RemQuoTest, ValidateRemQuo) {
 // 2 instances to split range of denominator, for solution of zero division.
 INSTANTIATE_TEST_SUITE_P(PositiveDenom,
                          RemQuoTest,
-                         ::testing::Combine(::testing::Range(fixed_t("-2.0"),
-                                                             fixed_t("2.25"),
-                                                             fixed_t("0.25")),
-                                            ::testing::Range(fixed_t("0.25"),
-                                                             fixed_t("2.25"),
-                                                             fixed_t("0.25"))));
+                         ::testing::Combine(::testing::Range(fixed_t("-1.5"),
+                                                             fixed_t("1.75"),
+                                                             fixed_t("0.5")),
+                                            ::testing::Range(fixed_t("0.5"),
+                                                             fixed_t("1.75"),
+                                                             fixed_t("0.5"))));
 
 INSTANTIATE_TEST_SUITE_P(NegativeDenom,
                          RemQuoTest,
-                         ::testing::Combine(::testing::Range(fixed_t("-2.0"),
-                                                             fixed_t("2.25"),
-                                                             fixed_t("0.25")),
-                                            ::testing::Range(fixed_t("-2.0"),
+                         ::testing::Combine(::testing::Range(fixed_t("-1.5"),
+                                                             fixed_t("1.75"),
+                                                             fixed_t("0.5")),
+                                            ::testing::Range(fixed_t("-1.5"),
                                                              fixed_t(0),
-                                                             fixed_t("0.25"))));
+                                                             fixed_t("0.5"))));

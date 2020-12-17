@@ -43,9 +43,9 @@ TEST_P(IsUnorderedTest, Validate) {
 
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          IsUnorderedTest,
-                         ::testing::Combine(::testing::Range(fixed_t("-2.0"),
-                                                             fixed_t("2.25"),
-                                                             fixed_t("0.25")),
-                                            ::testing::Range(fixed_t("-2.0"),
-                                                             fixed_t("2.25"),
-                                                             fixed_t("0.25"))));
+                         ::testing::Combine(::testing::Range(fixed_t("-1.5"),
+                                                             fixed_t("1.75"),
+                                                             fixed_t("0.5")),
+                                            ::testing::Range(fixed_t("-1.5"),
+                                                             fixed_t("1.75"),
+                                                             fixed_t("0.5"))));

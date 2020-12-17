@@ -48,15 +48,15 @@ TEST_P(LerpTest, Validate) {
 INSTANTIATE_TEST_SUITE_P(
     Instance0,
     LerpTest,
-    ::testing::Combine(::testing::Range(fixed_t("-2.0"),
+    ::testing::Combine(::testing::Range(fixed_t("-1.5"),
                                         fixed_t("1.1"),
-                                        fixed_t("0.25")),
+                                        fixed_t("0.5")),
                        ::testing::Range(fixed_t("1.0"),
-                                        fixed_t("2.1"),
-                                        fixed_t("0.25")),
+                                        fixed_t("1.6"),
+                                        fixed_t("0.5")),
                        ::testing::Range(fixed_t("0.0"),
-                                        fixed_t("2.0"),
-                                        fixed_t("0.125"))));
+                                        fixed_t("1.625"),
+                                        fixed_t("0.25"))));
 
 class LerpZeroOneTest
     : public ::testing::TestWithParam<std::tuple<fixed_t, fixed_t>> {
@@ -81,7 +81,7 @@ INSTANTIATE_TEST_SUITE_P(
     LerpZeroOneTest,
     ::testing::Combine(::testing::Range(fixed_t("-2.0"),
                                         fixed_t("1.1"),
-                                        fixed_t("0.25")),
+                                        fixed_t("0.5")),
                        ::testing::Range(fixed_t("1.0"),
                                         fixed_t("2.1"),
-                                        fixed_t("0.25"))));
+                                        fixed_t("0.5"))));
