@@ -30,8 +30,8 @@ namespace {
 
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 7>;
 
-constexpr const fixed_t kTestStartValue(-2.0);
-constexpr const fixed_t kTestEndValue(2.5);
+constexpr const fixed_t kTestStartValue(-1.5);
+constexpr const fixed_t kTestEndValue(1.625);
 constexpr const fixed_t kTestStepValue(0.5);
 
 }  // namespace

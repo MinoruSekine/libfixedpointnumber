@@ -49,9 +49,9 @@ TEST_P(CopysignTest, Validate) {
 INSTANTIATE_TEST_SUITE_P(
     Instance0,
     CopysignTest,
-    ::testing::Combine(::testing::Range(fixed_t("-2.0"),
-                                        fixed_t("2.125"),
-                                        fixed_t("0.25")),
-                       ::testing::Range(fixed_t("-2.0"),
-                                        fixed_t("2.125"),
+    ::testing::Combine(::testing::Range(fixed_t("-1.5"),
+                                        fixed_t("1.625"),
+                                        fixed_t("0.5")),
+                       ::testing::Range(fixed_t("-1.5"),
+                                        fixed_t("1.625"),
                                         fixed_t("0.25"))));
