@@ -9,27 +9,36 @@ libfixedpointnumber is a Library for fixed point number by C++11.
 Usual progrmas computing fixed point number,
 
 - Bit shift operations are necessary, and they lose readability
-- Types which holding fixed point numbers are just standard integral types, it also lose readability
-- Not type-safe because types for different-spec fixed point numbers are just standard integral types (they include no Q bit width information anywhere)
+- Types which holding fixed point numbers are just standard integral types,
+  it also lose readability
+- Not type-safe because types for different-spec fixed point numbers are
+  just standard integral types
+  (they include no Q bit width information anywhere)
 
 If libfixedpointnumber is used in programs computing fixed point number...
 
 - Bit shift operations can be hidden
-- Specs of fixed point number (holding standard integral types and how many bits assigned for fractional part) are explicit
-- Can not substitute a fixed point number into another spec fixed point number without explicit casting
+- Specs of fixed point number
+  (holding standard integral types
+  and how many bits assigned for fractional part)
+  are explicit
+- Can not substitute a fixed point number into another spec fixed point number
+  without explicit casting
 
 libfixedpointnumber provides...
 
 - Template class `fixed_t` to represent fixed point number
 - Arithmetic and comparison operators for `fixed_t`
-- Casting as conversion between different spec `fixed_t` (different bit width or different Q bit width)
+- Casting as conversion between different spec `fixed_t`
+  (different bit width or different Q bit width)
 - Convert from string like as `"3.14"` into `fixed_t`
 - Functions for `fixed_t` which are compatible to part of functions in `cmath`
-- Most members and releated functions of `fixed_t` are provided as constexpr functions
+- Most members and releated functions of `fixed_t`
+  are provided as constexpr functions
 
 ## API Reference
 
-- See https://minorusekine.github.io/libfixedpointnumber/Doxygen/html/
+- [By Doxygen](https://minorusekine.github.io/libfixedpointnumber/Doxygen/html/)
 
 ## Integrate into your project
 
@@ -92,16 +101,16 @@ Makefile of libfixedpointnumber will provide followings on your environments
 
 | `make` target | How it works |
 ----|----
-| `build-interactive-sample` | Build interactive sample programs (only build, not run) |
-| `build-sample` | Build sample programs (only build, not run) |
-| `build-test` | Build unit tests (only build, not run) |
+| `build-interactive-sample` | Build interactive sample programs |
+| `build-sample` | Build sample programs |
+| `build-test` | Build unit tests |
 | `check` | Process `cppcheck` and `cpplint` |
 | `clean` | Remove generated files |
-| `coverage` | Generate unit tests coverage report (Must use with `BUILD_TYPE=coverage`) |
+| `coverage` | Create coverage report (Must use with `BUILD_TYPE=coverage`) |
 | `cppcheck` | Static analytics by `cppcheck` |
 | `cpplint` | Lint by `cpplint` |
 | `doc` | Generate doxygen documents into out/doc |
-| `run-all` | `run-sample` and `run-test` (interactive-sample is not included)|
+| `run-all` | `run-sample` and `run-test` (except interactive-sample)|
 | `run-sample` | Build (if necessary) and run sample programs |
 | `run-test` | Build (if necessary) and run unit tests |
 
@@ -113,17 +122,22 @@ Makefile of libfixedpointnumber will provide followings on your environments
 ----|----
 | `debug` | All optimizations are disabled in build |
 | `release` | Optimizations are enabled in build |
-| `coverage` | Options for build `coverage` as `make` target, optimizatiosn are disabled and some additional information to get coverage report will be generated |
+| `coverage` | Options for build `coverage` as `make` target |
+
+- In `coverage`, optimization are disabled
+  and some additional information
+  to get coverage report will be generated
 
 ### Build and run unit tests
 
-1. Install Google Test (https://github.com/google/googletest)
+1. Install [Google Test](https://github.com/google/googletest)
 1. `make run-test` in this directory
 
 #### Build coverage report
 
 1. Install `gcovr`
-1. `make BUILD_TYPE=coverage coverage`, so html report is put into `out/coverage_html/`
+1. `make BUILD_TYPE=coverage coverage`,
+   so html report is put into `out/coverage_html/`
 
 ### Build and run sample programs
 
@@ -155,6 +169,7 @@ or
 
 ### For Windows (Visual Studio)
 
-- The solution file to build samples and tests with Visual Studio is available
-as build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
-- Google Test Framework will be recovered automatically at opening solution file
+- The solution file to build samples and tests with Visual Studio
+  is available as build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
+- Google Test Framework will be recovered automatically
+  at opening solution file
