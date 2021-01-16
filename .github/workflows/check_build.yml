@@ -182,3 +182,11 @@ jobs:
       with:
         name: doc
         path: out/site/Doxygen/html
+
+  markdown-lint:
+    name: Lint markdown files.
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actionshub/markdownlint@main

@@ -1,4 +1,5 @@
 # CODE OF CONDUCT for libfixedpointnumber
+
 Every contributors and participants must respect following items.
 
 ## For everyone
@@ -18,27 +19,27 @@ Please check it before any communication for this project.
   - Value diversity
   - Avoid sensitive words and topics even if you use them as joke
     - Sexual words or images
-	- About religion
-	- About politics
-	- About culture (except engineering)
-	- About race
-	- ...
+    - About religion
+    - About politics
+    - About culture (except engineering)
+    - About race
+    - ...
 
 ## As sender
 
 - Keep privacy of everybody
   - Never disclose following others' items without explicit permissions
-	- Physical or electronic addresses
-	- Accounts of SNS
-	- Gender
-	- Real name
+    - Physical or electronic addresses
+    - Accounts of SNS
+    - Gender
+    - Real name
 - Never blame others
   - Even if her/his output has something wrong
   - You can tell her/him what is wrong with kindful mind without abuse
 
 ## As receiver
 
-- Keep this code of conduct even if you have received abuse or you have felt something wrong
+- Keep this code of conduct even if you receive abuse or feel something wrong
   - Never strike back
   - Welcome positive discussion
   - You can express your unconfortable without abuse
