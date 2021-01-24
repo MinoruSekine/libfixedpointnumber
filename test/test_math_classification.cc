@@ -52,6 +52,11 @@ TEST_P(ClassificationNonZeroTest, fixed_isnormal) {
   EXPECT_TRUE(fixedpointnumber::fixed_isnormal(GetParam()));
 }
 
+TEST_P(ClassificationNonZeroTest, fixed_classify) {
+  EXPECT_EQ(fixedpointnumber::classification_t::kNormal,
+            fixedpointnumber::fixed_classify(GetParam()));
+}
+
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          ClassificationNonZeroTest,
                          ::testing::Values(fixed_t("-1.5"),
@@ -81,4 +86,9 @@ TEST(ClassificationZeroTest, fixed_isnan) {
 
 TEST(ClassificationZeroTest, fixed_isnormal) {
   EXPECT_FALSE(fixedpointnumber::fixed_isnormal(kFixedZero));
+}
+
+TEST(ClassificationZeroTest, fixed_classify) {
+  EXPECT_EQ(fixedpointnumber::classification_t::kZero,
+            fixedpointnumber::fixed_classify(kFixedZero));
 }

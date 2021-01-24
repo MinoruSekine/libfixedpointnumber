@@ -29,6 +29,15 @@
 
 namespace fixedpointnumber {
 
+/// Classifications for fixed_t.
+enum class classification_t {
+  kInfinite,   ///< Infinite
+  kNan,        ///< NaN
+  kNormal,     ///< Normal
+  kSubNormal,  ///< Sub Normal
+  kZero,       ///< Zero
+};
+
 /// Return given parameter value is finite or not.
 ///
 /// This functions is compatible to std::isfinite().
@@ -107,6 +116,25 @@ constexpr bool fixed_isnan(fixed_t<IntType, Q> src) {
 template <typename IntType, std::size_t Q>
 constexpr bool fixed_isnormal(fixed_t<IntType, Q> src) {
   return (src != fixed_t<IntType, Q>(0));
+}
+
+/// Return classification for given fixed_t value.
+///
+/// This functions is aware of compatibility to std::fpclassify().
+///
+/// @tparam IntType Internal int type for type fixed_t template param
+/// @tparam Q       Q for type fixed_t template param
+///
+/// @param src value to check normalized or not
+///
+/// @return Classification of given parameter as classification_t
+///
+/// @relates fixed_t
+template <typename IntType, std::size_t Q>
+constexpr classification_t fixed_classify(fixed_t<IntType, Q> src) {
+  return ((src == fixed_t<IntType, Q>(0))
+          ? classification_t::kZero
+          : classification_t::kNormal);
 }
 
 }  // namespace fixedpointnumber
