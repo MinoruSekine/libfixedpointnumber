@@ -1,5 +1,5 @@
 //
-// Copyright 2020 Minoru Sekine
+// Copyright 2020,2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -22,6 +22,7 @@
 #define FIXEDPOINTNUMBER_MATH_INTERNAL
 
 #include "fixedpointnumber_math_abs-priv.h"
+#include "fixedpointnumber_math_classification-priv.h"
 #include "fixedpointnumber_math_comparison-priv.h"
 #include "fixedpointnumber_math_copysign-priv.h"
 #include "fixedpointnumber_math_fdim-priv.h"
