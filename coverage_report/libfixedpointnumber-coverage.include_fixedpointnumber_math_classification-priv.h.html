@@ -266,7 +266,7 @@
           </tr>
           <tr>
             <td class="headerName">File:</td>
-            <td class="headerValue">include/fixedpointnumber_math_comparison-priv.h</td>
+            <td class="headerValue">include/fixedpointnumber_math_classification-priv.h</td>
             <td></td>
             <td class="headerName">Lines:</td>
             <td class="headerTableEntry">12</td>
@@ -278,9 +278,9 @@
             <td class="headerValue">2021-01-25 11:10:36</td>
             <td></td>
             <td class="headerName">Branches:</td>
+            <td class="headerTableEntry">3</td>
             <td class="headerTableEntry">4</td>
-            <td class="headerTableEntry">4</td>
-            <td class="headerTableEntry" style="background-color:LightGreen">100.0 %</td>
+            <td class="headerTableEntry" style="background-color:#FFFF55">75.0 %</td>
           </tr>
         </table>
       </td>
@@ -310,7 +310,7 @@
     <td align="right" class="lineno"><pre>2</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>// Copyright 2020 Minoru Sekine</pre></td>
+    <td align="left" class="src "><pre>// Copyright 2021 Minoru Sekine</pre></td>
     </tr>
 
     <tr>
@@ -429,14 +429,14 @@
     <td align="right" class="lineno"><pre>19</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_COMPARISON_PRIV_H_</pre></td>
+    <td align="left" class="src "><pre>#ifndef INCLUDE_FIXEDPOINTNUMBER_MATH_CLASSIFICATION_PRIV_H_</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>20</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#define INCLUDE_FIXEDPOINTNUMBER_MATH_COMPARISON_PRIV_H_</pre></td>
+    <td align="left" class="src "><pre>#define INCLUDE_FIXEDPOINTNUMBER_MATH_CLASSIFICATION_PRIV_H_</pre></td>
     </tr>
 
     <tr>
@@ -464,35 +464,35 @@
     <td align="right" class="lineno"><pre>24</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#ifndef FIXEDPOINTNUMBER_MATH_INTERNAL</pre></td>
+    <td align="left" class="src "><pre>#include "fixedpointnumber_unused-priv.h"</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>25</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#error Do not include this file directly, ixedpointnumber_math.h instead.</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>26</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#endif</pre></td>
+    <td align="left" class="src "><pre>#ifndef FIXEDPOINTNUMBER_MATH_INTERNAL</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>27</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>#error Do not include this file directly, ixedpointnumber_math.h instead.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>28</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>namespace fixedpointnumber {</pre></td>
+    <td align="left" class="src "><pre>#endif</pre></td>
     </tr>
 
     <tr>
@@ -506,133 +506,133 @@
     <td align="right" class="lineno"><pre>30</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Test 1st parameter greater than 2nd or not.</pre></td>
+    <td align="left" class="src "><pre>namespace fixedpointnumber {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>31</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>32</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>/// Classifications for fixed_t.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>33</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>enum class classification_t {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>34</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>  kInfinite,   ///&lt; Infinite</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>35</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param x Value to test which is greater than y</pre></td>
+    <td align="left" class="src "><pre>  kNan,        ///&lt; NaN</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>36</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param y Value to test which is less than or equal to x</pre></td>
+    <td align="left" class="src "><pre>  kNormal,     ///&lt; Normal</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>37</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>  kSubNormal,  ///&lt; Sub Normal</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>38</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval true  When x > y</pre></td>
+    <td align="left" class="src "><pre>  kZero,       ///&lt; Zero</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>39</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval false When x &lt;= y</pre></td>
+    <td align="left" class="src "><pre>};</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>40</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>41</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
+    <td align="left" class="src "><pre>/// Return given parameter value is finite or not.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>42</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>43</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>57</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_isgreater(fixed_t&lt;IntType, Q> x,</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// This functions is compatible to std::isfinite().</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>44</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                               fixed_t&lt;IntType, Q> y) {</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>45</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>57</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return (x > y);</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>46</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>47</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>48</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Test 1st parameter greater than or equal to 2nd.</pre></td>
+    <td align="left" class="src "><pre>/// @param src value to check finite or not</pre></td>
     </tr>
 
     <tr>
@@ -646,14 +646,14 @@
     <td align="right" class="lineno"><pre>50</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>/// @retval true  src is finite</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>51</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>/// @retval false src is not finite</pre></td>
     </tr>
 
     <tr>
@@ -667,98 +667,98 @@
     <td align="right" class="lineno"><pre>53</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param x Value to test which is greater than or equal to y</pre></td>
+    <td align="left" class="src "><pre>/// @note Always returns false</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>54</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param y Value to test which is less than x</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>55</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>56</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval true  When x >= y</pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>57</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval false When x &lt; y</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_isfinite(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>58</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return FIXEDPOINTNUMBER_UNUSED(src), false;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>59</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>60</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>61</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>56</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_isgreaterequal(fixed_t&lt;IntType, Q> x,</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// Return given parameter value is infinity or not.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>62</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                                    fixed_t&lt;IntType, Q> y) {</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>63</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>56</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return (x >= y);</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// This functions is compatible to std::isinf().</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>64</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>65</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>66</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Test 1st parameter less than 2nd or not.</pre></td>
+    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
@@ -772,182 +772,182 @@
     <td align="right" class="lineno"><pre>68</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>/// @param src value to check infinity or not</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>69</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>70</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @retval true  src is infinity</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>71</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param x Value to test which is less than y</pre></td>
+    <td align="left" class="src "><pre>/// @retval false src is not infinity</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>72</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param y Value to test which is greater than or equal to x</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>73</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @note Always returns false</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>74</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval true  When x &lt; y</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>75</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval false When x >= y</pre></td>
+    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>76</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>77</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_isinf(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>78</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return FIXEDPOINTNUMBER_UNUSED(src), false;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>79</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>54</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_isless(fixed_t&lt;IntType, Q> x,</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>80</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                            fixed_t&lt;IntType, Q> y) {</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>81</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>54</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return (x &lt; y);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>82</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>83</pre></td>
+    <td align="right" class="lineno"><pre>80</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
+    <td align="right" class="lineno"><pre>81</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// Return given parameter value is NaN or not.</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>82</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>83</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// This functions is compatible to std::isnan().</pre></td>
+    </tr>
+
+    <tr>
     <td align="right" class="lineno"><pre>84</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Test 1st parameter less than or equal to 2nd.</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>85</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>86</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>87</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>88</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @param src value to check NaN or not</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>89</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param x Value to test which is less than or equal to y</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>90</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param y Value to test which is greater than x</pre></td>
+    <td align="left" class="src "><pre>/// @retval true  src is NaN</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>91</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @retval false src is not NaN</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>92</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval true  When x &lt;= y</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>93</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval false When x > y</pre></td>
+    <td align="left" class="src "><pre>/// @note Always returns false</pre></td>
     </tr>
 
     <tr>
@@ -974,85 +974,85 @@
     <tr>
     <td align="right" class="lineno"><pre>97</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>54</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_islessequal(fixed_t&lt;IntType, Q> x,</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_isnan(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>98</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                                 fixed_t&lt;IntType, Q> y) {</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return FIXEDPOINTNUMBER_UNUSED(src), false;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>99</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>54</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return (x &lt;= y);</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>100</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>101</pre></td>
+    <td align="right" class="lineno"><pre>100</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
+    <td align="right" class="lineno"><pre>101</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// Return given parameter value is normalized or not.</pre></td>
+    </tr>
+
+    <tr>
     <td align="right" class="lineno"><pre>102</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Test 1st parameter less or greater than 2nd.</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>103</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// This functions is compatible to std::isnormal().</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>104</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>105</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>106</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>107</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param x Value to test which is less or greater than y</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>108</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @param y Value to test which is less or greater than x</pre></td>
+    <td align="left" class="src "><pre>/// @param src value to check normalized or not</pre></td>
     </tr>
 
     <tr>
@@ -1066,14 +1066,14 @@
     <td align="right" class="lineno"><pre>110</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval true  When x &lt; y or x > y</pre></td>
+    <td align="left" class="src "><pre>/// @retval true  src is normalized</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>111</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval false When not x &lt; y and not x > y</pre></td>
+    <td align="left" class="src "><pre>/// @retval false src is not normalized</pre></td>
     </tr>
 
     <tr>
@@ -1087,77 +1087,77 @@
     <td align="right" class="lineno"><pre>113</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
+    <td align="left" class="src "><pre>/// @note Always returns true</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>114</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>115</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>74</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_islessgreater(fixed_t&lt;IntType, Q> x,</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>116</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                                   fixed_t&lt;IntType, Q> y) {</pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>117</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 1 taken 51 times">&check;</span><span class="takenBranch" title="Branch 2 taken 23 times">&check;</span><span class="takenBranch" title="Branch 4 taken 34 times">&check;</span><span class="takenBranch" title="Branch 5 taken 17 times">&check;</span><br/></td>
-    <td align="right" class="linecount coveredLine"><pre>74</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return ((x &lt; y) || (x > y));</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_isnormal(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>118</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 13 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return (src != fixed_t&lt;IntType, Q>(0));</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>119</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>120</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Test 1st and 2nd parameter are unordered or not.</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>121</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// Return classification for given fixed_t value.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>122</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>123</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
+    <td align="left" class="src "><pre>/// This functions is aware of compatibility to std::fpclassify().</pre></td>
     </tr>
 
     <tr>
@@ -1171,14 +1171,14 @@
     <td align="right" class="lineno"><pre>125</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval true  1st and 2nd parameter are unordered</pre></td>
+    <td align="left" class="src "><pre>/// @tparam IntType Internal int type for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>126</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @retval false 1st and 2nd parameter are not unordered</pre></td>
+    <td align="left" class="src "><pre>/// @tparam Q       Q for type fixed_t template param</pre></td>
     </tr>
 
     <tr>
@@ -1192,7 +1192,7 @@
     <td align="right" class="lineno"><pre>128</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @note Currently this function always returns false</pre></td>
+    <td align="left" class="src "><pre>/// @param src value to check normalized or not</pre></td>
     </tr>
 
     <tr>
@@ -1206,70 +1206,91 @@
     <td align="right" class="lineno"><pre>130</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
+    <td align="left" class="src "><pre>/// @return Classification of given parameter as classification_t</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>131</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>132</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>49</pre></td>
-    <td align="left" class="src coveredLine"><pre>constexpr bool fixed_isunordered(fixed_t&lt;IntType, Q>,</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @relates fixed_t</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>133</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                                 fixed_t&lt;IntType, Q>) {</pre></td>
+    <td align="left" class="src "><pre>template &lt;typename IntType, std::size_t Q></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>134</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>49</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return false;</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>constexpr classification_t fixed_classify(fixed_t&lt;IntType, Q> src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>135</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return ((src == fixed_t&lt;IntType, Q>(0))</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>136</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 1 times">&check;</span><span class="takenBranch" title="Branch 1 taken 12 times">&check;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>13</pre></td>
+    <td align="left" class="src coveredLine"><pre>          ? classification_t::kZero</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>137</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}  // namespace fixedpointnumber</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>26</pre></td>
+    <td align="left" class="src coveredLine"><pre>          : classification_t::kNormal);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>138</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>139</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_COMPARISON_PRIV_H_</pre></td>
+    <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>140</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>}  // namespace fixedpointnumber</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>141</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>142</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>#endif  // INCLUDE_FIXEDPOINTNUMBER_MATH_CLASSIFICATION_PRIV_H_</pre></td>
     </tr>
 
   </table>
