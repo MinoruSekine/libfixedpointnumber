@@ -1,5 +1,5 @@
 //
-// Copyright 2020 Minoru Sekine
+// Copyright 2020,2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -26,9 +26,9 @@ int main(int, char**) {
 
   fixedpointnumber::sample::PrintPiByMonteCarlo(100.0f, 1.0f);
 
-  using monte_carlo_fixed_t = fixedpointnumber::fixed_t<int32_t, 16>;
-  fixedpointnumber::sample::PrintPiByMonteCarlo<monte_carlo_fixed_t>(
-      monte_carlo_fixed_t(100.0f), monte_carlo_fixed_t(1.0f));
+  using monte_carlo_fixed32_t = fixedpointnumber::fixed_t<int32_t, 16>;
+  fixedpointnumber::sample::PrintPiByMonteCarlo<monte_carlo_fixed32_t>(
+      monte_carlo_fixed32_t(100.0f), monte_carlo_fixed32_t(1.0f));
 
   return 0;
 }
