@@ -30,5 +30,9 @@ int main(int, char**) {
   fixedpointnumber::sample::PrintPiByMonteCarlo<monte_carlo_fixed32_t>(
       monte_carlo_fixed32_t(100.0f), monte_carlo_fixed32_t(1.0f));
 
+  using monte_carlo_fixed8_t = fixedpointnumber::fixed_t<uint16_t, 4>;
+  fixedpointnumber::sample::PrintPiByMonteCarlo<monte_carlo_fixed8_t>(
+      monte_carlo_fixed8_t(30.0f), monte_carlo_fixed8_t(1.0f));
+
   return 0;
 }
