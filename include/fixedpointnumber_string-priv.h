@@ -1,5 +1,5 @@
 //
-// Copyright 2019,2020 Minoru Sekine
+// Copyright 2019,2020,2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -56,7 +56,7 @@ std::string fixed_t<IntType, Q>::ToString() const {
     wider_int_t decimal_part = wider_int_t(abs_fixed_point) & kDecimalPartMask;
     if (decimal_part != 0) {
       while (decimal_part > 0) {
-        decimal_part *= 10;
+        decimal_part = static_cast<decltype(decimal_part)>(decimal_part * 10);
         const auto this_digit = (decimal_part >> kBitsWidthOfDecimalPart);
         assert(this_digit >= 0);
         assert(this_digit <= 9);

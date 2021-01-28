@@ -1,5 +1,5 @@
 //
-// Copyright 2019,2020 Minoru Sekine
+// Copyright 2019,2020,2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -421,7 +421,7 @@ auto fixed_mul(fixed_t<internal_int_t, l_Q> lhs,
 
   using result_t = fixed_t<wider_int_t, l_Q + r_Q>;
 
-  return result_t(lhs_wide * rhs_wide, true);
+  return result_t(static_cast<wider_int_t>(lhs_wide * rhs_wide), true);
 }
 
 /// Function to divide fixed_t with keeping precision.
@@ -455,7 +455,11 @@ auto fixed_div(fixed_t<internal_int_t, l_Q> lhs,
 
   using result_t = fixed_t<wider_int_t, l_Q + (kResultBits - kSrcBits) - r_Q>;
 
-  return result_t((lhs_wide << (kResultBits - kSrcBits)) / rhs_wide, true);
+  const auto wider_int_result =
+      static_cast<wider_int_t>((lhs_wide << (kResultBits - kSrcBits))
+                               / rhs_wide);
+
+  return result_t(wider_int_result, true);
 }
 
 /// Multiply operator.
