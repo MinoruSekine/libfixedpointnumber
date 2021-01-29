@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2021-01-25 11:10:36</td>
+            <td class="headerValue">2021-01-29 12:52:47</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">65</td>
@@ -310,7 +310,7 @@
     <td align="right" class="lineno"><pre>2</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>// Copyright 2019,2020 Minoru Sekine</pre></td>
+    <td align="left" class="src "><pre>// Copyright 2019,2020,2021 Minoru Sekine</pre></td>
     </tr>
 
     <tr>
@@ -709,7 +709,7 @@
     <td align="right" class="lineno"><pre>59</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount coveredLine"><pre>2032</pre></td>
-    <td align="left" class="src coveredLine"><pre>        decimal_part *= 10;</pre></td>
+    <td align="left" class="src coveredLine"><pre>        decimal_part = static_cast&lt;decltype(decimal_part)>(decimal_part * 10);</pre></td>
     </tr>
 
     <tr>

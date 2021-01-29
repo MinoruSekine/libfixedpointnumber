@@ -269,13 +269,13 @@
             <td class="headerValue">include/fixedpointnumber.h</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">68</td>
-            <td class="headerTableEntry">68</td>
+            <td class="headerTableEntry">71</td>
+            <td class="headerTableEntry">71</td>
             <td class="headerTableEntry" style="background-color:LightGreen">100.0 %</td>
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2021-01-25 11:10:36</td>
+            <td class="headerValue">2021-01-29 12:52:47</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">2</td>
@@ -310,7 +310,7 @@
     <td align="right" class="lineno"><pre>2</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>// Copyright 2019,2020 Minoru Sekine</pre></td>
+    <td align="left" class="src "><pre>// Copyright 2019,2020,2021 Minoru Sekine</pre></td>
     </tr>
 
     <tr>
@@ -806,21 +806,21 @@
     <tr>
     <td align="right" class="lineno"><pre>73</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3054</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3390</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr explicit fixed_t(SrcType src)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>74</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3054</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3390</pre></td>
     <td align="left" class="src coveredLine"><pre>      : fixed_point_(ToInternalType&lt;SrcType>(src)) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>75</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3054</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3390</pre></td>
     <td align="left" class="src coveredLine"><pre>  }</pre></td>
     </tr>
 
@@ -883,21 +883,21 @@
     <tr>
     <td align="right" class="lineno"><pre>84</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1699</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1784</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr explicit fixed_t(const fixed_t&lt;SrcIntType, SrcQ>&amp; src)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>85</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1699</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1784</pre></td>
     <td align="left" class="src coveredLine"><pre>      : fixed_point_(ToInternalType&lt;SrcIntType, SrcQ>(src)) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>86</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1699</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1784</pre></td>
     <td align="left" class="src coveredLine"><pre>  }</pre></td>
     </tr>
 
@@ -946,21 +946,21 @@
     <tr>
     <td align="right" class="lineno"><pre>93</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2169</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>2423</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr fixed_t(internal_int_t src, bool)</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>94</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2169</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>2423</pre></td>
     <td align="left" class="src coveredLine"><pre>      : fixed_point_(src) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>95</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2169</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>2423</pre></td>
     <td align="left" class="src coveredLine"><pre>  }</pre></td>
     </tr>
 
@@ -1016,14 +1016,14 @@
     <tr>
     <td align="right" class="lineno"><pre>103</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1851</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>2189</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr operator DestType() const {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>104</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1851</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>2189</pre></td>
     <td align="left" class="src coveredLine"><pre>    return FromInternalType&lt;DestType>(fixed_point_);</pre></td>
     </tr>
 
@@ -1177,7 +1177,7 @@
     <tr>
     <td align="right" class="lineno"><pre>126</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3013</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3055</pre></td>
     <td align="left" class="src coveredLine"><pre>  fixed_t&amp; operator+=(const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
@@ -1226,14 +1226,14 @@
     <tr>
     <td align="right" class="lineno"><pre>133</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3013</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3055</pre></td>
     <td align="left" class="src coveredLine"><pre>    fixed_point_ = static_cast&lt;internal_int_t>(fixed_point_ + rhs.fixed_point_);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>134</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3013</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3055</pre></td>
     <td align="left" class="src coveredLine"><pre>    return *this;</pre></td>
     </tr>
 
@@ -1296,21 +1296,21 @@
     <tr>
     <td align="right" class="lineno"><pre>143</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2984</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3026</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend fixed_t operator+(fixed_t lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>144</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2984</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3026</pre></td>
     <td align="left" class="src coveredLine"><pre>    lhs += rhs;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>145</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2984</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3026</pre></td>
     <td align="left" class="src coveredLine"><pre>    return lhs;</pre></td>
     </tr>
 
@@ -1366,7 +1366,7 @@
     <tr>
     <td align="right" class="lineno"><pre>153</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>826</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>868</pre></td>
     <td align="left" class="src coveredLine"><pre>  fixed_t&amp; operator-=(const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
@@ -1415,14 +1415,14 @@
     <tr>
     <td align="right" class="lineno"><pre>160</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>826</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>868</pre></td>
     <td align="left" class="src coveredLine"><pre>    fixed_point_ = static_cast&lt;internal_int_t>(fixed_point_ - rhs.fixed_point_);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>161</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>826</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>868</pre></td>
     <td align="left" class="src coveredLine"><pre>    return *this;</pre></td>
     </tr>
 
@@ -1485,21 +1485,21 @@
     <tr>
     <td align="right" class="lineno"><pre>170</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>800</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>842</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend fixed_t operator-(fixed_t lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>171</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>800</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>842</pre></td>
     <td align="left" class="src coveredLine"><pre>    lhs -= rhs;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>172</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>800</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>842</pre></td>
     <td align="left" class="src coveredLine"><pre>    return lhs;</pre></td>
     </tr>
 
@@ -3200,7 +3200,7 @@
     <tr>
     <td align="right" class="lineno"><pre>415</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>783</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>825</pre></td>
     <td align="left" class="src coveredLine"><pre>auto fixed_mul(fixed_t&lt;internal_int_t, l_Q> lhs,</pre></td>
     </tr>
 
@@ -3228,14 +3228,14 @@
     <tr>
     <td align="right" class="lineno"><pre>419</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>783</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>825</pre></td>
     <td align="left" class="src coveredLine"><pre>  const auto lhs_wide = static_cast&lt;wider_int_t>(lhs.fixed_point_);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>420</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>783</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>825</pre></td>
     <td align="left" class="src coveredLine"><pre>  const auto rhs_wide = static_cast&lt;wider_int_t>(rhs.fixed_point_);</pre></td>
     </tr>
 
@@ -3263,8 +3263,8 @@
     <tr>
     <td align="right" class="lineno"><pre>424</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>783</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return result_t(lhs_wide * rhs_wide, true);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>825</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return result_t(static_cast&lt;wider_int_t>(lhs_wide * rhs_wide), true);</pre></td>
     </tr>
 
     <tr>
@@ -3396,7 +3396,7 @@
     <tr>
     <td align="right" class="lineno"><pre>443</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>448</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>491</pre></td>
     <td align="left" class="src coveredLine"><pre>auto fixed_div(fixed_t&lt;internal_int_t, l_Q> lhs,</pre></td>
     </tr>
 
@@ -3452,28 +3452,28 @@
     <tr>
     <td align="right" class="lineno"><pre>451</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>448</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>491</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr std::size_t kResultBits = sizeof(wider_int_t) * 8U;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>452</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>448</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>491</pre></td>
     <td align="left" class="src coveredLine"><pre>  constexpr std::size_t kSrcBits    = sizeof(internal_int_t) * 8U;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>453</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>448</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>491</pre></td>
     <td align="left" class="src coveredLine"><pre>  const auto lhs_wide = static_cast&lt;wider_int_t>(lhs.fixed_point_);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>454</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>448</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>491</pre></td>
     <td align="left" class="src coveredLine"><pre>  const auto rhs_wide = static_cast&lt;wider_int_t>(rhs.fixed_point_);</pre></td>
     </tr>
 
@@ -3501,281 +3501,281 @@
     <tr>
     <td align="right" class="lineno"><pre>458</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>448</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return result_t((lhs_wide &lt;&lt; (kResultBits - kSrcBits)) / rhs_wide, true);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>491</pre></td>
+    <td align="left" class="src coveredLine"><pre>  const auto wider_int_result =</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>459</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>491</pre></td>
+    <td align="left" class="src coveredLine"><pre>      static_cast&lt;wider_int_t>((lhs_wide &lt;&lt; (kResultBits - kSrcBits))</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>460</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="right" class="linecount coveredLine"><pre>43</pre></td>
+    <td align="left" class="src coveredLine"><pre>                               / rhs_wide);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>461</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Multiply operator.</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>462</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>491</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return result_t(wider_int_result, true);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>463</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// This operator keeps same type as lhs and rhs after multiply.</pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>464</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>465</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam internal_int_t Internal integral type to hold fixed point number</pre></td>
+    <td align="left" class="src "><pre>/// Multiply operator.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>466</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q              Bits width for decimal part</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>467</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// This operator keeps same type as lhs and rhs after multiply.</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>468</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @return Multiply result</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>469</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
+    <td align="left" class="src "><pre>/// @tparam internal_int_t Internal integral type to hold fixed point number</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>470</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @note Precision of multiply result can be lossy in this operator</pre></td>
+    <td align="left" class="src "><pre>/// @tparam Q              Bits width for decimal part</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>471</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>template &lt;typename internal_int_t, std::size_t Q></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>472</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>301</pre></td>
-    <td align="left" class="src coveredLine"><pre>fixed_t&lt;internal_int_t, Q> operator*(fixed_t&lt;internal_int_t, Q> lhs,</pre></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @return Multiply result</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>473</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>                                     const fixed_t&lt;internal_int_t, Q>&amp; rhs) {</pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>474</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 301 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>301</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;fixed_t&lt;internal_int_t, Q>>(fixed_mul(lhs, rhs));</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>475</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>476</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>477</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// Division operator.</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>478</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>479</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// This operator keeps same type as lhs and rhs after divide.</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>480</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>481</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam internal_int_t Internal integral type to hold fixed point number</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>482</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @tparam Q              Bits width for decimal part</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>483</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>484</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>/// @return Divide result</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>485</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>///</pre></td>
-    </tr>
-
-    <tr>
-    <td align="right" class="lineno"><pre>486</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>/// @note Precision of multiply result can be lossy in this operator</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>487</pre></td>
+    <td align="right" class="lineno"><pre>475</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>template &lt;typename internal_int_t, std::size_t Q></pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>488</pre></td>
+    <td align="right" class="lineno"><pre>476</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>442</pre></td>
-    <td align="left" class="src coveredLine"><pre>fixed_t&lt;internal_int_t, Q> operator/(fixed_t&lt;internal_int_t, Q> lhs,</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>343</pre></td>
+    <td align="left" class="src coveredLine"><pre>fixed_t&lt;internal_int_t, Q> operator*(fixed_t&lt;internal_int_t, Q> lhs,</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>489</pre></td>
+    <td align="right" class="lineno"><pre>477</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>                                     const fixed_t&lt;internal_int_t, Q>&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>490</pre></td>
-    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 442 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
-    <td align="right" class="linecount coveredLine"><pre>442</pre></td>
-    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;fixed_t&lt;internal_int_t, Q>>(fixed_div(lhs, rhs));</pre></td>
+    <td align="right" class="lineno"><pre>478</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 343 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>343</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;fixed_t&lt;internal_int_t, Q>>(fixed_mul(lhs, rhs));</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>491</pre></td>
+    <td align="right" class="lineno"><pre>479</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
-    <td align="right" class="lineno"><pre>492</pre></td>
+    <td align="right" class="lineno"><pre>480</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>481</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// Division operator.</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>482</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>483</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// This operator keeps same type as lhs and rhs after divide.</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>484</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>485</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @tparam internal_int_t Internal integral type to hold fixed point number</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>486</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @tparam Q              Bits width for decimal part</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>487</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>488</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @return Divide result</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>489</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>///</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>490</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>/// @note Precision of multiply result can be lossy in this operator</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>491</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>template &lt;typename internal_int_t, std::size_t Q></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>492</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount coveredLine"><pre>485</pre></td>
+    <td align="left" class="src coveredLine"><pre>fixed_t&lt;internal_int_t, Q> operator/(fixed_t&lt;internal_int_t, Q> lhs,</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>493</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>}  // namespace fixedpointnumber</pre></td>
+    <td align="left" class="src "><pre>                                     const fixed_t&lt;internal_int_t, Q>&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>494</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 2 taken 485 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span></td>
+    <td align="right" class="linecount coveredLine"><pre>485</pre></td>
+    <td align="left" class="src coveredLine"><pre>  return static_cast&lt;fixed_t&lt;internal_int_t, Q>>(fixed_div(lhs, rhs));</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>495</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#include "fixedpointnumber_conversion-priv.h"</pre></td>
+    <td align="left" class="src "><pre>}</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>496</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#include "fixedpointnumber_stream-priv.h"</pre></td>
+    <td align="left" class="src "><pre></pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>497</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#include "fixedpointnumber_string-priv.h"</pre></td>
+    <td align="left" class="src "><pre>}  // namespace fixedpointnumber</pre></td>
     </tr>
 
     <tr>
@@ -3789,18 +3789,46 @@
     <td align="right" class="lineno"><pre>499</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre>#undef FIXEDPOINTNUMBER_INTERNAL</pre></td>
+    <td align="left" class="src "><pre>#include "fixedpointnumber_conversion-priv.h"</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>500</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
-    <td align="left" class="src "><pre></pre></td>
+    <td align="left" class="src "><pre>#include "fixedpointnumber_stream-priv.h"</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>501</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>#include "fixedpointnumber_string-priv.h"</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>502</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>503</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre>#undef FIXEDPOINTNUMBER_INTERNAL</pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>504</pre></td>
+    <td align="right" class="linebranch"></td>
+    <td align="right" class="linecount "><pre></pre></td>
+    <td align="left" class="src "><pre></pre></td>
+    </tr>
+
+    <tr>
+    <td align="right" class="lineno"><pre>505</pre></td>
     <td align="right" class="linebranch"></td>
     <td align="right" class="linecount "><pre></pre></td>
     <td align="left" class="src "><pre>#endif  // INCLUDE_FIXEDPOINTNUMBER_H_</pre></td>
