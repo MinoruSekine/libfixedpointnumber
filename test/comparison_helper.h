@@ -1,5 +1,5 @@
 //
-// Copyright 2020,2021 Minoru Sekine
+// Copyright 2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -16,23 +16,19 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
+#ifndef TEST_COMPARISON_HELPER_H_
+#define TEST_COMPARISON_HELPER_H_
+
 #include "fixedpointnumber.h"
+#include "fixedpointnumber_limits.h"
 
-#include "pi_by_leibniz.h"
-#include "pi_by_monte_carlo.h"
-
-int main(int, char**) {
-  fixedpointnumber::sample::PrintPiByLeibniz();
-
-  fixedpointnumber::sample::PrintPiByMonteCarlo(100.0f, 1.0f);
-
-  using monte_carlo_fixed32_t = fixedpointnumber::fixed_t<int32_t, 16>;
-  fixedpointnumber::sample::PrintPiByMonteCarlo<monte_carlo_fixed32_t>(
-      monte_carlo_fixed32_t(100.0f), monte_carlo_fixed32_t(1.0f));
-
-  using monte_carlo_fixed8_t = fixedpointnumber::fixed_t<uint16_t, 4>;
-  fixedpointnumber::sample::PrintPiByMonteCarlo<monte_carlo_fixed8_t>(
-      monte_carlo_fixed8_t(30.0f), monte_carlo_fixed8_t(1.0f));
-
-  return 0;
+template <typename FloatType, typename IntType, IntType Q>
+bool IsFloatFixedEq(FloatType float_value,
+               fixedpointnumber::fixed_t<IntType, Q> fixed_value) {
+  using fixed_t = fixedpointnumber::fixed_t<IntType, Q>;
+  return (std::abs(float_value - static_cast<FloatType>(fixed_value))
+          <= static_cast<FloatType>(
+              fixedpointnumber::numeric_limits<fixed_t>::min()));
 }
+
+#endif  // TEST_COMPARISON_HELPER_H_

@@ -1,5 +1,5 @@
 //
-// Copyright 2019,2020 Minoru Sekine
+// Copyright 2019,2020,2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -73,9 +73,9 @@ constexpr IntType FromStringToDecimalIntImpl(IntType i, const char* str) {
 
 template <typename IntType>
 constexpr IntType FromStringToDecimalInt(const char* str) {
-  return ((*str == '-')
-          ? -FromStringToDecimalIntImpl(0, str + 1)
-          : FromStringToDecimalIntImpl(0, str));
+  return static_cast<IntType>((*str == '-')
+                              ? -FromStringToDecimalIntImpl(0, str + 1)
+                              : FromStringToDecimalIntImpl(0, str));
 }
 
 template <typename IntType>

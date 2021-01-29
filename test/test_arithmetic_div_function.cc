@@ -1,5 +1,5 @@
 //
-// Copyright 2020 Minoru Sekine
+// Copyright 2020,2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -21,6 +21,9 @@
 #include "gtest_compat.h"
 
 #include "fixedpointnumber.h"
+#include "fixedpointnumber_limits.h"
+
+#include "comparison_helper.h"
 
 namespace {
 
@@ -62,3 +65,11 @@ TEST_P(ArithmeticDivFunctionTest, Div) {
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          ArithmeticDivFunctionTest,
                          ::testing::ValuesIn(kDivResults));
+
+
+TEST(ArithmeticDivForInt8Test, Div) {
+  using fixed_t = fixedpointnumber::fixed_t<uint8_t, 6>;
+  const auto lhs = fixed_t("1.0");
+  const auto rhs = fixed_t("3.0");
+  EXPECT_PRED2((IsFloatFixedEq<float, uint8_t, 6>), 1.0f / 3.0f, lhs / rhs);
+}
