@@ -1,0 +1,26 @@
+SRC_DIR := $(patsubst %/, %, $(dir $(lastword $(MAKEFILE_LIST))))
+OUT_DIR := $(patsubst %/, %, $(OUT_DIR))
+EXEC := $(OUT_DIR)/$(notdir $(patsubst %/, %, $(SRC_DIR)))
+SRCS := $(wildcard $(SRC_DIR)/*.cc)
+OBJS := $(subst $(SRC_DIR), $(OUT_DIR), $(patsubst %.cc, %.o, $(SRCS)))
+DEPS := $(OBJS:.o=.d)
+
+all: $(EXEC)
+
+clean:
+	- rm $(EXEC) $(OBJS) $(DEPS)
+	- rm -r $(OUT_DIR)
+
+$(EXEC): $(OBJS)
+	@mkdir -p $(dir $@)
+	$(COMPILER) -o $@ $^ $(LDFLAGS) $(MY_LDFLAGS) $(MY_CXXFLAGS)
+
+$(OUT_DIR)%.o: $(SRC_DIR)/%.cc
+	@mkdir -p $(dir $@)
+	$(COMPILER) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
+
+ifeq ($(findstring clean,$(MAKECMDGOALS)),)
+-include $(DEPS)
+endif
+
+.PHONY: all clean

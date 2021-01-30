@@ -1,3 +1,5 @@
+export
+
 COMPILER := g++
 
 # Parameters which can be specified make command line.
@@ -28,39 +30,20 @@ TEST_LDFLAGS :=
 TEST_LDFLAGS += $(addprefix -l, $(TEST_LIBS))
 TEST_LDFLAGS += -pthread
 
-SAMPLE_EXEC := $(OUT_DIR)/fixedpointnumber_sample
-SAMPLE_SRC_DIR := sample
-SAMPLE_SRC_CPP := $(wildcard $(SAMPLE_SRC_DIR)/*.cc)
-SAMPLE_SRCS := $(SAMPLE_SRC_CPP)
-SAMPLE_SRC_HEADER := $(wildcard $(SAMPLE_SRC_DIR)/*.h)
-SAMPLE_OBJ_DIR := $(OBJ_DIR)/$(SAMPLE_SRC_DIR)
-SAMPLE_OBJS := $(addprefix $(OBJ_DIR)/, $(SAMPLE_SRCS:%.cc=%.o))
-SAMPLE_DEPS := $(SAMPLE_OBJS:%.o=%.d)
-SAMPLE_LIBS :=
-SAMPLE_LDFLAGS :=
-SAMPLE_LDFLAGS += $(addprefix -l, $(SAMPLE_LIBS))
-# SAMPLE_LDFLAGS += -pthread
-
-INTERACTIVE_SAMPLE_EXEC := $(OUT_DIR)/fixedpointnumber_interactive_sample
-INTERACTIVE_SAMPLE_SRC_DIR := interactive_sample
-INTERACTIVE_SAMPLE_SRC_CPP := $(wildcard $(INTERACTIVE_SAMPLE_SRC_DIR)/*.cc)
-INTERACTIVE_SAMPLE_SRCS := $(INTERACTIVE_SAMPLE_SRC_CPP)
-INTERACTIVE_SAMPLE_SRC_HEADER := $(wildcard $(INTERACTIVE_SAMPLE_SRC_DIR)/*.h)
-INTERACTIVE_SAMPLE_OBJ_DIR := $(OBJ_DIR)/$(INTERACTIVE_SAMPLE_SRC_DIR)
-INTERACTIVE_SAMPLE_OBJS := $(addprefix $(OBJ_DIR)/, $(INTERACTIVE_SAMPLE_SRCS:%.cc=%.o))
-INTERACTIVE_SAMPLE_DEPS := $(INTERACTIVE_SAMPLE_OBJS:%.o=%.d)
-INTERACTIVE_SAMPLE_LIBS :=
-INTERACTIVE_SAMPLE_LDFLAGS :=
-INTERACTIVE_SAMPLE_LDFLAGS += $(addprefix -l, $(INTERACTIVE_SAMPLE_LIBS))
+SAMPLE_SRC_ROOT_DIR := sample
+SAMPLE_SRC_DIRS := $(wildcard $(SAMPLE_SRC_ROOT_DIR)/*)
+SAMPLE_OUT_ROOT_DIR := $(OUT_DIR)/sample
+SAMPLE_EXECS := $(subst $(SAMPLE_SRC_ROOT_DIR), $(SAMPLE_OUT_ROOT_DIR), $(SAMPLE_SRC_DIRS))
+SAMPLES_CLEAN := $(addsuffix -clean, $(SAMPLE_SRC_DIRS))
+ALL_SAMPLE_SRC_CPP := $(foreach dir, $(SAMPLE_SRC_DIRS), $(wildcard $(dir)/*.cc))
+ALL_SAMPLE_SRC_HEADER := $(foreach dir, $(SAMPLE_SRC_DIRS), $(wildcard $(dir)/*.h))
 
 ALL_SRC_CPP :=
 ALL_SRC_CPP += $(TEST_SRC_CPP)
-ALL_SRC_CPP += $(SAMPLE_SRC_CPP)
-ALL_SRC_CPP += $(INTERACTIVE_SAMPLE_SRC_CPP)
+ALL_SRC_CPP += $(ALL_SAMPLE_SRC_CPP)
 ALL_SRC_HEADER :=
 ALL_SRC_HEADER += $(TEST_SRC_HEADER)
-ALL_SRC_HEADER += $(SAMPLE_SRC_HEADER)
-ALL_SRC_HEADER += $(INTERACTIVE_SAMPLE_SRC_HEADER)
+ALL_SRC_HEADER += $(ALL_SAMPLE_SRC_HEADER)
 
 # Determine variables by BUILD_TYPE.
 BUILD_TYPE_CXXFLAGS :=
@@ -121,11 +104,11 @@ WARNING_CXXFLAGS += -Wno-error=inline
 # WARNING_CXXFLAGS += -Wstrict-prototypes
 
 # Build C++ compiler flags for test.
-TEST_CXXFLAGS := $(CXXFLAGS)
-TEST_CXXFLAGS += --std=c++11
-TEST_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
-TEST_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
-TEST_CXXFLAGS += $(WARNING_CXXFLAGS)
+MY_CXXFLAGS := $(CXXFLAGS)
+MY_CXXFLAGS += --std=c++11
+MY_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
+MY_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
+MY_CXXFLAGS += $(WARNING_CXXFLAGS)
 
 # Build C++ compiler flags for sample.
 SAMPLE_CXXFLAGS := $(CXXFLAGS)
@@ -191,20 +174,13 @@ DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
 # Targets.
 all: build-all
 
-build-all: build-test build-sample build-interactive-sample
+build-all: build-test build-sample
 
-run-all: run-test run-sample
+run-all: run-test
 
-clean:
-	-rm $(TEST_OBJS) $(TEST_DEPS) $(SAMPLE_OBJS) $(SAMPLE_DEPS)
-	rm -rf $(OUT_ROOT_DIR)
-
-run-sample: build-sample
-	@$(SAMPLE_EXEC)
-
-build-sample: $(SAMPLE_EXEC)
-
-build-interactive-sample: $(INTERACTIVE_SAMPLE_EXEC)
+clean: clean-sample
+	- rm $(TEST_OBJS) $(TEST_DEPS)
+	- rm -r $(OUT_ROOT_DIR)
 
 run-test: build-test
 	@$(TEST_EXEC)
@@ -234,27 +210,26 @@ site: $(SITE_OUT_INDEX_HTML) doxygen coverage
 
 $(TEST_EXEC): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
-	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(TEST_CXXFLAGS)
+	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(MY_CXXFLAGS)
 
 $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 	@mkdir -p $(dir $@)
-	$(COMPILER) $(TEST_CXXFLAGS) -o $@ -c $< -MMD -MP
+	$(COMPILER) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
 
-$(SAMPLE_EXEC): $(SAMPLE_OBJS)
-	@mkdir -p $(dir $@)
-	$(COMPILER) -o $(SAMPLE_EXEC) $^ $(LDFLAGS) $(SAMPLE_LDFLAGS) $(SAMPLE_CXXFLAGS)
+build-sample: $(SAMPLE_EXECS)
 
-$(SAMPLE_OBJ_DIR)%.o: $(SAMPLE_SRC_DIR)/%.cc
-	@mkdir -p $(dir $@)
-	$(COMPILER) $(SAMPLE_CXXFLAGS) -o $@ -c $< -MMD -MP
+run-sample: run-calc_pi
 
-$(INTERACTIVE_SAMPLE_EXEC): $(INTERACTIVE_SAMPLE_OBJS)
-	@mkdir -p $(dir $@)
-	$(COMPILER) -o $(INTERACTIVE_SAMPLE_EXEC) $^ $(LDFLAGS) $(SAMPLE_LDFLAGS) $(SAMPLE_CXXFLAGS)
+run-calc_pi: $(SAMPLE_OUT_ROOT_DIR)/calc_pi/calc_pi
+	$^
 
-$(INTERACTIVE_SAMPLE_OBJ_DIR)%.o: $(INTERACTIVE_SAMPLE_SRC_DIR)/%.cc
-	@mkdir -p $(dir $@)
-	$(COMPILER) $(SAMPLE_CXXFLAGS) -o $@ -c $< -MMD -MP
+clean-sample: $(SAMPLES_CLEAN)
+
+$(SAMPLE_OUT_ROOT_DIR)/%:
+	$(MAKE) OUT_DIR=$(SAMPLE_OUT_ROOT_DIR)/$(notdir $@) -f $(SAMPLE_SRC_ROOT_DIR)/$(notdir $@)/Makefile
+
+%-clean:
+	$(MAKE) OUT_DIR=$(SAMPLE_OUT_ROOT_DIR)/$(notdir $(subst -clean,,$@)) -f $(subst -clean,,$@)/Makefile clean
 
 %.cpplint:
 	$(CPPLINT) $(CPPLINT_FLAGS) $*
@@ -272,7 +247,7 @@ $(SITE_OUT_INDEX_HTML): $(SITE_OUT_DIR) $(SITE_SRC_INDEX_HTML)
 	cp -f $(SITE_SRC_INDEX_HTML) $@
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
--include $(TEST_DEPS) $(SAMPLE_DEPS)
+-include $(TEST_DEPS)
 endif
 
-.PHONY: all clean build-sample run-sample build-test run-test check cpplint cppcheck doc doxygen site
+.PHONY: all clean build-sample build-test run-test check cpplint cppcheck doc doxygen site
