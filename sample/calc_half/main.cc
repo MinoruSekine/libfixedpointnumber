@@ -25,17 +25,32 @@
 using fixed_Q7_t = fixedpointnumber::fixed_t<int16_t, 7>;
 using fixed_Q8_t = fixedpointnumber::fixed_t<int16_t, 8>;
 
-int main(int, char**) {
-  std::cout << "Input number to divide (less than 128): ";
+namespace {
 
-  fixed_Q7_t num(0);
-  std::cin >> num;
+void usage() {
+  std::cout << "Usage: calc_half number_to_be_divided." << std::endl;
 
-  std::cout << "Half of "
-            << num
-            << " is "
-            << fixed_Q8_t(num) / fixed_Q8_t(2)
-            << std::endl;
+  return;
+}
+
+}  // namespace
+
+int main(int argc, char* argv[]) {
+  if (argc >= 2) {
+    fixed_Q7_t num(0);
+    std::stringstream ss;
+
+    ss << argv[1];
+    ss >> num;
+
+    std::cout << "Half of "
+              << num
+              << " is "
+              << fixed_Q8_t(num) / fixed_Q8_t(2)
+              << std::endl;
+  } else {
+    usage();
+  }
 
   return 0;
 }

@@ -218,7 +218,10 @@ $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 
 build-sample: $(SAMPLE_EXECS)
 
-run-sample: run-calc_pi
+run-sample: run-calc_half run-calc_pi
+
+run-calc_half: $(SAMPLE_OUT_ROOT_DIR)/calc_half/calc_half
+	$^ 3.1
 
 run-calc_pi: $(SAMPLE_OUT_ROOT_DIR)/calc_pi/calc_pi
 	$^
