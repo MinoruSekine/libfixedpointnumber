@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d0bd35ff-0674-4106-ac82-38143654c002}</ProjectGuid>
-    <RootNamespace>libfixedpointnumbersample</RootNamespace>
+    <ProjectGuid>{c7354c73-f4fd-4185-b906-449f8051561e}</ProjectGuid>
+    <RootNamespace>libfixedpointnumbersamplecalchalf</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -159,8 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\sample\main.cc" />
-    <ClCompile Include="..\..\..\..\sample\pi_by_leibniz.cc" />
+    <ClCompile Include="..\..\..\..\sample\calc_half\main.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

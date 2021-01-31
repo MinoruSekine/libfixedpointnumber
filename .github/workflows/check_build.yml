@@ -106,7 +106,8 @@ jobs:
     - name: Build sample program (Windows)
       if: contains(matrix.os, 'windows')
       run: |
-        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample/libfixedpointnumber_sample.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample_calc_half/libfixedpointnumber_sample_calc_half.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample_calc_pi/libfixedpointnumber_sample_calc_pi.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
 
     - name: Run sample program (Ubuntu, macOS)
       if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
@@ -116,7 +117,8 @@ jobs:
     - name: Run sample program (Windows)
       if: contains(matrix.os, 'windows')
       run: |
-        out\\sample\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_sample.exe
+        out\\sample\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_sample_calc_half.exe 3.1
+        out\\sample\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_sample_calc_pi.exe
 
   cpplint:
     runs-on: ubuntu-latest

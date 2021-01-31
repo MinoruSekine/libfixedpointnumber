@@ -16,26 +16,17 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
+#ifndef SAMPLE_CALC_PI_PI_BY_LEIBNIZ_H_
+#define SAMPLE_CALC_PI_PI_BY_LEIBNIZ_H_
 
-#include <cstdint>
-#include <iostream>
+namespace fixedpointnumber {
 
-#include "fixedpointnumber.h"
+namespace sample {
 
-using fixed_Q7_t = fixedpointnumber::fixed_t<int16_t, 7>;
-using fixed_Q8_t = fixedpointnumber::fixed_t<int16_t, 8>;
+void PrintPiByLeibniz();
 
-int main(int, char**) {
-  std::cout << "Input number to divide (less than 128): ";
+}  // namespace sample
 
-  fixed_Q7_t num(0);
-  std::cin >> num;
+}  // namespace fixedpointnumber
 
-  std::cout << "Half of "
-            << num
-            << " is "
-            << fixed_Q8_t(num) / fixed_Q8_t(2)
-            << std::endl;
-
-  return 0;
-}
+#endif  // SAMPLE_CALC_PI_PI_BY_LEIBNIZ_H_

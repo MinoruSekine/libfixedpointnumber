@@ -16,8 +16,8 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef SAMPLE_PI_BY_MONTE_CARLO_H_
-#define SAMPLE_PI_BY_MONTE_CARLO_H_
+#ifndef SAMPLE_CALC_PI_PI_BY_MONTE_CARLO_H_
+#define SAMPLE_CALC_PI_PI_BY_MONTE_CARLO_H_
 
 #include <iostream>
 #include <typeinfo>
@@ -59,4 +59,4 @@ void PrintPiByMonteCarlo(T radius, T step) {
 
 }  // namespace fixedpointnumber
 
-#endif  // SAMPLE_PI_BY_MONTE_CARLO_H_
+#endif  // SAMPLE_CALC_PI_PI_BY_MONTE_CARLO_H_
