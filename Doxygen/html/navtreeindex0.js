@@ -76,6 +76,7 @@ var NAVTREEINDEX0 =
 "constexpr__string_8h_source.html":[2,0,0,1],
 "dir_c29eeb5af533606caea8a09e66794740.html":[2,0,1],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[2,0,0],
+"dir_fa8e32eecee5c36f642ee6902f637713.html":[2,0,1,0],
 "files.html":[2,0],
 "fixedpointnumber_8h_source.html":[2,0,0,2],
 "fixedpointnumber__conversion-priv_8h_source.html":[2,0,0,3],
@@ -113,6 +114,6 @@ var NAVTREEINDEX0 =
 "index.html":[],
 "modules.html":[0],
 "pages.html":[],
-"pi__by__leibniz_8h_source.html":[2,0,1,0],
-"pi__by__monte__carlo_8h_source.html":[2,0,1,1]
+"pi__by__leibniz_8h_source.html":[2,0,1,0,0],
+"pi__by__monte__carlo_8h_source.html":[2,0,1,0,1]
 };
