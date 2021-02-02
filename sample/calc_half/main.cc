@@ -1,5 +1,5 @@
 //
-// Copyright 2020 Minoru Sekine
+// Copyright 2020,2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
