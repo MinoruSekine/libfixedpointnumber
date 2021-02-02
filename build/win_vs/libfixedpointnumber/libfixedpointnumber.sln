@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfixedpointnumber_test", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfixedpointnumber_sample_calc_half", "libfixedpointnumber_sample_calc_half\libfixedpointnumber_sample_calc_half.vcxproj", "{C7354C73-F4FD-4185-B906-449F8051561E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfixedpointnumber_sample_dump_range", "libfixedpointnumber_sample_dump_range\libfixedpointnumber_sample_dump_range.vcxproj", "{82872906-62BB-4B14-B969-15454C873D6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{C7354C73-F4FD-4185-B906-449F8051561E}.Release|x64.Build.0 = Release|x64
 		{C7354C73-F4FD-4185-B906-449F8051561E}.Release|x86.ActiveCfg = Release|Win32
 		{C7354C73-F4FD-4185-B906-449F8051561E}.Release|x86.Build.0 = Release|Win32
+		{82872906-62BB-4B14-B969-15454C873D6E}.Debug|x64.ActiveCfg = Debug|x64
+		{82872906-62BB-4B14-B969-15454C873D6E}.Debug|x64.Build.0 = Debug|x64
+		{82872906-62BB-4B14-B969-15454C873D6E}.Debug|x86.ActiveCfg = Debug|Win32
+		{82872906-62BB-4B14-B969-15454C873D6E}.Debug|x86.Build.0 = Debug|Win32
+		{82872906-62BB-4B14-B969-15454C873D6E}.Release|x64.ActiveCfg = Release|x64
+		{82872906-62BB-4B14-B969-15454C873D6E}.Release|x64.Build.0 = Release|x64
+		{82872906-62BB-4B14-B969-15454C873D6E}.Release|x86.ActiveCfg = Release|Win32
+		{82872906-62BB-4B14-B969-15454C873D6E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
