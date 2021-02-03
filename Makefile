@@ -176,7 +176,7 @@ all: build-all
 
 build-all: build-test build-sample
 
-run-all: run-test
+run-all: run-test run-sample
 
 clean: clean-sample
 	- rm $(TEST_OBJS) $(TEST_DEPS)
