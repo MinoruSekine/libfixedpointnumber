@@ -176,7 +176,7 @@ all: build-all
 
 build-all: build-test build-sample
 
-run-all: run-test
+run-all: run-test run-sample
 
 clean: clean-sample
 	- rm $(TEST_OBJS) $(TEST_DEPS)
@@ -228,16 +228,16 @@ run-calc_pi: $(SAMPLE_OUT_ROOT_DIR)/calc_pi/calc_pi
 
 clean-sample: $(SAMPLES_CLEAN)
 
-$(SAMPLE_OUT_ROOT_DIR)/%:
+$(SAMPLE_OUT_ROOT_DIR)/%: .FORCE
 	$(MAKE) OUT_DIR=$(SAMPLE_OUT_ROOT_DIR)/$(notdir $@) -f $(SAMPLE_SRC_ROOT_DIR)/$(notdir $@)/Makefile
 
-%-clean:
+%-clean: .FORCE
 	$(MAKE) OUT_DIR=$(SAMPLE_OUT_ROOT_DIR)/$(notdir $(subst -clean,,$@)) -f $(subst -clean,,$@)/Makefile clean
 
-%.cpplint:
+%.cpplint: .FORCE
 	$(CPPLINT) $(CPPLINT_FLAGS) $*
 
-%.cppcheck:
+%.cppcheck: .FORCE
 	$(CPPCHECK) $(CPPCHECK_FLAGS) $*
 
 $(DOXYGEN_OUT_DIR): $(SITE_OUT_DIR)
@@ -253,4 +253,5 @@ ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS)
 endif
 
+.FORCE:
 .PHONY: all clean build-sample build-test run-test check cpplint cppcheck doc doxygen site
