@@ -1,5 +1,5 @@
 //
-// Copyright 2020,2021 Minoru Sekine
+// Copyright 2021 Minoru Sekine
 //
 // This file is part of libfixedpointnumber.
 //
@@ -16,19 +16,30 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with libfixedpointnumber.  If not, see <http://www.gnu.org/licenses/>.
 
-
+#include <cassert>
 #include <cstdint>
 #include <iostream>
 
 #include "fixedpointnumber.h"
+#include "fixedpointnumber_limits.h"
 
-using fixed_Q7_t = fixedpointnumber::fixed_t<int16_t, 7>;
-using fixed_Q8_t = fixedpointnumber::fixed_t<int16_t, 8>;
+using fixed_t = fixedpointnumber::fixed_t<uint8_t, 4>;
 
 namespace {
 
+fixed_t str_to_fixed_t(const char* str) {
+  assert(str);
+
+  std::stringstream ss;
+  ss << str;
+  fixed_t fixed(0);
+  ss >> fixed;
+
+  return fixed;
+}
+
 void usage() {
-  std::cout << "Usage: calc_half number_to_be_divided." << std::endl;
+  std::cout << "Usage: dump_range start end." << std::endl;
 
   return;
 }
@@ -36,18 +47,18 @@ void usage() {
 }  // namespace
 
 int main(int argc, char* argv[]) {
-  if (argc >= 2) {
-    fixed_Q7_t num(0);
-    std::stringstream ss;
+  if (argc >= 3) {
+    const fixed_t start(str_to_fixed_t(argv[1]));
+    const fixed_t end(str_to_fixed_t(argv[2]));
 
-    ss << argv[1];
-    ss >> num;
+    std::cout << "Dump from " << start << " to " << end << std::endl;
 
-    std::cout << "Half of "
-              << num
-              << " is "
-              << fixed_Q8_t(num) / fixed_Q8_t(2)
-              << std::endl;
+    constexpr const fixed_t step =
+        fixedpointnumber::numeric_limits<fixed_t>::min();
+    for (fixed_t i = start; i < end; i += step) {
+      std::cout << i << ' ';
+    }
+    std::cout << std::endl;
   } else {
     usage();
   }
