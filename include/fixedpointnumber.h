@@ -30,6 +30,9 @@ namespace fixedpointnumber {
 
 /// Type for fixed point number.
 ///
+/// This template class provides fixed point number
+/// with specified integer type and specified Q value.
+///
 /// @tparam internal_int_t Internal integral type to hold fixed point number
 /// @tparam Q              Bits width for decimal part
 template <typename internal_int_t, std::size_t Q>

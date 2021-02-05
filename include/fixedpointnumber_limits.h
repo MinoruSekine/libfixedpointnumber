@@ -25,6 +25,12 @@ namespace fixedpointnumber {
 
 /// std::numeric_limits compatible functions for fixed_t.
 ///
+/// This class template provides numeric limitations for fixed_t
+/// specified by tempalte parameter
+/// as static member functions and static member variables.
+///
+/// All member functions and variables in this class template are constexpr.
+///
 /// @tparam T Instantiated class of fixed_t template class to know limits
 ///
 /// @relates fixed_t
