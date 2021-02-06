@@ -29,6 +29,10 @@ namespace constexprstr {
 
 /// constexpr version of std::strlen().
 ///
+/// This function returns length of string.
+/// If the parameter is fixed at compile-time,
+/// this function is compile-time resolvable as constexpr function.
+///
 /// @param[in] str String to calculate length
 ///
 /// @return Length of str
