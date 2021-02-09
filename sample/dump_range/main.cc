@@ -27,19 +27,66 @@ using fixed_t = fixedpointnumber::fixed_t<uint8_t, 4>;
 
 namespace {
 
-fixed_t str_to_fixed_t(const char* str) {
+template <typename T>
+T str_to_num(const char* str) {
   assert(str);
 
   std::stringstream ss;
   ss << str;
-  fixed_t fixed(0);
-  ss >> fixed;
+  T num(0);
+  ss >> num;
 
-  return fixed;
+  return num;
 }
 
+template <typename T>
+void dump_range(const char* start_as_str, const char* end_as_str) {
+  const T start(str_to_num<T>(start_as_str));
+  const T end(str_to_num<T>(end_as_str));
+  constexpr const T step = fixedpointnumber::numeric_limits<T>::min();
+
+  std::cout << "Dump from " << start << " to " << end << std::endl;
+  for (T i = start; i < end; i += step) {
+    std::cout << i << ' ';
+  }
+  std::cout << std::endl;
+
+  return;
+}
+
+template <typename IntType, std::size_t start_Q>
+class RangeDumper {
+ public:
+  static void dump_range(std::size_t param_q,
+                         const char* start_as_str,
+                         const char* end_as_str) {
+    if (start_Q == param_q) {
+      ::dump_range<fixedpointnumber::fixed_t<IntType, start_Q>>(start_as_str,
+                                                                end_as_str);
+    } else {
+      RangeDumper<IntType, start_Q - 1>::dump_range(param_q,
+                                                    start_as_str,
+                                                    end_as_str);
+    }
+    return;
+  }
+};
+
+template <typename IntType>
+class RangeDumper<IntType, 0> {
+ public:
+  static void dump_range(std::size_t param_q,
+                         const char* start_as_str,
+                         const char* end_as_str) {
+    (void)param_q;
+    (void)start_as_str;
+    (void)end_as_str;
+    return;
+  }
+};
+
 void usage() {
-  std::cout << "Usage: dump_range start end." << std::endl;
+  std::cout << "Usage: dump_range Q_bits_width start_num end_num." << std::endl;
 
   return;
 }
@@ -47,18 +94,10 @@ void usage() {
 }  // namespace
 
 int main(int argc, char* argv[]) {
-  if (argc >= 3) {
-    const fixed_t start(str_to_fixed_t(argv[1]));
-    const fixed_t end(str_to_fixed_t(argv[2]));
-
-    std::cout << "Dump from " << start << " to " << end << std::endl;
-
-    constexpr const fixed_t step =
-        fixedpointnumber::numeric_limits<fixed_t>::min();
-    for (fixed_t i = start; i < end; i += step) {
-      std::cout << i << ' ';
-    }
-    std::cout << std::endl;
+  if (argc >= 4) {
+    RangeDumper<uint8_t, 7>::dump_range(str_to_num<std::size_t>(argv[1]),
+                                        argv[2],
+                                        argv[3]);
   } else {
     usage();
   }
