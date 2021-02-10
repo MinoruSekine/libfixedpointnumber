@@ -227,7 +227,7 @@ run-calc_pi: $(SAMPLE_OUT_ROOT_DIR)/calc_pi/calc_pi
 	$^
 
 run-dump_range: $(SAMPLE_OUT_ROOT_DIR)/dump_range/dump_range
-	$^ 3.0 3.5
+	$^ 6 3.0 3.5
 
 clean-sample: $(SAMPLES_CLEAN)
 
