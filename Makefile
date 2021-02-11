@@ -1,7 +1,5 @@
 export
 
-COMPILER := g++
-
 # Parameters which can be specified make command line.
 BUILD_TYPE := debug
 
@@ -210,11 +208,11 @@ site: $(SITE_OUT_INDEX_HTML) doxygen coverage
 
 $(TEST_EXEC): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
-	$(COMPILER) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(MY_CXXFLAGS)
+	$(CXX) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(MY_CXXFLAGS)
 
 $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 	@mkdir -p $(dir $@)
-	$(COMPILER) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
+	$(CXX) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
 
 build-sample: $(SAMPLE_EXECS)
 

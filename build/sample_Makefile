@@ -13,11 +13,11 @@ clean:
 
 $(EXEC): $(OBJS)
 	@mkdir -p $(dir $@)
-	$(COMPILER) -o $@ $^ $(LDFLAGS) $(MY_LDFLAGS) $(MY_CXXFLAGS)
+	$(CXX) -o $@ $^ $(LDFLAGS) $(MY_LDFLAGS) $(MY_CXXFLAGS)
 
 $(OUT_DIR)%.o: $(SRC_DIR)/%.cc
 	@mkdir -p $(dir $@)
-	$(COMPILER) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
+	$(CXX) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(DEPS)
