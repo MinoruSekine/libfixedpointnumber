@@ -64,7 +64,7 @@ jobs:
     - name: Run tests (Windows)
       if: contains(matrix.os, 'windows')
       run: |
-        out\\test\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_test.exe
+        out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_test\\libfixedpointnumber_test.exe
 
     - name: Generate coverage report
       if: matrix.build_type == 'coverage'
@@ -118,9 +118,9 @@ jobs:
     - name: Run sample program (Windows)
       if: contains(matrix.os, 'windows')
       run: |
-        out\\sample\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_sample_calc_half.exe 3.1
-        out\\sample\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_sample_calc_pi.exe
-        out\\sample\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_sample_dump_range.exe 3.0 3.5
+        out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_calc_half\\libfixedpointnumber_sample_calc_half.exe 3.1
+        out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_calc_pi\\libfixedpointnumber_sample_calc_pi.exe
+        out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_dump_range\\libfixedpointnumber_sample_dump_range.exe 3.0 3.5
 
   cpplint:
     runs-on: ubuntu-latest
