@@ -10,6 +10,9 @@ INCLUDE_DIR += include
 INCLUDE_DIR_HEADER :=
 INCLUDE_DIR_HEADER += $(wildcard $(INCLUDE_DIR)/*.h)
 
+SYSTEM_INCLUDE_DIRS :=
+SYSTEM_INCLUDE_DIRS += /usr/local/include
+
 OUT_ROOT_DIR := out
 OUT_DIR := $(OUT_ROOT_DIR)/$(BUILD_TYPE)
 OBJ_DIR := $(OUT_DIR)/obj
@@ -21,10 +24,13 @@ TEST_SRC_HEADER := $(wildcard $(TEST_SRC_DIR)/*.h)
 TEST_OBJ_DIR := $(OBJ_DIR)/$(TEST_SRC_DIR)
 TEST_OBJS := $(addprefix $(OBJ_DIR)/, $(TEST_SRCS:%.cc=%.o))
 TEST_DEPS := $(TEST_OBJS:%.o=%.d)
+TEST_LIB_DIR :=
+TEST_LIB_DIR += /usr/local/lib
 TEST_LIBS :=
 TEST_LIBS += gtest
 TEST_LIBS += gtest_main
 TEST_LDFLAGS :=
+TEST_LDFLAGS += $(addprefix -L, $(TEST_LIB_DIR))
 TEST_LDFLAGS += $(addprefix -l, $(TEST_LIBS))
 TEST_LDFLAGS += -pthread
 
@@ -105,6 +111,7 @@ WARNING_CXXFLAGS += -Wno-error=inline
 MY_CXXFLAGS := $(CXXFLAGS)
 MY_CXXFLAGS += --std=c++11
 MY_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
+MY_CXXFLAGS += $(addprefix -I, $(SYSTEM_INCLUDE_DIRS))
 MY_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
 MY_CXXFLAGS += $(WARNING_CXXFLAGS)
 
