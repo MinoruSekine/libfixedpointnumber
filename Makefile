@@ -219,8 +219,6 @@ cppcheck: $(CPPCHECK_TARGETS)
 
 doc: $(DOXYGEN_INDEX_HTML)
 
-doxygen: doc
-
 site: $(SITE_OUT_INDEX_HTML) doxygen coverage
 
 $(TEST_EXEC): $(TEST_OBJS)
