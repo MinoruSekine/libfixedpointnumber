@@ -10,6 +10,16 @@ INCLUDE_DIR += include
 INCLUDE_DIR_HEADER :=
 INCLUDE_DIR_HEADER += $(wildcard $(INCLUDE_DIR)/*.h)
 
+# Set C++ compiler for variable CXX
+dummy := $(shell type $(CXX))  # In GNU Make, default CXX should be g++
+ifeq ($(.SHELLSTATUS),0)
+  CXX := clang++
+  dummy := $(shell type $(CXX))
+  ifeq ($(.SHELLSTATUS),0)
+    CXX := c++
+  endif
+endif
+
 SYSTEM_INCLUDE_DIRS :=
 SYSTEM_INCLUDE_DIRS += /usr/local/include
 
