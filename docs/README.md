@@ -173,3 +173,16 @@ or
   is available as build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
 - Google Test Framework will be recovered automatically
   at opening solution file
+
+## Environments
+
+As of 2021/02/12,
+all tests succeed and all samples are working well on following environments
+
+| OS | Compiler |
+----|----
+| FreeBSD 12.2-STABLE | clang++ |
+| macOS Catalina 10.15.7 | g++ (symlink to clang) |
+| Ubuntu 16.04 | g++ |
+| Ubuntu 18.04 | g++ |
+| Windows Server 2016 Datacenter | Visual C++ |
