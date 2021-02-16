@@ -101,7 +101,8 @@ Makefile of libfixedpointnumber will provide followings on your environments
 
 | `make` target | How it works |
 ----|----
-| `build-interactive-sample` | Build interactive sample programs |
+| `all` | Same as `build-all` |
+| `build-all` | `build-all` and `build-sample` |
 | `build-sample` | Build sample programs |
 | `build-test` | Build unit tests |
 | `check` | Process `cppcheck` and `cpplint` |
@@ -110,9 +111,10 @@ Makefile of libfixedpointnumber will provide followings on your environments
 | `cppcheck` | Static analytics by `cppcheck` |
 | `cpplint` | Lint by `cpplint` |
 | `doc` | Generate doxygen documents into out/doc |
-| `run-all` | `run-sample` and `run-test` (except interactive-sample)|
+| `run-all` | `run-sample` and `run-test` |
 | `run-sample` | Build (if necessary) and run sample programs |
 | `run-test` | Build (if necessary) and run unit tests |
+| `site` | Build tree for [project site](https://minorusekine.github.io/libfixedpointnumber/) |
 
 ### Build options
 
