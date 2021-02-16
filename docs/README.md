@@ -102,7 +102,7 @@ Makefile of libfixedpointnumber will provide followings on your environments
 | `make` target | How it works |
 ----|----
 | `all` | Same as `build-all` |
-| `build-all` | `build-all` and `build-sample` |
+| `build-all` | `build-sample` and `build-test` |
 | `build-sample` | Build sample programs |
 | `build-test` | Build unit tests |
 | `check` | Process `cppcheck` and `cpplint` |
