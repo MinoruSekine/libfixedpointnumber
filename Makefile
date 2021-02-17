@@ -217,7 +217,9 @@ cpplint: $(CPPLINT_TARGETS)
 
 cppcheck: $(CPPCHECK_TARGETS)
 
-doc: $(DOXYGEN_INDEX_HTML)
+doxygen: $(DOXYGEN_INDEX_HTML)
+
+doc: doxygen coverage
 
 site: $(SITE_OUT_INDEX_HTML) doxygen coverage
 
