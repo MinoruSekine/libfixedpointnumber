@@ -24,7 +24,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - if: contains(matrix.os, 'windows')
       uses: microsoft/setup-msbuild@v1.0.2
 
@@ -162,7 +162,7 @@ jobs:
       run: |
         make -k -j cppcheck
 
-  doc:
+  Doxygen:
     runs-on: ubuntu-latest
 
     steps:
@@ -173,11 +173,11 @@ jobs:
         sudo apt update
         sudo apt install -y --no-install-recommends graphviz doxygen
 
-    - name: Make doc
+    - name: Make Doxygen documents
       run: |
-        make -k -j doc
+        make -k -j doxygen
 
-    - name: Upload doc
+    - name: Upload Doxygen documents
       uses: actions/upload-artifact@v1
       with:
         name: doc
