@@ -107,10 +107,11 @@ Makefile of libfixedpointnumber will provide followings on your environments
 | `build-test` | Build unit tests |
 | `check` | Process `cppcheck` and `cpplint` |
 | `clean` | Remove generated files |
-| `coverage` | Create coverage report (Must use with `BUILD_TYPE=coverage`) |
+| `coverage` | Create coverage report into out/site/coverage (Must use with `BUILD_TYPE=coverage`) |
 | `cppcheck` | Static analytics by `cppcheck` |
 | `cpplint` | Lint by `cpplint` |
-| `doc` | Generate doxygen documents into out/doc |
+| `doc` | `coverage` and `doxygen` |
+| `doxygen` | Generate doxygen HTML documents into out/site/Doxygen |
 | `run-all` | `run-sample` and `run-test` |
 | `run-sample` | Build (if necessary) and run sample programs |
 | `run-test` | Build (if necessary) and run unit tests |
