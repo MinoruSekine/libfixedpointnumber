@@ -186,6 +186,7 @@ DOXYGEN_INDEX_HTML := $(DOXYGEN_OUT_DIR)/html/index.html
 DOXYFILE := $(BUILD_FILES_DIR)/Doxyfile
 DOXYFILE_FOR_LATEX := $(OUT_ROOT_DIR)/Doxyfile_LaTeX
 DOXYGEN_LATEX := $(DOXYGEN_OUT_DIR)/latex/refman.tex
+DOXYGEN_PDF := $(addsuffix .pdf, $(basename $(DOXYGEN_LATEX)))
 DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
 
 # Targets.
@@ -277,6 +278,11 @@ $(DOXYGEN_LATEX): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE_FOR_LATEX) $(DOXYGEN_OUT_DIR
 $(DOXYFILE_FOR_LATEX): $(DOXYFILE)
 	@mkdir -p $(dir $(DOXYFILE_FOR_LATEX))
 	sed -e "s/^\([^#]*GENERATE_LATEX *= *\)NO/\1YES/g" $(DOXYFILE) > $@
+
+pdf: $(DOXYGEN_PDF)
+
+$(DOXYGEN_PDF): $(DOXYGEN_LATEX)
+	$(MAKE) -C $(dir $^) pdf
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(TEST_DEPS)
