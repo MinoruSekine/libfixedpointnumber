@@ -19,7 +19,7 @@ jobs:
     - name: Clone cppcheck to install (Ubuntu)
       if: contains(matrix.os, 'ubuntu')
       run: |
-        git clone https://github.com/danmar/cppcheck.git
+        git clone --depth=1 https://github.com/danmar/cppcheck.git
 
     - name: Install cppcheck (Ubuntu)
       if: contains(matrix.os, 'ubuntu')
