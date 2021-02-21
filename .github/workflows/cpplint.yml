@@ -1,0 +1,21 @@
+name: cpplint
+
+on:
+  pull_request:
+  schedule:
+    - cron:  0 20 * * 5
+
+jobs:
+  cpplint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install cpplint.py
+      run: |
+        git clone https://github.com/google/styleguide.git
+
+    - name: cpplint
+      run: |
+        make CPPLINT=styleguide/cpplint/cpplint.py -k -j cpplint
