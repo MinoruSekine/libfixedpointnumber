@@ -78,6 +78,11 @@ jobs:
         name: coverage_html
         path: out/site/coverage_report
 
+    - name: Test `make clean` works fine (Ubuntu, macOS)
+      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
+      run: |
+        make BUILD_TYPE=${{ matrix.build_type }} -k -j clean
+
   sample:
     strategy:
       matrix:
@@ -168,20 +173,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install graphviz and doxygen
+    - name: Install graphviz, doxygen, and TeX
       run: |
         sudo apt update
-        sudo apt install -y --no-install-recommends graphviz doxygen
+        sudo apt install -y --no-install-recommends graphviz doxygen texlive texlive-latex-extra
 
     - name: Make Doxygen documents
       run: |
-        make -k -j doxygen
+        make -k -j doxygen latex pdf
 
     - name: Upload Doxygen documents
       uses: actions/upload-artifact@v1
       with:
         name: doc
-        path: out/site/Doxygen/html
+        path: out/site/Doxygen
 
   markdown-lint:
     name: Lint markdown files.

@@ -112,6 +112,8 @@ Makefile of libfixedpointnumber will provide followings on your environments
 | `cpplint` | Lint by `cpplint` |
 | `doc` | `coverage` and `doxygen` |
 | `doxygen` | Generate doxygen HTML documents into out/site/Doxygen |
+| `latex` | Generate doxygen LaTeX documents into out/site/Doxygen |
+| `pdf` | Generate doxygen PDF documents into out/site/Doxygen |
 | `run-all` | `run-sample` and `run-test` |
 | `run-sample` | Build (if necessary) and run sample programs |
 | `run-test` | Build (if necessary) and run unit tests |
