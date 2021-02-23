@@ -37,6 +37,7 @@ constexpr FloatAndStr kTestValues[] = {
   {-1.25f, "-1.25"},
   {0.0f, "0"},
   {0.0f, "0.00"},
+  {3.1415926535f, "3.1415926535"},
 };
 
 }  // namespace
