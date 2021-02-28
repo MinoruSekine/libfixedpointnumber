@@ -22,7 +22,7 @@
 #include "fixedpointnumber.h"
 
 #ifndef FIXEDPOINTNUMBER_MATH_INTERNAL
-#error Do not include this file directly, ixedpointnumber_math.h instead.
+#error Do not include this file directly, fixedpointnumber_math.h instead.
 #endif
 
 namespace fixedpointnumber {
