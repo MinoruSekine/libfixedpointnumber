@@ -66,7 +66,7 @@ TEST_P(StringConversionStreamOperatorTest, StreamOutputOperator) {
 
 TEST_P(StringConversionStreamOperatorTest, StreamInputOperator) {
   const auto param = GetParam();
-  fixed_t fixed_num;
+  fixed_t fixed_num(0);
   std::stringstream ss;
 
   ss << param.str;
