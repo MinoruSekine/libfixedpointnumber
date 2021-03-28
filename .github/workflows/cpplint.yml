@@ -14,8 +14,8 @@ jobs:
 
     - name: Install cpplint.py
       run: |
-        git clone --depth=1 https://github.com/google/styleguide.git
+        git clone --depth=1 https://github.com/cpplint/cpplint.git
 
     - name: cpplint
       run: |
-        make CPPLINT=styleguide/cpplint/cpplint.py -k -j cpplint
+        make CPPLINT=cpplint/cpplint.py -k -j cpplint
