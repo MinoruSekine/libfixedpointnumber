@@ -321,7 +321,10 @@ class fixed_t {
   /// This coefficient will be used
   /// both conversion from floating point type to internal type,
   /// and conversion from internal type to floating point type.
-  constexpr static internal_int_t kCoef = static_cast<internal_int_t>(1) << Q;
+  ///
+  /// @note This must be wider_int_t, not internal_int_t,
+  ///       because of prevention of overflow by left shift
+  constexpr static wider_int_t kCoef = static_cast<internal_int_t>(1) << Q;
 
   /// Convert from some integral type value
   /// to internal integral fixed point type value.
