@@ -277,7 +277,7 @@ $(DOXYGEN_LATEX): $(DOXYGEN_TARGET_SRCS) $(DOXYFILE_FOR_LATEX) $(DOXYGEN_OUT_DIR
 
 $(DOXYFILE_FOR_LATEX): $(DOXYFILE)
 	@mkdir -p $(dir $(DOXYFILE_FOR_LATEX))
-	sed -e "s/^\([^#]*GENERATE_LATEX *= *\)NO/\1YES/g" $(DOXYFILE) > $@
+	sed -e "s/^\([^#]*GENERATE_LATEX *= *\)NO/\1YES/g" -e "s/^\([^#]*GENERATE_HTML *= *\)YES/\1NO/g" $(DOXYFILE) > $@
 
 pdf: $(DOXYGEN_PDF)
 

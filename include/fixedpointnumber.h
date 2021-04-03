@@ -37,6 +37,9 @@ namespace fixedpointnumber {
 /// @tparam Q              Bits width for decimal part
 template <typename internal_int_t, std::size_t Q>
 class fixed_t {
+  /// Alias of wider int type than internal_int_t.
+  using wider_int_t = impl::wider_int_t<internal_int_t>;
+
  public:
   /// Alias of internal integer type which holding fixed point number.
   using type = internal_int_t;
@@ -45,8 +48,7 @@ class fixed_t {
   constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
   /// Bits mask of decimal part of this type.
   constexpr static internal_int_t kDecimalPartMask =
-      static_cast<internal_int_t>((impl::wider_int_t<internal_int_t>(1)
-                                   << kBitsWidthOfDecimalPart)
+      static_cast<internal_int_t>((wider_int_t(1) << kBitsWidthOfDecimalPart)
                                   - 1);
   static_assert(kDecimalPartMask > 0,
                 "Can't calculate mask for decimal part.");
@@ -314,8 +316,15 @@ class fixed_t {
   internal_int_t fixed_point_;
 
  private:
-  /// Coefficient to convert to internal fixed point value.
-  constexpr static internal_int_t kCoef = static_cast<internal_int_t>(1) << Q;
+  /// Coefficient to convert from/to floating point type.
+  ///
+  /// This coefficient will be used
+  /// both conversion from floating point type to internal type,
+  /// and conversion from internal type to floating point type.
+  ///
+  /// @note This must be wider_int_t, not internal_int_t,
+  ///       because of prevention of overflow by left shift
+  constexpr static wider_int_t kCoef = static_cast<internal_int_t>(1) << Q;
 
   /// Convert from some integral type value
   /// to internal integral fixed point type value.

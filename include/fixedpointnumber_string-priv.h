@@ -52,7 +52,6 @@ std::string fixed_t<IntType, Q>::ToString() const {
     ss << integral_part
        << '.';
 
-    using wider_int_t = impl::wider_int_t<IntType>;
     wider_int_t decimal_part = wider_int_t(abs_fixed_point) & kDecimalPartMask;
     if (decimal_part != 0) {
       while (decimal_part > 0) {
