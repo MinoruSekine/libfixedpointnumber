@@ -115,7 +115,6 @@ template <typename SrcType>
 constexpr IntType fixed_t<IntType, Q>::ToInternalType(
     typename std::enable_if<std::is_same<SrcType, const char*>::value,
                             SrcType>::type str) {
-  using wider_int_t = impl::wider_int_t<IntType>;
   return static_cast<IntType>(
       (impl::FromStringToDecimalInt<wider_int_t>(str) << Q)
       / impl::FromStringDecimalCoef<wider_int_t>(str));

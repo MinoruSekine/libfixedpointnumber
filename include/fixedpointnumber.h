@@ -37,6 +37,9 @@ namespace fixedpointnumber {
 /// @tparam Q              Bits width for decimal part
 template <typename internal_int_t, std::size_t Q>
 class fixed_t {
+  /// Alias of wider int type than internal_int_t.
+  using wider_int_t = impl::wider_int_t<internal_int_t>;
+
  public:
   /// Alias of internal integer type which holding fixed point number.
   using type = internal_int_t;
@@ -45,8 +48,7 @@ class fixed_t {
   constexpr static std::size_t kBitsWidthOfDecimalPart = Q;
   /// Bits mask of decimal part of this type.
   constexpr static internal_int_t kDecimalPartMask =
-      static_cast<internal_int_t>((impl::wider_int_t<internal_int_t>(1)
-                                   << kBitsWidthOfDecimalPart)
+      static_cast<internal_int_t>((wider_int_t(1) << kBitsWidthOfDecimalPart)
                                   - 1);
   static_assert(kDecimalPartMask > 0,
                 "Can't calculate mask for decimal part.");
