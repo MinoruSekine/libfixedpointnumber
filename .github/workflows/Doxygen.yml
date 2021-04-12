@@ -15,7 +15,8 @@ jobs:
     - name: Install graphviz, doxygen, and TeX
       run: |
         sudo apt update
-        sudo apt install -y --no-install-recommends graphviz doxygen texlive-full texlive-latex-extra
+        sudo apt install -y --no-install-recommends graphviz doxygen
+        sudo apt install -y texlive-latex-extra
 
     - name: Make Doxygen documents
       run: |
