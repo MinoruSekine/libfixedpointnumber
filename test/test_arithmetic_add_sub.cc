@@ -99,3 +99,13 @@ TEST_P(ArithmeticAddSubTest, CompoundSub) {
 INSTANTIATE_TEST_SUITE_P(Instance0,
                          ArithmeticAddSubTest,
                          ::testing::ValuesIn(kAddSubResults));
+
+TEST(ArithmeticAddTest, Overflow) {
+  using fixed_t_u_4_4 = fixedpointnumber::fixed_t<uint8_t, 4>;
+  const fixed_t_u_4_4 x(15.9375);
+  const fixed_t_u_4_4 y(0.0625);
+
+  EXPECT_LT(x + y, x);
+
+  std::cout << "x:" << x << " y:" << y << " x+y:" << x + y << std::endl;
+}
