@@ -125,7 +125,7 @@ class numeric_limits {
 
   /// Get minimum normalized positive value.
   ///
-  /// This is compatible to std::numeric_limits<T>::min()..
+  /// This is compatible to std::numeric_limits<T>::min().
   static constexpr T min() noexcept {
     return T(typename T::type(1), true);
   }
