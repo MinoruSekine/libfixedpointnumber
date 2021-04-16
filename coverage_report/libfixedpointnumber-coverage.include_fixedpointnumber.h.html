@@ -275,7 +275,7 @@
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2021-04-12 11:04:12</td>
+            <td class="headerValue">2021-04-16 12:00:10</td>
             <td></td>
             <td class="headerName">Branches:</td>
             <td class="headerTableEntry">2</td>
@@ -1212,7 +1212,7 @@
     <tr>
     <td align="right" class="lineno"><pre>131</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3055</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3061</pre></td>
     <td align="left" class="src coveredLine"><pre>  fixed_t&amp; operator+=(const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
@@ -1261,14 +1261,14 @@
     <tr>
     <td align="right" class="lineno"><pre>138</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3055</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3061</pre></td>
     <td align="left" class="src coveredLine"><pre>    fixed_point_ = static_cast&lt;internal_int_t>(fixed_point_ + rhs.fixed_point_);</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>139</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3055</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3061</pre></td>
     <td align="left" class="src coveredLine"><pre>    return *this;</pre></td>
     </tr>
 
@@ -1331,21 +1331,21 @@
     <tr>
     <td align="right" class="lineno"><pre>148</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3026</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3032</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend fixed_t operator+(fixed_t lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>149</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3026</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3032</pre></td>
     <td align="left" class="src coveredLine"><pre>    lhs += rhs;</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>150</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>3026</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3032</pre></td>
     <td align="left" class="src coveredLine"><pre>    return lhs;</pre></td>
     </tr>
 
@@ -2136,14 +2136,14 @@
     <tr>
     <td align="right" class="lineno"><pre>263</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2876</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>2882</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend bool operator>(const fixed_t&amp; lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>264</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2876</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>2882</pre></td>
     <td align="left" class="src coveredLine"><pre>    return lhs.fixed_point_ > rhs.fixed_point_;</pre></td>
     </tr>
 
@@ -2290,14 +2290,14 @@
     <tr>
     <td align="right" class="lineno"><pre>285</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1548</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1554</pre></td>
     <td align="left" class="src coveredLine"><pre>  friend bool operator&lt;(const fixed_t&amp; lhs, const fixed_t&amp; rhs) {</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>286</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>1548</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1554</pre></td>
     <td align="left" class="src coveredLine"><pre>    return (rhs > lhs);</pre></td>
     </tr>
 
