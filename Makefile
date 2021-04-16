@@ -170,6 +170,7 @@ CPPCHECK_FLAGS += --language=c++
 CPPCHECK_FLAGS += --std=c++11
 CPPCHECK_FLAGS += --quiet
 CPPCHECK_FLAGS += --enable=all
+CPPCHECK_FLAGS += --inline-suppr
 CPPCHECK_FLAGS += --suppressions-list=$(CPPCHECK_SUPPRESION_LIST_TXT)
 CPPCHECK_FLAGS += --error-exitcode=2
 
