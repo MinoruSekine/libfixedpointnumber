@@ -63,6 +63,27 @@ jobs:
       run: |
         make BUILD_TYPE=${{ matrix.build_type }} -k -j clean
 
+  test_on_FreeBSD:
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        build_type: [release, debug]
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build and run tests (FreeBSD)
+      uses: vmactions/freebsd-vm@v0.1.4
+      with:
+        usesh: true
+        prepare: pkg install -y googletest gmake
+        mem: 2048
+        run: |
+          gmake BUILD_TYPE=${{ matrix.build_type }} build-test
+          gmake BUILD_TYPE=${{ matrix.build_type }} run-test
+
   sample:
     strategy:
       matrix:
