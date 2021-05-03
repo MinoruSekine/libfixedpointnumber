@@ -11,11 +11,9 @@ INCLUDE_DIR_HEADER :=
 INCLUDE_DIR_HEADER += $(wildcard $(INCLUDE_DIR)/*.h)
 
 # Set C++ compiler for variable CXX
-dummy := $(shell type $(CXX))  # In GNU Make, default CXX should be g++
-ifeq ($(.SHELLSTATUS),0)
+ifeq (, $(shell which $(CXX)))  # In GNU Make, default CXX should be g++
   CXX := clang++
-  dummy := $(shell type $(CXX))
-  ifeq ($(.SHELLSTATUS),0)
+  ifeq (, $(shell which $(CXX)))
     CXX := c++
   endif
 endif
