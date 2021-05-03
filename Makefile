@@ -18,6 +18,16 @@ ifeq (, $(shell which $(CXX)))  # In GNU Make, default CXX should be g++
   endif
 endif
 
+# Check C++ compiler instance.
+CXX_VERSION := $(shell $(CXX) --version)
+ifneq (, $(shell echo "$(CXX_VERSION)" | grep clang))
+  CXX_INSTANCE := clang++
+else ifneq (, $(shell echo "$(CXX_VERSION)" | grep "Free Software Foundation"))
+  CXX_INSTANCE := g++
+else
+  CXX_INSTANCE := uknown
+endif
+
 SYSTEM_INCLUDE_DIRS :=
 SYSTEM_INCLUDE_DIRS += /usr/local/include
 
@@ -130,6 +140,23 @@ SAMPLE_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
 SAMPLE_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
 SAMPLE_CXXFLAGS += $(WARNING_CXXFLAGS)
 
+# Precompiled header.
+ifeq ($(CXX_INSTANCE), clang++)
+TEST_PRECOMPILED_HEADER := $(TEST_OBJ_DIR)/gtest_compat.h.pch
+TEST_PCHXXFLAGS := $(MY_CXXFLAGS) -x c++-header
+MY_CXXFLAGS += -include-pch $(TEST_PRECOMPILED_HEADER)
+else ifeq ($(CXX_INSTANCE), g++)
+TEST_PRECOMPILED_HEADER := $(TEST_OBJ_DIR)/gtest_compat.h.gch
+TEST_PCHXXFLAGS := $(MY_CXXFLAGS)
+MY_CXXFLAGS += -I $(OBJ_DIR)
+endif
+
+ifneq ($(TEST_PRECOMPILED_HEADER), )
+$(TEST_PRECOMPILED_HEADER): $(TEST_SRC_DIR)/gtest_compat.h
+	@mkdir -p $(dir $@)
+	$(CXX) $(TEST_PCHXXFLAGS) -o $@ $<
+endif
+
 # Site config.
 SITE_SRC_DIR := site_src
 SITE_OUT_DIR := $(OUT_ROOT_DIR)/site
@@ -229,7 +256,7 @@ $(TEST_EXEC): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
 	$(CXX) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(MY_CXXFLAGS)
 
-$(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
+$(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc $(TEST_PRECOMPILED_HEADER)
 	@mkdir -p $(dir $@)
 	$(CXX) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
 
