@@ -119,7 +119,7 @@ WARNING_CXXFLAGS += -Wno-error=inline
 
 # Build C++ compiler flags for test.
 TEST_CXXFLAGS := $(CXXFLAGS)
-TEST_CXXFLAGS += --std=c++11
+TEST_CXXFLAGS += --std=c++17
 TEST_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
 TEST_CXXFLAGS += $(addprefix -I, $(SYSTEM_INCLUDE_DIRS))
 TEST_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
