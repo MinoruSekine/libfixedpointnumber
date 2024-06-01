@@ -35,7 +35,7 @@ void usage() {
 
 }  // namespace
 
-int main(int argc, char* argv[]) {
+int main(int argc, char const* argv[]) {
   if (argc >= 2) {
     fixed_Q7_t num(0);
     std::stringstream ss;
