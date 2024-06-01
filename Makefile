@@ -153,7 +153,7 @@ CPPLINT := cpplint.py
 
 CPPLINT_FLAGS :=
 CPPLINT_FLAGS += --quiet
-CPPLINT_FLAGS += --filter=-build/include
+CPPLINT_FLAGS += --filter=-build/include,-whitespace/indent_namespace
 
 CPPLINT_TARGET_FILES :=
 CPPLINT_TARGET_FILES += $(ALL_SRC_CPP)
