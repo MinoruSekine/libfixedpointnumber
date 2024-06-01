@@ -118,12 +118,12 @@ WARNING_CXXFLAGS += -Wno-error=inline
 # WARNING_CXXFLAGS += -Wstrict-prototypes
 
 # Build C++ compiler flags for test.
-MY_CXXFLAGS := $(CXXFLAGS)
-MY_CXXFLAGS += --std=c++11
-MY_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
-MY_CXXFLAGS += $(addprefix -I, $(SYSTEM_INCLUDE_DIRS))
-MY_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
-MY_CXXFLAGS += $(WARNING_CXXFLAGS)
+TEST_CXXFLAGS := $(CXXFLAGS)
+TEST_CXXFLAGS += --std=c++11
+TEST_CXXFLAGS += $(addprefix -I, $(INCLUDE_DIR))
+TEST_CXXFLAGS += $(addprefix -I, $(SYSTEM_INCLUDE_DIRS))
+TEST_CXXFLAGS += $(BUILD_TYPE_CXXFLAGS)
+TEST_CXXFLAGS += $(WARNING_CXXFLAGS)
 
 # Build C++ compiler flags for sample.
 SAMPLE_CXXFLAGS := $(CXXFLAGS)
@@ -229,11 +229,11 @@ site: $(SITE_OUT_INDEX_HTML) doxygen coverage
 
 $(TEST_EXEC): $(TEST_OBJS)
 	@mkdir -p $(dir $@)
-	$(CXX) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(MY_CXXFLAGS)
+	$(CXX) -o $(TEST_EXEC) $^ $(LDFLAGS) $(TEST_LDFLAGS) $(TEST_CXXFLAGS)
 
 $(TEST_OBJ_DIR)%.o: $(TEST_SRC_DIR)/%.cc
 	@mkdir -p $(dir $@)
-	$(CXX) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
+	$(CXX) $(TEST_CXXFLAGS) -o $@ -c $< -MMD -MP
 
 build-sample: $(SAMPLE_EXECS)
 

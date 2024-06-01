@@ -17,7 +17,7 @@ $(EXEC): $(OBJS)
 
 $(OUT_DIR)%.o: $(SRC_DIR)/%.cc
 	@mkdir -p $(dir $@)
-	$(CXX) $(MY_CXXFLAGS) -o $@ -c $< -MMD -MP
+	$(CXX) $(SAMPLE_CXXFLAGS) -o $@ -c $< -MMD -MP
 
 ifeq ($(findstring clean,$(MAKECMDGOALS)),)
 -include $(DEPS)
