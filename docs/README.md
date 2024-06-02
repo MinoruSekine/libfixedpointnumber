@@ -93,14 +93,14 @@ Makefile of libfixedpointnumber will provide followings on your environments
 - Build and run unit tests
 - Build and run sample programs
 - Some checks
-  - Coding rule check by cpplint
-  - Static analysis by cppcheck
+   - Coding rule check by cpplint
+   - Static analysis by cppcheck
 - Build documents with Doxygen
 
 ### List of build targets
 
 | `make` target | How it works |
-----|----
+| ---- | ---- |
 | `all` | Same as `build-all` |
 | `build-all` | `build-sample` and `build-test` |
 | `build-sample` | Build sample programs |
@@ -124,7 +124,7 @@ Makefile of libfixedpointnumber will provide followings on your environments
 #### `BUILD_TYPE`
 
 | `BUILD_TYPE` | How it works |
-----|----
+| ---- | ---- |
 | `debug` | All optimizations are disabled in build |
 | `release` | Optimizations are enabled in build |
 | `coverage` | Options for build `coverage` as `make` target |
@@ -185,7 +185,7 @@ As of 2021/02/12,
 all tests succeed and all samples are working well on following environments
 
 | OS | Compiler |
-----|----
+| ---- | ---- |
 | FreeBSD 12.2-STABLE | clang++ |
 | macOS Catalina 10.15.7 | g++ (symlink to clang) |
 | Ubuntu 16.04 | g++ |
