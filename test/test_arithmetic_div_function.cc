@@ -28,8 +28,11 @@
 namespace {
 
 struct DivResult {
+  // cppcheck-suppress unusedStructMember
   float lhs;
+  // cppcheck-suppress unusedStructMember
   float rhs;
+  // cppcheck-suppress unusedStructMember
   float div_result;
 };
 

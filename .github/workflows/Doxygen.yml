@@ -3,27 +3,28 @@ name: Doxygen
 on:
   pull_request:
   schedule:
-    - cron:  0 20 * * 5
+    - cron: 0 20 * * 5
+  workflow_dispatch:
 
 jobs:
   Doxygen:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-    - name: Install graphviz, doxygen, and TeX
-      run: |
-        sudo apt update
-        sudo apt install -y --no-install-recommends graphviz doxygen
-        sudo apt install -y texlive-latex-extra
+      - name: Install graphviz, doxygen, and TeX
+        run: |
+          sudo apt update
+          sudo apt install -y --no-install-recommends graphviz doxygen
+          sudo apt install -y texlive-latex-extra
 
-    - name: Make Doxygen documents
-      run: |
-        make -k -j doxygen latex pdf
+      - name: Make Doxygen documents
+        run: |
+          make -k -j doxygen latex pdf
 
-    - name: Upload Doxygen documents
-      uses: actions/upload-artifact@v1
-      with:
-        name: doc
-        path: out/site/Doxygen
+      - name: Upload Doxygen documents
+        uses: actions/upload-artifact@v1
+        with:
+          name: doc
+          path: out/site/Doxygen

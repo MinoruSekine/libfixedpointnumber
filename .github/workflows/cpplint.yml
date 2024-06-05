@@ -3,19 +3,20 @@ name: cpplint
 on:
   pull_request:
   schedule:
-    - cron:  0 20 * * 5
+    - cron: 0 20 * * 5
+  workflow_dispatch:
 
 jobs:
   cpplint:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-    - name: Install cpplint.py
-      run: |
-        git clone --depth=1 https://github.com/cpplint/cpplint.git
+      - name: Install cpplint.py
+        run: |
+          git clone --depth=1 https://github.com/cpplint/cpplint.git
 
-    - name: cpplint
-      run: |
-        make CPPLINT=cpplint/cpplint.py -k -j cpplint
+      - name: cpplint
+        run: |
+          make CPPLINT=cpplint/cpplint.py -k -j cpplint

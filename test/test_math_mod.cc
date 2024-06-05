@@ -29,7 +29,9 @@ namespace {
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 7>;
 
 struct ModTestParam {
+  // cppcheck-suppress unusedStructMember
   float dividend;
+  // cppcheck-suppress unusedStructMember
   float divisor;
 };
 

@@ -7,36 +7,51 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  upload_artifact:
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
-    - name: Install gcovr
-      run: |
-        sudo pip3 install gcovr
+      - name: Install gcovr
+        run: |
+          sudo pip3 install gcovr
 
-    - name: Install graphviz and doxygen
-      run: |
-        sudo apt update
-        sudo apt install -y --no-install-recommends graphviz doxygen
+      - name: Install graphviz and doxygen
+        run: |
+          sudo apt update
+          sudo apt install -y --no-install-recommends graphviz doxygen
 
-    - name: Install googletest
-      run: |
-        git clone https://github.com/google/googletest.git
-        cd googletest
-        cmake -DBUILD_GMOCK=OFF -DCMAKE_CXX_STANDARD=11 .
-        sudo make -k -j all install
-        cd ..
-        rm -rf googletest
+      - name: Install googletest
+        run: |
+          git clone https://github.com/google/googletest.git
+          cd googletest
+          cmake -DBUILD_GMOCK=OFF -DCMAKE_CXX_STANDARD=11 .
+          sudo make -k -j all install
+          cd ..
+          rm -rf googletest
 
-    - name: Build site
-      run: |
-        make BUILD_TYPE=coverage -k -j site
+      - name: Build site
+        run: |
+          make BUILD_TYPE=coverage -k -j site
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out/site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: ./out/site
+
+  deploy:
+    needs: upload_artifact
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5
