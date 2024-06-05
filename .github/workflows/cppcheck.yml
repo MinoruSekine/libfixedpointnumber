@@ -8,11 +8,7 @@ on:
 
 jobs:
   cppcheck:
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     env:
       CPPCHECK_MAKE_OPTIONS: -k -j MATCHCOMPILER=yes FILESDIR=/usr/share/cppcheck HAVE_RULES=yes CXXFLAGS='-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function'
@@ -20,27 +16,25 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache cppcheck (Ubuntu)
-      if: contains(matrix.os, 'ubuntu')
+    - name: Cache cppcheck
       id: cache_cppcheck
       uses: actions/cache@v2
       with:
         path: cppcheck
         key: cppcheck_cache_${{ runner.os }}_v1
 
-    - name: Clone cppcheck to install (Ubuntu)
-      if: contains(matrix.os, 'ubuntu') && steps.cache_cppcheck.outputs.cache-hit != 'true'
+    - name: Clone cppcheck to install
+      if: steps.cache_cppcheck.outputs.cache-hit != 'true'
       run: |
         git clone --depth=1 https://github.com/danmar/cppcheck.git
 
-    - name: Build cppcheck (Ubuntu)
-      if: contains(matrix.os, 'ubuntu') && steps.cache_cppcheck.outputs.cache-hit != 'true'
+    - name: Build cppcheck
+      if: steps.cache_cppcheck.outputs.cache-hit != 'true'
       run: |
         cd cppcheck
         sudo make ${{ env.CPPCHECK_MAKE_OPTIONS }} all
 
-    - name: Install cppcheck (Ubuntu)
-      if: contains(matrix.os, 'ubuntu')
+    - name: Install cppcheck
       run: |
         cd cppcheck
         sudo make ${{ env.CPPCHECK_MAKE_OPTIONS }} install
