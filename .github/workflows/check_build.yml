@@ -22,7 +22,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - if: contains(matrix.os, 'windows')
       uses: microsoft/setup-msbuild@v1.0.2
 
@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Build and run tests (FreeBSD)
       uses: vmactions/freebsd-vm@v1.0.7
@@ -100,7 +100,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - uses: microsoft/setup-msbuild@v1.0.2
       if: contains(matrix.os, 'windows')
