@@ -3,7 +3,7 @@ name: cppcheck
 on:
   pull_request:
   schedule:
-    - cron:  0 20 * * 5
+    - cron: 0 20 * * 5
   workflow_dispatch:
 
 jobs:
@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Install cppcheck
-      run: |
-        sudo apt install cppcheck
+      - name: Install cppcheck
+        run: |
+          sudo apt install cppcheck
 
-    - name: Run cppcheck
-      run: |
-        make -k -j cppcheck
+      - name: Run cppcheck
+        run: |
+          make -k -j cppcheck

@@ -3,7 +3,7 @@ name: Check build
 on:
   pull_request:
   schedule:
-    - cron:  0 20 * * 5
+    - cron: 0 20 * * 5
   workflow_dispatch:
 
 jobs:
@@ -22,47 +22,47 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v4
-    - if: contains(matrix.os, 'windows')
-      uses: microsoft/setup-msbuild@v1.0.2
+      - uses: actions/checkout@v4
+      - if: contains(matrix.os, 'windows')
+        uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Install googletest
-      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
-      run: |
-        git clone https://github.com/google/googletest.git
-        cd googletest
-        cmake -DBUILD_GMOCK=OFF -DCMAKE_CXX_STANDARD=11 .
-        sudo make -k -j all install
+      - name: Install googletest
+        if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
+        run: |
+          git clone https://github.com/google/googletest.git
+          cd googletest
+          cmake -DBUILD_GMOCK=OFF -DCMAKE_CXX_STANDARD=11 .
+          sudo make -k -j all install
 
-    - name: Restore nuget packages (Windows)
-      if: contains(matrix.os, 'windows')
-      run: |
-        nuget restore build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
+      - name: Restore nuget packages (Windows)
+        if: contains(matrix.os, 'windows')
+        run: |
+          nuget restore build/win_vs/libfixedpointnumber/libfixedpointnumber.sln
 
-    - name: Build tests (Ubuntu, macOS)
-      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
-      run: |
-        make BUILD_TYPE=${{ matrix.build_type }} -k -j build-test
+      - name: Build tests (Ubuntu, macOS)
+        if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
+        run: |
+          make BUILD_TYPE=${{ matrix.build_type }} -k -j build-test
 
-    - name: Build tests (Windows)
-      if: contains(matrix.os, 'windows')
-      run: |
-        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_test/libfixedpointnumber_test.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+      - name: Build tests (Windows)
+        if: contains(matrix.os, 'windows')
+        run: |
+          msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_test/libfixedpointnumber_test.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
 
-    - name: Run tests (Ubuntu, macOS)
-      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
-      run: |
-        make BUILD_TYPE=${{ matrix.build_type }} -k -j run-test
+      - name: Run tests (Ubuntu, macOS)
+        if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
+        run: |
+          make BUILD_TYPE=${{ matrix.build_type }} -k -j run-test
 
-    - name: Run tests (Windows)
-      if: contains(matrix.os, 'windows')
-      run: |
-        out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_test\\libfixedpointnumber_test.exe
+      - name: Run tests (Windows)
+        if: contains(matrix.os, 'windows')
+        run: |
+          out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\libfixedpointnumber_test\\libfixedpointnumber_test.exe
 
-    - name: Test `make clean` works fine (Ubuntu, macOS)
-      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
-      run: |
-        make BUILD_TYPE=${{ matrix.build_type }} -k -j clean
+      - name: Test `make clean` works fine (Ubuntu, macOS)
+        if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
+        run: |
+          make BUILD_TYPE=${{ matrix.build_type }} -k -j clean
 
   test_on_FreeBSD:
     timeout-minutes: 10
@@ -73,17 +73,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Build and run tests (FreeBSD)
-      uses: vmactions/freebsd-vm@v1.0.7
-      with:
-        usesh: true
-        prepare: pkg install -y googletest gmake
-        mem: 2048
-        run: |
-          gmake BUILD_TYPE=${{ matrix.build_type }} build-test
-          gmake BUILD_TYPE=${{ matrix.build_type }} run-test
+      - name: Build and run tests (FreeBSD)
+        uses: vmactions/freebsd-vm@v1.0.7
+        with:
+          usesh: true
+          prepare: pkg install -y googletest gmake
+          mem: 2048
+          run: |
+            gmake BUILD_TYPE=${{ matrix.build_type }} build-test
+            gmake BUILD_TYPE=${{ matrix.build_type }} run-test
 
   sample:
     strategy:
@@ -100,31 +100,31 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - uses: microsoft/setup-msbuild@v1.0.2
-      if: contains(matrix.os, 'windows')
+      - uses: microsoft/setup-msbuild@v1.0.2
+        if: contains(matrix.os, 'windows')
 
-    - name: Build sample program (Ubuntu, macOS)
-      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
-      run: |
-        make BUILD_TYPE=${{ matrix.build_type }} -k -j build-sample
+      - name: Build sample program (Ubuntu, macOS)
+        if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
+        run: |
+          make BUILD_TYPE=${{ matrix.build_type }} -k -j build-sample
 
-    - name: Build sample program (Windows)
-      if: contains(matrix.os, 'windows')
-      run: |
-        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample_calc_half/libfixedpointnumber_sample_calc_half.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
-        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample_calc_pi/libfixedpointnumber_sample_calc_pi.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
-        msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample_dump_range/libfixedpointnumber_sample_dump_range.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+      - name: Build sample program (Windows)
+        if: contains(matrix.os, 'windows')
+        run: |
+          msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample_calc_half/libfixedpointnumber_sample_calc_half.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+          msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample_calc_pi/libfixedpointnumber_sample_calc_pi.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
+          msbuild build/win_vs/libfixedpointnumber/libfixedpointnumber_sample_dump_range/libfixedpointnumber_sample_dump_range.vcxproj /t:build /p:Configuration=${{ matrix.build_type }} /p:Platform="${{ matrix.platform }}" /maxCpuCount
 
-    - name: Run sample program (Ubuntu, macOS)
-      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
-      run: |
-        make BUILD_TYPE=${{ matrix.build_type }} -k -j run-sample
+      - name: Run sample program (Ubuntu, macOS)
+        if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
+        run: |
+          make BUILD_TYPE=${{ matrix.build_type }} -k -j run-sample
 
-    - name: Run sample program (Windows)
-      if: contains(matrix.os, 'windows')
-      run: |
-        out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_calc_half\\libfixedpointnumber_sample_calc_half.exe 3.1
-        out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_calc_pi\\libfixedpointnumber_sample_calc_pi.exe
-        out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_dump_range\\libfixedpointnumber_sample_dump_range.exe 3.0 3.5
+      - name: Run sample program (Windows)
+        if: contains(matrix.os, 'windows')
+        run: |
+          out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_calc_half\\libfixedpointnumber_sample_calc_half.exe 3.1
+          out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_calc_pi\\libfixedpointnumber_sample_calc_pi.exe
+          out\\${{ matrix.platform }}\\${{ matrix.build_type }}\\sample\\libfixedpointnumber_sample_dump_range\\libfixedpointnumber_sample_dump_range.exe 3.0 3.5
