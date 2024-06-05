@@ -27,7 +27,9 @@ namespace {
 using fixed_t = fixedpointnumber::fixed_t<int16_t, 10>;
 
 struct FloatAndStr {
+  // cppcheck-suppress unusedStructMember
   float f;
+  // cppcheck-suppress unusedStructMember
   const char* str;
 };
 
