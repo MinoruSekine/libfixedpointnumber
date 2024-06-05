@@ -10,34 +10,12 @@ jobs:
   cppcheck:
     runs-on: ubuntu-latest
 
-    env:
-      CPPCHECK_MAKE_OPTIONS: -k -j MATCHCOMPILER=yes FILESDIR=/usr/share/cppcheck HAVE_RULES=yes CXXFLAGS='-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function'
-
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache cppcheck
-      id: cache_cppcheck
-      uses: actions/cache@v2
-      with:
-        path: cppcheck
-        key: cppcheck_cache_${{ runner.os }}_v1
-
-    - name: Clone cppcheck to install
-      if: steps.cache_cppcheck.outputs.cache-hit != 'true'
-      run: |
-        git clone --depth=1 https://github.com/danmar/cppcheck.git
-
-    - name: Build cppcheck
-      if: steps.cache_cppcheck.outputs.cache-hit != 'true'
-      run: |
-        cd cppcheck
-        sudo make ${{ env.CPPCHECK_MAKE_OPTIONS }} all
-
     - name: Install cppcheck
       run: |
-        cd cppcheck
-        sudo make ${{ env.CPPCHECK_MAKE_OPTIONS }} install
+        sudo apt install cppcheck
 
     - name: Run cppcheck
       run: |
