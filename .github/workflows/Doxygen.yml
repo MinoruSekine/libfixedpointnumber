@@ -24,7 +24,7 @@ jobs:
           make -k -j doxygen latex pdf
 
       - name: Upload Doxygen documents
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: doc
           path: out/site/Doxygen

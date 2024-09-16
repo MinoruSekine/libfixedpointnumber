@@ -193,7 +193,7 @@ DOXYGEN_TARGET_SRCS := $(INCLUDE_DIR_HEADER)
 # Targets.
 all: build-all
 
-build-all: build-test build-sample
+build-all: build-test build-sample site
 
 run-all: run-test run-sample
 
