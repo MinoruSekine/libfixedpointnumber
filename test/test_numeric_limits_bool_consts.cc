@@ -65,7 +65,16 @@ TEST(NumericLimitsTest, StaticMemberFunctions) {
   EXPECT_EQ(fixed_t(255.9921875f), limits::max());
   EXPECT_EQ(fixed_t(0.0078125f), limits::epsilon());
   EXPECT_EQ(fixed_t(0.5f), limits::round_error());
-  EXPECT_EQ(fixed_t(0), limits::infinity());
+
+  // No solid expectation for std::numeric_limits::infinity<fixed_t>(),
+  // because std::numeric_limits::has_infinity<fixed_t>() is false.
+  // And this test causes compile-time error
+  // on clang with -Werror,-Wnan-infinity-disabled options.
+  // So disable a test below.
+  // Note: Can't use Google C++ Test Framework's `DISABLED_` prefix here,
+  //       because this is compile-time issue (not runtime issue).
+  // EXPECT_EQ(fixed_t(0), limits::infinity());
+
   EXPECT_EQ(fixed_t(0), limits::quiet_NaN());
   EXPECT_EQ(fixed_t(0), limits::signaling_NaN());
   EXPECT_EQ(fixed_t(0), limits::denorm_min());
