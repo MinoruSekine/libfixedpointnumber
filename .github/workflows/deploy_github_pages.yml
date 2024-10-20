@@ -14,8 +14,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install gcovr
+        env:
+          PYTHON_GCOVR_VENV_DIR: .venv_gcovr
         run: |
-          sudo pip3 install gcovr
+          python3 -m venv $PYTHON_GCOVR_VENV_DIR
+          source $PYTHON_GCOVR_VENV_DIR/bin/activate
+          type python3
+          python3 -m pip install --upgrade pip
+          python3 -m pip --version
+          python3 -m pip install gcovr
+          deactivate
 
       - name: Install graphviz and doxygen
         run: |
