@@ -10,12 +10,13 @@ jobs:
   upload_artifact:
     runs-on: ubuntu-latest
 
+    env:
+      PYTHON_GCOVR_VENV_DIR: .venv_gcovr
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Install gcovr
-        env:
-          PYTHON_GCOVR_VENV_DIR: .venv_gcovr
         run: |
           python3 -m venv $PYTHON_GCOVR_VENV_DIR
           source $PYTHON_GCOVR_VENV_DIR/bin/activate
@@ -41,7 +42,9 @@ jobs:
 
       - name: Build site
         run: |
+          source $PYTHON_GCOVR_VENV_DIR/bin/activate
           make BUILD_TYPE=coverage -k -j site
+          deactivate
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
