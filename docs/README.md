@@ -2,7 +2,7 @@
 
 libfixedpointnumber is a Library for fixed point number by C++11.
 
-![](https://github.com/MinoruSekine/libfixedpointnumber/actions/workflows/check_build.yml/badge.svg?branch=master)
+![check build](https://github.com/MinoruSekine/libfixedpointnumber/actions/workflows/check_build.yml/badge.svg?branch=master)
 
 ## Summary
 
