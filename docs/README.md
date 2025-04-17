@@ -6,7 +6,7 @@ libfixedpointnumber is a Library for fixed point number by C++11.
 
 ## Summary
 
-Usual progrmas computing fixed point number,
+Usual programs computing fixed point number,
 
 - Bit shift operations are necessary, and they lose readability
 - Types which holding fixed point numbers are just standard integral types,
