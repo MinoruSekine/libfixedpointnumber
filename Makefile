@@ -14,9 +14,11 @@ INCLUDE_DIR_HEADER += $(wildcard $(INCLUDE_DIR)/*.h)
 dummy := $(shell type $(CXX))  # In GNU Make, default CXX should be g++
 ifeq ($(.SHELLSTATUS),0)
   CXX := clang++
+  MY_CXX_MAX_OPTIMIZE_FLAG := -Ofast
   dummy := $(shell type $(CXX))
   ifeq ($(.SHELLSTATUS),0)
     CXX := c++
+    MY_CXX_MAX_OPTIMIZE_FLAG := -O3 -ffast-math
   endif
 endif
 
@@ -65,7 +67,7 @@ ifeq ($(BUILD_TYPE), release)
 ifneq ($(findstring coverage,$(MAKECMDGOALS)),)
 $(error Use BUILD_TYPE=coverage for target "coverage")
 endif
-BUILD_TYPE_CXXFLAGS += -Ofast
+BUILD_TYPE_CXXFLAGS += $(MY_CXX_MAX_OPTIMIZE_FLAG)
 BUILD_TYPE_CXXFLAGS += -DNDEBUG
 else ifeq ($(BUILD_TYPE), debug)
 ifneq ($(findstring coverage,$(MAKECMDGOALS)),)
